@@ -1,0 +1,42 @@
+h1 {
+	font-size:				30px;
+	text-decoration:		underline;
+	text-align:				center;
+}
+form td {
+	text-align:				center;
+}
+form table {
+	margin-left:			auto;
+	margin-right:			auto;
+}
+article p {
+	font-size:				20px;
+
+}
+label {
+	font-size:				20px;
+	
+}
+.petitbouton{
+	width:					25px;
+}
+.boutont10 {
+	width:					100px;
+}
+.boutont4{
+	width:					50px;
+}
+.boutont8{
+	width:					60px;
+}
+#titre{
+	width:					500px;
+}
+#contenu {
+	width:					500px;
+	height:					200px;
+}
+#envoyer{
+	width:					100px;
+}

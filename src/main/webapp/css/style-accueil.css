@@ -1,0 +1,125 @@
+#blocktotal {
+	background-color:			#EFEBFF;
+	position:					relative;
+	top:						10px;
+	left:						10%;
+	width:						80%;
+	padding-top:				10px;
+	padding-bottom:				10px;
+}
+
+header {
+	background-color:			white;
+	height:						200px;
+	margin:						10px;
+	border-radius:				10px;
+}
+header img{
+	height:						200px;
+	display:					block;
+	margin-left:				auto;
+	margin-right:				auto;
+}
+nav {
+	background-color:			#E1D9D1;
+	float:						left;
+	margin:		 				10px;
+	margin-right: 				1px;
+	width:						17%;
+	border-radius:				10px;
+	min-width: 					180px; 
+}
+.pucePrincipales{
+	list-style-image : 			url(../Images/FlecheDroite.png);
+}
+.puceSecondaires{
+	list-style: 				none;
+}
+.puceFlecheBas {
+	list-style-image:			url(../Images/FlecheBas.png);
+}
+.lienMenu :hover{
+	color:						red;
+	cursor:						pointer;
+}
+.blocLienMenu{
+	display: 					none;
+}
+
+#gadgets {
+	background-color:			#E1D9D1;
+	height:						150px;
+	float:						right;
+	width:						80%;
+	margin:						10px;
+	margin-left: 				5px;
+	border-radius:				10px;
+}
+#tablegadget {
+	border-collapse:			collapse;
+	padding-left:				10px;
+}
+#tablegadget td{
+	min-width: 					30%;
+	height:						150px;
+}
+article img {
+	max-height: 				500px;
+	max-width: 					500px;
+	display:					block;
+	margin-left:				auto;
+	margin-right:				auto;
+}
+
+article {
+	background-color:			#E1D9D1;
+	padding:					5px;				
+	border-radius:				10px;
+	margin:						10px;
+	margin-top:					20px;
+}
+
+#articles {
+	background-color:			#E1D9D1;
+	width:						80%;
+	border-radius:				10px;
+	float:						right;
+	clear:						right;
+	margin:						10px;
+	margin-left: 				5px;
+	min-height:					500px;
+}
+#diapo {
+	height:						120px;
+}
+#iconefacebook,#iconetwitter,#iconeyoutube,#logocatho{
+	height:						60px;
+}
+
+footer {
+	background-color:			#E1D9D1;
+	float:						bottom;
+	clear:						right;
+	height:						50px;
+	margin:						10px;
+	border-radius:				10px;
+}
+
+
+.titreActicle{
+	margin-bottom:				10px;
+	display:					block;
+	width: 						100%;
+	text-align:					center;
+	border-top-left-radius:	 	5px;
+	border-top-right-radius:	5px;
+	text-decoration: 			underline;
+	font-size:					30px;
+}
+
+.paragrapheArticle{
+	margin-left: 				10px;
+	margin-top: 				0px;
+	border-radius: 				5px;
+	border-top-left-radius:	 	0px;
+}
