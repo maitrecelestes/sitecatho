@@ -13,7 +13,7 @@
 					<ul id="lienAnnonce" class="blocLienMenu puceSecondaires">
 						<li class="lienMenu"><a href="accueil">En général</a></li>
 						<li class="lienMenu"><a href="accueil">La semaine prochaine</a></li>
-						<li class="lienMenu"><a href="accueil">Dans le mois</a></li>
+						<li class="lienMenu"><a href="accueil">Dans le mois de l'ann�e</a></li>
 						<li class="lienMenu"><a href="accueil">Au delà de l'aumônerie</a></li>
 					</ul>
 					<li class="lienMenu pucePrincipales" id="liActivite"><a onclick="Activites()">Les activites</a></li>
