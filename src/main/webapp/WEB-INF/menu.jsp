@@ -6,7 +6,7 @@
 					<ul id="lienAumonerie" class="blocLienMenu puceSecondaires">
 						<li class="lienMenu"><a href="accueil">Le bureau de Romain</a></li>
 						<li class="lienMenu"><a href="accueil">Qui vient ?</a></li>
-						<li class="lienMenu"><a href="accueil">C'est où ?</a></li>
+						<li class="lienMenu"><a href="accueil">C'est où  ma maison ?</a></li>
 						<li class="lienMenu"><a href="accueil">Lien WEB</a></li>
 					</ul>
 					<li class="lienMenu pucePrincipales" id="liAnnonce" ><a onclick="Annonces()">Annonces</a></li>
