@@ -38,7 +38,7 @@
 				<section id="articles"> 
 					<!-- ARTICLES -->
 					<article>
-						<h1>CONTACT</h1>
+						<h1>CONTACTEZ NOUS</h1>
 						<p>Vous pouvez poster ici un message à l'attention de l'aumônerie. Ce message sera lu par les responsables qui vous recontacterons au besoin.</p>
 						<form>
 							<table>
