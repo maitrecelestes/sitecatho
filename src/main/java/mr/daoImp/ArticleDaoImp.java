@@ -12,7 +12,7 @@ import mr.entities.Article;
 public class ArticleDaoImp implements ArticleDao{
 	
 	public List<Article> listeArticlePage(String nomPage){
-		Connection connection;
+		Connection connection;//
 		List<Article> listeArticle= new ArrayList<Article>();
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
