@@ -20,7 +20,8 @@ public class ArticleDaoImp implements ArticleDao{
 			stmt.setString(1, nomPage); 
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
-				Article article= new Article(results.getString("contenu"),results.getString("mailAuteur"));
+				Article article= new Article(results.getString("contenu"),results.getString("mailAuteur"), results.getDate("dateCreation"),results.getString("page"),
+						results.getBoolean("visiblePage"),results.getBoolean("Description de page"));
 				listeArticle.add(article);
 			}
 			
@@ -32,4 +33,26 @@ public class ArticleDaoImp implements ArticleDao{
 		return listeArticle;
 		
 	}
+
+	@Override
+	public void ajouterArticle(Article newArticle) {
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `article`(`numeroArticle`, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `Description de page`) VALUES (?,?,NOW(),?,?,?,?)");
+			stmt.setInt(1,1);
+			stmt.setString(2, newArticle.getMailAuteur());
+			stmt.setString(3, newArticle.getContenu()); 
+			stmt.setString(4, newArticle.getPage());
+			stmt.setBoolean(5,newArticle.getVisiblePage());
+			stmt.setBoolean(6,newArticle.getArticleDescription());
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 }
