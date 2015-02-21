@@ -2,13 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <nav id="menu">
 	
-	<c:forEach var="menu" items="${listeMenu}">
+	<!--<c:forEach var="menu" items="${listeMenu}">
 		3
 		${menu.nompage}
 		4
 	</c:forEach>
+	-->
 	
-	
+	le nom de ma page : ${menu.nompage}.
 	
 	<!-- <li class="${param.pageSelectionnee == 'accueil' ? 'active' : ''}"><a href="accueil">Accueil</a></li>
 				<li class="${param.pageSelectionnee == 'film' ? 'active' : ''}"><a href="listefilms">Liste des films</a></li>
@@ -22,16 +23,16 @@
 
 					<li class="lienMenu pucePrincipales" id="liAumonerie"><a onclick="Aumonerie()">L'aumÃ´nerie</a></li>
 					<ul id="lienAumonerie" class="blocLienMenu puceSecondaires">
-						<li class="lienMenu"><a href="accueil">Le bureau de Romain</a></li>
+						<li class="lienMenu"><a href="accueil">Le bureau</a></li>
 						<li class="lienMenu"><a href="accueil">Qui vient ?</a></li>
-						<li class="lienMenu"><a href="accueil">C'est où  ma maison ?</a></li>
+						<li class="lienMenu"><a href="accueil">C'est où ?</a></li>
 						<li class="lienMenu"><a href="accueil">Lien WEB</a></li>
 					</ul>
 					<li class="lienMenu pucePrincipales" id="liAnnonce" ><a onclick="Annonces()">Annonces</a></li>
 					<ul id="lienAnnonce" class="blocLienMenu puceSecondaires">
 						<li class="lienMenu"><a href="accueil">En gÃ©nÃ©ral</a></li>
-						<li class="lienMenu"><a href="accueil">La semaine prochaine</a></li>
-						<li class="lienMenu"><a href="accueil">Dans le mois de l'année</a></li>
+						<li class="lienMenu"><a href="accueil">La semaine</a></li>
+						<li class="lienMenu"><a href="accueil">Dans le mois</a></li>
 						<li class="lienMenu"><a href="accueil">Au delÃ  de l'aumÃ´nerie</a></li>
 					</ul>
 					<li class="lienMenu pucePrincipales" id="liActivite"><a onclick="Activites()">Les activites</a></li>
