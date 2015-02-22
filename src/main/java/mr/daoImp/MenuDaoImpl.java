@@ -60,5 +60,61 @@ public class MenuDaoImpl implements MenuDao {
 		}
 		
 	}
+	
+	
+	@Override
+	public List<Menu> listerMenuDeRang0() {
+		List<Menu> maListMenuRang0 = new ArrayList<Menu>();
+		try {
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			Statement stmt = connection.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT idpage, nompage, rang FROM page WHERE rang = 0 ORDER BY idpage");
+			while (rs.next()) {
+				maListMenuRang0.add(new Menu(rs.getInt("idpage"), rs.getString("nompage"), rs.getInt("rang")/*, rs.getBoolean("visibilite")*/));
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return maListMenuRang0;
+		
+	}
+
+	@Override
+	public List<Menu> listerMenuDeRang1Entre2Rang0(int premierRang0,
+			int secondRang0) {
+		List<Menu> maListMenuRang1Entre2Rang0 = new ArrayList<Menu>();
+		try {
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+			Statement stmt = connection.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT idpage, nompage, rang FROM PAGE WHERE rang =0 AND idpage>= "+premierRang0+" AND idpage<= "+secondRang0+" ORDER BY idpage");
+			while (rs.next()) {
+				maListMenuRang1Entre2Rang0.add(new Menu(rs.getInt("idpage"), rs.getString("nompage"), rs.getInt("rang")/*, rs.getBoolean("visibilite")*/));
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return maListMenuRang1Entre2Rang0;
+	}
+
+	@Override
+	public int chercherSuivantRang0(int premierRang0) {
+		List<Menu> maListMenu = listerMenu();
+		int nombreDeMenu = maListMenu.size();
+		if (nombreDeMenu-premierRang0>1){
+			int i=0;
+			while(i<nombreDeMenu && maListMenu.get(i+1).getRang()==1){
+				i=i+1;
+			}
+			
+			return premierRang0+i+1;
+			
+		}else{
+			return -1;
+		}
+	}
 
 }
