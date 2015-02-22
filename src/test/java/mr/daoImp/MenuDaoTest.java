@@ -27,8 +27,8 @@ public class MenuDaoTest {
 		stmt.close();
 		connection.close();
 	}
-	/*@Test
-	 
+	
+	@Test
 	public void testListerMenu() {
 		List<Menu> menu = menuDao.listerMenu();
 		Assert.assertEquals(9, menu.size());
@@ -36,6 +36,6 @@ public class MenuDaoTest {
 		Assert.assertEquals("Accueil", menu.get(1).getNompage());
 		Assert.assertEquals(false, menu.get(2).getRang());
 		
-	}*/
+	}
 
 }

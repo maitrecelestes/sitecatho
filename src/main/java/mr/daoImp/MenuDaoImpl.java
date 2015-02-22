@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.impl.DataSourceProvider;
-import entities.Personne;
 import mr.dao.MenuDao;
 import mr.entities.Menu;
 

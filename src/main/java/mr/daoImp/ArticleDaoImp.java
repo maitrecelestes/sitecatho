@@ -21,7 +21,7 @@ public class ArticleDaoImp implements ArticleDao{
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
 				Article article= new Article(results.getString("contenu"),results.getString("mailAuteur"), results.getDate("dateCreation"),results.getString("page"),
-						results.getBoolean("visiblePage"),results.getBoolean("Description de page"));
+						results.getBoolean("visibilitePage"),results.getBoolean("Description de page"));
 				listeArticle.add(article);
 			}
 			
