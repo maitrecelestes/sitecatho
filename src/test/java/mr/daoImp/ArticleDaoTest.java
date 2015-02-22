@@ -2,6 +2,7 @@ package mr.daoImp;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Statement;
 import java.util.List;
 
@@ -40,5 +41,31 @@ public class ArticleDaoTest {
 		
 		Assert.assertEquals("loveponey@test.fr", listeArticleAntenne.get(1).getMailAuteur());
 		
+	}
+	
+	@Test
+	public void testAjouterArticle() {
+		Article nouvelleArticle=new Article("Les poney arrivent", "cmichel@love.fr", null,"Banane", true, false);
+		articleDao.ajouterArticle(nouvelleArticle);
+		
+		List<Article> listeArticleBanane=articleDao.listeArticlePage("Banane");
+		
+		Assert.assertEquals(1, listeArticleBanane.size());
+		
+		Assert.assertEquals("Les poney arrivent", listeArticleBanane.get(0).getContenu());
+		Assert.assertEquals("cmichel@love.fr", listeArticleBanane.get(0).getMailAuteur());
+		
+	}
+	
+	@Test
+	public void testSupprimerArticle() {
+		articleDao.supprimerArticle(1);
+		
+		List<Article> listeArticleAntenne=articleDao.listeArticlePage("Antenne");
+		
+		Assert.assertEquals(1, listeArticleAntenne.size());
+		
+		Assert.assertEquals("Le ciel est bleu et les poneys gambadent", listeArticleAntenne.get(0).getContenu());
+		Assert.assertEquals("loveponey@test.fr", listeArticleAntenne.get(0).getMailAuteur());
 	}
 }

@@ -9,5 +9,7 @@ public interface ArticleDao {
 	public List<Article> listeArticlePage(String nomPage);
 	
 	public void ajouterArticle (Article newArticle);
+	
+	public void supprimerArticle (int numeroArticle);
 		
 }
