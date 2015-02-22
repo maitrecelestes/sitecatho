@@ -6,8 +6,8 @@ import mr.entities.Menu;
 
 public interface MenuDao {
 	public List<Menu> listerMenu();
-
-	Menu getMenu(Integer id);
+	void ajouterMenu(Menu newMenu);
+	void supprimerMenu(int numeroArticle);
 
 	
 
