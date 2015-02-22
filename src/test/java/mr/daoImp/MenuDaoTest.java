@@ -23,7 +23,11 @@ public class MenuDaoTest {
 	public void initDb() throws Exception {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
-		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`) VALUES (10,'newpage',0)");
+		stmt.executeUpdate("DELETE FROM page");
+		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`) VALUES (0,'Antenne',0)");
+		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`) VALUES (1,'Antenne Inge',1)");
+		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`) VALUES (2,'Antenne Droit',1)");
+		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`) VALUES (3,'Accueil',0)");
 		stmt.close();
 		connection.close();
 	}
@@ -31,10 +35,10 @@ public class MenuDaoTest {
 	@Test
 	public void testListerMenu() {
 		List<Menu> menu = menuDao.listerMenu();
-		Assert.assertEquals(9, menu.size());
-		Assert.assertEquals(1, menu.get(0).getIdpage().intValue());
-		Assert.assertEquals("Accueil", menu.get(1).getNompage());
-		Assert.assertEquals(false, menu.get(2).getRang());
+		Assert.assertEquals(4, menu.size());
+		Assert.assertEquals(0, menu.get(0).getIdpage());
+		Assert.assertEquals("Antenne Inge", menu.get(1).getNompage());
+		Assert.assertEquals(1, menu.get(2).getRang());
 		
 	}
 
