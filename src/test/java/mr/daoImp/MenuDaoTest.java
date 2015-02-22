@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.List;
 
+import mr.dao.MenuDao;
+import mr.entities.Article;
+import mr.entities.Menu;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import mr.dao.MenuDao;
-import mr.daoImp.DataSourceProvider;
-import mr.daoImp.MenuDaoImpl;
-import mr.entities.Menu;
 
 
 
@@ -41,5 +40,28 @@ public class MenuDaoTest {
 		Assert.assertEquals(1, menu.get(2).getRang());
 		
 	}
-
+	
+	
+	@Test
+	public void testAjouterMenu() {
+		Menu nouvelleArticle=new Menu(4, "maNouvellePage", 0);
+		menuDao.ajouterMenu(nouvelleArticle);
+		List<Menu> menu = menuDao.listerMenu();
+		Assert.assertEquals(5, menu.size());
+		Assert.assertEquals(4, menu.get(4).getIdpage());
+		Assert.assertEquals("maNouvellePage", menu.get(4).getNompage());
+		Assert.assertEquals(0, menu.get(4).getRang());	
+	}
+	
+	@Test
+	public void testSupprimerMenu() {
+		menuDao.supprimerMenu(1);
+		//menuDao.supprimerMenu(3);
+		List<Menu> menu = menuDao.listerMenu();
+		Assert.assertEquals(3, menu.size());
+		Assert.assertEquals(3, menu.get(2).getIdpage());
+		Assert.assertEquals("Accueil", menu.get(2).getNompage());
+		//Assert.assertEquals(0, menu.get(4).getRang());
+	}
+	
 }

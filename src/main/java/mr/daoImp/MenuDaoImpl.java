@@ -32,21 +32,33 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 	@Override
-	public Menu getMenu(Integer id) {
+	public void ajouterMenu(Menu newMenu) {
 		try {
 			Connection connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt = connection.prepareStatement("SELECT idpage, nompage, rang FROM page WHERE idpage = ?");
-			stmt.setInt(1, id);
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				return new Menu(rs.getInt("idpage"), rs.getString("nompage"), rs.getInt("rang")/*, rs.getBoolean("visibilite")*/);
-			}
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO page(idpage, nompage, rang) VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			stmt.setInt(1, newMenu.getIdpage());
+			stmt.setString(2, newMenu.getNompage());
+			stmt.setInt(3, newMenu.getRang());
+			stmt.executeUpdate();
 			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
-	
+
+	@Override
+	public void supprimerMenu(int numeroArticle) {
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `page` WHERE idpage =?");
+			stmt.setInt(1,numeroArticle); 
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 }
