@@ -78,7 +78,12 @@ public class MenuDaoTest {
 	
 	@Test
 	public void testchercherSuivantRang0() {
+		List<Menu> maListMenu = menuDao.listerMenu();
+		Assert.assertEquals(4, maListMenu.size());
 		Assert.assertEquals(3, menuDao.chercherSuivantRang0(0));
+		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(1));
+		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(2));
+		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(3));
 	}
 	
 }

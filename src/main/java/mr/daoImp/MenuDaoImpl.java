@@ -101,20 +101,22 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 	@Override
-	public int chercherSuivantRang0(int premierRang0) {
+	public int chercherSuivantRang0(int idpremierRang0) {
 		List<Menu> maListMenu = listerMenu();
 		int nombreDeMenu = maListMenu.size();
-		if (nombreDeMenu-premierRang0>1){
+		
+		if(maListMenu.get(idpremierRang0).getRang()==0 && idpremierRang0+1 != nombreDeMenu){
+			
+			
 			int i=0;
 			while(i<nombreDeMenu && maListMenu.get(i+1).getRang()==1){
 				i=i+1;
 			}
-			
-			return premierRang0+i+1;
-			
+				return idpremierRang0+i+1;			
 		}else{
 			return -1;
 		}
+		
 	}
 
 }
