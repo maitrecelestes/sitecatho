@@ -11,5 +11,7 @@ public interface ArticleDao {
 	public void ajouterArticle (Article newArticle);
 	
 	public void supprimerArticle (int numeroArticle);
+	
+	public void modifierArticle(int numeroArticle,Article articlemodifier);
 		
 }

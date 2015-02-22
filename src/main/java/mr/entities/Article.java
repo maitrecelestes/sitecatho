@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Article {
 	private String contenu;
+	private String titre;
 	private String mailAuteur;
 	private Date date;
 	private String page;
@@ -11,13 +12,19 @@ public class Article {
 	private Boolean articleDescription;
 	
 	
-	public Article (String contenu, String mailAuteur, Date date, String page, Boolean visiblePage, Boolean articleDescription){
+	public Article (String contenu,String titre, String mailAuteur, Date date, String page, Boolean visiblePage, Boolean articleDescription){
 		this.contenu=contenu;
+		this.titre=titre;
 		this.mailAuteur=mailAuteur;
 		this.date=date;
 		this.page=page;
 		this.visiblePage=visiblePage;
 		this.articleDescription=articleDescription;
+	}
+
+
+	public String getTitre() {
+		return titre;
 	}
 
 
