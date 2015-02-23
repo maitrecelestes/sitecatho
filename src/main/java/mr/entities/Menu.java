@@ -27,6 +27,18 @@ public class Menu {
 		return rang;
 	}
 
+	public void setIdpage(int idpage) {
+		this.idpage = idpage;
+	}
+
+	public void setNompage(String nompage) {
+		this.nompage = nompage;
+	}
+
+	public void setRang(int rang) {
+		this.rang = rang;
+	}
+
 	
 
 	/*public Boolean getVisibilite() {

@@ -44,8 +44,8 @@ public class MenuDaoTest {
 	
 	@Test
 	public void testAjouterMenu() {
-		Menu nouvelleArticle=new Menu(4, "maNouvellePage", 0);
-		menuDao.ajouterMenu(nouvelleArticle);
+		Menu nouveauMenu=new Menu(4, "maNouvellePage", 0);
+		menuDao.ajouterMenu(nouveauMenu);
 		List<Menu> menu = menuDao.listerMenu();
 		Assert.assertEquals(5, menu.size());
 		Assert.assertEquals(4, menu.get(4).getIdpage());
@@ -76,14 +76,53 @@ public class MenuDaoTest {
 			
 	}
 	
+	
 	@Test
-	public void testchercherSuivantRang0() {
-		List<Menu> maListMenu = menuDao.listerMenu();
-		Assert.assertEquals(4, maListMenu.size());
-		Assert.assertEquals(3, menuDao.chercherSuivantRang0(0));
-		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(1));
-		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(2));
-		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(3));
+	public void testlisteChangerOrdreNouveauId() {	
+		List<Menu> menu = menuDao.listerMenu();
+		Assert.assertEquals(4, menu.size());
+		Menu nouveauMenu=new Menu(1, "maNouvellePage", 0);
+		Assert.assertEquals(5, menuDao.listeChangerOrdreNouveauId(1,nouveauMenu).size());
+		List<Menu> newMenu = menuDao.listeChangerOrdreNouveauId(1,nouveauMenu);
+		Assert.assertEquals("Antenne", newMenu.get(0).getNompage());
+		Assert.assertEquals("Antenne Inge", newMenu.get(1).getNompage());
+		Assert.assertEquals("maNouvellePage", newMenu.get(2).getNompage());
+		Assert.assertEquals("Antenne Droit", newMenu.get(3).getNompage());
+		Assert.assertEquals("Accueil", newMenu.get(4).getNompage());
+	}
+	
+	@Test
+	public void testSupprimerBaseDeDonneesMenu() {	
+		menuDao.supprimerBaseDeDonneesMenu();
+		List<Menu> menu = menuDao.listerMenu();
+		Assert.assertEquals(0, menu.size());
+	}
+	
+	@Test
+	public void testRegenererBaseDeDonneesMenu() {	
+		Menu nouveauMenu=new Menu(1, "maNouvellePage", 0);
+		List<Menu> maNouvelleListe = menuDao.listeChangerOrdreNouveauId(1, nouveauMenu);
+		menuDao.regenererBaseDeDonneesMenu(maNouvelleListe);
+		List<Menu> menu = menuDao.listerMenu();
+		Assert.assertEquals(5, menu.size());
+		Assert.assertEquals("Antenne", menu.get(0).getNompage());
+		Assert.assertEquals("Antenne Inge", menu.get(1).getNompage());
+		Assert.assertEquals("maNouvellePage", menu.get(2).getNompage());
+		Assert.assertEquals("Antenne Droit", menu.get(3).getNompage());
+		Assert.assertEquals("Accueil", menu.get(4).getNompage());
+	}
+	
+	@Test
+	public void testListeChangerOrdreSupprimerId() {	
+		menuDao.supprimerLigneDansMenu(2);
+		//menuDao.regenererBaseDeDonneesMenu(maNouvelleListe);
+		List<Menu> menu = menuDao.listerMenu();
+		Assert.assertEquals(3, menu.size());
+		Assert.assertEquals("Antenne", menu.get(0).getNompage());
+		Assert.assertEquals("Antenne Inge", menu.get(1).getNompage());
+		//Assert.assertEquals("Antenne Droit", menu.get(3).getNompage());
+		Assert.assertEquals("Accueil", menu.get(2).getNompage());
+		Assert.assertEquals(2, menu.get(2).getIdpage());
 	}
 	
 }
