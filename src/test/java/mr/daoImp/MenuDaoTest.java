@@ -56,12 +56,34 @@ public class MenuDaoTest {
 	@Test
 	public void testSupprimerMenu() {
 		menuDao.supprimerMenu(1);
-		//menuDao.supprimerMenu(3);
 		List<Menu> menu = menuDao.listerMenu();
 		Assert.assertEquals(3, menu.size());
 		Assert.assertEquals(3, menu.get(2).getIdpage());
 		Assert.assertEquals("Accueil", menu.get(2).getNompage());
-		//Assert.assertEquals(0, menu.get(4).getRang());
+	}
+	
+	@Test
+	public void testlisterMenuDeRang0() {
+		List<Menu> menu = menuDao.listerMenuDeRang0();
+		Assert.assertEquals(2, menu.size());
+			
+	}
+	
+	@Test
+	public void testlisterMenuDeRang1Entre2Rang0() {
+		List<Menu> menu = menuDao.listerMenuDeRang1Entre2Rang0(0,3);
+		Assert.assertEquals(2, menu.size());
+			
+	}
+	
+	@Test
+	public void testchercherSuivantRang0() {
+		List<Menu> maListMenu = menuDao.listerMenu();
+		Assert.assertEquals(4, maListMenu.size());
+		Assert.assertEquals(3, menuDao.chercherSuivantRang0(0));
+		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(1));
+		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(2));
+		Assert.assertEquals(-1, menuDao.chercherSuivantRang0(3));
 	}
 	
 }
