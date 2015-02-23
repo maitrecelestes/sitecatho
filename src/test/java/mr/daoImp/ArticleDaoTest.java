@@ -2,7 +2,6 @@ package mr.daoImp;
 
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -23,11 +22,18 @@ public class ArticleDaoTest {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM article");
-		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `Description de page`,ipPosteur) VALUES (1,'Article chat','loveoiseau@test.fr',NOW(),'Le ciel est bleu et le chat chante','Antenne',true,false,'ip1')");
-		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `Description de page`,ipPosteur) VALUES (2,'Article poney','loveponey@test.fr',NOW(),'Le ciel est bleu et les poneys gambadent','Antenne',true,false,'ip2')");
-		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `Description de page`,ipPosteur) VALUES (3,'Article poney rose','loveponey@test.fr',NOW(),'Vive les poneyes roses','Poney',true,false,'ip3')");
+		stmt.executeUpdate("DELETE FROM editionArticle");
+		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,ipPosteur) VALUES (1,'Article chat','loveoiseau@test.fr',NOW(),'Le ciel est bleu et le chat chante','Antenne',true,false,'ip1')");
+		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,ipPosteur) VALUES (2,'Article poney','loveponey@test.fr',NOW(),'Le ciel est bleu et les poneys gambadent','Antenne',true,false,'ip2')");
+		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,ipPosteur) VALUES (3,'Article poney rose','loveponey@test.fr',NOW(),'Vive les poneyes roses','Poney',true,false,'ip3')");
 		stmt.close();
 		connection.close();
+	}
+	
+	@Test
+	public void testrouverNumeroArticleLibre() {
+		int rep1 = articleDao.trouverNumeroArticleLibre();
+		Assert.assertEquals(4,rep1);
 	}
 	
 	@Test
@@ -48,7 +54,7 @@ public class ArticleDaoTest {
 	@Test
 	public void testAjouterArticle() {
 		Article nouvelleArticle=new Article("Les poney arrivent","Pro-titre", "cmichel@love.fr", null,"Banane", true, false);
-		articleDao.ajouterArticle(nouvelleArticle);
+		articleDao.ajouterArticle(nouvelleArticle, "new ip");
 		
 		List<Article> listeArticleBanane=articleDao.listeArticlePage("Banane");
 		
@@ -75,7 +81,7 @@ public class ArticleDaoTest {
 	public void testModifierArticle() throws Exception{
 		Article articleModifier=new Article("Les poney arrivent plus vite que prévu","Un vrai titre", "cmichel@love.fr", null,"Banane", true, false);
 		
-		articleDao.modifierArticle(2,articleModifier);
+		articleDao.modifierArticle(2,articleModifier, "new ip");
 		
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		PreparedStatement stmt1 = connection.prepareStatement("SELECT * FROM article WHERE numeroArticle=2");
@@ -88,8 +94,10 @@ public class ArticleDaoTest {
 		PreparedStatement stmt2 = connection.prepareStatement("SELECT * FROM editionarticle WHERE idArticle=2");
 		ResultSet rs2 = stmt2.executeQuery();
 		
-		Assert.assertTrue(rs2.next());
 		
+		Assert.assertTrue(rs2.next());
+		Assert.assertEquals(2,rs2.getInt("idArticle"));
+		Assert.assertEquals("new ip",rs2.getString("ipAuteur"));
 		
 	}
 	
