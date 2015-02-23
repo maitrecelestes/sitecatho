@@ -3,6 +3,8 @@ package mr.daoImp;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
@@ -68,4 +70,27 @@ public class ArticleDaoTest {
 		Assert.assertEquals("Le ciel est bleu et les poneys gambadent", listeArticleAntenne.get(0).getContenu());
 		Assert.assertEquals("loveponey@test.fr", listeArticleAntenne.get(0).getMailAuteur());
 	}
+	
+	@Test
+	public void testModifierArticle() throws Exception{
+		Article articleModifier=new Article("Les poney arrivent plus vite que prévu","Un vrai titre", "cmichel@love.fr", null,"Banane", true, false);
+		
+		articleDao.modifierArticle(2,articleModifier);
+		
+		Connection connection = DataSourceProvider.getDataSource().getConnection();
+		PreparedStatement stmt1 = connection.prepareStatement("SELECT * FROM article WHERE numeroArticle=2");
+		ResultSet rs1 = stmt1.executeQuery();
+		
+		Assert.assertTrue(rs1.next());
+		Assert.assertEquals(articleModifier.getContenu(),rs1.getString("contenu"));
+		Assert.assertEquals(articleModifier.getTitre(),rs1.getString("titre"));
+		
+		PreparedStatement stmt2 = connection.prepareStatement("SELECT * FROM editionarticle WHERE idArticle=2");
+		ResultSet rs2 = stmt2.executeQuery();
+		
+		Assert.assertTrue(rs2.next());
+		
+		
+	}
+	
 }

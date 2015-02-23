@@ -81,12 +81,12 @@ public class ArticleDaoImp implements ArticleDao{
 			stmt.setString(3, "test@test.fr");
 			stmt.executeUpdate();
 			
-			PreparedStatement stmt1= connection.prepareStatement("UPDATE `article` SET`contenu`=?,`visibilitePage`=?,`Description de page`=?, titre=? WHERE numeroArticle=?");
+			PreparedStatement stmt1= connection.prepareStatement("UPDATE `article` SET contenu=?,visibilitePage=?,Description de page=?, titre=? WHERE numeroArticle=?");
 			stmt1.setString(1,articlemodifier.getContenu()); 
 			stmt1.setBoolean(2, articlemodifier.getVisiblePage());
 			stmt1.setBoolean(3, articlemodifier.getArticleDescription());
 			stmt1.setString(4, articlemodifier.getTitre());
-			stmt1.setString(1,articlemodifier.getContenu()); 
+			stmt1.setInt(5,numeroArticle); 
 			stmt1.executeUpdate();
 			connection.close();
 		} catch (SQLException e) {

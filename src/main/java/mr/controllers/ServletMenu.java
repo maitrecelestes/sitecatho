@@ -23,10 +23,10 @@ public class ServletMenu extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.doGet(request, response);	
 		
-		Menu menu = getMenu(4);
+		/*Menu menu = getMenu(4);
 		request.setAttribute("menu", menu);
 		System.out.println("coucou");
-		/*MenuDao menuDao = new MenuDaoImpl();
+		MenuDao menuDao = new MenuDaoImpl();
 		List<Menu> menu = menuDao.listerMenu();
 		request.setAttribute("listeMenu", menu);
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/menu.jsp");
@@ -37,7 +37,5 @@ public class ServletMenu extends HttpServlet {
 	
 	
 	
-	public Menu getMenu(Integer id) {
-		return menuDao.getMenu(id);
-	}
+	
 }
