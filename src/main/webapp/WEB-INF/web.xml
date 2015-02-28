@@ -19,4 +19,14 @@
     <servlet-name>ServletContact</servlet-name>
     <url-pattern>/ServletContact</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletAdministrationContact</display-name>
+    <servlet-name>ServletAdministrationContact</servlet-name>
+    <servlet-class>mr.controllers.ServletAdministrationContact</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAdministrationContact</servlet-name>
+    <url-pattern>/ServletAdministrationContact</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,6 +1,7 @@
 package mr.controllers;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,9 +23,6 @@ public class ServletContact extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String ipAddress = request.getRemoteAddr(); //A verifier
-		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/contact.jsp");
 		view.forward(request, response);
 	}
@@ -36,7 +34,7 @@ public class ServletContact extends HttpServlet {
 		String objet=request.getParameter("objet");
 		String contenu=request.getParameter("contenu");
 		String mail=request.getParameter("mail");
-		String ipAddress = request.getRemoteAddr();
+		String ipAddress = InetAddress.getLocalHost().getHostAddress();
 		Contact newContact=new Contact(nom, prenom,mail,objet,contenu,ipAddress);
 		ContactDao contactDao= new ContactDaoImp();
 		contactDao.ajouterContact(newContact);

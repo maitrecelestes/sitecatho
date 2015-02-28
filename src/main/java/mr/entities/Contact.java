@@ -1,6 +1,8 @@
 package mr.entities;
 
 import java.sql.Date;
+import java.sql.Time;
+
 
 public class Contact {
 	private int idMessage;
@@ -11,9 +13,10 @@ public class Contact {
 	private String contenu;
 	private String ipPosteur;
 	private Date datePoste;
+	private Time heurePoste;
 	
 	//Constructeur pour la récupération de donnée depuis la bdd
-	public Contact(int idMessage, String nom, String prenom,String mail, String objet, String contenu, String ipPosteur, Date datePoste){
+	public Contact(int idMessage, String nom, String prenom,String mail, String objet, String contenu, String ipPosteur, Date datePoste, Time heurePoste){
 		this.idMessage=idMessage;
 		this.nom=nom;
 		this.prenom=prenom;
@@ -22,8 +25,11 @@ public class Contact {
 		this.contenu=contenu;
 		this.ipPosteur=ipPosteur;
 		this.datePoste=datePoste;
+		this.heurePoste=heurePoste;
 	}
 	
+	
+
 	//Constructeur pour ajouter des informations dans la bdd
 	public Contact(String nom, String prenom,String mail,String objet, String contenu, String ipPosteur){
 		this.nom=nom;
@@ -64,6 +70,9 @@ public class Contact {
 
 	public Date getDatePoste() {
 		return datePoste;
+	}
+	public Time getHeurePoste() {
+		return heurePoste;
 	}
 
 }

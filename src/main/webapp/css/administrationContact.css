@@ -1,0 +1,9 @@
+#tabListeContact {
+	width:				100%;
+	border-collapse: collapse;
+	
+}
+#tabListeContact td,#tabListeContact th{
+	border:				solid;
+	text-align:			center;
+}

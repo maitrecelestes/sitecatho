@@ -24,9 +24,9 @@ public class ContactDaoTest {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM contact");
-		stmt.executeUpdate("INSERT INTO `contact`(`idMessage`, `nom`, `prenom`, `mail`, `objet`, `contenu`, `ipPosteur`, `datePoste`) VALUES (1,'Guignier','Michel','michel.guignier@hei.fr','Mon binome est trop fort','Je voudrais changer de binome car je le miens est trop fort pour moi','ip michel',NOW())");
-		stmt.executeUpdate("INSERT INTO `contact`(`idMessage`, `nom`, `prenom`, `mail`, `objet`, `contenu`, `ipPosteur`, `datePoste`) VALUES (2,'Soenen','Romain','romain.soenen@hei.fr','Mon binome est mécrant','Michel ne fait que de dire des bêtises','ip romain',NOW())");
-		stmt.executeUpdate("INSERT INTO `contact`(`idMessage`, `nom`, `prenom`, `mail`, `objet`, `contenu`, `ipPosteur`, `datePoste`) VALUES (3,'Gouvy','Nicolas','lapinou@hotmail.fr','Stop','Arrêtez votre cirque','ip nicolas',NOW())");
+		stmt.executeUpdate("INSERT INTO `contact`(`idMessage`, `nom`, `prenom`, `mail`, `objet`, `contenu`, `ipPosteur`, `datePoste`,`heurePoste`) VALUES (1,'Guignier','Michel','michel.guignier@hei.fr','Mon binome est trop fort','Je voudrais changer de binome car je le miens est trop fort pour moi','ip michel',NOW(),NOW())");
+		stmt.executeUpdate("INSERT INTO `contact`(`idMessage`, `nom`, `prenom`, `mail`, `objet`, `contenu`, `ipPosteur`, `datePoste`,`heurePoste`) VALUES (2,'Soenen','Romain','romain.soenen@hei.fr','Mon binome est mécrant','Michel ne fait que de dire des bêtises','ip romain',NOW(),NOW())");
+		stmt.executeUpdate("INSERT INTO `contact`(`idMessage`, `nom`, `prenom`, `mail`, `objet`, `contenu`, `ipPosteur`, `datePoste`,`heurePoste`) VALUES (3,'Gouvy','Nicolas','lapinou@hotmail.fr','Stop','Arrêtez votre cirque','ip nicolas',NOW(),NOW())");
 		stmt.close();
 		connection.close();
 	}

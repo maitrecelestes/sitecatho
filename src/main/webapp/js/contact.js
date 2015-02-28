@@ -1,8 +1,3 @@
-function popup(){
-	alert("Votre message a bien été envoyé.");
-}
-
-
 $("#envoyer").click(function(){envoieContact();});
 
 function envoieContact(){
