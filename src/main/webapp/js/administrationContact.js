@@ -15,11 +15,12 @@ function recuperationid(nomid){
 
 function montrerMessage(event){
 	$(".cacher").hide();
+	
 	var id=recuperationid(event.currentTarget.id);
 	
 	$("#contenu"+id).show();
 }
-$(".caseVoirMessage").click(function(){montrerMessage(event);});
+$(".caseVoirMessage").click(function(){montrerMessage(event);}); //NE MARCHE PAS AVEC MOZILLA
 $(".cacher").hide();
 
 function supprimerMessage(event){

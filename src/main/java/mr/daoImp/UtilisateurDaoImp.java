@@ -34,19 +34,25 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		return listeUtilisateur;
 	}
 	
-	public String crypteMdp(String mdp) throws NoSuchAlgorithmException{
-		String mdp1=mdp+"un peu de sel";
-		MessageDigest md = MessageDigest.getInstance("MD5");
-		md.update(mdp1.getBytes());
-		byte[] mdpdigest = md.digest();
-		
-		String mdpCrypte1= mdpdigest.toString()+"un peu De poiVre 25%";
-		MessageDigest md1 = MessageDigest.getInstance("SHA-1");
-		md1.update(mdpCrypte1.getBytes());
-		byte[] mdpdigest1 = md.digest();
-		
-		String mdpCrypte2= mdpdigest1.toString();
-		return mdpCrypte2;
+	public String HashMyPassword(String password) throws Exception{
+		// On crypte le password en MD5 avec un salt le tout 3 fois
+		password = "3637"+password+"cathoaumonerie59";
+		for(int a = 0; a < 3; a++){
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(password.getBytes());
+
+			byte byteData[] = md.digest();
+
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < byteData.length; i++) {
+				sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+			}
+
+			password = sb.toString();
+		}
+
+		return password;
+
 	}
 	
 	@Override
@@ -54,7 +60,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		Connection connection;
 		try {
 			String mdpnonCrypte=newUtilisateur.getMdp();
-			String mdpCrypte=crypteMdp(mdpnonCrypte);
+			String mdpCrypte= HashMyPassword(mdpnonCrypte);
 			
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `dateDeNaissance`, `rang`, `ecole`) VALUES (?,?,?,?,?,?,?)");
@@ -68,6 +74,9 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			stmt.executeUpdate();
 			connection.close();
 		} catch (SQLException | NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -94,7 +103,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		Boolean rep=false;
 		try {
 			String mdpnonCrypte=utilisateur.getMdp();
-			String mdpCrypte=crypteMdp(mdpnonCrypte);
+			String mdpCrypte=HashMyPassword(mdpnonCrypte);
 			
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt= connection.prepareStatement("SELECT motDePasse FROM `utilisateur` WHERE `email`=? ");
@@ -102,7 +111,8 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			ResultSet results = stmt.executeQuery();
 			while(results.next()){
 				System.out.println(results.getString("motDePasse"));
-				if(mdpCrypte==results.getString("motDePasse")){
+				System.out.println(mdpCrypte);
+				if(mdpCrypte.equals(results.getString("motDePasse"))){
 					rep=true;
 				}
 			}
@@ -111,6 +121,9 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

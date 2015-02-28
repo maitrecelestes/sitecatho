@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -79,12 +80,21 @@ public class UtilisateurDaoTest {
 	}
 	
 	@Test
-	public void testAuthentificationUtilisateur(){
+	public void testAuthentificationUtilisateur() throws ParseException{
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String dateNaissanceString = "1993-03-12";
+		
+		Date dateNaissance = (Date) formatter.parse(dateNaissanceString);
+		
+		java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissance.getTime());
+		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN");
+		utilisateurDao.ajouterUtilisateur(utilisateur);
+		
 		Boolean rep=utilisateurDao.authentificationUtilisateur(new Utilisateur("florian.dupond@isen.fr","florian1995"));
 		Assert.assertEquals(true, rep);
 		
-		Boolean rep1=utilisateurDao.authentificationUtilisateur(new Utilisateur("florian@dupond@isen.fr","Florian1995"));
-		Assert.assertEquals(false, rep);
+		Boolean rep1=utilisateurDao.authentificationUtilisateur(new Utilisateur("florian@dupond@isen.fr","Dlorian1995"));
+		Assert.assertEquals(false, rep1);
 	}
 	
 }
