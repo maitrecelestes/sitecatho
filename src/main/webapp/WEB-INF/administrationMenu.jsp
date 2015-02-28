@@ -3,7 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	
-	<link rel="stylesheet" type="text/css" href="css/contact.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
 	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
 	<script type="text/javascript" src="js/menu.js"></script>
@@ -45,22 +45,59 @@
 							<th>  Rang de la page  </th>
 							<th>  Visibilité de la page  </th>
 							<th>  Modifier la page  </th>
+							<th>  Supprimer la page  </th>
 						</tr>
 						<c:forEach var="administrationMenu" items="${listeMenu}">
 								<tr>
-									<td>${administrationMenu.idpage}</td>
-									<td>${administrationMenu.nompage}</td>
-									<td>${administrationMenu.rang}</td>
-									<td>${administrationMenu.visibilite}</td>
-									<td><span id="page_${administrationMenu.idpage}"></span></td>
+									<td id="idpage${administrationMenu.idpage}">${administrationMenu.idpage}</td>
+									<td id="idnompage${administrationMenu.idpage}">${administrationMenu.nompage}</td>
+									<td id="idrang${administrationMenu.idpage}">${administrationMenu.rang}</td>
+									<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
+									<td class="casemodifier" id="modifierid${administrationMenu.idpage}"><img src="Images/pointdinterrogation_modifier.png"/></td>
+									<td class="casesupprimer" id="supprimerid${administrationMenu.idpage}"><img src="Images/croix_supprimer.png"/></td>
 								</tr>
 
 						</c:forEach>
 						</table>
 						
 						
-						<form>
-							<h3>Pour rajouter un Menu</h3>
+						
+						
+						<button class="bouttonModifierMenu" type="button">Cacher panneau modification</button>
+						<form class="classModificationMenu">
+							<h3>Pour modifier un menu</h3>
+							<table>
+								<tr><td><label for="nompage">Nom de la page : </label></td><td><input type="text" id="nompageModif" /></td></tr>
+								 <!--<tr><td><label for="nompageprecedente">Nom de la page precedente : </label></td>
+								  <td><select name="nompageprecedente" id="nompageprecedenteModif">
+									<option value="page_0"></option>
+						       		<c:forEach var="administrationMenu" items="${listeMenu}">
+										<option value="${administrationMenu.idpage}" ${administrationMenu.idpage}>${administrationMenu.nompage}</option>
+									</c:forEach>  
+						       	</select></td></tr>
+								
+						 		<tr><td><label name="rang">Rang : </label></td><td>
+								
+								<input type="radio" name="rang" id="rang1"  checked/><label for="rang1">Primaire</label>
+								<input type="radio" name="rang" id="rang2" /><label for="rang2">Secondaire</label>
+								
+								</td></tr>
+						 
+								<tr><td><label for="visibilite">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibilite" /></td></tr>
+								<tr><td colspan="2"><input id="ajouterMenu" type="button" value="Envoyer le message" width="100px;"></td></tr>
+									 -->
+							</table>
+						</form>
+						
+						
+						
+						
+						
+						
+						
+						<button class="bouttonAjoutMenu" type="button">Pour ajouter une page</button>
+						<form class="classAjoutMenu">
+							<h3>Pour rajouter un menu</h3>
 							<table>
 								<tr><td><label for="nompage">Nom de la nouvelle page : </label></td><td><input type="text" id="nompage" /></td></tr>
 								<tr><td><label for="nompageprecedente">Nom de la page precedente : </label></td>
@@ -82,6 +119,9 @@
 								<tr><td colspan="2"><input id="ajouterMenu" type="button" value="Envoyer le message" width="100px;"></td></tr>
 							</table>
 						</form>
+						
+						
+						
 						
 				<!-- 		<h3>Tableau indiquant toutes les pages de rang 0 et visible</h3>
 						<table>

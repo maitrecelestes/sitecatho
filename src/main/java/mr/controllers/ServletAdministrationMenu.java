@@ -40,23 +40,40 @@ public class ServletAdministrationMenu extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nompage=request.getParameter("nompage");
-		String nompageprecedente=request.getParameter("nompageprecedente");
-		int nbPage=0;
-		if(nompageprecedente.equals("page_0")){
-			nbPage=-1;
-		}else{
-			nbPage=Integer.parseInt(nompageprecedente);
-		}
-		String rang=request.getParameter("rang");	
-		int leRang=0;
-		if(rang.equals("true")){
-			leRang=1;
-		}
-		String visibilite=request.getParameter("visibilite");
+		String maFonction=request.getParameter("maFonction");
+		if(maFonction.equals("fonctionAjout")){
+			//Ajout
+			String nompage=request.getParameter("nompage");
+			String nompageprecedente=request.getParameter("nompageprecedente");
+			int nbPage=0;
+			if(nompageprecedente.equals("page_0")){
+				nbPage=-1;
+			}else{
+				nbPage=Integer.parseInt(nompageprecedente);
+			}
+			String rang=request.getParameter("rang");	
+			int leRang=0;
+			if(rang.equals("true")){
+				leRang=1;
+			}
+			String visibilite=request.getParameter("visibilite");
+			Menu nouveauMenu= new Menu(0, nompage, leRang, Boolean.parseBoolean(visibilite));
+			menuDao.ajouterNouveauMenu(nbPage, nouveauMenu);
 		
-		Menu nouveauMenu= new Menu(0, nompage, leRang, Boolean.parseBoolean(visibilite));
-		menuDao.ajouterNouveauMenu(nbPage, nouveauMenu);
+		
+		}else if(maFonction.equals("fonctionSuppression")){
+			//Suppression
+			String idString=request.getParameter("idpage");
+			int id=Integer.parseInt(idString);
+			menuDao.supprimerLigneDansMenu(id);
+		}
+		
+		
+		
+		
+		
+		
+		
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
 		view.forward(request, response);
