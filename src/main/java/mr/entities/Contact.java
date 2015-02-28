@@ -23,13 +23,12 @@ public class Contact {
 	}
 	
 	//Constructeur pour ajouter des informations dans la bdd
-	public Contact(String nom, String prenom, String objet, String contenu, String ipPosteur, Date datePoste){
+	public Contact(String nom, String prenom, String objet, String contenu, String ipPosteur){
 		this.nom=nom;
 		this.prenom=prenom;
 		this.objet=objet;
 		this.contenu=contenu;
 		this.ipPosteur=ipPosteur;
-		this.datePoste=datePoste;
 	}
 	
 	public int getIdMessage() {

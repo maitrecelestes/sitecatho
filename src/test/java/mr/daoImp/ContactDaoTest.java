@@ -1,6 +1,9 @@
 package mr.daoImp;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
@@ -28,8 +31,9 @@ public class ContactDaoTest {
 		connection.close();
 	}
 	
+	
 	@Test
-	public void testListeArticlePage() {
+	public void testListeContact() {
 		List<Contact> listeMessageContact=contactDao.listeMessageContact();
 		
 		Assert.assertEquals(3, listeMessageContact.size());
@@ -39,6 +43,40 @@ public class ContactDaoTest {
 		Assert.assertEquals("Soenen", listeMessageContact.get(1).getNom());
 		Assert.assertEquals("Nicolas", listeMessageContact.get(2).getPrenom());
 		Assert.assertEquals("Stop", listeMessageContact.get(2).getObjet());
+	}
 	
+	@Test
+	public void testAjouterContact() throws Exception{
+		Contact newContact= new Contact ("Bernard", "Nicolas", "Coucou", "C'est pas mon projet mais je viens dire bonjour", "ip Nicolas");
+		contactDao.ajouterContact(newContact);
+		
+		Connection connection = DataSourceProvider.getDataSource().getConnection();
+		PreparedStatement stmt1 = connection.prepareStatement("SELECT * FROM contact ORDER BY datePoste DESC, idMessage DESC");
+		ResultSet rs1 = stmt1.executeQuery();
+	
+		Assert.assertTrue(rs1.next());
+		Assert.assertEquals(newContact.getContenu(),rs1.getString("contenu"));
+		Assert.assertEquals(newContact.getPrenom(),rs1.getString("prenom"));
+		Assert.assertEquals(newContact.getIpPosteur(),rs1.getString("ipPosteur"));
+		Assert.assertTrue(rs1.next());
+	}
+	
+	public void testSuppresionContact() throws Exception{
+		contactDao.supprimerContact(2);
+		
+		Connection connection = DataSourceProvider.getDataSource().getConnection();
+		PreparedStatement stmt1 = connection.prepareStatement("SELECT * FROM contact ORDER BY idMessage ASC");
+		ResultSet rs1 = stmt1.executeQuery();
+		
+		Assert.assertTrue(rs1.next());
+		Assert.assertEquals("Je voudrais changer de binome car je le miens est trop fort pour moi",rs1.getString("contenu"));
+		Assert.assertEquals("Michel",rs1.getString("prenom"));
+		Assert.assertEquals("ip michel",rs1.getString("ipPosteur"));
+		
+		Assert.assertTrue(rs1.next());
+		Assert.assertEquals("Soenen",rs1.getString("nom"));
+		Assert.assertEquals("Mon binome est mécrant",rs1.getString("objet"));
+		
+		Assert.assertTrue(rs1.next());
 	}
 }

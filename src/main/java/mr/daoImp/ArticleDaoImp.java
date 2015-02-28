@@ -58,7 +58,7 @@ public class ArticleDaoImp implements ArticleDao{
 	@Override
 	public void supprimerArticle(int numeroArticle) {
 		Connection connection;
-		//System.out.println("test");
+		
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `article` WHERE numeroArticle =?");

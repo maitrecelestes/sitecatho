@@ -52,4 +52,20 @@ public class ContactDaoImp implements ContactDao{
 		
 	}
 
+	@Override
+	public void supprimerContact(int idContact) {
+		Connection connection;
+		
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `contact` WHERE idMessage =?");
+			stmt.setInt(1,idContact); 
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+	}
+
 }
