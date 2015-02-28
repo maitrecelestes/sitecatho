@@ -6,16 +6,18 @@ public class Contact {
 	private int idMessage;
 	private String nom;
 	private String prenom;
+	private String mail;
 	private String objet;
 	private String contenu;
 	private String ipPosteur;
 	private Date datePoste;
 	
 	//Constructeur pour la récupération de donnée depuis la bdd
-	public Contact(int idMessage, String nom, String prenom, String objet, String contenu, String ipPosteur, Date datePoste){
+	public Contact(int idMessage, String nom, String prenom,String mail, String objet, String contenu, String ipPosteur, Date datePoste){
 		this.idMessage=idMessage;
 		this.nom=nom;
 		this.prenom=prenom;
+		this.mail=mail;
 		this.objet=objet;
 		this.contenu=contenu;
 		this.ipPosteur=ipPosteur;
@@ -23,14 +25,19 @@ public class Contact {
 	}
 	
 	//Constructeur pour ajouter des informations dans la bdd
-	public Contact(String nom, String prenom, String objet, String contenu, String ipPosteur){
+	public Contact(String nom, String prenom,String mail,String objet, String contenu, String ipPosteur){
 		this.nom=nom;
 		this.prenom=prenom;
+		this.mail=mail;
 		this.objet=objet;
 		this.contenu=contenu;
 		this.ipPosteur=ipPosteur;
 	}
 	
+	public String getMail() {
+		return mail;
+	}
+
 	public int getIdMessage() {
 		return idMessage;
 	}

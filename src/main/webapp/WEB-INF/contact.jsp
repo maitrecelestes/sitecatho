@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
 	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/contact.js"></script>
+	
 	<title>Contact</title>
 </head>
 <body>
@@ -39,15 +39,15 @@
 					<!-- ARTICLES -->
 					<article>
 						<h1>CONTACTEZ MOI</h1>
-						<p>Vous pouvez poster ici un message à l'attention de l'aumônerie. Ce message sera lu par les responsables qui vous recontacterons au besoin.</p>
+						<p>Vous pouvez poster ici un message � l'attention de l'aumonerie. Ce message sera lu par les responsables qui vous recontacterons au besoin.</p>
 						<form>
 							<table>
-								<tr><td><label for="Nometprenom">Nom :</label></td><td><input type="text" id="Nometprenom" /></td></tr>
+								<tr><td><label for="nom">Nom :</label></td><td><input type="text" id="nom" /></td></tr>
 								<tr><td><label for="prenom">Prenom :</label></td><td><input type="text" id="prenom" /></td></tr>
 								<tr><td><label for="mail">Mail :</label></td><td><input type="mail" id="mail" /></td></tr>
 								<tr><td><label for="objet">Objet :</label></td><td><input type="text" id="objet" /></td><td><span id="facultatif">(facultatif)</span></td></tr>
 								<tr><td><label for="contenu">Votre message :</label></td><td><textarea id="contenu"></textarea></td></tr>
-								<tr><td colspan="2"><input id="envoyer" type="button" onclick="popup()" value="Envoyer le message" width="100px;"></td></tr>
+								<tr><td colspan="2"><input id="envoyer" type="button" value="Envoyer le message" width="100px;"></td></tr>
 							</table>
 						</form>						
 					</article>
@@ -58,4 +58,5 @@
 			<p>Créé par Michel GUIGNIER et Romain SOENEN.</p>
 		</footer>
 	</div>
+	<script type="text/javascript" src="js/contact.js"></script>
 </body>
