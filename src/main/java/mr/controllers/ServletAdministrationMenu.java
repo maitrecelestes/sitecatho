@@ -28,6 +28,7 @@ public class ServletAdministrationMenu extends HttpServlet {
 		List<Menu> maListeMenu = menuDao.listerMenu() ;
 		request.setAttribute("listeMenu", maListeMenu);
 		
+		
 	/*	List<Menu> maListeMenuRang0 = menuDao.listerMenuDeRang0() ;
 		request.setAttribute("listeMenuRang0", maListeMenuRang0);
 		
@@ -40,13 +41,22 @@ public class ServletAdministrationMenu extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nompage=request.getParameter("nompage");
-		System.out.println(nompage);
 		String nompageprecedente=request.getParameter("nompageprecedente");
-		String rang=request.getParameter("rang");
+		int nbPage=0;
+		if(nompageprecedente.equals("page_0")){
+			nbPage=-1;
+		}else{
+			nbPage=Integer.parseInt(nompageprecedente);
+		}
+		String rang=request.getParameter("rang");	
+		int leRang=0;
+		if(rang.equals("true")){
+			leRang=1;
+		}
 		String visibilite=request.getParameter("visibilite");
-		System.out.println(visibilite);
-		Menu nouveauMenu= new Menu(0, nompage, 1, Boolean.parseBoolean(visibilite));
-		menuDao.ajouterNouveauMenu(2, nouveauMenu);
+		
+		Menu nouveauMenu= new Menu(0, nompage, leRang, Boolean.parseBoolean(visibilite));
+		menuDao.ajouterNouveauMenu(nbPage, nouveauMenu);
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
 		view.forward(request, response);

@@ -121,15 +121,24 @@ public class MenuDaoImpl implements MenuDao {
 			Menu nouveauMenu) {
 		List<Menu> maListe = listerMenu();
 		List<Menu> maNewListe = new ArrayList<Menu>();
-		for(int i=0; i <= idLigneprecedente ; i++){
-			maNewListe.add(maListe.get(i));
+		if(idLigneprecedente==-1){
+			maNewListe.add(nouveauMenu);
+			for(int i=0; i < maListe.size() ; i++){
+				maListe.get(i).setIdpage(i+1);
+				maNewListe.add(maListe.get(i));
+			}
+		}else{
+			for(int i=0; i <= idLigneprecedente ; i++){
+				maNewListe.add(maListe.get(i));
+			}
+			nouveauMenu.setIdpage(idLigneprecedente+1);
+			maNewListe.add(nouveauMenu);
+			for(int i=idLigneprecedente+1; i < maListe.size() ; i++){
+				maListe.get(i).setIdpage(i+1);
+				maNewListe.add(maListe.get(i));
+			}
 		}
-		nouveauMenu.setIdpage(idLigneprecedente+1);
-		maNewListe.add(nouveauMenu);
-		for(int i=idLigneprecedente+1; i < maListe.size() ; i++){
-			maListe.get(i).setIdpage(i+1);
-			maNewListe.add(maListe.get(i));
-		}
+		
 		return maNewListe;		
 	}
 	
