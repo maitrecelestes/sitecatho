@@ -39,7 +39,6 @@ public class ServletContact extends HttpServlet {
 		contactDao.ajouterContact(newContact);
 		
 		
-
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/contact.jsp");
 		view.forward(request, response);
 	
