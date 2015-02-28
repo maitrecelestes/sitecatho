@@ -7,7 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
 	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/contact.js"></script>
 	<title>AdministrationMenu</title>
 </head>
 <body>
@@ -41,10 +40,11 @@
 						<h3>Tableau indiquant toutes les pages</h3>
 						<table>
 						<tr>
-							<td>  ID de la page  </td>
-							<td>  Nom de la page  </td>								
-							<td>  Rang de la page  </td>
-							<td>  Visibilité de la page  </td>
+							<th>  ID de la page  </th>
+							<th>  Nom de la page  </th>								
+							<th>  Rang de la page  </th>
+							<th>  Visibilité de la page  </th>
+							<th>  Modifier la page  </th>
 						</tr>
 						<c:forEach var="administrationMenu" items="${listeMenu}">
 								<tr>
@@ -52,18 +52,32 @@
 									<td>${administrationMenu.nompage}</td>
 									<td>${administrationMenu.rang}</td>
 									<td>${administrationMenu.visibilite}</td>
+									<td><span id="page_${administrationMenu.idpage}"></span></td>
 								</tr>
 
 						</c:forEach>
 						</table>
 						
-						<h3>Tableau indiquant toutes les pages de rang 0 et visible</h3>
+						
+						<form>
+							<h3>Pour rajouter un Menu</h3>
+							<table>
+								<tr><td><label for="nompage">Nom de la nouvelle page : </label></td><td><input type="text" id="nompage" /></td></tr>
+								<tr><td><label for="nompageprecedente">Nom de la page precedente : </label></td>
+								<td><input type="text" id="nompageprecedente" /></td></tr>
+								<tr><td><label for="rang">Rang : </label></td><td><input type="text" id="rang" /></td></tr>
+								<tr><td><label for="visibilite">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibilite" /></td></tr>
+								<tr><td colspan="2"><input id="ajouterMenu" type="button" value="Envoyer le message" width="100px;"></td></tr>
+							</table>
+						</form>
+						
+				<!-- 		<h3>Tableau indiquant toutes les pages de rang 0 et visible</h3>
 						<table>
 						<tr>
-							<td>ID de la page</td>
-							<td>Nom de la page</td>								
-							<td>Rang de la page</td>
-							<td>Visibilité de la page</td>
+							<th>  ID de la page  </th>
+							<th>  Nom de la page  </th>								
+							<th>  Rang de la page  </th>
+							<th>  Visibilité de la page  </th>
 						</tr>
 						<c:forEach var="administrationMenuRang0" items="${listeMenuRang0}">
 								<tr>
@@ -79,10 +93,10 @@
 						<h3>Tableau indiquant toutes les pages de rang 1 et visible entre 1 et 3</h3>
 						<table>
 						<tr>
-							<td>ID de la page</td>
-							<td>Nom de la page</td>								
-							<td>Rang de la page</td>
-							<td>Visibilité de la page</td>
+							<th>  ID de la page  </th>
+							<th>  Nom de la page  </th>								
+							<th>  Rang de la page  </th>
+							<th>  Visibilité de la page  </th>
 						</tr>
 						<c:forEach var="listerMenuDeRang1Entre2Rang0" items="${listerMenuDeRang1Entre2Rang0}">
 								<tr>
@@ -93,7 +107,7 @@
 								</tr>
 
 						</c:forEach>
-						</table>			
+						</table>		-->	
 					</article>
 				</section>
 		</div>
@@ -102,4 +116,5 @@
 			<p>CrÃ©Ã© par Michel GUIGNIER et Romain SOENEN.</p>
 		</footer>
 	</div>
+	<script type="text/javascript" src="js/administrationMenu.js"></script>
 </body>
