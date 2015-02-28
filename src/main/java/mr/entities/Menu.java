@@ -1,18 +1,17 @@
 package mr.entities;
 
-
 public class Menu {
 	private int idpage;
 	private String nompage;
 	private int rang;
-	/*private Boolean visibilite;*/
-	
-	public Menu(int idpage, String nompage, int rang/*, Boolean visibilite*/) {
+	private Boolean visibilite;
+
+	public Menu(int idpage, String nompage, int rang, Boolean visibilite) {
 		super();
 		this.idpage = idpage;
 		this.nompage = nompage;
 		this.rang = rang;
-		/*this.visibilite = visibilite;*/
+		this.visibilite = visibilite;
 	}
 
 	public int getIdpage() {
@@ -39,15 +38,12 @@ public class Menu {
 		this.rang = rang;
 	}
 
-	
-
-	/*public Boolean getVisibilite() {
+	public Boolean getVisibilite() {
 		return visibilite;
 	}
 
 	public void setVisibilite(Boolean visibilite) {
 		this.visibilite = visibilite;
-	}*/
+	}
 
-		
 }

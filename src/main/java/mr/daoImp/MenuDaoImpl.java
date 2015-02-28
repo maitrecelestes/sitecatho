@@ -23,15 +23,9 @@ public class MenuDaoImpl implements MenuDao {
 			Statement stmt = connection.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT idpage, nompage, rang FROM page ORDER BY idpage");
+					.executeQuery("SELECT idpage, nompage, rang, visibilite FROM page ORDER BY idpage");
 			while (rs.next()) {
-				maListMenu.add(new Menu(rs.getInt("idpage"), rs
-						.getString("nompage"), rs.getInt("rang")/*
-																 * ,
-																 * rs.getBoolean
-																 * (
-																 * "visibilite")
-																 */));
+				maListMenu.add(new Menu(rs.getInt("idpage"), rs.getString("nompage"), rs.getInt("rang"), rs.getBoolean ("visibilite")));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -49,15 +43,10 @@ public class MenuDaoImpl implements MenuDao {
 			Statement stmt = connection.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT idpage, nompage, rang FROM page WHERE rang = 0 ORDER BY idpage");
+					.executeQuery("SELECT idpage, nompage, rang, visibilite FROM page WHERE visibilite=1 AND rang = 0 ORDER BY idpage");
 			while (rs.next()) {
 				maListMenuRang0.add(new Menu(rs.getInt("idpage"), rs
-						.getString("nompage"), rs.getInt("rang")/*
-																 * ,
-																 * rs.getBoolean
-																 * (
-																 * "visibilite")
-																 */));
+						.getString("nompage"), rs.getInt("rang"), rs.getBoolean ("visibilite")));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -77,19 +66,14 @@ public class MenuDaoImpl implements MenuDao {
 			Statement stmt = connection.createStatement();
 
 			ResultSet rs = stmt
-					.executeQuery("SELECT idpage, nompage, rang FROM PAGE WHERE rang =0 AND idpage>= "
+					.executeQuery("SELECT idpage, nompage, rang, visibilite FROM PAGE WHERE visibilite=1 AND rang=1 AND idpage>= "
 							+ premierRang0
 							+ " AND idpage<= "
 							+ secondRang0
 							+ " ORDER BY idpage");
 			while (rs.next()) {
 				maListMenuRang1Entre2Rang0.add(new Menu(rs.getInt("idpage"), rs
-						.getString("nompage"), rs.getInt("rang")/*
-																 * ,
-																 * rs.getBoolean
-																 * (
-																 * "visibilite")
-																 */));
+						.getString("nompage"), rs.getInt("rang"), rs.getBoolean ("visibilite")));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -155,11 +139,12 @@ public class MenuDaoImpl implements MenuDao {
 			Connection connection = DataSourceProvider.getDataSource()
 					.getConnection();
 			PreparedStatement stmt = connection.prepareStatement(
-					"INSERT INTO page(idpage, nompage, rang) VALUES(?,?,?)",
+					"INSERT INTO page(idpage, nompage, rang, visibilite) VALUES(?,?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, newMenu.getIdpage());
 			stmt.setString(2, newMenu.getNompage());
 			stmt.setInt(3, newMenu.getRang());
+			stmt.setBoolean(4, newMenu.getVisibilite());
 			stmt.executeUpdate();
 			connection.close();
 		} catch (SQLException e) {
@@ -183,7 +168,7 @@ public class MenuDaoImpl implements MenuDao {
 		}
 
 	}
-//////////////////////////////////////////////////////////////////////
+
 	@Override
 	public void supprimerLigneDansMenu(int idLignesupprimee) {
 		List<Menu> maListe = listerMenu();
