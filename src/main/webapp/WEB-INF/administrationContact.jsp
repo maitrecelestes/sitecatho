@@ -48,15 +48,17 @@
 							
 						</tr>
 						<c:forEach var="listeContact" items="${listeMessageContact}">
-								<tr class="ligneContact" id="information${listeContact.getIdMessage()}">
+								<tr>
 									<td id="test">${listeContact.getNom()}</td>
 									<td>${listeContact.getPrenom()}</td>
 									<td>${listeContact.getMail()}</td>
 									<td>${listeContact.getObjet()}</td>
 									<td>${listeContact.getDatePoste()} ${listeContact.getHeurePoste()}</td>
+									<td class="caseVoirMessage" id="information${listeContact.getIdMessage()}"><img src="Images/FlecheBas.png"/></td>
+									<td class="casesupprimer" id="supprimerid${listeContact.getIdMessage()}"><img src="Images/croix_supprimer.png"/></td>
 								</tr>
 								<tr class="cacher" id="contenu${listeContact.getIdMessage()}">
-									<td colspan="5">${listeContact.getContenu()}</td>
+									<td colspan="7">${listeContact.getContenu()}</td>
 								</tr>
 
 						</c:forEach>

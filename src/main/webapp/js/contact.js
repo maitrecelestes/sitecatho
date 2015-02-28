@@ -16,7 +16,7 @@ function envoieContact(){
 			}
 		})
 		alert("Votre message a bien été envoyé");
-		window.location.replace("http://localhost:8080/projet_catho/contact")
+		window.location.replace("contact")
 	} else {
 		alert("Vous n'avez pas remplis vos champs correctement");
 	}
