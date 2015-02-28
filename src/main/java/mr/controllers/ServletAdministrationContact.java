@@ -30,7 +30,11 @@ public class ServletAdministrationContact extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String idString=request.getParameter("idMessage");
+		int id=Integer.parseInt(idString);
+		contactDao.supprimerContact(id);
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
+		view.forward(request, response);
 	}
 
 }
