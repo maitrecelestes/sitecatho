@@ -64,8 +64,20 @@
 							<table>
 								<tr><td><label for="nompage">Nom de la nouvelle page : </label></td><td><input type="text" id="nompage" /></td></tr>
 								<tr><td><label for="nompageprecedente">Nom de la page precedente : </label></td>
-								<td><input type="text" id="nompageprecedente" /></td></tr>
-								<tr><td><label for="rang">Rang : </label></td><td><input type="text" id="rang" /></td></tr>
+								 <td><select name="nompageprecedente" id="nompageprecedente">
+								 	<option value="page_0"></option>
+						       		<c:forEach var="administrationMenu" items="${listeMenu}">
+										<option value="${administrationMenu.idpage}" ${administrationMenu.idpage}>${administrationMenu.nompage}</option>
+									</c:forEach>  
+						       	</select></td></tr>
+								
+						 		<tr><td><label name="rang">Rang : </label></td><td>
+								
+								<input type="radio" name="rang" id="rang1"  checked/><label for="rang1">Primaire</label>
+								<input type="radio" name="rang" id="rang2" /><label for="rang2">Secondaire</label>
+								
+								</td></tr>
+						 
 								<tr><td><label for="visibilite">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibilite" /></td></tr>
 								<tr><td colspan="2"><input id="ajouterMenu" type="button" value="Envoyer le message" width="100px;"></td></tr>
 							</table>

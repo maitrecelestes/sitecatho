@@ -15,15 +15,24 @@ function ajouteMenu(){
 			data:{
 				nompage:$("#nompage").val(),
 				nompageprecedente:$("#nompageprecedente").val(),
-				rang:$('#rang').val(),
+				rang:isChecked($('#rang1')),
+				
 				visibilite:$("#visibilite").val(),
 			}
 		})
 		alert("Votre menu a bien été ajouté");
-		window.location.replace("http://localhost:8080/projet_catho/administrationMenu")
+		window.location.replace("administrationMenu")
 	} else {
 		alert("Vous n'avez pas remplis vos champs correctement");
 	}
 	
 }
 $("#valider").click(function(){newHighScore();});
+
+
+function isChecked(checkbox) {
+    if(checkbox.is(':checked')) {
+        return true;
+    }
+    else { return false; }
+}
