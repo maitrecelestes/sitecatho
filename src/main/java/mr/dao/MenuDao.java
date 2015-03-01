@@ -25,7 +25,9 @@ public interface MenuDao {
 	//Fonction pour supprimer un menu
 		void supprimerMenu(int numeroArticle);
 		public void supprimerLigneDansMenu(int idLignesupprimee);
+		
 	
 	//Fonction pour modifier
+		public void modifierMenu(int nbPageModif, Menu nouveauMenuModif);
 }
 

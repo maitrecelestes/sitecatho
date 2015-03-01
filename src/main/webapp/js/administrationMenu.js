@@ -2,9 +2,6 @@ function popup(){
 	alert("Votre message a bien été envoyé.");
 }
 
-
-$("#ajouterMenu").click(function(){ajouteMenu();});
-
 function ajouteMenu(){
 	
 	if(true){
@@ -25,9 +22,34 @@ function ajouteMenu(){
 	} else {
 		alert("Vous n'avez pas remplis vos champs correctement");
 	}
+}
+$("#bouttonPourAjouterMenu").click(function(){ajouteMenu();});
+
+function ModifierMenu(){
+	
+	if(true){
+		$.ajax({
+			url:"administrationMenu",
+			type:"POST",
+			dataType:"json",
+			data:{
+				idModif:$("#idpageModif").text(),
+				nompageModif:$("#nompageModif").val(),
+				nompageprecedenteModif:$("#nompageprecedenteModif").val(),
+				rangModif:isChecked($('#rang0Modif')),
+				visibiliteModif:$("#visibiliteModif").val(),
+				maFonction:"fonctionModification"
+			}
+		})
+		alert("Votre menu a bien été modifié");
+		window.location.replace("administrationMenu")
+	} else {
+		alert("Vous n'avez pas remplis vos champs correctement");
+	}
 	
 }
-$("#valider").click(function(){newHighScore();});
+$("#bouttonPourModifierMenu").click(function(){ModifierMenu();});
+
 
 
 function isChecked(checkbox) {
@@ -93,7 +115,8 @@ function recuperationid(nomid){
 //Ajout Menu
 var afficheAjoutMenu=true;
 function montrerAjoutMenu(event){
-
+	$(".bouttonModifierMenu").hide();
+	$(".classModificationMenu").hide();
 	if(afficheAjoutMenu){
 		$(".classAjoutMenu").show();
 		afficheAjoutMenu=false;
@@ -109,18 +132,27 @@ $(".classAjoutMenu").hide();
 
 
 function montrerModifierMenu(event){
+	$(".classAjoutMenu").hide();
 	$(".bouttonModifierMenu").show();
 	$(".classModificationMenu").show();
 	var id=recuperationid(event.currentTarget.id);
-	var idnom="idnompage"+id;
-	alert(idnom);
-	var montext1=$("#"+idnom);
-	alert(montext1);
-	var montext=$("#idnompage2").val();
-	alert(montext);
+	$("#idpageModif").text(id);
+	$("#nompageModif").attr("value",$("#idnompage"+id).text());
+	var rangChoisi =$("#idrang"+id).text(); 
+	$("#rang"+rangChoisi+"Modif").prop('checked', true);
+	if($("#idvisibilite"+id).text()=="false"){
+		$("#visibiliteModif").prop('checked', false);
+	}else{
+		$("#visibiliteModif").prop('checked', true);
+	}	
+	var id1=id-1;
+	$("#nompageprecedenteModif"+id1).attr('selected',"selected");
 	
 }
+
+
 function cacherModifierMenu(event){
+	$(".classAjoutMenu").hide();
 	$(".bouttonModifierMenu").hide();
 	$(".classModificationMenu").hide();
 }

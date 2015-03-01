@@ -111,6 +111,7 @@ public class MenuDaoImpl implements MenuDao {
 	//Ajouter un nouveau menu : besoin id precedent et nouveau menu
 	@Override
 	public void ajouterNouveauMenu(int idLigneprecedente, Menu nouveauMenu) {
+		
 		List<Menu> maListe = listeChangerOrdreNouveauId(idLigneprecedente,nouveauMenu);
 		regenererBaseDeDonneesMenu(maListe);
 	}
@@ -119,9 +120,11 @@ public class MenuDaoImpl implements MenuDao {
 	@Override
 	public List<Menu>  listeChangerOrdreNouveauId(int idLigneprecedente,
 			Menu nouveauMenu) {
+		
 		List<Menu> maListe = listerMenu();
 		List<Menu> maNewListe = new ArrayList<Menu>();
-		if(idLigneprecedente==-1){
+		if(idLigneprecedente==1000){
+			nouveauMenu.setIdpage(0);
 			maNewListe.add(nouveauMenu);
 			for(int i=0; i < maListe.size() ; i++){
 				maListe.get(i).setIdpage(i+1);
@@ -194,7 +197,18 @@ public class MenuDaoImpl implements MenuDao {
 		}
 		regenererBaseDeDonneesMenu(maNewListe);
 	}
+
+	@Override
+	public void modifierMenu(int nbPageModif, Menu nouveauMenuModif) {
+		int nbnouveauMenuModif=nouveauMenuModif.getIdpage();
+		if(nbPageModif> nouveauMenuModif.getIdpage() && nbPageModif!=1000){
+			//pb descente
+			ajouterNouveauMenu(nbPageModif, nouveauMenuModif);
+			supprimerLigneDansMenu(nbnouveauMenuModif);
+		}else{
+			supprimerLigneDansMenu(nbnouveauMenuModif);
+			ajouterNouveauMenu(nbPageModif, nouveauMenuModif);
+		}	
+	}
 	
-
-
 }
