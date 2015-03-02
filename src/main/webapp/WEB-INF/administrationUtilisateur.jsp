@@ -57,7 +57,7 @@
 									<td>${listeUtilisateur.getRang()}</td>
 									<td>${listeUtilisateur.getEcole()}</td>
 									<td class="caseVoirMessage"><img src="Images/FlecheBas.png"/></td>
-									<td class="casesupprimer"><img src="Images/croix_supprimer.png"/></td>
+									<td class="casesupprimer" id="${listeUtilisateur.getMail()}"><img src="Images/croix_supprimer.png"/></td>
 								</tr>
 						</c:forEach>
 								<tr>

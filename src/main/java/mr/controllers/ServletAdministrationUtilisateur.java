@@ -33,27 +33,33 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String mail=request.getParameter("mail");
-		String nom=request.getParameter("nom");
-		String prenom=request.getParameter("prenom");
-		String ecole=request.getParameter("ecole");
-		String rang=request.getParameter("rang");
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateNaissance=request.getParameter("dateDeNaissance");
-		Date dateNaissanceDate;
-		try {
-			dateNaissanceDate = (Date) formatter.parse(dateNaissance);
-			java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissanceDate.getTime());
-			Utilisateur utilisateur=new Utilisateur(mail,"mdp",nom,prenom,datenaissanceSQL,rang,ecole);
-			utilisateurdao.ajouterUtilisateur(utilisateur);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String requete=request.getParameter("requete");
+		System.out.println("test"+requete);
+		if (requete.equals("inscription")){
+			String mail=request.getParameter("mail");
+			String nom=request.getParameter("nom");
+			String mdp=request.getParameter("mdp");
+			String prenom=request.getParameter("prenom");
+			String ecole=request.getParameter("ecole");
+			String rang=request.getParameter("rang");
+			
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			String dateNaissance=request.getParameter("dateDeNaissance");
+			Date dateNaissanceDate;
+			try {
+				dateNaissanceDate = (Date) formatter.parse(dateNaissance);
+				java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissanceDate.getTime());
+				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,datenaissanceSQL,rang,ecole);
+				utilisateurdao.ajouterUtilisateur(utilisateur);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if (requete.equals("suppression")){
+			String mail=request.getParameter("mail");
+			utilisateurdao.supprimerUtilisateur(mail);
 		}
 		
-		
-		System.out.println(dateNaissance);
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 		view.forward(request, response);
