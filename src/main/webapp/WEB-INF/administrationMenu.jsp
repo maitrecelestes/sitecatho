@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
 	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
-	<script type="text/javascript" src="js/menu.js"></script>
+	
 	<title>AdministrationMenu</title>
 </head>
 <body>
@@ -129,4 +129,5 @@
 		</footer>
 	</div>
 	<script type="text/javascript" src="js/administrationMenu.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
 </body>
