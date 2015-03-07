@@ -56,7 +56,7 @@
 									<td>${listeUtilisateur.getDateDeNaissance()}</td>
 									<td>${listeUtilisateur.getRang()}</td>
 									<td>${listeUtilisateur.getEcole()}</td>
-									<td class="caseVoirMessage"><img src="Images/FlecheBas.png"/></td>
+									<td class="caseModifierUtilisateur${listeUtilisateur.getMail()}"><img src="Images/FlecheBas.png"/></td>
 									<td class="casesupprimer" id="${listeUtilisateur.getMail()}"><img src="Images/croix_supprimer.png"/></td>
 								</tr>
 						</c:forEach>
@@ -74,6 +74,14 @@
 								<tr><td><label for="newRang">Rang :</label></td><td><input type="text" id="newRang"/><br/></td></tr>
 								<tr><td><label for="newRang">Ecole :</label></td><td><input type="text" id="newEcole"/><br/></td></tr>
 								<tr><td colspan="2" id="caseajouterUtilisateur"><input type="button" value="ajouter cet Utilisateur"/></td></tr>
+							</table>
+						</div>	
+						<div id="modifierUtilisateur">
+							<h3>Modifier le rang d'un utilisateur</h3>
+							<table>
+								<tr><td><label for="modMail">Mail :</label></td><td><input type="email" id="modMail"/><br/></td></tr>
+								<tr><td><label for="modRang">Rang :</label></td><td><input type="text" id="modRang"/><br/></td></tr>
+								<tr><td colspan="2" id="casemodifierUtilisateur"><input type="button" value="modifier cet Utilisateur"/></td></tr>
 							</table>
 						</div>						
 				</section>
