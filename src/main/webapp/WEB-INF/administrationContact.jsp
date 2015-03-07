@@ -37,7 +37,7 @@
 				<section id="articles"> 
 					<!-- ARTICLES -->
 					<article>
-						<h3>Liste des messages envoyés</h3>
+						<h3>Liste des messages reçue via Contact</h3>
 						<table id="tabListeContact">
 						<tr>
 							<th>  Nom  </th>

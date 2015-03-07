@@ -34,7 +34,6 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requete=request.getParameter("requete");
-		System.out.println("test"+requete);
 		if (requete.equals("inscription")){
 			String mail=request.getParameter("mail");
 			String nom=request.getParameter("nom");

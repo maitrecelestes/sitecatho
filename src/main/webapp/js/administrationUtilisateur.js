@@ -31,7 +31,7 @@ function ajouterUtilisateur(event){
 				mail:$("#newMail").val(),
 				nom:$("#newNom").val(),
 				prenom:$("#newPrenom").val(),
-				mdp:"mdp",
+				mdp:$("#newMdp").val(),
 				dateDeNaissance:$("#newDateNaissance").val(),
 				rang:$("#newRang").val(),
 				ecole:$("#newEcole").val()
@@ -42,6 +42,12 @@ function ajouterUtilisateur(event){
 	}
 }
 $("#caseajouterUtilisateur").click(function(){ajouterUtilisateur(event);});
+
+function montrerFormulaireCreationUtilisateur(event){
+	$("#ajoutUtilisateur").show();
+	$("#montrerFormCreationUtilisateur").hide();
+}
+$("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur(event);});
 
 function supprimerUtilisateur(event){
 	var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur : "+event.currentTarget.id);

@@ -3,11 +3,11 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	
-	<link rel="stylesheet" type="text/css" href="css/administrationContact.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationUtilisateur.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
 	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
 	<script type="text/javascript" src="js/menu.js"></script>
-	<title>Administration des messages envoyé via contact</title>
+	<title>Administration des utilisateurs</title>
 </head>
 <body>
 	<div id="blocktotal">
@@ -37,8 +37,8 @@
 				<section id="articles"> 
 					<!-- ARTICLES -->
 					<article>
-						<h3>Liste des messages envoyés</h3>
-						<table id="tabListeContact">
+						<h3>Liste des utilisateurs</h3>
+						<table id="tabListeUtilisateur">
 						<tr>
 							<th>  Mail  </th>
 							<th>  Nom  </th>								
@@ -60,17 +60,22 @@
 									<td class="casesupprimer" id="${listeUtilisateur.getMail()}"><img src="Images/croix_supprimer.png"/></td>
 								</tr>
 						</c:forEach>
-								<tr>
-									<td><input type="email" id="newMail"/></td>
-									<td><input type="text" id="newNom"/></td>
-									<td><input type="text" id="newPrenom"/></td>
-									<td><input type="date" id="newDateNaissance"/></td>
-									<td><input type="text" id="newRang"/></td>
-									<td><input type="text" id="newEcole"/></td>
-									<td colspan="2" id="caseajouterUtilisateur"><b><strong>+</strong></b></td>
-								</tr>
-							
 						</table>
+						<input type="button" value="Creer un utilisateur" id="montrerFormCreationUtilisateur"/>
+						<div id="ajoutUtilisateur">
+							<h3>Creer un nouvel utilisateur</h3>
+							<table>
+								<tr><td><label for="newMail">Mail :</label></td><td><input type="email" id="newMail"/><br/></td></tr>
+								<tr><td><label for="newPrenom">Prenom :</label></td><td><input type="text" id="newPrenom"/><br/></td></tr>
+								<tr><td><label for="newNom">Nom :</label></td><td><input type="text" id="newNom"/><br/></td></tr>
+								<tr><td><label for="newDate">Date de naissance :</label></td><td><input type="date" id="newDateNaissance"/><br/></td></tr>
+								<tr><td><label for="newMdp">Mot de passe :</label></td><td><input type="password" id="newMdp"/><br/></td></tr>
+								<tr><td><label for="newConfMdp"> Retapez le mot de passe :</label></td><td><input type="password" id="newConfMdp"/><br/></td></tr>
+								<tr><td><label for="newRang">Rang :</label></td><td><input type="text" id="newRang"/><br/></td></tr>
+								<tr><td><label for="newRang">Ecole :</label></td><td><input type="text" id="newEcole"/><br/></td></tr>
+								<tr><td colspan="2" id="caseajouterUtilisateur"><input type="button" value="ajouter cet Utilisateur"/></td></tr>
+							</table>
+						</div>						
 				</section>
 		</div>
 		<footer>

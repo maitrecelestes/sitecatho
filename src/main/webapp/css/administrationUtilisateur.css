@@ -1,0 +1,15 @@
+#tabListeUtilisateur {
+	width:				100%;
+	border-collapse: collapse;
+	
+}
+#tabListeUtilisateur td,#tabListeUtilisateur th{
+	border:				solid;
+	text-align:			center;
+}
+#ajoutUtilisateur {
+	display:			none;
+	margin-top:			30px;
+	margin-left:		auto;
+	margin-right:		auto;
+}
