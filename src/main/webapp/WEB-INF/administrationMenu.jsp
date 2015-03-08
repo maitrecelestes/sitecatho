@@ -2,11 +2,8 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	
 	<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
-	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
-	
 	<title>AdministrationMenu</title>
 </head>
 <body>
@@ -35,6 +32,10 @@
 					</table>
 				</section>
 				<section id="articles"> 
+				<!-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+					<c:import url="affichageArticle.jsp">
+				</c:import> -->
+				
 					<!-- ARTICLES -->
 					<article>
 						<h3>Tableau indiquant toutes les pages</h3>
@@ -130,4 +131,5 @@
 	</div>
 	<script type="text/javascript" src="js/administrationMenu.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>

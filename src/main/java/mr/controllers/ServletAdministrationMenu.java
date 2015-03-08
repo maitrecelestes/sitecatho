@@ -24,7 +24,7 @@ public class ServletAdministrationMenu extends HttpServlet {
 	private MenuDao menuDao = new MenuDaoImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+				
 		List<Menu> maListeMenu = menuDao.listerMenu() ;
 		request.setAttribute("listeMenu", maListeMenu);
 		

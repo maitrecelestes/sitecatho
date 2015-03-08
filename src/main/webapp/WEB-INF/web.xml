@@ -11,6 +11,15 @@
     <url-pattern>/ServletMenu</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+   <servlet-name>ServletArticle</servlet-name>
+    <servlet-class>mr.controllers.ServletArticle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletArticle</servlet-name>
+    <url-pattern>/ServletArticle</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>accueil</welcome-file>
   </welcome-file-list>
