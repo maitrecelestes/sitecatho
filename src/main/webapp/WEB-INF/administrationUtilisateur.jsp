@@ -56,7 +56,7 @@
 									<td>${listeUtilisateur.getDateDeNaissance()}</td>
 									<td>${listeUtilisateur.getRang()}</td>
 									<td>${listeUtilisateur.getEcole()}</td>
-									<td class="caseModifierUtilisateur${listeUtilisateur.getMail()}"><img src="Images/FlecheBas.png"/></td>
+									<td class= "caseModifierUtilisateur" id="caseModifierUtilisateur${listeUtilisateur.getMail()}"><img src="Images/FlecheBas.png"/></td>
 									<td class="casesupprimer" id="${listeUtilisateur.getMail()}"><img src="Images/croix_supprimer.png"/></td>
 								</tr>
 						</c:forEach>

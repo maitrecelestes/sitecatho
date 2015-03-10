@@ -7,7 +7,7 @@
 	border:				solid;
 	text-align:			center;
 }
-#ajoutUtilisateur {
+#ajoutUtilisateur, #modifierUtilisateur {
 	display:			none;
 	margin-top:			30px;
 	margin-left:		auto;

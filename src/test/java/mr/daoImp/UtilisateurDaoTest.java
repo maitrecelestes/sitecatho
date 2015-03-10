@@ -68,6 +68,19 @@ public class UtilisateurDaoTest {
 	}
 	
 	@Test
+	public void testmodifierUtilisateur() throws Exception{
+		utilisateurDao.modifierUtilisateur("henri.malos@isa.fr","admin");
+		
+		Connection connection = DataSourceProvider.getDataSource().getConnection();
+		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM utilisateur WHERE email=?");
+		stmt.setString(1, "henri.malos@isa.fr");
+		ResultSet rs = stmt.executeQuery();
+		
+		Assert.assertTrue(rs.next());
+		Assert.assertEquals("admin", rs.getString("rang"));
+	}
+	
+	@Test
 	public void testSupprimerUtilisateur() throws Exception{
 		utilisateurDao.supprimerUtilisateur("henri.malos@isa.fr");
 		

@@ -96,6 +96,20 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		}	
 		
 	}
+	public void modifierUtilisateur(String mail, String rang) {
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("UPDATE `utilisateur`SET rang=? WHERE email=?");
+			stmt.setString(1,rang);
+			stmt.setString(2,mail); 
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+	}
 
 	@Override
 	public boolean authentificationUtilisateur(Utilisateur utilisateur) {
@@ -110,8 +124,6 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			stmt.setString(1,utilisateur.getMail()); 
 			ResultSet results = stmt.executeQuery();
 			while(results.next()){
-				System.out.println(results.getString("motDePasse"));
-				System.out.println(mdpCrypte);
 				if(mdpCrypte.equals(results.getString("motDePasse"))){
 					rep=true;
 				}

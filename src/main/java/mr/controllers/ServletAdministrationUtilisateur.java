@@ -17,6 +17,8 @@ import mr.dao.UtilisateurDao;
 import mr.daoImp.UtilisateurDaoImp;
 import mr.entities.Utilisateur;
 
+
+
 @WebServlet("/administrationUtilisateur")
 public class ServletAdministrationUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -57,6 +59,10 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 		} else if (requete.equals("suppression")){
 			String mail=request.getParameter("mail");
 			utilisateurdao.supprimerUtilisateur(mail);
+		} else if (requete.equals("modification")){
+			String mail=request.getParameter("mail");
+			String rang=request.getParameter("rang");
+			utilisateurdao.modifierUtilisateur(mail,rang);
 		}
 		
 		

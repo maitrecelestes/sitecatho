@@ -1,17 +1,4 @@
-function recuperationid(nomid){
-	var centaine="",dizaine="",unite=0;
-	if(nomid.length >13){
-		centaire=nomid[11];
-		dizaine=nomid[12];
-		unite=nomid[11];
-	} else if(nomid.length > 12){
-		dizaine=nomid[11];
-		unite=nomid[12];
-	}else {
-		unite=nomid[11];
-	}
-	return centaine+dizaine+unite;
-}
+// Ajouter utilisateur
 
 function ajouterUtilisateur(event){
 	if($("#newMail").val().length>3&&$("#newNom").val().length>2&&$("#newPrenom").val().length>3&&$("#newEcole").val().length>1){
@@ -46,9 +33,11 @@ $("#caseajouterUtilisateur").click(function(){ajouterUtilisateur(event);});
 function montrerFormulaireCreationUtilisateur(event){
 	$("#ajoutUtilisateur").show();
 	$("#montrerFormCreationUtilisateur").hide();
+	$("#modifierUtilisateur").hide();
 }
 $("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur(event);});
 
+// Supprimer utilisateur
 function supprimerUtilisateur(event){
 	var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur : "+event.currentTarget.id);
 	if(confirmation){
@@ -66,3 +55,35 @@ function supprimerUtilisateur(event){
 	}
 }
 $(".casesupprimer").click(function(){supprimerUtilisateur(event);});
+
+// MODIFIER UTILISATEUR
+function montrerFormulaireModifierUtilisateur(event){
+	$("#modifierUtilisateur").show();
+	$("#ajoutUtilisateur").hide();
+	var mail="";
+	for (var i=23;i<event.currentTarget.id.length;i++){
+		mail=mail+event.currentTarget.id[i];
+	}
+	$("#modMail").val(mail);
+}
+$(".caseModifierUtilisateur").click(function(){montrerFormulaireModifierUtilisateur(event);});
+
+function modifierUtilisateur(event){
+	var confirmation= confirm("Etes vous sur de vouloir modifier cet utilisateur ?");
+	if(confirmation){
+		$.ajax({
+			url:"administrationUtilisateur",
+			type:"POST",
+			dataType:"json",
+			data:{
+				requete:"modification",
+				mail:$("#modMail").val(),
+				rang:$("#modRang").val()
+			}
+		})
+		alert("L'utilisateur a bien été modifié!");
+		window.location.replace("administrationUtilisateur");
+	}
+}
+$("#casemodifierUtilisateur").click(function(){modifierUtilisateur(event);});
+
