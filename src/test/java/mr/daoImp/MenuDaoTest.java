@@ -26,7 +26,7 @@ public class MenuDaoTest {
 		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`,`visibilite`) VALUES (0,'Antenne',0,1)");
 		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`,`visibilite`) VALUES (1,'Antenne Inge',1,0)");
 		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`,`visibilite`) VALUES (2,'Antenne Droit',1,1)");
-		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`,`visibilite`) VALUES (3,'Accueil',0,1)");
+		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`,`visibilite`) VALUES (3,'AdministrationMenu',0,1)");
 		stmt.executeUpdate("INSERT INTO `page`(`idpage`,`nompage`,`rang`,`visibilite`) VALUES (4,'maPage4',0,0)");
 		stmt.close();
 		connection.close();
@@ -61,7 +61,7 @@ public class MenuDaoTest {
 		List<Menu> menu = menuDao.listerMenu();
 		Assert.assertEquals(4, menu.size());
 		Assert.assertEquals(3, menu.get(2).getIdpage());
-		Assert.assertEquals("Accueil", menu.get(2).getNompage());
+		Assert.assertEquals("AdministrationMenu", menu.get(2).getNompage());
 	}
 	
 	@Test
@@ -87,7 +87,7 @@ public class MenuDaoTest {
 		Assert.assertEquals("Antenne Inge", newMenu.get(1).getNompage());
 		Assert.assertEquals("maNouvellePage", newMenu.get(2).getNompage());
 		Assert.assertEquals("Antenne Droit", newMenu.get(3).getNompage());
-		Assert.assertEquals("Accueil", newMenu.get(4).getNompage());
+		Assert.assertEquals("AdministrationMenu", newMenu.get(4).getNompage());
 	}
 	
 	@Test
@@ -108,7 +108,7 @@ public class MenuDaoTest {
 		Assert.assertEquals("Antenne Inge", menu.get(1).getNompage());
 		Assert.assertEquals("maNouvellePage", menu.get(2).getNompage());
 		Assert.assertEquals("Antenne Droit", menu.get(3).getNompage());
-		Assert.assertEquals("Accueil", menu.get(4).getNompage());
+		Assert.assertEquals("AdministrationMenu", menu.get(4).getNompage());
 	}
 	
 	@Test
@@ -118,7 +118,7 @@ public class MenuDaoTest {
 		Assert.assertEquals(4, menu.size());
 		Assert.assertEquals("Antenne", menu.get(0).getNompage());
 		Assert.assertEquals("Antenne Inge", menu.get(1).getNompage());
-		Assert.assertEquals("Accueil", menu.get(2).getNompage());
+		Assert.assertEquals("AdministrationMenu", menu.get(2).getNompage());
 		Assert.assertEquals(2, menu.get(2).getIdpage());
 	}
 	

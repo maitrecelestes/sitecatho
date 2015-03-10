@@ -63,32 +63,8 @@ nav {
 	min-width: 					30%;
 	height:						150px;
 }
-article img {
-	max-height: 				500px;
-	max-width: 					500px;
-	display:					block;
-	margin-left:				auto;
-	margin-right:				auto;
-}
 
-article {
-	background-color:			#E1D9D1;
-	padding:					5px;				
-	border-radius:				10px;
-	margin:						10px;
-	margin-top:					20px;
-}
 
-#articles {
-	background-color:			#E1D9D1;
-	width:						80%;
-	border-radius:				10px;
-	float:						right;
-	clear:						right;
-	margin:						10px;
-	margin-left: 				5px;
-	min-height:					500px;
-}
 #diapo {
 	height:						120px;
 }
@@ -106,20 +82,3 @@ footer {
 }
 
 
-.titreActicle{
-	margin-bottom:				10px;
-	display:					block;
-	width: 						100%;
-	text-align:					center;
-	border-top-left-radius:	 	5px;
-	border-top-right-radius:	5px;
-	text-decoration: 			underline;
-	font-size:					30px;
-}
-
-.paragrapheArticle{
-	margin-left: 				10px;
-	margin-top: 				0px;
-	border-radius: 				5px;
-	border-top-left-radius:	 	0px;
-}

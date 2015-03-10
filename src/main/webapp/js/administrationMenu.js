@@ -59,7 +59,7 @@ function isChecked(checkbox) {
     else { return false; }
 }
 
-function supprimerMessage(event){
+function supprimerMenu(event){
 	var id=recuperationid(event.currentTarget.id);
 	var confirmation= confirm("Etes vous sur de vouloir supprimer ce message?");
 	if(confirmation){
@@ -76,7 +76,9 @@ function supprimerMessage(event){
 		window.location.replace("administrationMenu");
 	}
 }
-$(".casesupprimer").click(function(){supprimerMessage(event);});
+$(".casesupprimer").click(function(){supprimerMenu(event);});
+
+
 
 //Recuperer id
 function recuperationid(nomid){
