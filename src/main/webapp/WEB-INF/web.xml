@@ -1,47 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>projet_catho</display-name>
-
   <servlet>
-   <servlet-name>ServletMenu</servlet-name>
+    <servlet-name>ServletMenu</servlet-name>
     <servlet-class>mr.controllers.ServletMenu</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletMenu</servlet-name>
     <url-pattern>/ServletMenu</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-   <servlet-name>ServletArticle</servlet-name>
+    <servlet-name>ServletArticle</servlet-name>
     <servlet-class>mr.controllers.ServletArticle</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletArticle</servlet-name>
     <url-pattern>/ServletArticle</url-pattern>
   </servlet-mapping>
-  
   <welcome-file-list>
     <welcome-file>accueil</welcome-file>
   </welcome-file-list>
-  
-  <!-- <servlet>
-    <description></description>
-    <display-name>ServletContact</display-name>
-    <servlet-name>ServletContact</servlet-name>
-    <servlet-class>mr.controllers.ServletContact</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletContact</servlet-name>
-    <url-pattern>/ServletContact</url-pattern>
-  </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ServletAdministrationContact</display-name>
-    <servlet-name>ServletAdministrationContact</servlet-name>
-    <servlet-class>mr.controllers.ServletAdministrationContact</servlet-class>
+    <display-name>ServletConnexion</display-name>
+    <servlet-name>ServletConnexion</servlet-name>
+    <servlet-class>mr.controllers.ServletConnexion</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletAdministrationContact</servlet-name>
-    <url-pattern>/ServletAdministrationContact</url-pattern>
-  </servlet-mapping> -->
+    <servlet-name>ServletConnexion</servlet-name>
+    <url-pattern>/ServletConnexion</url-pattern>
+  </servlet-mapping>
 </web-app>
