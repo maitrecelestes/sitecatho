@@ -7,6 +7,8 @@ import mr.entities.Utilisateur;
 public interface UtilisateurDao {
 	public List<Utilisateur> afficherListeUtilisateur();
 	
+	public Utilisateur afficherUtilisateur(String login);
+	
 	public void ajouterUtilisateur (Utilisateur newUtilisateur);
 	
 	public void supprimerUtilisateur (String mail);

@@ -21,7 +21,8 @@ function ajouterUtilisateur(event){
 				mdp:$("#newMdp").val(),
 				dateDeNaissance:$("#newDateNaissance").val(),
 				rang:$("#newRang").val(),
-				ecole:$("#newEcole").val()
+				ecole:$("#newEcole").val(),
+				pageGere:$("#pageGere").val()
 			}
 		})
 		alert("L'utilisateur a bien été ajouté!");

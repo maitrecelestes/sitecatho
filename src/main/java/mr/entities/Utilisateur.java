@@ -10,8 +10,9 @@ public class Utilisateur {
 	private Date dateDeNaissance;
 	private String rang;
 	private String ecole;
+	private String pageGere;
 	
-	public Utilisateur (String mail, String mdp,String nom, String prenom, Date dateDeNaissance, String rang, String ecole){
+	public Utilisateur (String mail, String mdp,String nom, String prenom, Date dateDeNaissance, String rang, String ecole,String pageGere){
 		this.mail=mail;
 		this.mdp=mdp;
 		this.nom=nom;
@@ -19,6 +20,7 @@ public class Utilisateur {
 		this.dateDeNaissance=dateDeNaissance;
 		this.rang=rang;
 		this.ecole=ecole;
+		this.pageGere=pageGere;
 	}
 	public Utilisateur (String mail,String mdp){
 		this.mail=mail;
@@ -50,6 +52,9 @@ public class Utilisateur {
 
 	public String getEcole() {
 		return ecole;
+	}
+	public String getPageGere() {
+		return pageGere;
 	}
 	
 }

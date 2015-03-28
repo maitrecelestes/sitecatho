@@ -45,6 +45,15 @@ public class UtilisateurDaoTest {
 	}
 	
 	@Test
+	public void testUtilisateur() {
+		Utilisateur utilisateur=utilisateurDao.afficherUtilisateur("romain.soenen@hei.fr");
+		Assert.assertEquals("soenen", utilisateur.getNom());
+		Assert.assertEquals("romain", utilisateur.getPrenom());
+	
+		
+	}
+	
+	@Test
 	public void testAjouterUtilisateur() throws Exception{
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String dateNaissanceString = "1993-03-12";
@@ -52,7 +61,7 @@ public class UtilisateurDaoTest {
 		Date dateNaissance = (Date) formatter.parse(dateNaissanceString);
 		
 		java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissance.getTime());
-		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN");
+		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN",null);
 		utilisateurDao.ajouterUtilisateur(utilisateur);
 		
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
@@ -100,7 +109,7 @@ public class UtilisateurDaoTest {
 		Date dateNaissance = (Date) formatter.parse(dateNaissanceString);
 		
 		java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissance.getTime());
-		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN");
+		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN",null);
 		utilisateurDao.ajouterUtilisateur(utilisateur);
 		
 		Boolean rep=utilisateurDao.authentificationUtilisateur(new Utilisateur("florian.dupond@isen.fr","florian1995"));

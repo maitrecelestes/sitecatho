@@ -32,8 +32,10 @@ public class ServletConnexion extends HttpServlet {
 		Utilisateur utilisateur= new Utilisateur(mail,mdp);
 		boolean authentificationReussi= utilisateurdao.authentificationUtilisateur(utilisateur);
 		if(authentificationReussi){
+			Utilisateur utilisateurConnecte= utilisateurdao.afficherUtilisateur(mail);
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utilisateurConnecte", mail);
+			session.setAttribute("rang", utilisateurConnecte.getRang());
 		}
 		
 

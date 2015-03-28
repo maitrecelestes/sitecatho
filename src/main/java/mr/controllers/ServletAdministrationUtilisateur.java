@@ -43,6 +43,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			String prenom=request.getParameter("prenom");
 			String ecole=request.getParameter("ecole");
 			String rang=request.getParameter("rang");
+			String pageGere=request.getParameter("pageGere");
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			String dateNaissance=request.getParameter("dateDeNaissance");
@@ -50,7 +51,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			try {
 				dateNaissanceDate = (Date) formatter.parse(dateNaissance);
 				java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissanceDate.getTime());
-				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,datenaissanceSQL,rang,ecole);
+				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,datenaissanceSQL,rang,ecole,pageGere); //pageGERE !!!!
 				utilisateurdao.ajouterUtilisateur(utilisateur);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block

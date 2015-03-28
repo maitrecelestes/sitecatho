@@ -23,7 +23,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` ORDER BY `email` ASC ");
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
-				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"), results.getDate("dateDeNaissance"),results.getString("rang"),results.getString("ecole"));
+				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"), results.getDate("dateDeNaissance"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
 				listeUtilisateur.add(utilisateur);
 			}
 			
@@ -32,6 +32,24 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			e.printStackTrace();
 		}
 		return listeUtilisateur;
+	}
+	
+	public Utilisateur afficherUtilisateur(String login) {
+		Connection connection;
+		Utilisateur utilisateur=null;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` WHERE email=? ORDER BY `email` ASC ");
+			stmt.setString(1, login);
+			ResultSet results = stmt.executeQuery();
+			while(results.next()){
+				utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"), results.getDate("dateDeNaissance"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return utilisateur;
 	}
 	
 	public String HashMyPassword(String password) throws Exception{
