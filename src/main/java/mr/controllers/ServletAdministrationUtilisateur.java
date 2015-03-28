@@ -60,7 +60,9 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 		} else if (requete.equals("modification")){
 			String mail=request.getParameter("mail");
 			String rang=request.getParameter("rang");
-			utilisateurdao.modifierUtilisateur(mail,rang);
+			String ecole=request.getParameter("ecole");
+			String pageGere=request.getParameter("pageGere");
+			utilisateurdao.modifierUtilisateur(mail,rang,ecole,pageGere);
 		}
 		
 		

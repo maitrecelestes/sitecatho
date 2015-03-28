@@ -26,7 +26,6 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
-				ma photo
 		  </div>
 		  
 		  <div id="blocArticle">

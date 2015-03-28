@@ -38,19 +38,9 @@
 						<input type="button" class="boutont8" value="Citation" onclick="insertTag('', '', 'textarea', 'citation')" />
 					</td></tr>
 					<tr><td><label for="contenu">Votre article :</label></td><td><textarea id="contenu"></textarea></td></tr>
-					<tr><td><label for="pageassocie">Page où poster cet article :</label>
+					<tr><td><label for="pageassocie">Page o� poster cet article :</label>
 					</td><td> 
-					<select name="pageassocie">
-						<option value="value1">Antenne ingénieur</option> 
-							<option value="value2" selected>Antenne droit</option>
-							<option value="value3">Antenne commerce</option>
-							<option value="value4">Le bureau</option>
-						</select>
-					</td></tr><tr><td>
-								<label for="visibleaccueil">Visible dans l'accueil :</label></td><td>
-								<input type="radio" name="visibleaccueil" value="Oui" checked /><span>Oui</span>
-								<input type="radio" name="visibleaccueil" value="Non"/> <span>Non</span>
-						</td></tr>
+					<input type="text" value="Antenne" id="pageArticle"/>
 					<tr><td colspan="2"><input id="envoyer" type="button" onclick="popup()" value="Poster l'article" width="100px;"></td></tr>
 				</table>
 			</form>

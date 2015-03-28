@@ -68,6 +68,28 @@ function montrerFormulaireModifierUtilisateur(event){
 }
 $(".caseModifierUtilisateur").click(function(){montrerFormulaireModifierUtilisateur(event);});
 
+
+function cacherNewGerePage(){
+	if ($("#newRang option:selected").val()=="administrateur"){
+		$("#pageGeretr").hide();
+	} else {
+		$("#pageGeretr").show();
+	}	
+}
+$( "#newRang" ).change(function() {
+	cacherGerePage();
+});
+
+function cacherModifGerePage(){
+	if ($("#modRang option:selected").val()=="administrateur"){
+		$("#modpageGeretr").hide();
+	} else {
+		$("#modpageGeretr").show();
+	}	
+}
+$( "#modRang" ).change(function() {
+	cacherModifGerePage();
+});
 function modifierUtilisateur(event){
 	var confirmation= confirm("Etes vous sur de vouloir modifier cet utilisateur ?");
 	if(confirmation){
@@ -78,7 +100,9 @@ function modifierUtilisateur(event){
 			data:{
 				requete:"modification",
 				mail:$("#modMail").val(),
-				rang:$("#modRang").val()
+				rang:$("#modRang").val(),
+				ecole:$("#modEcole").val(),
+				pageGere:$("#modPageGere").val()
 			}
 		})
 		alert("L'utilisateur a bien été modifié!");
