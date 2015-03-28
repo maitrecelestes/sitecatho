@@ -48,35 +48,13 @@ $(document).ready(function() {
 function choixPage(nomDepage){
 	
 	var urlPage="maPageClassique";
-	if(nomDepage=="AdministrationMenu"){
-		urlPage= "administrationMenu";
-	}else	if(nomDepage=="AdministrationContact"){
-		urlPage= "administrationContact";
-	}else	if(nomDepage=="Administrationutilisateur"){
-		urlPage= "administrationUtilisateur";
-	}else	if(nomDepage=="Accueil"){
-		urlPage= "acceuil";
-	}
-	////////////////////////////////////////////A completer pour les pages predefinies
 	return urlPage;
 	
 }
 
 function choixPagenom(nomDepage){
 	
-	var urlPage="";
-	if(nomDepage=="AdministrationMenu"){
-		urlPage= "administrationMenu";
-	}else	if(nomDepage=="AdministrationContact"){
-		urlPage= "administrationContact";
-	}else	if(nomDepage=="Administrationutilisateur"){
-		urlPage= "administrationUtilisateur";
-	}else	if(nomDepage=="Accueil"){
-		urlPage= "acceuil";
-	}else{
-		urlPage=nomDepage;
-	}
-	////////////////////////////////////////////A completer pour les pages predefinies
+	var urlPage=nomDepage;
 	return urlPage;
 	
 }
@@ -91,49 +69,23 @@ function revoietextRang(elementListe){
 	return montext;
 }
 
+var cacherPage = function() {
+	$("#bouttonDeconnexion").hide();
+	$("#bouttonConnexion").show();
+	$.ajax({
+		url:"ServletGestionSession", 
+		type:"GET", 
+		dataType: "json", 
+		success:function(data, textStatus, xhr){ 
+			var nb=0; 
+			var monid="#monmenuchange"; 
+			var existanceJson=data.length; 
+			if (existanceJson==3){
+				$("#bouttonDeconnexion").show(); 
+				$("#bouttonConnexion").hide(); 
+			} 
+			}
+	}) 
+} 
 
-function Aumonerie(){
-	if (!$('#lienAumonerie').is(":visible")){
-		$('.blocLienMenu').hide();
-		$('#lienAumonerie').show();
-		$('#liAumonerie').toggleClass('pucePrincipales puceFlecheBas');
-	} else {
-		$('#lienAumonerie').hide();
-		$('#liAumonerie').toggleClass('puceFlecheBas pucePrincipales');
-	}
-	/*$( ".pucePrincipales" ).css({
-		'list-style-image':'url(../Images/FlecheBas.png)'});*/
-}
-
-function Annonces(){
-	if (!$('#lienAnnonce').is(":visible")){
-		$('.blocLienMenu').hide();
-		$('#lienAnnonce').show();
-		$('#liAnnonce').toggleClass('pucePrincipales puceFlecheBas');
-	} else {
-		$('#lienAnnonce').hide();
-		$('#liAnnonce').toggleClass('puceFlecheBas pucePrincipales');
-	}
-}
-function Activites(){
-	if (!$('#lienActivite').is(":visible")){
-		$('.blocLienMenu').hide();
-		$('#lienActivite').show();
-		$('#liActivite').toggleClass('pucePrincipales puceFlecheBas');
-	} else {
-		$('#lienActivite').hide();
-		$('#liActivite').toggleClass('puceFlecheBas pucePrincipales');
-	}
-}
-function Antennes(){
-	if (!$('#lienAntenne').is(":visible")){
-		$('.blocLienMenu').hide();
-		$('#lienAntenne').show();
-		$('#liAntenne').toggleClass('pucePrincipales puceFlecheBas');
-	} else {
-		$('#lienAntenne').hide();
-		$('#liAntenne').toggleClass('puceFlecheBas pucePrincipales');
-	}
-}
-
-
+$(document).ready(function() { cacherPage(); });

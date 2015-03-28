@@ -15,31 +15,9 @@
 	<section id="blocPrincipalPage">
 	
 	 <section id="blocGauchePrincipalPage"> <!--Partie gauche de la page : Menu + information-->
-		  <div id="blocLogo">
-			<img src="Images/LogoAumonerie.png">
-		  </div>
-	  
-		  <div id="blocMenu">
-			<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-				<c:import url="menu.jsp">
-			</c:import>
-		  </div>
-	  
-		  <div id="blocLienInternet">
-			  <table id=tableauLienInternet> 
-			  <tr> 
-				 <td> <a href="https://www.facebook.com/AumonerieUniversiteCatholiqueDeLille?fref=ts"><img id="iconefacebook" src="Images/iconefacebook.png"/></a> </td> 
-				 <td> <a href="https://twitter.com/auclille"><img id="iconetwitter" src="Images/iconetwitter.png"/></a><br/> </td> 
-				 <td> <a href="https://www.youtube.com/channel/UCc8J3Ztfts4Exaas2pDWUrA"> <img id="iconeyoutube" src="Images/iconeyoutube.png"/></a> </td> 
-				 <td> <a href="http://www.univ-catholille.fr/index.asp"> <img id="logocatho" src="Images/logocatho.png"/></a> </td> 
-			  </tr> 
-			  </table>
-		  </div>
-	  
-		  <div id="blocInformation">
-			mes informations
-		  </div>
-	  
+		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+		<c:import url="blocDeGauche.jsp">
+		</c:import>
 	 </section>
 
 	 
@@ -81,7 +59,7 @@
 								<tr><td><label for="nompageModif">Nom de la page : </label></td><td><input type="text" id="nompageModif" value=""/></td></tr>
 								<tr><td><label for="nompageprecedenteModif">Nom de la page precedente : </label></td>
 								<td><select name="nompageprecedenteModif" id="nompageprecedenteModif">
-									<option value="page_0">À la premiere position</option>
+									<option value="page_0">Accueil</option>
 						       		<c:forEach var="administrationMenu" items="${listeMenu}">
 										<option id="nompageprecedenteModif${administrationMenu.idpage}" value="${administrationMenu.idpage}" ${administrationMenu.idpage}>${administrationMenu.nompage}</option>
 									</c:forEach>  
@@ -107,7 +85,7 @@
 								<tr><td><label for="nompage">Nom de la nouvelle page : </label></td><td><input type="text" id="nompage" /></td></tr>
 								<tr><td><label for="nompageprecedente">Nom de la page precedente : </label></td>
 								 <td><select name="nompageprecedente" id="nompageprecedente">
-								 	<option value="page_0">À la premiere position</option>
+								 	<option value="page_0">Accueil</option>
 						       		<c:forEach var="administrationMenu" items="${listeMenu}">
 										<option value="nompageprecedente${administrationMenu.idpage}" ${administrationMenu.idpage}>${administrationMenu.nompage}</option>
 									</c:forEach>  
