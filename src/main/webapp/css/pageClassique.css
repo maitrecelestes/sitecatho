@@ -1,0 +1,73 @@
+#header, #blocGauchePrincipalPage, #blocDroitPrincipalPage, #footer {
+/*padding-top:10px ;
+padding-bottom:10px ;*/
+margin-top:2px ;
+margin-bottom:2px ;
+
+
+}
+#header {
+background-color:#FF9900;
+text-align:center;
+margin:auto;
+width : 75%;
+height: 2px;
+}
+#blocPrincipalPage {
+min-height:500px;
+margin:auto;
+width : 75%;
+}
+
+/*Partie gauche de la page : menu + information ----------------*/
+#blocGauchePrincipalPage  {
+float:left;
+width:20%;
+min-width:0px;  /* mettre la valeur minimal du menu*/
+background-color:#FF3366;
+}
+
+#blocMenu, #blocInformation, #blocLogo, #blocLienInternet {
+width:100%;
+margin-top:5px;
+margin-bottom:5px;
+background-color:#F4A460;
+}
+
+#blocLogo{
+	text-align: center;
+}
+
+#tableauLienInternet{
+	margin:auto;
+}
+
+/*Partie droit de la page : Articles ---------------------*/
+#blocDroitPrincipalPage {
+float: right;
+width: 79%;
+/*margin-left:245px;*/
+background-color:#9966FF;
+}
+
+#blocPhoto, #blocArticle {
+width:100%;
+margin-top:5px;
+margin-bottom:5px;
+
+background-color:#F4A460;
+}
+
+#blocPhoto{
+	height:300px;
+}
+
+/*Footer*/
+#footer {
+background-color:#669933;
+float: bottom;
+text-align:center;
+clear:both;
+margin:auto;
+width : 75%;
+}
