@@ -72,7 +72,7 @@ function revoietextRang(elementListe){
 var cacherPage = function() {
 	$("#bouttonDeconnexion").hide();
 	$("#bouttonConnexion").show();
-	//$("#administration").hide();           Commentaire à garder !!!!!!!!!
+	$("#administration").hide();
 	$.ajax({
 		url:"ServletGestionSession", 
 		type:"GET", 

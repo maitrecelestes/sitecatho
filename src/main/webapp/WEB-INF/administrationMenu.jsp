@@ -27,18 +27,27 @@
 				<h3>Tableau indiquant toutes les pages</h3>
 						<table>
 						<tr>
-							<th>  ID de la page  </th>
 							<th>  Nom de la page  </th>								
-							<th>  Rang de la page  </th>
+							<th>  Emplacement de la page  </th>
 							<th>  Visibilité de la page  </th>
 							<th>  Modifier la page  </th>
 							<th>  Supprimer la page  </th>
 						</tr>
 						<c:forEach var="administrationMenu" items="${listeMenu}">
 								<tr>
-									<td id="idpage${administrationMenu.idpage}">${administrationMenu.idpage}</td>
 									<td id="idnompage${administrationMenu.idpage}">${administrationMenu.nompage}</td>
-									<td id="idrang${administrationMenu.idpage}">${administrationMenu.rang}</td>
+									<td id="idrang${administrationMenu.idpage}">
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+										<script language="JavaScript">
+											var monRang = ${administrationMenu.rang};
+											var monid = ${administrationMenu.idpage};
+											var rep = "Sous catégorie";
+											$("#idrang"+monid).text("");
+											if (monRang==0){rep= "Principale"};
+											$("#idrang"+monid).append(rep);
+										</script>
+	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+									</td>
 									<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
 									<td class="casemodifier" id="modifierid${administrationMenu.idpage}"><img src="Images/pointdinterrogation_modifier.png"/></td>
 									<td class="casesupprimer" id="supprimerid${administrationMenu.idpage}"><img src="Images/croix_supprimer.png"/></td>
@@ -56,8 +65,9 @@
 						<form class="classModificationMenu">
 							<h3>Pour modifier un menu</h3>
 							<table>
-								<tr><td><label for="idPageModif">Id de la page : </label></td><td><label id="idpageModif"/></td></tr>
-								<tr><td><label for="nompageModif">Nom de la page : </label></td><td><input type="text" id="nompageModif" value=""/></td></tr>
+								<tr><td><label for="idPageModif" style="display:none;"></label></td><td><label id="idpageModif" style="display:none;"/></td></tr>
+					 			<tr><td><label for="nompageModifBrut">Nom de la page : </label></td><td><label id="nompageModifBrut"/></td></tr>
+								<tr><td><label for="nompageModif">Nouveau nom : </label></td><td><input type="text" id="nompageModif" value=""/></td></tr>
 								<tr><td><label for="nompageprecedenteModif">Nom de la page precedente : </label></td>
 								<td><select name="nompageprecedenteModif" id="nompageprecedenteModif">
 									<option value="page_0">Accueil</option>
@@ -65,9 +75,9 @@
 										<option id="nompageprecedenteModif${administrationMenu.idpage}" value="${administrationMenu.idpage}" ${administrationMenu.idpage}>${administrationMenu.nompage}</option>
 									</c:forEach>  
 						       	</select></td></tr>
-						 		<tr><td><label name="rang">Rang : </label></td><td>
-								<input type="radio" name="rangModif" id="rang0Modif" /><label for="rang1">Primaire</label>
-								<input type="radio" name="rangModif" id="rang1Modif" /><label for="rang2">Secondaire</label>
+						 		<tr><td><label name="rang">Emplacement : </label></td><td>
+								<input type="radio" name="rangModif" id="rang0Modif" /><label for="rang1">Principale</label>
+								<input type="radio" name="rangModif" id="rang1Modif" /><label for="rang2">Sous catégorie</label>
 								</td></tr>
 								<tr><td><label for="visibiliteModif">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibiliteModif" /></td></tr>
 								<tr><td colspan="2"><input id="bouttonPourModifierMenu" type="button" value="Modifier le menu" width="100px;"></td></tr>
@@ -92,10 +102,10 @@
 									</c:forEach>  
 						       	</select></td></tr>
 								
-						 		<tr><td><label name="rang">Rang : </label></td><td>
+						 		<tr><td><label name="rang">Emplacement : </label></td><td>
 								
-								<input type="radio" name="rang" id="rang1"  checked/><label for="rang1">Primaire</label>
-								<input type="radio" name="rang" id="rang2" /><label for="rang2">Secondaire</label>
+								<input type="radio" name="rang" id="rang1"  checked/><label for="rang1">Principale</label>
+								<input type="radio" name="rang" id="rang2" /><label for="rang2">Sous catégorie</label>
 								
 								</td></tr>
 						 

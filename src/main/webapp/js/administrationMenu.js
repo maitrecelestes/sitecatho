@@ -129,17 +129,34 @@ $(".bouttonAjoutMenu").click(function(){montrerAjoutMenu(event);});
 $(".classAjoutMenu").hide();
 
 //Modifier Menu
-
-
 function montrerModifierMenu(event){
 	$(".classAjoutMenu").hide();
 	$(".bouttonModifierMenu").show();
 	$(".classModificationMenu").show();
 	var id=recuperationid(event.currentTarget.id);
 	$("#idpageModif").text(id);
+	$("#nompageModifBrut").text("");
+	$("#nompageModifBrut").append($("#idnompage"+id).text());
 	$("#nompageModif").attr("value",$("#idnompage"+id).text());
-	var rangChoisi =$("#idrang"+id).text(); 
-	$("#rang"+rangChoisi+"Modif").prop('checked', true);
+	
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	var rangChoisi =$("#idrang"+id).text()+""; 
+	alert(rangChoisi);
+	alert("Principale");
+	//var rangEnNb=1;
+	if(rangChoisi=="Principale"){alert("ok");
+	//rangEnNb=0;
+	}else{
+		alert("pas ok");
+	}
+	//var toto = (rangChoisi=="Principale");
+	//alert(rangChoisi+" et Principale "+ toto);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	$("#rang"+rangEnNb+"Modif").prop('checked', true);
 	if($("#idvisibilite"+id).text()=="false"){
 		$("#visibiliteModif").prop('checked', false);
 	}else{
@@ -160,4 +177,10 @@ $(".casemodifier").click(function(){montrerModifierMenu(event);});
 $(".bouttonModifierMenu").click(function(){cacherModifierMenu(event);});
 
 
+/*
+$(document).ready(maFonctionDeTest());
 
+function maFonctionDeTest(){
+    alert($(".monRangDeLaPage").val());
+}
+*/
