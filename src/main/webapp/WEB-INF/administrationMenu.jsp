@@ -31,13 +31,13 @@
 						</tr>
 					</table>
 				</section>
-				<section id="articles"> 
+				 
 				<!-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 					<c:import url="affichageArticle.jsp">
 				</c:import> -->
-				
+				<section class="articleAdministration">
+	
 					<!-- ARTICLES -->
-					<article>
 						<h3>Tableau indiquant toutes les pages</h3>
 						<table>
 						<tr>
@@ -60,13 +60,13 @@
 
 						</c:forEach>
 						</table>
-						
+
 						
 						
 						<button class="bouttonAjoutMenu" type="button">Pour ajouter une page</button>
 						<button class="bouttonModifierMenu" type="button">Cacher panneau modification</button>
 						
-						
+		
 						<form class="classModificationMenu">
 							<h3>Pour modifier un menu</h3>
 							<table>
@@ -88,14 +88,12 @@
 									 
 							</table>
 						</form>
+
 						
 						
 						
 						
-						
-						
-						
-						
+
 						<form class="classAjoutMenu">
 							<h3>Pour rajouter un menu</h3>
 							<table>
@@ -119,14 +117,13 @@
 								<tr><td colspan="2"><input id="bouttonPourAjouterMenu" type="button" value="Envoyer le message" width="100px;"></td></tr>
 							</table>
 						</form>
+
 						
-						
-					</article>
 				</section>
 		</div>
 		<footer>
 			<!-- COPYRIGHT -->
-			<p>CrÃ©Ã© par Michel GUIGNIER et Romain SOENEN.</p>
+			<p>Créé par Michel GUIGNIER et Romain SOENEN.</p>
 		</footer>
 	</div>
 	<script type="text/javascript" src="js/administrationMenu.js"></script>

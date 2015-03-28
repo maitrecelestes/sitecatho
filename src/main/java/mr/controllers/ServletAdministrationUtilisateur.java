@@ -25,11 +25,8 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 	 
 	private UtilisateurDao utilisateurdao = new UtilisateurDaoImp();
 	
-	 public ServletAdministrationUtilisateur() { // TEST POUR RECUPERER LES INFO DE SESSION
-	        super();
-	 }
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateur();
 		request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
 		
