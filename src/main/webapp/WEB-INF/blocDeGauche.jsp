@@ -24,9 +24,9 @@
 				<ul id='nav' class='dropdown dropdown-vertical'>
 					<li><a href="contact">Contact</a></li>
 					<li class='dir'>Administration<ul>
-						<li><a href="administrationMenu">AdministrationMenu</a></li>
-						<li><a href="administrationUtilisateur">AministrationUtilisateur</a></li>
-						<li><a href="administrationContact">AdministrationContact</a></li>
+						<li><a href="administrationContact">Contact</a></li>
+						<li><a href="administrationMenu">Menu</a></li>
+						<li><a href="administrationUtilisateur">Utilisateur</a></li>
 					</ul></li>
 					<li id="bouttonConnexion"><a href="connexion">Connexion</a></li>
 					<li id="bouttonDeconnexion"><a href="deconnexion">Deconnexion</a></li>
