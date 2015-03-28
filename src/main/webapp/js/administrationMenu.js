@@ -59,7 +59,7 @@ function isChecked(checkbox) {
 
 function supprimerMenu(event){
 	var id=recuperationid(event.currentTarget.id);
-	var confirmation= confirm("Etes vous sur de vouloir supprimer ce message?");
+	var confirmation= confirm("Etes vous sur de vouloir supprimer cette page ?");
 	if(confirmation){
 		$.ajax({
 			url:"administrationMenu",

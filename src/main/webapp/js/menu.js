@@ -72,7 +72,7 @@ function revoietextRang(elementListe){
 var cacherPage = function() {
 	$("#bouttonDeconnexion").hide();
 	$("#bouttonConnexion").show();
-	$("#administration").hide();
+	//$("#administration").hide();           Commentaire à garder !!!!!!!!!
 	$.ajax({
 		url:"ServletGestionSession", 
 		type:"GET", 
@@ -88,6 +88,8 @@ var cacherPage = function() {
 					$("#administration").show();
 				}
 			} 
+			var montextNomPrenom="Bonjour "+data[2]+" "+data[1];
+			$('#connexionNomPrenom').append(montextNomPrenom);
 		}
 	}) 
 } 

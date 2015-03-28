@@ -37,6 +37,8 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("utilisateurConnecte", mail);
 			session.setAttribute("rang", utilisateurConnecte.getRang());
 			session.setAttribute("pageGere", utilisateurConnecte.getPageGere());
+			session.setAttribute("nom", utilisateurConnecte.getNom());
+			session.setAttribute("prenom", utilisateurConnecte.getPrenom());
 		}
 		
 

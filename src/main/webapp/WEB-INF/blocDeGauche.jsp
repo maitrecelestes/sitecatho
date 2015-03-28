@@ -49,7 +49,7 @@
 	</div>
 	  
 	<div id="blocInformation">
-		mes informations
+		<div id="connexionNomPrenom"></div>
 	</div>
 
 
