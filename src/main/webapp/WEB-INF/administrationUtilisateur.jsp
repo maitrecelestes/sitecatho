@@ -30,7 +30,6 @@
 							<th>  Mail  </th>
 							<th>  Nom  </th>								
 							<th>  Prenom </th>
-							<th>  Date de naissance  </th>
 							<th>  Rang </th>
 							<th>  Ecole </th>
 							
@@ -40,7 +39,6 @@
 									<td>${listeUtilisateur.getMail()}</td>
 									<td>${listeUtilisateur.getNom()}</td>
 									<td>${listeUtilisateur.getPrenom()}</td>
-									<td>${listeUtilisateur.getDateDeNaissance()}</td>
 									<td>${listeUtilisateur.getRang()}</td>
 									<td>${listeUtilisateur.getEcole()}</td>
 									<td class= "caseModifierUtilisateur" id="caseModifierUtilisateur${listeUtilisateur.getMail()}"><img src="Images/FlecheBas.png"/></td>
@@ -55,7 +53,6 @@
 								<tr><td><label for="newMail">Mail :</label></td><td><input type="email" id="newMail"/><br/></td></tr>
 								<tr><td><label for="newPrenom">Prenom :</label></td><td><input type="text" id="newPrenom"/><br/></td></tr>
 								<tr><td><label for="newNom">Nom :</label></td><td><input type="text" id="newNom"/><br/></td></tr>
-								<tr><td><label for="newDate">Date de naissance :</label></td><td><input type="date" id="newDateNaissance"/><br/></td></tr>
 								<tr><td><label for="newMdp">Mot de passe :</label></td><td><input type="password" id="newMdp"/><br/></td></tr>
 								<tr><td><label for="newConfMdp"> Retapez le mot de passe :</label></td><td><input type="password" id="newConfMdp"/><br/></td></tr>
 								<tr><td><label for="newRang">Rang :</label></td><td><input type="text" id="newRang"/><br/></td></tr>

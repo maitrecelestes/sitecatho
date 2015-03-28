@@ -1,9 +1,6 @@
 package mr.controllers;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -45,18 +42,10 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			String rang=request.getParameter("rang");
 			String pageGere=request.getParameter("pageGere");
 			
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-			String dateNaissance=request.getParameter("dateDeNaissance");
-			Date dateNaissanceDate;
-			try {
-				dateNaissanceDate = (Date) formatter.parse(dateNaissance);
-				java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissanceDate.getTime());
-				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,datenaissanceSQL,rang,ecole,pageGere); //pageGERE !!!!
-				utilisateurdao.ajouterUtilisateur(utilisateur);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,rang,ecole,pageGere);
+			utilisateurdao.ajouterUtilisateur(utilisateur);
+			
 		} else if (requete.equals("suppression")){
 			String mail=request.getParameter("mail");
 			utilisateurdao.supprimerUtilisateur(mail);

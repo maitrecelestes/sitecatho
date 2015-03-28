@@ -19,7 +19,6 @@ function ajouterUtilisateur(event){
 				nom:$("#newNom").val(),
 				prenom:$("#newPrenom").val(),
 				mdp:$("#newMdp").val(),
-				dateDeNaissance:$("#newDateNaissance").val(),
 				rang:$("#newRang").val(),
 				ecole:$("#newEcole").val(),
 				pageGere:$("#pageGere").val()

@@ -23,7 +23,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` ORDER BY `email` ASC ");
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
-				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"), results.getDate("dateDeNaissance"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
 				listeUtilisateur.add(utilisateur);
 			}
 			
@@ -43,7 +43,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			stmt.setString(1, login);
 			ResultSet results = stmt.executeQuery();
 			while(results.next()){
-				utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"), results.getDate("dateDeNaissance"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+				utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -81,14 +81,14 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			String mdpCrypte= HashMyPassword(mdpnonCrypte);
 			
 			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `dateDeNaissance`, `rang`, `ecole`) VALUES (?,?,?,?,?,?,?)");
+			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,`pageGere`) VALUES (?,?,?,?,?,?,?)");
 			stmt.setString(1, newUtilisateur.getMail());
 			stmt.setString(2, mdpCrypte);
 			stmt.setString(3, newUtilisateur.getNom()); 
 			stmt.setString(4, newUtilisateur.getPrenom());
-			stmt.setDate(5,newUtilisateur.getDateDeNaissance());
-			stmt.setString(6,newUtilisateur.getRang());
-			stmt.setString(7,newUtilisateur.getEcole());
+			stmt.setString(5,newUtilisateur.getRang());
+			stmt.setString(6,newUtilisateur.getEcole());
+			stmt.setString(7,newUtilisateur.getPageGere());
 			stmt.executeUpdate();
 			connection.close();
 		} catch (SQLException | NoSuchAlgorithmException e) {

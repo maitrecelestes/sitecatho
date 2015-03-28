@@ -31,10 +31,14 @@ public class ServletGestionSession extends HttpServlet {
 		} else {
 			System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
 			String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
+			String nom=(String) request.getSession().getAttribute("nom");
+			String prenom=(String) request.getSession().getAttribute("prenom");
 			String rang=(String) request.getSession().getAttribute("rang");
 			String pageGere=(String) request.getSession().getAttribute("pageGere");
 			ArrayList<String> informationUtilisateur=new ArrayList<String>();
 			informationUtilisateur.add(mail);
+			informationUtilisateur.add(nom);
+			informationUtilisateur.add(prenom);
 			informationUtilisateur.add(rang);
 			informationUtilisateur.add(pageGere);
 			
