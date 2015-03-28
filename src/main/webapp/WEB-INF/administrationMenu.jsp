@@ -3,7 +3,8 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
-	<title>Administration des pages menus</title>
+	<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
+	<title>Administration du menu</title>
 </head>
 <body>
 	<header id="header">
