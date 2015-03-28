@@ -7,17 +7,15 @@ public class Utilisateur {
 	private String mdp;
 	private String nom;
 	private String prenom;
-	private Date dateDeNaissance;
 	private String rang;
 	private String ecole;
 	private String pageGere;
 	
-	public Utilisateur (String mail, String mdp,String nom, String prenom, Date dateDeNaissance, String rang, String ecole,String pageGere){
+	public Utilisateur (String mail, String mdp,String nom, String prenom, String rang, String ecole,String pageGere){
 		this.mail=mail;
 		this.mdp=mdp;
 		this.nom=nom;
 		this.prenom=prenom;
-		this.dateDeNaissance=dateDeNaissance;
 		this.rang=rang;
 		this.ecole=ecole;
 		this.pageGere=pageGere;
@@ -40,10 +38,6 @@ public class Utilisateur {
 
 	public String getPrenom() {
 		return prenom;
-	}
-
-	public Date getDateDeNaissance() {
-		return dateDeNaissance;
 	}
 
 	public String getRang() {

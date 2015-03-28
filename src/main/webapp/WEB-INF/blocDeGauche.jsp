@@ -23,7 +23,7 @@
 			<div>
 				<ul id='nav' class='dropdown dropdown-vertical'>
 					<li><a href="contact">Contact</a></li>
-					<li class='dir'>Administration<ul>
+					<li id="administration" class='dir'>Administration<ul>
 						<li><a href="administrationContact">Contact</a></li>
 						<li><a href="administrationMenu">Menu</a></li>
 						<li><a href="administrationUtilisateur">Utilisateur</a></li>

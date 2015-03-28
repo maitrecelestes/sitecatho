@@ -72,6 +72,7 @@ function revoietextRang(elementListe){
 var cacherPage = function() {
 	$("#bouttonDeconnexion").hide();
 	$("#bouttonConnexion").show();
+	$("#administration").hide();
 	$.ajax({
 		url:"ServletGestionSession", 
 		type:"GET", 
@@ -80,11 +81,14 @@ var cacherPage = function() {
 			var nb=0; 
 			var monid="#monmenuchange"; 
 			var existanceJson=data.length; 
-			if (existanceJson==3){
+			if (existanceJson==5){
 				$("#bouttonDeconnexion").show(); 
 				$("#bouttonConnexion").hide(); 
+				if(data[3]=="administrateur"||data[3]=="super administrateur"){
+					$("#administration").show();
+				}
 			} 
-			}
+		}
 	}) 
 } 
 

@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import mr.dao.UtilisateurDao;
@@ -25,9 +23,9 @@ public class UtilisateurDaoTest {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM utilisateur");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `dateDeNaissance`, `rang`, `ecole`) VALUES ('romain.soenen@hei.fr','romain1993','soenen','romain','1993-03-12','administrateur','HEI')");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `dateDeNaissance`, `rang`, `ecole`) VALUES ('michel.guignier@hei.fr','michel1993','guignier','michel','1993-04-30','super administrateur','HEI')");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `dateDeNaissance`, `rang`, `ecole`) VALUES ('henri.malos@isa.fr','henri1993','malos','henri','1995-10-02','membre','ISA')");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('romain.soenen@hei.fr','romain1993','soenen','romain','administrateur','HEI')");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('michel.guignier@hei.fr','michel1993','guignier','michel','super administrateur','HEI')");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('henri.malos@isa.fr','henri1993','malos','henri','membre','ISA')");
 		stmt.close();
 		connection.close();
 	}
@@ -55,13 +53,8 @@ public class UtilisateurDaoTest {
 	
 	@Test
 	public void testAjouterUtilisateur() throws Exception{
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateNaissanceString = "1993-03-12";
 		
-		Date dateNaissance = (Date) formatter.parse(dateNaissanceString);
-		
-		java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissance.getTime());
-		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN",null);
+		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian","membre","ISEN",null);
 		utilisateurDao.ajouterUtilisateur(utilisateur);
 		
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
@@ -103,13 +96,8 @@ public class UtilisateurDaoTest {
 	
 	@Test
 	public void testAuthentificationUtilisateur() throws ParseException{
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateNaissanceString = "1993-03-12";
-		
-		Date dateNaissance = (Date) formatter.parse(dateNaissanceString);
-		
-		java.sql.Date datenaissanceSQL= new java.sql.Date(dateNaissance.getTime());
-		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian",datenaissanceSQL,"membre","ISEN",null);
+	
+		Utilisateur utilisateur= new Utilisateur("florian.dupond@isen.fr","florian1995","dupond","florian","membre","ISEN",null);
 		utilisateurDao.ajouterUtilisateur(utilisateur);
 		
 		Boolean rep=utilisateurDao.authentificationUtilisateur(new Utilisateur("florian.dupond@isen.fr","florian1995"));
