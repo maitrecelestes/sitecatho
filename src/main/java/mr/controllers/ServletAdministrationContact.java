@@ -21,12 +21,19 @@ public class ServletAdministrationContact extends HttpServlet {
 	private ContactDao contactDao = new ContactDaoImp();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {
+			List<Contact> listeMessageContact=contactDao.listeMessageContact();
+			request.setAttribute("listeMessageContact", listeMessageContact);
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
+			view.forward(request, response);
+		}
 		
-		List<Contact> listeMessageContact=contactDao.listeMessageContact();
-		request.setAttribute("listeMessageContact", listeMessageContact);
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
-		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

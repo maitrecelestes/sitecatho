@@ -24,12 +24,18 @@ public class ServletAdministrationMenu extends HttpServlet {
 	private MenuDao menuDao = new MenuDaoImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		List<Menu> maListeMenu = menuDao.listerMenu() ;
-		request.setAttribute("listeMenu", maListeMenu);
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
-		view.forward(request, response);
+if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {		
+			List<Menu> maListeMenu = menuDao.listerMenu() ;
+			request.setAttribute("listeMenu", maListeMenu);
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
+			view.forward(request, response);
+		}
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
