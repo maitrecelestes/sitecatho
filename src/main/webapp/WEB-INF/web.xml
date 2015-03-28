@@ -40,4 +40,14 @@
     <servlet-name>ServletPrincipal</servlet-name>
     <url-pattern>/ServletPrincipal</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDeconnexion</display-name>
+    <servlet-name>ServletDeconnexion</servlet-name>
+    <servlet-class>mr.controllers.ServletDeconnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDeconnexion</servlet-name>
+    <url-pattern>/ServletDeconnexion</url-pattern>
+  </servlet-mapping>
 </web-app>

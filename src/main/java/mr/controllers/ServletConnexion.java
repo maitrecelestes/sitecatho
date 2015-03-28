@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mr.dao.UtilisateurDao;
 import mr.daoImp.UtilisateurDaoImp;
@@ -27,14 +28,18 @@ public class ServletConnexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail=request.getParameter("mail");
 		String mdp=request.getParameter("mdp");
+		System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
 		Utilisateur utilisateur= new Utilisateur(mail,mdp);
 		boolean authentificationReussi= utilisateurdao.authentificationUtilisateur(utilisateur);
 		if(authentificationReussi){
-			request.getSession().setAttribute("utilisateurConnecte", mail);
-			System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
+			HttpSession session = request.getSession(true);
+			session.setAttribute("utilisateurConnecte", mail);
+			
 			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexionreussi.jsp");
 			view.forward(request, response);
+			System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
 		} else {
+			System.out.println("nope");
 			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexion.jsp");
 			view.forward(request, response);
 		}

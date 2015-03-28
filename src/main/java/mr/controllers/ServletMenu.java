@@ -23,7 +23,7 @@ public class ServletMenu extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		
+		System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
 		List<Menu> maListeMenu = menuDao.listerMenu() ;
 		Gson gson = new Gson();
 	    String json = gson.toJson(maListeMenu);
