@@ -30,16 +30,7 @@
     <servlet-name>ServletConnexion</servlet-name>
     <url-pattern>/ServletConnexion</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletPrincipal</display-name>
-    <servlet-name>ServletPrincipal</servlet-name>
-    <servlet-class>mr.controllers.ServletPrincipal</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletPrincipal</servlet-name>
-    <url-pattern>/ServletPrincipal</url-pattern>
-  </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>ServletDeconnexion</display-name>
@@ -49,5 +40,15 @@
   <servlet-mapping>
     <servlet-name>ServletDeconnexion</servlet-name>
     <url-pattern>/ServletDeconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletGestionSession</display-name>
+    <servlet-name>ServletGestionSession</servlet-name>
+    <servlet-class>mr.controllers.ServletGestionSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletGestionSession</servlet-name>
+    <url-pattern>/ServletGestionSession</url-pattern>
   </servlet-mapping>
 </web-app>
