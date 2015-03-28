@@ -9,27 +9,27 @@ var afficherLeVraiMenu = function() {
 			var nb=0;
 			var monid="#monmenuchange";
 			var longueurListeMenu=data.length;
-			var montext="<ul>";
+			var montext="<ul id='nav' class='dropdown dropdown-vertical'>";
 			
 			
 			
 			for (var i = 0; i < data.length; i++) {
-				//$(monid).append(""+nb);
+				//Si Titre principal sans sous lien
 				if(i<data.length-1 && data[i].rang==0 && data[i+1].rang==0){
 					montext=montext+"<li><a href='"+choixPage(data[i].nompage)+"?nompage="+choixPagenom(data[i].nompage)+"'>"+data[i].nompage+"</a></li>";
 					nb=nb+1;
-
+				//Si Titre principal et des sous liens
 				}else if(i<data.length-1 && data[i].rang==0 && data[i+1].rang==1){
-					montext=montext+"<li>"+data[i].nompage+"</li>";
+					montext=montext+"<li class='dir'>"+data[i].nompage;
 					montext=montext+"<ul>";
 					var nbAjout=1;
 					while (i+nbAjout<=data.length-1 && data[i+nbAjout].rang==1) {
-						montext=montext+"<li class='lienMenu'><a href='"+choixPage(data[i+nbAjout].nompage)+"?nompage="+choixPagenom(data[i+nbAjout].nompage)+"'>"+data[i+nbAjout].nompage+"</a></li>";
+						montext=montext+"<li><a href='"+choixPage(data[i+nbAjout].nompage)+"?nompage="+choixPagenom(data[i+nbAjout].nompage)+"'>"+data[i+nbAjout].nompage+"</a></li>";
 						nbAjout=nbAjout+1;
 						nb=nb+1;
 					}
 					nb=nb+1;
-					montext=montext+"</ul>";
+					montext=montext+"</ul></li>";
 
 				}else if(i==data.length-1 && data[i].rang==0){
 					montext=montext+"<li><a href='"+choixPage(data[i].nompage)+"?nompage="+choixPagenom(data[i].nompage)+"'>"+data[i].nompage+"</a></li>";

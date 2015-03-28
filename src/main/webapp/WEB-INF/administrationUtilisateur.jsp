@@ -34,7 +34,7 @@
 						</tr>
 					</table>
 				</section>
-				<section id="articles"> 
+				<section class="articleAdministration"> 
 					<!-- ARTICLES -->
 					<article>
 						<h3>Liste des utilisateurs</h3>

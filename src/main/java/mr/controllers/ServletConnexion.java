@@ -32,6 +32,7 @@ public class ServletConnexion extends HttpServlet {
 		Utilisateur utilisateur= new Utilisateur(mail,mdp);
 		boolean authentificationReussi= utilisateurdao.authentificationUtilisateur(utilisateur);
 		if(authentificationReussi){
+
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utilisateurConnecte", mail);
 			
@@ -43,7 +44,6 @@ public class ServletConnexion extends HttpServlet {
 			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexion.jsp");
 			view.forward(request, response);
 		}
-		
-	}
 
+	}
 }
