@@ -23,12 +23,20 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 	private UtilisateurDao utilisateurdao = new UtilisateurDaoImp();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateur();
-		request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
-		view.forward(request, response);
+		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			//SI ON N'EST PAS CONNECTE, EMPECHE DE SE CONNECTER A L'ADMINISTRATION 
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {
+			List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateur();
+			request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
+			view.forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
