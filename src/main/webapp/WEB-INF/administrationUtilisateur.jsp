@@ -2,42 +2,51 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	
+	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
 	<link rel="stylesheet" type="text/css" href="css/administrationUtilisateur.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>
-	<!--<link rel="stylesheet" type="text/css" href="css/style-menu.css"/>-->
-	<script type="text/javascript" src="js/menu.js"></script>
-	<title>Administration des utilisateurs</title>
+	<title>Administration des utilisateurs</title>	
 </head>
 <body>
-	<div id="blocktotal">
-		<header>
+	<header id="header">
 			<!-- BANNIERE -->
-			<img src="Images/banniere.png">
-		</header>
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-			<c:import url="menu.jsp">
-		</c:import>
-				<section id="gadgets">
-					<!-- GADGET -->
-					<table id="tablegadget">
-						<tr>
-							<td><p>Mercredi 10 DÃ©cembre 2014<br/>Sainte Romaric</p></td>
-							<td><p><img id="diapo" src="Images/crechenoel.png" /></p></td>
-							<td>
-								<a href="https://www.facebook.com/AumonerieUniversiteCatholiqueDeLille?fref=ts"><img id="iconefacebook" src="Images/iconefacebook.png"/></a>
-								<a href="https://twitter.com/auclille"><img id="iconetwitter" src="Images/iconetwitter.png"/></a><br/>
-								<a href="http://www.univ-catholille.fr/index.asp"> <img id="logocatho" src="Images/logocatho.png"/></a>
-								<a href="https://www.youtube.com/channel/UCc8J3Ztfts4Exaas2pDWUrA"> <img id="iconeyoutube" src="Images/iconeyoutube.png"/></a>
-							</td>
-							<td><a href="page-accueil-connection.html"><input type="button" value="Se connecter"/></a></td>
-						</tr>
-					</table>
-				</section>
-				<section class="articleAdministration"> 
-					<!-- ARTICLES -->
-					<article>
-						<h3>Liste des utilisateurs</h3>
+			<!-- <img src="Images/banniere.png"> -->
+	</header>
+	
+	
+	<section id="blocPrincipalPage">
+	
+	 <section id="blocGauchePrincipalPage"> <!--Partie gauche de la page : Menu + information-->
+		  <div id="blocLogo">
+			<img src="Images/LogoAumonerie.png">
+		  </div>
+	  
+		  <div id="blocMenu">
+			<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+				<c:import url="menu.jsp">
+			</c:import>
+		  </div>
+	  
+		  <div id="blocLienInternet">
+			  <table id=tableauLienInternet> 
+			  <tr> 
+				 <td> <a href="https://www.facebook.com/AumonerieUniversiteCatholiqueDeLille?fref=ts"><img id="iconefacebook" src="Images/iconefacebook.png"/></a> </td> 
+				 <td> <a href="https://twitter.com/auclille"><img id="iconetwitter" src="Images/iconetwitter.png"/></a><br/> </td> 
+				 <td> <a href="https://www.youtube.com/channel/UCc8J3Ztfts4Exaas2pDWUrA"> <img id="iconeyoutube" src="Images/iconeyoutube.png"/></a> </td> 
+				 <td> <a href="http://www.univ-catholille.fr/index.asp"> <img id="logocatho" src="Images/logocatho.png"/></a> </td> 
+			  </tr> 
+			  </table>
+		  </div>
+	  
+		  <div id="blocInformation">
+			mes informations
+		  </div>
+	  
+	 </section>
+
+	 
+	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
+		  <div id="blocArticle">
+				<h3>Liste des utilisateurs</h3>
 						<table id="tabListeUtilisateur">
 						<tr>
 							<th>  Mail  </th>
@@ -83,13 +92,18 @@
 								<tr><td><label for="modRang">Rang :</label></td><td><input type="text" id="modRang"/><br/></td></tr>
 								<tr><td colspan="2" id="casemodifierUtilisateur"><input type="button" value="modifier cet Utilisateur"/></td></tr>
 							</table>
-						</div>						
-				</section>
-		</div>
-		<footer>
+						</div>
+
+		  </div>
+	 </section>
+	</section>
+					
+		<footer id="footer">
 			<!-- COPYRIGHT -->
-			<p>CrÃ©Ã© par Michel GUIGNIER et Romain SOENEN.</p>
+			Créé par Michel GUIGNIER et Romain SOENEN.
 		</footer>
-	</div>
+		
 	<script type="text/javascript" src="js/administrationUtilisateur.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>
