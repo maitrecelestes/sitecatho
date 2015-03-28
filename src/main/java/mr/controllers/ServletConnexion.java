@@ -28,22 +28,14 @@ public class ServletConnexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail=request.getParameter("mail");
 		String mdp=request.getParameter("mdp");
-		System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
+		
 		Utilisateur utilisateur= new Utilisateur(mail,mdp);
 		boolean authentificationReussi= utilisateurdao.authentificationUtilisateur(utilisateur);
 		if(authentificationReussi){
-
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utilisateurConnecte", mail);
-			
-			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexionreussi.jsp");
-			view.forward(request, response);
-			System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
-		} else {
-			System.out.println("nope");
-			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexion.jsp");
-			view.forward(request, response);
 		}
+		
 
 	}
 }

@@ -9,6 +9,5 @@ function connexionUtilisateur(event){
 				mdp:$("#mdp").val()
 			}
 		})
-		
 	}
 $("#seconnecter").click(function(){connexionUtilisateur(event);});
