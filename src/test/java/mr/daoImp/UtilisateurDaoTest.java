@@ -71,7 +71,7 @@ public class UtilisateurDaoTest {
 	
 	@Test
 	public void testmodifierUtilisateur() throws Exception{
-		utilisateurDao.modifierUtilisateur("henri.malos@isa.fr","admin");
+		utilisateurDao.modifierUtilisateur("henri.malos@isa.fr","admin","hei","");
 		
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM utilisateur WHERE email=?");

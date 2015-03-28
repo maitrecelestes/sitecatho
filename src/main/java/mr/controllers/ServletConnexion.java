@@ -1,6 +1,7 @@
 package mr.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import mr.dao.UtilisateurDao;
 import mr.daoImp.UtilisateurDaoImp;
@@ -39,6 +42,12 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("pageGere", utilisateurConnecte.getPageGere());
 			session.setAttribute("nom", utilisateurConnecte.getNom());
 			session.setAttribute("prenom", utilisateurConnecte.getPrenom());
+			
+			Gson gson = new Gson();
+		    String json = gson.toJson(authentificationReussi);
+			
+		    PrintWriter out = response.getWriter();
+			out.append(json);
 		}
 		
 

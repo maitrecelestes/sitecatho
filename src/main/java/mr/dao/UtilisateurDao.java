@@ -13,7 +13,7 @@ public interface UtilisateurDao {
 	
 	public void supprimerUtilisateur (String mail);
 	
-	public void modifierUtilisateur(String mail, String rang);
+	public void modifierUtilisateur(String mail, String rang,String ecole, String PageGere);
 	
 	public String HashMyPassword(String mdp) throws Exception;
 	
