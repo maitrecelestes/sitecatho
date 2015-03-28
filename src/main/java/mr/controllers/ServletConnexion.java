@@ -36,6 +36,7 @@ public class ServletConnexion extends HttpServlet {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utilisateurConnecte", mail);
 			session.setAttribute("rang", utilisateurConnecte.getRang());
+			session.setAttribute("pageGere", utilisateurConnecte.getPageGere());
 		}
 		
 

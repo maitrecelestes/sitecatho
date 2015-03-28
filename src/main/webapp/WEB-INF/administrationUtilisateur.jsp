@@ -82,6 +82,7 @@
 								<tr><td><label for="newConfMdp"> Retapez le mot de passe :</label></td><td><input type="password" id="newConfMdp"/><br/></td></tr>
 								<tr><td><label for="newRang">Rang :</label></td><td><input type="text" id="newRang"/><br/></td></tr>
 								<tr><td><label for="newRang">Ecole :</label></td><td><input type="text" id="newEcole"/><br/></td></tr>
+								<tr><td><label for="newRang">Page géré :</label></td><td><input type="text" id="pageGere"/><br/></td></tr>
 								<tr><td colspan="2" id="caseajouterUtilisateur"><input type="button" value="ajouter cet Utilisateur"/></td></tr>
 							</table>
 						</div>	
