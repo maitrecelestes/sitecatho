@@ -30,10 +30,15 @@ public class ServletConnexion extends HttpServlet {
 		Utilisateur utilisateur= new Utilisateur(mail,mdp);
 		boolean authentificationReussi= utilisateurdao.authentificationUtilisateur(utilisateur);
 		if(authentificationReussi){
-			System.out.println("bravo");
+			request.getSession().setAttribute("utilisateurConnecte", mail);
+			System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexionreussi.jsp");
+			view.forward(request, response);
 		} else {
-			System.out.println("nope");
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/connexion.jsp");
+			view.forward(request, response);
 		}
+		
 	}
 
 }

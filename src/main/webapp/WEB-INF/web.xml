@@ -30,4 +30,14 @@
     <servlet-name>ServletConnexion</servlet-name>
     <url-pattern>/ServletConnexion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletPrincipal</display-name>
+    <servlet-name>ServletPrincipal</servlet-name>
+    <servlet-class>mr.controllers.ServletPrincipal</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletPrincipal</servlet-name>
+    <url-pattern>/ServletPrincipal</url-pattern>
+  </servlet-mapping>
 </web-app>
