@@ -2,8 +2,6 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	<!--<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>-->
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
 	<title id="titrePageClassique">Accueil</title>
 </head>
@@ -27,6 +25,9 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
 				ma photo
+		  </div>
+		  
+		  <div id="blocArticle">
 		  </div>
 		  
 		  

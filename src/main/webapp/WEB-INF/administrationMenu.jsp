@@ -36,17 +36,16 @@
 						<c:forEach var="administrationMenu" items="${listeMenu}">
 								<tr>
 									<td id="idnompage${administrationMenu.idpage}">${administrationMenu.nompage}</td>
-									<td id="idrang${administrationMenu.idpage}">
-	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
+									<td id="idrang${administrationMenu.idpage}" style="display:none;">${administrationMenu.rang}</td>
+									<td id="idStringRang${administrationMenu.idpage}">
 										<script language="JavaScript">
 											var monRang = ${administrationMenu.rang};
 											var monid = ${administrationMenu.idpage};
 											var rep = "Sous catégorie";
-											$("#idrang"+monid).text("");
+											$("#idStringRang"+monid).text("");
 											if (monRang==0){rep= "Principale"};
-											$("#idrang"+monid).append(rep);
+											$("#idStringRang"+monid).append(rep);
 										</script>
-	<!-- /////////////////////////////////////////////////////////////////////////////////////// -->
 									</td>
 									<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
 									<td class="casemodifier" id="modifierid${administrationMenu.idpage}"><img src="Images/pointdinterrogation_modifier.png"/></td>
