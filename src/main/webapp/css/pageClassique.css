@@ -42,6 +42,11 @@ background-color:#F4A460;
 	margin:auto;
 }
 
+#carteMap{
+	width:98%;
+	margin:auto;
+}
+
 /*Partie droit de la page : Articles ---------------------*/
 #blocDroitPrincipalPage {
 float: right;

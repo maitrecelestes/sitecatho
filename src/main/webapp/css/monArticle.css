@@ -2,86 +2,45 @@
 	background-color:			#E1D9D1;
 	width:						80%;
 	border-radius:				10px;
-	float:						right;
-	clear:						right;
-	margin:						10px;
-	margin-left: 				5px;
-	min-height:					500px;
+	margin:						auto;
+	width : 					100%;
+	margin-top:					10px;
+	padding-top:				10px;
+	padding-bottom:				10px;
 }
 
 .monArticleParticulier {
-
-	width:						80%;
+	background-color:			grey;
+	margin:						auto;
+	width : 					98%;
 	border-radius:				10px;
-	float:						center;
-	clear:						right;
-	margin:						10px;
-	margin-left: 				5%;
+	margin-top:					10px;
+	/*border-width:				2px;
+	border-style:				solid;
+	border-color: 				red;*/
+	box-shadow: 8px 8px 12px #aaa;
+
 }
 
 
 .titreArticle{
-	
-	width:						45%;
-	border-radius:				10px;
-	float:						left;
-	clear:						right;
-	margin:						10px;
+	margin:						auto;
+	width:						99%;
+	text-align: 				left;
 }
 
 .dateArticle{
-
-	width:						45%;
-	border-radius:				10px;
-	float:						right;
-	clear:						right;
-	margin:						10px;
+	margin:						auto;
+	width:						99%;
+	text-align: 				left;
+	font-size:					12px;
 }
 
 .contenuArticle{
-	
-	width:						80%;
-	border-radius:				10px;
-	float:						center;
-	clear:						right;
-	margin:						10px;
-	text-align:center;
-}
-
-
-/*article img {
-	max-height: 				500px;
-	max-width: 					500px;
-	display:					block;
-	margin-left:				auto;
-	margin-right:				auto;
-}
-
-article {
-	background-color:			#E1D9D1;
-	padding:					5px;				
-	border-radius:				10px;
-	margin:						10px;
-	margin-top:					20px;
-}
-
-
-
-.titreActicle{
-	margin-bottom:				10px;
-	display:					block;
-	width: 						100%;
+	margin:						auto;
+	width:						99%;
 	text-align:					center;
-	border-top-left-radius:	 	5px;
-	border-top-right-radius:	5px;
-	text-decoration: 			underline;
-	font-size:					30px;
+	margin-top:					10px;
+	
 }
 
-.paragrapheArticle{
-	margin-left: 				10px;
-	margin-top: 				0px;
-	border-radius: 				5px;
-	border-top-left-radius:	 	0px;
-}
-*/

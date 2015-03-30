@@ -10,8 +10,6 @@ var RecupererListeArticle = function(nomPageEnCours) {
 		},
 	
 		success:function(data, textStatus, xhr){
-			$("#titrePageClassique").text(data[0].page);
-			$("#leBlocDesArticles").append("<article class='monArticleParticulier'>Il y a en tout "+data.length+" article(s)</article>");
 			var monarticle="";
 			for (var i = 0; i < data.length; i++) {
 				monarticle=monarticle+"<article class='monArticleParticulier'>";
@@ -20,7 +18,6 @@ var RecupererListeArticle = function(nomPageEnCours) {
 				monarticle=monarticle+"<p class='contenuArticle'>"+data[i].contenu+"</p>";
 				monarticle=monarticle+"</article>";
 				//Ici il faut organiser la vue d'un article
-				
 			}
 			$("#leBlocDesArticles").append(monarticle);
 		}
