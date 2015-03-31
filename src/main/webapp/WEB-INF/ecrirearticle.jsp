@@ -18,29 +18,25 @@
 		
 	<section id="blocPrincipalPage">
 	
-	 <section id="blocGauchePrincipalPage"> <!--Partie gauche de la page : Menu + information-->
-		<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-		<c:import url="blocDeGauche.jsp">
-		</c:import>
-	 </section>
-
-	 
-	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
-		 <!DOCTYPE html>
-<html>
-   
-        <form>
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
-            </textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            </script>
-        </form>
-   
-</html>
+		 <section id="blocGauchePrincipalPage"> <!--Partie gauche de la page : Menu + information-->
+			<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+			<c:import url="blocDeGauche.jsp">
+			</c:import>
+		 </section>
+	
+		 
+		 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
+	         <form>
+	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="titre" rows="1" cols="200">titre </textarea>
+	       		<textarea name="contenu" id="contenu" rows="10" cols="80">
+	                Contenu de l'article
+	            </textarea><br/>
+	            <script>CKEDITOR.replace( 'contenu' );</script>
+	            <label for="visibiliteArticle">Voulez vous que l'article soit visible pour tout le monde :</label>
+	            <input type="radio" name="visibiliteArticle" value="oui" checked/>OUI
+	            <input type="radio" name="visibiliteArticle" value="non"/>NON<br/>
+	            <input type="button" id="envoyerArticle" value="Publier l'article"/>
+	        </form>
 		</section>
 	</section>
 					
