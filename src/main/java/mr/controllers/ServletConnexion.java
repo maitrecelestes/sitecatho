@@ -43,13 +43,11 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("nom", utilisateurConnecte.getNom());
 			session.setAttribute("prenom", utilisateurConnecte.getPrenom());
 			
-			Gson gson = new Gson();
-		    String json = gson.toJson(authentificationReussi);
 			
-		    PrintWriter out = response.getWriter();
-			out.append(json);
+			
+			
 		}
 		
-
+		response.sendRedirect("accueil"); //REDIRECTION
 	}
 }
