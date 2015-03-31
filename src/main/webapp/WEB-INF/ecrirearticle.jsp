@@ -4,6 +4,8 @@
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
 	<link rel="stylesheet" type="text/css" href="css/ecrirearticle.css"/>
+	<!-- Make sure the path to CKEditor is correct. -->
+    <script src="ckeditor/ckeditor.js"></script>
 	<title>Ecrire un article</title>	
 </head>
 <body>
@@ -24,26 +26,21 @@
 
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
-		  <h1>Ecrire un article</h1>
-			<form>
-				<table>
-					<tr><td><label for="titre">Titre :</label></td><td><input type="text" id="titre" /></td></tr>
-					<tr><td></td><td id='boutonedition'>
-						<input type="button" class="petitbouton" value="I" onclick="insertTag('<i>', '</i>', 'textarea')" /> 
-						<input type="button" class="petitbouton" value="S" onclick="insertTag('<u>', '</u>', 'textarea')" />
-						<input type="button" class="petitbouton" value="G" onclick="insertTag('<b>', '</b>', 'textarea')" />
-						<input type="button" class="boutont10" value="Saut de ligne" onclick="insertTag('','<br/>','textarea')" />
-						<input type="button" class="boutont4" value="Lien" onclick="insertTag('', '', 'textarea', 'lien')" />
-						<input type="button" class="boutont4" value="Image" onclick="insertTag('&lt;image&gt;', '&lt;/image&gt;', 'textarea')" />
-						<input type="button" class="boutont8" value="Citation" onclick="insertTag('', '', 'textarea', 'citation')" />
-					</td></tr>
-					<tr><td><label for="contenu">Votre article :</label></td><td><textarea id="contenu"></textarea></td></tr>
-					<tr><td><label for="pageassocie">Page où poster cet article :</label>
-					</td><td> 
-					<input type="text" value="Antenne" id="pageArticle"/>
-					<tr><td colspan="2"><input id="envoyer" type="button" onclick="popup()" value="Poster l'article" width="100px;"></td></tr>
-				</table>
-			</form>
+		 <!DOCTYPE html>
+<html>
+   
+        <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
+        </form>
+   
+</html>
 		</section>
 	</section>
 					

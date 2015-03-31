@@ -60,4 +60,14 @@
     <servlet-name>ServletAccueil</servlet-name>
     <url-pattern>/ServletAccueil</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletNouvelleArticle</display-name>
+    <servlet-name>ServletNouvelleArticle</servlet-name>
+    <servlet-class>mr.controllers.ServletNouvelleArticle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletNouvelleArticle</servlet-name>
+    <url-pattern>/ServletNouvelleArticle</url-pattern>
+  </servlet-mapping>
 </web-app>
