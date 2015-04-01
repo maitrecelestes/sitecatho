@@ -7,7 +7,7 @@ margin-bottom:2px ;
 
 }
 #header {
-background-color:#FF9900;
+background-color:#89725B;
 text-align:center;
 margin:auto;
 width : 75%;
@@ -24,18 +24,25 @@ width : 75%;
 float:left;
 width:20%;
 min-width:0px;  /* mettre la valeur minimal du menu*/
-background-color:#FF3366;
+background-color:#89725B;
 }
 
 #blocMenu, #blocInformation, #blocLogo, #blocLienInternet {
 width:100%;
 margin-top:5px;
 margin-bottom:5px;
-background-color:#F4A460;
+background-color:#FFEFB6;
 }
+
+
+
 
 #blocLogo{
 	text-align: center;
+}
+
+#imageLogo{
+	width:100%;
 }
 
 #tableauLienInternet{
@@ -52,7 +59,7 @@ background-color:#F4A460;
 float: right;
 width: 79%;
 /*margin-left:245px;*/
-background-color:#9966FF;
+background-color:#89725B;
 }
 
 #blocPhoto, #blocArticle {
@@ -60,16 +67,16 @@ width:100%;
 margin-top:5px;
 margin-bottom:5px;
 
-background-color:#F4A460;
+background-color:#FFEFB6;
 }
 
 #blocPhoto{
-	height:300px;
+height:300px;
 }
 
 /*Footer*/
 #footer {
-background-color:#669933;
+background-color:#89725B;
 float: bottom;
 text-align:center;
 clear:both;
