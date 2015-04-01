@@ -7,7 +7,7 @@
 <section>
 
 	<div id="blocLogo">
-		<a href="accueil"><img src="Images/LogoAumonerie.png"></a>
+		<a href="accueil"><img id="imageLogo" src="Images/LogoAumonerie.png"/></a>
 	</div>
 	  
 	<div id="blocMenu">
@@ -38,7 +38,7 @@
 	</div>
 	  
 	<div id="blocLienInternet">
-		<table id=tableauLienInternet> 
+	 	<table id=tableauLienInternet> 
 			<tr> 
 				<td> <a href="https://www.facebook.com/AumonerieUniversiteCatholiqueDeLille?fref=ts"><img id="iconefacebook" src="Images/iconefacebook.png"/></a> </td> 
 				<td> <a href="https://twitter.com/auclille"><img id="iconetwitter" src="Images/iconetwitter.png"/></a><br/> </td> 
@@ -46,7 +46,8 @@
 				<td> <a href="http://www.univ-catholille.fr/index.asp"> <img id="logocatho" src="Images/logocatho.png"/></a> </td> 
 			</tr> 
 		</table>
-	</div>
+		
+	 </div>
 	  
 	<div id="blocInformation">
 		<div id="connexionNomPrenom"></div>

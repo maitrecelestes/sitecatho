@@ -1,16 +1,16 @@
 #leBlocDesArticles {
-	background-color:			#E1D9D1;
+	/*background-color:			#E1D9D1;*/
 	width:						80%;
 	border-radius:				10px;
 	margin:						auto;
 	width : 					100%;
 	margin-top:					10px;
-	padding-top:				10px;
+	padding-top:				1px;
 	padding-bottom:				10px;
 }
 
 .monArticleParticulier {
-	background-color:			grey;
+	background-color:			#D0E09D;
 	margin:						auto;
 	width : 					98%;
 	border-radius:				10px;
