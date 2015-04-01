@@ -35,7 +35,6 @@
 			Créé par Michel GUIGNIER et Romain SOENEN.
 		</footer>
 		
-	<script type="text/javascript" src="js/connexion.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>

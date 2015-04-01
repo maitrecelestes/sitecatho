@@ -70,4 +70,14 @@
     <servlet-name>ServletNouvelleArticle</servlet-name>
     <url-pattern>/ServletNouvelleArticle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletConnexionReussi</display-name>
+    <servlet-name>ServletConnexionReussi</servlet-name>
+    <servlet-class>mr.controllers.ServletConnexionReussi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletConnexionReussi</servlet-name>
+    <url-pattern>/ServletConnexionReussi</url-pattern>
+  </servlet-mapping>
 </web-app>
