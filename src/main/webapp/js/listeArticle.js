@@ -1,6 +1,7 @@
 
 var RecupererListeArticle = function(nomPageEnCours) {
 	// Ecrire requête Ajax
+	
 	$.ajax({
 		url:"ServletArticle",
 		type:"GET",
@@ -25,6 +26,9 @@ var RecupererListeArticle = function(nomPageEnCours) {
 }
 $(document).ready(function() {
 	var pageEnCours = window.location.href.split('/')[[window.location.href.split('/').length - 1]];
+	var page = window.location.href.split('?')[[window.location.href.split('?').length - 1]];
+	var dirNouvelArticle="nouvelarticle?"+page;	
+	$("#lienNouvelArticle").attr("href",dirNouvelArticle);
 	RecupererListeArticle(getParam("nompage",pageEnCours));
 });
 

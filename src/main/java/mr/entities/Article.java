@@ -21,6 +21,16 @@ public class Article {
 		this.visiblePage=visiblePage;
 		this.articleDescription=articleDescription;
 	}
+	
+	//Constructeur pour l'ajout d'un nouvelle article
+	public Article (String contenu,String titre, String mailAuteur, String page, Boolean visiblePage, Boolean articleDescription){
+		this.contenu=contenu;
+		this.titre=titre;
+		this.mailAuteur=mailAuteur;
+		this.page=page;
+		this.visiblePage=visiblePage;
+		this.articleDescription=articleDescription;
+	}
 
 
 	public String getTitre() {

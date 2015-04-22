@@ -26,7 +26,7 @@
 	
 		 
 		 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
-	         <form>
+	         <form method="POST">
 	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="titre" rows="1" cols="200">titre </textarea>
 	       		<textarea name="contenu" id="contenu" rows="10" cols="80">
 	                Contenu de l'article
@@ -35,7 +35,7 @@
 	            <label for="visibiliteArticle">Voulez vous que l'article soit visible pour tout le monde :</label>
 	            <input type="radio" name="visibiliteArticle" value="oui" checked/>OUI
 	            <input type="radio" name="visibiliteArticle" value="non"/>NON<br/>
-	            <input type="button" id="envoyerArticle" value="Publier l'article"/>
+	            <input type="submit" id="envoyerArticle" value="Publier l'article"/>
 	        </form>
 		</section>
 	</section>

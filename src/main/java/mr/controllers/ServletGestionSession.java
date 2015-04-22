@@ -29,7 +29,7 @@ public class ServletGestionSession extends HttpServlet {
 		if(request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))) {
 			
 		} else {
-			System.out.println(request.getSession().getAttribute("utilisateurConnecte"));
+			
 			String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
 			String nom=(String) request.getSession().getAttribute("nom");
 			String prenom=(String) request.getSession().getAttribute("prenom");

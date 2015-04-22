@@ -27,7 +27,7 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
 		  </div>
-		  
+		  <a id="lienNouvelArticle" href="">Ecrire un nouvel article</a>
 		  <div id="blocArticle">
 				<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 				<c:import url="affichageArticle.jsp">

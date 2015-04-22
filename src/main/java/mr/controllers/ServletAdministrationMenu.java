@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mr.entities.Contact;
-import mr.entities.Menu;
-import mr.dao.ContactDao;
 import mr.dao.MenuDao;
-import mr.daoImp.ContactDaoImp;
 import mr.daoImp.MenuDaoImpl;
+import mr.entities.Menu;
 
 @WebServlet("/administrationMenu")
 public class ServletAdministrationMenu extends HttpServlet {

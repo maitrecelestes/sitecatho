@@ -80,4 +80,14 @@
     <servlet-name>ServletConnexionReussi</servlet-name>
     <url-pattern>/ServletConnexionReussi</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletNouvelArticle</display-name>
+    <servlet-name>ServletNouvelArticle</servlet-name>
+    <servlet-class>mr.controllers.ServletNouvelArticle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletNouvelArticle</servlet-name>
+    <url-pattern>/ServletNouvelArticle</url-pattern>
+  </servlet-mapping>
 </web-app>
