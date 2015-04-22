@@ -28,7 +28,23 @@
 		<h1>Ajouter des images à galerie</h1>
 		<p>Si vous ne savez pas comment ajouter une image à la galerie, nous vous invitons à suivre le tutorial en cliquant 
 		<a href="tutorialajoutimage">ici</a></p>
-		
+		<form method="POST">
+			<a href="http://www.casimages.com/">Héberger les images</a><br/>
+			<select name="categorie" id="categorie">
+   				<option value="categorie1">Catégorie 1</option>
+    			<option value="categorie2">Catégorie 2</option>
+    			<option value="categorie3">Catégorie 3</option>
+  			</select>
+			<input type="hidden" id="nombrelien" name="nombrelien" value="3"/>
+			<div id="mesinput">
+				<label for="lien1">Lien pour l'image 1</label><input type="text" id="lien1" name="lien1"/><br/>
+				<label for="lien2">Lien pour l'image 2</label><input type="text" id="lien2" name="lien2"/><br/>
+				<label for="lien3">Lien pour l'image 3</label><input type="text" id="lien3" name="lien3"/><br/>
+			</div>
+			<input type="button" id="ajouterinput" value="Ajouter une autre image"/>
+			<br/>
+			<input type="submit" value="Enregistrez les images">
+		</form>
 	 </section>
 	</section>			
 		<footer id="footer">
@@ -38,5 +54,5 @@
 		
 	<script type="text/javascript" src="js/administrationMenu.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/listeArticle.js"></script>
+	<script type="text/javascript" src="js/galerie.js"></script>
 </body>
