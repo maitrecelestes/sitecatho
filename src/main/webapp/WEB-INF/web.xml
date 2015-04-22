@@ -90,4 +90,34 @@
     <servlet-name>ServletNouvelArticle</servlet-name>
     <url-pattern>/ServletNouvelArticle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletGalerie</display-name>
+    <servlet-name>ServletGalerie</servlet-name>
+    <servlet-class>mr.controllers.ServletGalerie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletGalerie</servlet-name>
+    <url-pattern>/ServletGalerie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletAjoutImage</display-name>
+    <servlet-name>ServletAjoutImage</servlet-name>
+    <servlet-class>mr.controllers.ServletAjoutImage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAjoutImage</servlet-name>
+    <url-pattern>/ServletAjoutImage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletTutorialAjoutImage</display-name>
+    <servlet-name>ServletTutorialAjoutImage</servlet-name>
+    <servlet-class>mr.controllers.ServletTutorialAjoutImage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletTutorialAjoutImage</servlet-name>
+    <url-pattern>/ServletTutorialAjoutImage</url-pattern>
+  </servlet-mapping>
 </web-app>
