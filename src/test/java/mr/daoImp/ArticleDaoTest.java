@@ -23,9 +23,9 @@ public class ArticleDaoTest {
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM article");
 		stmt.executeUpdate("DELETE FROM editionArticle");
-		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,ipPosteur) VALUES (1,'Article chat','loveoiseau@test.fr',NOW(),'Le ciel est bleu et le chat chante','Antenne',true,false,'ip1')");
-		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,ipPosteur) VALUES (2,'Article poney','loveponey@test.fr',NOW(),'Le ciel est bleu et les poneys gambadent','Antenne',true,false,'ip2')");
-		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,ipPosteur) VALUES (3,'Article poney rose','loveponey@test.fr',NOW(),'Vive les poneyes roses','Poney',true,false,'ip3')");
+		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,`ipPosteur`,archive) VALUES (1,'Article chat','loveoiseau@test.fr',NOW(),'Le ciel est bleu et le chat chante','Antenne Inge',true,false,'ip1',false)");
+		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,`ipPosteur`,archive) VALUES (2,'Article poney','loveponey@test.fr',NOW(),'Le ciel est bleu et les poneys gambadent','Antenne Inge',true,false,'ip2',false)");
+		stmt.executeUpdate("INSERT INTO `article`(`numeroArticle`,titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,`ipPosteur`,archive) VALUES (3,'Article poney rose','loveponey@test.fr',NOW(),'Vive les poneyes roses','Bureau',true,false,'ip3',false)");
 		stmt.close();
 		connection.close();
 	}
@@ -38,8 +38,8 @@ public class ArticleDaoTest {
 	
 	@Test
 	public void testListeArticlePage() {
-		List<Article> listeArticleAntenne=articleDao.listeArticlePage("Antenne");
-		List<Article> listeArticlePoney=articleDao.listeArticlePage("Poney");
+		List<Article> listeArticleAntenne=articleDao.listeArticlePage("Antenne Inge");
+		List<Article> listeArticlePoney=articleDao.listeArticlePage("Bureau");
 		
 		Assert.assertEquals(2, listeArticleAntenne.size());
 		Assert.assertEquals(1, listeArticlePoney.size());
@@ -53,7 +53,7 @@ public class ArticleDaoTest {
 	
 	@Test
 	public void testAjouterArticle() {
-		Article nouvelleArticle=new Article("Les poney arrivent","Pro-titre", "cmichel@love.fr", null,"Banane", true, false);
+		Article nouvelleArticle=new Article("Les poney arrivent","Pro-titre", "cmichel@love.fr", null,"Banane", true, false,false);
 		articleDao.ajouterArticle(nouvelleArticle, "new ip");
 		
 		List<Article> listeArticleBanane=articleDao.listeArticlePage("Banane");
@@ -69,7 +69,7 @@ public class ArticleDaoTest {
 	public void testSupprimerArticle() {
 		articleDao.supprimerArticle(1);
 		
-		List<Article> listeArticleAntenne=articleDao.listeArticlePage("Antenne");
+		List<Article> listeArticleAntenne=articleDao.listeArticlePage("Antenne Inge");
 		
 		Assert.assertEquals(1, listeArticleAntenne.size());
 		
@@ -79,7 +79,7 @@ public class ArticleDaoTest {
 	
 	@Test
 	public void testModifierArticle() throws Exception{
-		Article articleModifier=new Article("Les poney arrivent plus vite que prévu","Un vrai titre", "cmichel@love.fr", null,"Banane", true, false);
+		Article articleModifier=new Article("Les poney arrivent plus vite que prévu","Un vrai titre", "cmichel@love.fr", null,"Banane", true, false,false);
 		
 		articleDao.modifierArticle(2,articleModifier, "new ip");
 		

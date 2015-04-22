@@ -10,9 +10,10 @@ public class Article {
 	private String page;
 	private Boolean visiblePage;
 	private Boolean articleDescription;
+	private Boolean archive;
 	
 	
-	public Article (String contenu,String titre, String mailAuteur, Date date, String page, Boolean visiblePage, Boolean articleDescription){
+	public Article (String contenu,String titre, String mailAuteur, Date date, String page, Boolean visiblePage, Boolean articleDescription, Boolean archive){
 		this.contenu=contenu;
 		this.titre=titre;
 		this.mailAuteur=mailAuteur;
@@ -20,6 +21,7 @@ public class Article {
 		this.page=page;
 		this.visiblePage=visiblePage;
 		this.articleDescription=articleDescription;
+		this.archive=archive;
 	}
 	
 	//Constructeur pour l'ajout d'un nouvelle article
@@ -66,5 +68,9 @@ public class Article {
 	public Boolean getArticleDescription() {
 		return articleDescription;
 	}
-	
+
+	public Boolean getArchive() {
+		return archive;
+	}
+
 }

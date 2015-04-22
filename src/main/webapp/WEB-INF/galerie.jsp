@@ -2,10 +2,8 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	<!--<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>-->
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
-	<title id="titrePageClassique">Un page classique</title>
+	<title id>Galerie</title>
 </head>
 <body>
 	<header id="header">
@@ -25,14 +23,11 @@
 
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
-		  <div id="blocPhoto">
-		  </div>
-		  <a id="lienNouvelArticle" href="">Ecrire un nouvel article</a>
-		   <!-- <input id="lienNouvelArticle" type="button" href="" value="Ecrire un nouvel article1" />-->
+		  
 		  <div id="blocArticle">
-				<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-				<c:import url="affichageArticle.jsp">
-				</c:import>
+				
+				Mon bloc pour la galerie
+
 		  </div>
 	 </section>
 	</section>
@@ -42,7 +37,6 @@
 			Créé par Michel GUIGNIER et Romain SOENEN.
 		</footer>
 		
-	<script type="text/javascript" src="js/administrationMenu.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>

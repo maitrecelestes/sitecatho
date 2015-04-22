@@ -21,7 +21,7 @@ public class ArticleDaoImp implements ArticleDao{
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
 				Article article= new Article(results.getString("contenu"),results.getString("titre"),results.getString("mailAuteur"), results.getDate("dateCreation"),results.getString("page"),
-						results.getBoolean("visibilitePage"),results.getBoolean("description_de_page"));
+						results.getBoolean("visibilitePage"),results.getBoolean("description_de_page"), results.getBoolean("archive"));
 				listeArticle.add(article);
 			}
 			
@@ -38,7 +38,7 @@ public class ArticleDaoImp implements ArticleDao{
 		Connection connection;
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `article`(`numeroArticle`, titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,`ipPosteur`) VALUES (?,?,?,NOW(),?,?,?,?,?)");
+			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `article`(`numeroArticle`, titre, `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,`ipPosteur`,`archive`) VALUES (?,?,?,NOW(),?,?,?,?,?,false)");
 			stmt.setInt(1,trouverNumeroArticleLibre());
 			stmt.setString(2, newArticle.getTitre());
 			stmt.setString(3, newArticle.getMailAuteur());

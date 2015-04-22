@@ -24,7 +24,7 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocArticle">
-				<h3>Liste des messages reçue via Contact</h3>
+				<h3>Liste des messages reçues via Contact</h3>
 						<table id="tabListeContact">
 						<tr>
 							<th>  Nom  </th>
