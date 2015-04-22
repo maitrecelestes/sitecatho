@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,99 @@ import mr.dao.ArticleDao;
 import mr.entities.Article;
 
 public class ArticleDaoImp implements ArticleDao{
+
+	@Override
+	public List<Article> listeArticlePage(String nomPage) {
+		Connection connection;
+		List<Article> listeArticle= new ArrayList<Article>();
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `article` WHERE `page`=? ORDER BY `dateCreation` DESC ");
+			stmt.setString(1, nomPage); 
+			ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+				Article article= new Article(results.getInt("idArticle"),results.getString("contenu"),results.getString("titre"),results.getString("mailAuteur"), results.getDate("dateCreation"),results.getString("page"),
+						results.getBoolean("visibilitePage"),results.getBoolean("description_de_page"), results.getBoolean("archive"));
+				listeArticle.add(article);
+			}
+			
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listeArticle;
+	}
+
+	@Override
+	public void ajouterArticle(Article newArticle, String IP) {
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `article`('titre', `mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`,`ipPosteur`,`archive`) VALUES (?,?,NOW(),?,?,?,?,?,?)");
+			stmt.setString(1, newArticle.getTitre());
+			stmt.setString(2, newArticle.getMailAuteur());
+			stmt.setString(4, newArticle.getContenu()); 
+			stmt.setString(5, newArticle.getPage());
+			stmt.setBoolean(6,newArticle.getVisiblePage());
+			stmt.setBoolean(7,newArticle.getArticleDescription());
+			stmt.setString(8,IP);
+			stmt.setBoolean(9,false);
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		/*try {
+			connection = DataSourceProvider.getDataSource()
+					.getConnection();
+			PreparedStatement stmt = connection.prepareStatement(
+					"INSERT INTO page(idpage, nompage, rang, visibilite) VALUES(?,?,?,?)",
+					Statement.RETURN_GENERATED_KEYS);
+			stmt.setInt(1, newMenu.getIdpage());
+			stmt.setString(2, newMenu.getNompage());
+			stmt.setInt(3, newMenu.getRang());
+			stmt.setBoolean(4, newMenu.getVisibilite());
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}*/
+		
+		
+	}
+
+	@Override
+	public void supprimerArticle(int numeroArticle) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cacherArticle(int numeroArticle) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifierArticle(int numeroArticle, Article articlemodifier,
+			String IP) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int trouverNumeroArticleLibre() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
-	public List<Article> listeArticlePage(String nomPage){
+	
+	
+	
+	/*public List<Article> listeArticlePage(String nomPage){
 		Connection connection;
 		List<Article> listeArticle= new ArrayList<Article>();
 		try {
@@ -119,7 +211,7 @@ public class ArticleDaoImp implements ArticleDao{
 		}	
 		return rep;
 	}
-	
+	*/
 	
 	
 }

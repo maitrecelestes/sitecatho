@@ -13,6 +13,7 @@ var RecupererListeArticle = function(nomPageEnCours) {
 		success:function(data, textStatus, xhr){
 			var monarticle="";
 			for (var i = 0; i < data.length; i++) {
+				monarticle=monarticle+"<div class='monArticleParticulier'>"+data[i].idArticle+"</div>";
 				monarticle=monarticle+"<article class='monArticleParticulier'>";
 				monarticle=monarticle+"<h3 class='titreArticle'>"+data[i].titre+"</h3>";
 				monarticle=monarticle+"<h4 class='dateArticle'>"+data[i].date+"</h4>";

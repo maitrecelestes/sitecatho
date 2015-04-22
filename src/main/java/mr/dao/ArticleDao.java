@@ -12,6 +12,8 @@ public interface ArticleDao {
 	
 	public void supprimerArticle (int numeroArticle);
 	
+	public void cacherArticle (int numeroArticle);
+	
 	public void modifierArticle(int numeroArticle,Article articlemodifier, String IP);
 	
 	public int trouverNumeroArticleLibre();

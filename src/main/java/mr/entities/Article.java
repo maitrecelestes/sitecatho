@@ -3,6 +3,7 @@ package mr.entities;
 import java.sql.Date;
 
 public class Article {
+	private int idArticle;
 	private String contenu;
 	private String titre;
 	private String mailAuteur;
@@ -13,7 +14,8 @@ public class Article {
 	private Boolean archive;
 	
 	
-	public Article (String contenu,String titre, String mailAuteur, Date date, String page, Boolean visiblePage, Boolean articleDescription, Boolean archive){
+	public Article (int idArticle, String contenu,String titre, String mailAuteur, Date date, String page, Boolean visiblePage, Boolean articleDescription, Boolean archive){
+		this.idArticle=idArticle;
 		this.contenu=contenu;
 		this.titre=titre;
 		this.mailAuteur=mailAuteur;
@@ -34,6 +36,10 @@ public class Article {
 		this.articleDescription=articleDescription;
 	}
 
+	
+	public int getIdArticle() {
+		return idArticle;
+	}
 
 	public String getTitre() {
 		return titre;
