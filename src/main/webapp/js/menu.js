@@ -86,6 +86,7 @@ var cacherPage = function() {
 				$("#bouttonConnexion").hide(); 
 				if(data[3]=="administrateur"||data[3]=="super administrateur"){
 					$("#administration").show();
+					
 				}
 			} 
 			var montextNomPrenom="Bonjour "+data[2]+" "+data[1];

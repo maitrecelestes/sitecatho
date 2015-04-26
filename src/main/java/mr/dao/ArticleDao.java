@@ -8,14 +8,16 @@ public interface ArticleDao {
 	
 	public List<Article> listeArticlePage(String nomPage);
 	
+	public Article unArticle(int id);
+	
 	public void ajouterArticle (Article newArticle, String IP);
 	
-	public void supprimerArticle (int numeroArticle);
+	public void archiverArticle (int numeroArticle);
 	
 	public void cacherArticle (int numeroArticle);
 	
 	public void modifierArticle(int numeroArticle,Article articlemodifier, String IP);
-	
-	public int trouverNumeroArticleLibre();
+
+
 		
 }

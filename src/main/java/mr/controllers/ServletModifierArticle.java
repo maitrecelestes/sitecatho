@@ -1,7 +1,9 @@
 package mr.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,23 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import mr.dao.ArticleDao;
+import mr.dao.MenuDao;
 import mr.daoImp.ArticleDaoImp;
+import mr.daoImp.MenuDaoImpl;
 import mr.entities.Article;
+import mr.entities.Menu;
 
-@WebServlet("/nouvelarticle")
-public class ServletNouvelArticle extends HttpServlet {
+@WebServlet("/modifierarticle")
+public class ServletModifierArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-    public ServletNouvelArticle() {
-        super();
-        
-    }
+	ArticleDao articleDao = new ArticleDaoImp();
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp");
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/modifierarticle.jsp");
 		view.forward(request, response);
 	}
 
@@ -43,14 +44,15 @@ public class ServletNouvelArticle extends HttpServlet {
 			visiblePage=true;
 		}
 		Boolean articleDescription=false;
-		Article monArticle=new Article(contenu,titre,mail,page,visiblePage,articleDescription);
+		Article monNouvelArticle=new Article(contenu,titre,mail,page,visiblePage,articleDescription);
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
 		ArticleDao articleDao= new ArticleDaoImp();
-		articleDao.ajouterArticle(monArticle,ipAddress);
+		articleDao.ajouterArticle(monNouvelArticle,ipAddress);
 		
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
 		view.forward(request, response);
+		
 	}
 
 }

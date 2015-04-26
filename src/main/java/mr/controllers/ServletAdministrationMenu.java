@@ -109,8 +109,7 @@ if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equal
 			menuDao.supprimerLigneDansMenu(id);
 		}
 		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
-		view.forward(request, response);
+		
 	
 	}
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,18 +28,40 @@ public class ServletArticle extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		
-		String nomDeLaPage= request.getParameter("leNomDeMaPageChoisie");
+		String fonction= request.getParameter("maFonction");
+		if(fonction.equals("tousLesArticle")){
+			String nomDeLaPage= request.getParameter("leNomDeMaPageChoisie");
+			
+			List<Article> maListeArticle = articleDao.listeArticlePage(nomDeLaPage) ;
+			Gson gson = new Gson();
+		    String json = gson.toJson(maListeArticle);
+			
+			
+			PrintWriter out = response.getWriter();
+			out.append(json);
+		}else if(fonction.equals("unArticle")){
+			String monid= request.getParameter("monid");
+			
+			Article monArticle = articleDao.unArticle(Integer.parseInt(monid)) ;
+			Gson gson = new Gson();
+		    String json = gson.toJson(monArticle);
+			
+			
+			PrintWriter out = response.getWriter();
+			out.append(json);
+		}
 		
-		List<Article> maListeArticle = articleDao.listeArticlePage(nomDeLaPage) ;
-		Gson gson = new Gson();
-	    String json = gson.toJson(maListeArticle);
 		
-		
-		PrintWriter out = response.getWriter();
-		out.append(json);
 		
 	}
 	
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String maFonction=request.getParameter("maFonction");
+		if(maFonction.equals("archiveArticle")){
+			articleDao.archiverArticle(Integer.parseInt(request.getParameter("idarticle")));
+		}else if(maFonction.equals("visibleArticle")){
+			articleDao.cacherArticle(Integer.parseInt(request.getParameter("idarticle")));
+		}
+	}
 	
 }

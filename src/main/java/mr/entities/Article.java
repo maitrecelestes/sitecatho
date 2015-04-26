@@ -34,6 +34,7 @@ public class Article {
 		this.page=page;
 		this.visiblePage=visiblePage;
 		this.articleDescription=articleDescription;
+		this.archive=false;
 	}
 
 	

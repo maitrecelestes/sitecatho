@@ -29,7 +29,7 @@ public class ServletMenu extends HttpServlet {
 	    String json = gson.toJson(maListeMenu);
 		
 		
-		PrintWriter out = response.getWriter(); /////////////////////////////////////////////////
+		PrintWriter out = response.getWriter();
 		out.append(json);
 		
 	}

@@ -27,13 +27,14 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
 		  </div>
-		  <a id="lienNouvelArticle" href="">Ecrire un nouvel article</a>
-		   <!-- <input id="lienNouvelArticle" type="button" href="" value="Ecrire un nouvel article1" />-->
+		  <a id="lienNouvelArticle" class="bouttonArticle" href="">Ecrire un nouvel article</a>
 		  <div id="blocArticle">
 				<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 				<c:import url="affichageArticle.jsp">
 				</c:import>
-		  </div>
+		  </div>		  
+		  
+		  
 	 </section>
 	</section>
 					

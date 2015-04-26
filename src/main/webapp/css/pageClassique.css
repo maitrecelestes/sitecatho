@@ -86,9 +86,15 @@ width : 75%;
 
 
 
+.bouttonArticle:hover {
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0);
+border-width:1px;
+border-style:dotted;
+border-color:black;
+}
 
-
-#lienNouvelArticle{
+.bouttonArticle{
 margin-left:10px;
 display:block;
 width:200px;
@@ -99,11 +105,8 @@ color:white;
 text-decoration:none;
 background-color: #D0E09D;
 border-radius: 10px;
+
+
 }
-#lienNouvelArticle:hover {
-border-radius: 10px;
-background-color: rgba(0, 0, 0, 0);
-border-width:1px;
-border-style:dotted;
-border-color:black;
-}
+
+

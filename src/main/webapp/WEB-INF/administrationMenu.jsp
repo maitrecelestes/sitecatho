@@ -55,8 +55,7 @@
 						</c:forEach>
 						</table>
 
-						
-						
+					
 						<button class="bouttonAjoutMenu" type="button">Pour ajouter une page</button>
 						<button class="bouttonModifierMenu" type="button">Cacher panneau modification</button>
 						
