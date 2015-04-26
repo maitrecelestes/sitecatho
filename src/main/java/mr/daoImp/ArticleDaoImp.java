@@ -145,7 +145,7 @@ public class ArticleDaoImp implements ArticleDao{
 	@Override
 	public void modifierArticle(int numeroArticle, Article articlemodifier,
 			String IP) {
-		cacherArticle(numeroArticle);
+		archiverArticle(numeroArticle);
 		ajouterArticle(articlemodifier,IP);
 	}
 	

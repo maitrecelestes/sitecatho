@@ -32,6 +32,13 @@ public class ServletNouvelArticle extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*StringBuffer requestURL = request.getRequestURL();
+		if (request.getQueryString() != null) {
+		    requestURL.append("?").append(request.getQueryString());
+		}
+		String completeURL = requestURL.toString();*/
+		
+		
 		String contenu=request.getParameter("contenu");
 		String titre=request.getParameter("titre");
 		String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
@@ -47,9 +54,9 @@ public class ServletNouvelArticle extends HttpServlet {
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
 		ArticleDao articleDao= new ArticleDaoImp();
 		articleDao.ajouterArticle(monArticle,ipAddress);
-		
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
+		/*System.out.println(completeURL);
+		response.sendRedirect(completeURL); */
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");
 		view.forward(request, response);
 	}
 

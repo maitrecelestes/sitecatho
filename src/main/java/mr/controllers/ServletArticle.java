@@ -62,6 +62,8 @@ public class ServletArticle extends HttpServlet {
 		}else if(maFonction.equals("visibleArticle")){
 			articleDao.cacherArticle(Integer.parseInt(request.getParameter("idarticle")));
 		}
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
+		view.forward(request, response);
 	}
 	
 }

@@ -33,6 +33,19 @@ public class ServletModifierArticle extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		StringBuffer requestURL = request.getRequestURL();
+		if (request.getQueryString() != null) {
+		    requestURL.append("?").append(request.getQueryString());
+		}
+		String completeURL = requestURL.toString();
+		
+		String id="";
+		int i=completeURL.length();
+		while(i>1&&completeURL.charAt(i-1)!='='){
+			i--;
+			id=completeURL.charAt(i)+id;
+		}
+		
 		String contenu=request.getParameter("contenu");
 		String titre=request.getParameter("titre");
 		String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
@@ -47,10 +60,9 @@ public class ServletModifierArticle extends HttpServlet {
 		Article monNouvelArticle=new Article(contenu,titre,mail,page,visiblePage,articleDescription);
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
 		ArticleDao articleDao= new ArticleDaoImp();
-		articleDao.ajouterArticle(monNouvelArticle,ipAddress);
+		articleDao.modifierArticle(Integer.parseInt(id),monNouvelArticle,ipAddress);
 		
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");
 		view.forward(request, response);
 		
 	}

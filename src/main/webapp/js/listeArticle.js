@@ -19,6 +19,7 @@ var RecupererListeArticle = function(nomPageEnCours) {
 					var page = window.location.href.split('?')[[window.location.href.split('?').length - 1]];				
 					for (var i = 0; i < data.length; i++) {
 						if(!data[i].archive){
+							monarticle=monarticle+"<div class='unArticleDeLaPage'>";
 							monarticle=monarticle+"<div class='cacherConnexion'>"
 							monarticle=monarticle+"<a href='modifierarticle?"+page+"&idArticle="+data[i].idArticle+"'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle"+data[i].idArticle+"' type='button'>Modification</button></a>";
 							monarticle=monarticle+"<button class='bouttonArticle bouttonVisibiliteArticle' onclick='visibleArticle(this)' id='visibiliteArticle"+data[i].idArticle+"' type='button'>Visible</button>";
@@ -29,6 +30,7 @@ var RecupererListeArticle = function(nomPageEnCours) {
 							monarticle=monarticle+"<h4 class='dateArticle'>"+data[i].date+"</h4>";
 							monarticle=monarticle+"<p class='contenuArticle'>"+data[i].contenu+"</p>";
 							monarticle=monarticle+"</article>";	
+							monarticle=monarticle+"</div>";	
 						}			
 					}
 					//Organisation de la vue d'un article
