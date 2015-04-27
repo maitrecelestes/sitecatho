@@ -24,8 +24,20 @@ public class ServletAjoutImage extends HttpServlet {
 	private CategorieDao categorieDao=new CategorieDaoImp();
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Categorie> listeCategorie=categorieDao.listeCategorie();
-		request.setAttribute("listeCategorie", listeCategorie);
+		StringBuffer requestURL = request.getRequestURL();
+		if (request.getQueryString() != null) {
+		    requestURL.append("?").append(request.getQueryString());
+		}
+		String completeURL = requestURL.toString();
+		
+		String id="";
+		int i=completeURL.length();
+		while(i>1&&completeURL.charAt(i-1)!='='){
+			i--;
+			id=completeURL.charAt(i)+id;
+		}
+		int idCategorie= Integer.parseInt(id);
+		request.setAttribute("idCategorie", idCategorie);
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ajouterimage.jsp");
 		view.forward(request, response);
@@ -36,7 +48,6 @@ public class ServletAjoutImage extends HttpServlet {
 		
 		ImageDao imageDao= new ImageDaoImp();
 		String nombreLienString=request.getParameter("nombrelien");
-		System.out.println(nombreLienString);
 		int nombreLien= Integer.parseInt(nombreLienString);
 		
 		String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
