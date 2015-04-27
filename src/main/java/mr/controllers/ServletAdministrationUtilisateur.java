@@ -86,6 +86,8 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			}else if(!mailExiste){
 				//Pas de probleme et on ajoute le nouveau mail
 				System.out.println("Pas de probleme et on ajoute le nouveau mail");
+				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,rang,ecole,pageGere);
+				utilisateurdao.ajouterUtilisateur(utilisateur);
 			}
 			
 			
@@ -108,9 +110,6 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 		    PrintWriter out = response.getWriter();
 			out.append(json);*/
 			
-			
-			/*Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,rang,ecole,pageGere);
-			utilisateurdao.ajouterUtilisateur(utilisateur);*/
 			
 		} else if (requete.equals("suppression")){
 			String mail=request.getParameter("mail");
