@@ -4,7 +4,7 @@
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
 	<link rel="stylesheet" type="text/css" href="css/galerie.css"/>
-	<title id="titrePageClassique">Galerie photo</title>
+	<title>Galerie photo</title>
 
 </head>
 <body>
