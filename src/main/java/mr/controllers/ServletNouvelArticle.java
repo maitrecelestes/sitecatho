@@ -56,7 +56,7 @@ public class ServletNouvelArticle extends HttpServlet {
 		articleDao.ajouterArticle(monArticle,ipAddress);
 		/*System.out.println(completeURL);
 		response.sendRedirect(completeURL); */
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/pageIntermediaire.jsp");
 		view.forward(request, response);
 	}
 

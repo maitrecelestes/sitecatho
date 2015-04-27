@@ -3,7 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
-	<title>Accès interdit</title>
+	<title>Page intermediaire</title>
 </head>
 <body>
 	<header id="header">
@@ -24,8 +24,7 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
 		  <div id="blocArticle">
-				<h1>Vous n'avez pas les droits nécéssaires pour ce connecter à cette page !!!</h1>
-				<a href="accueil">Revenir à l'accueil</a>
+				<h1>Ma page intermediaire</h1>
 		  </div>
 	 </section>
 	</section>
@@ -37,5 +36,5 @@
 		
 	<script type="text/javascript" src="js/connexion.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/listeArticle.js"></script>
+	<script type="text/javascript" src="js/pageIntermediaire.js"></script>
 </body>

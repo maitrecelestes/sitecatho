@@ -62,7 +62,7 @@ public class ServletModifierArticle extends HttpServlet {
 		ArticleDao articleDao= new ArticleDaoImp();
 		articleDao.modifierArticle(Integer.parseInt(id),monNouvelArticle,ipAddress);
 		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/pageIntermediaire.jsp");
 		view.forward(request, response);
 		
 	}

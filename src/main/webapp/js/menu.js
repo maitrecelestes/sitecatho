@@ -59,15 +59,6 @@ function choixPagenom(nomDepage){
 	
 }
 
-function revoietextRang(elementListe){
-	var montext="zzzz";
-	if(elementListe.rang==0 && elementListe.rang==0){
-		montext="<li>"+elementListe.nompage+"</li>";
-	}else{
-		montext="<li>rjbgoolbzglvire</li><ul><li class='lienMenu'>"+elementListe.nompage+"</li></ul>";
-	}
-	return montext;
-}
 
 var cacherPage = function() {
 	$("#bouttonDeconnexion").hide();
