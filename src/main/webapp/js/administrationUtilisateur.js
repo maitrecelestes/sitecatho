@@ -1,12 +1,12 @@
 // Ajouter utilisateur
 
 function ajouterUtilisateur(event){
-	if($("#newMail").val().length>3&&$("#newNom").val().length>2&&$("#newPrenom").val().length>3&&$("#newEcole").val().length>1){
+	if(/*verificationMail($("#newMail").val())&&*/$("#newNom").val().length>1&&$("#newPrenom").val().length>1&&$("#newEcole").val().length>1){
 		var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur");
 	} else {
 		alert("Veuillez remplir tous les champs de textes");
 	}
-	
+	alert("ok");
 	
 	if(confirmation){
 		$.ajax({
@@ -36,6 +36,27 @@ function montrerFormulaireCreationUtilisateur(event){
 	$("#modifierUtilisateur").hide();
 }
 $("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur(event);});
+
+
+
+//verificationMail
+function verificationMailExistance(mail){
+	var rep=false;
+	var positionArobase=1;
+	while(mail.charAt(positionArobase)!='@' && positionArobase<mail.length){
+		positionArobase++;
+	}
+	var positionPoint=positionArobase;
+	while(mail.charAt(positionPoint)!='.' && positionPoint<mail.length){
+		positionPoint++;
+	}
+
+	if(0<positionArobase && positionArobase<positionPoint-1 && positionPoint<mail.length-1){
+		rep=true;
+	}
+	return rep;
+}
+
 
 // Supprimer utilisateur
 function supprimerUtilisateur(event){
