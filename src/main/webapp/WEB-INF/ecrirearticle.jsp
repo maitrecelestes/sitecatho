@@ -40,7 +40,7 @@
 		</section>
 	</section>
 					
-		<c:import url="blocDeGauche.jsp">
+		<c:import url="footer.jsp">
 		</c:import>
 		
 	<script type="text/javascript" src="js/menu.js"></script>
