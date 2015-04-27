@@ -9,5 +9,9 @@ function ajouterinput(){
 	$('#mesinput').append(br);
 	$("#nombrelien").val(numero);
 }
-
 $("#ajouterinput").click(function(){ajouterinput();});
+
+function afficherAjoutCategorie(event){
+	$("#ajoutCategorie").show();
+}
+$("#boutonAjoutCategorie").click(function(){afficherAjoutCategorie(event);});
