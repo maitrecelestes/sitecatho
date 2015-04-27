@@ -9,4 +9,6 @@ public interface CategorieDao {
 	public List<Categorie> listeCategorie(); 
 	public void ajoutCategorie(Categorie nomCategorie);
 	public void modifierCategorie(int idCategorie, String newNomCategorie);
+	public void supprimerCategorie(int idCategorie);
 }
+		

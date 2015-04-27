@@ -2,11 +2,8 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	<!--<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>-->
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
-	<title id="titrePageClassique">Galerie photo</title>
-
+	<title>Galerie</title>
 </head>
 <body>
 	<header id="header">
@@ -25,23 +22,20 @@
 	 </section>
 
 	 
-	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
-	
-		<h1>Galerie</h1>
-		
-		<a href="ajouterimage">Ajouter des images</a><br/>
-		<c:forEach var="listeCategorie" items="${listeCategorie}">
-			<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>				
-		</c:forEach>
+	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
+		  <div id="blocArticle">
+				<p>Bientôt ici des images</p>
+				<a href="ajouterimage">Ajouter des images</a><br/>
+		  </div>
 	 </section>
-	</section>			
-
+	</section>
+					
 		<footer id="footer">
 			<!-- COPYRIGHT -->
 			Créé par Michel GUIGNIER et Romain SOENEN.
 		</footer>
 		
-	<script type="text/javascript" src="js/administrationMenu.js"></script>
+	<script type="text/javascript" src="js/connexion.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>

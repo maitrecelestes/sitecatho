@@ -62,5 +62,19 @@ public class CategorieDaoImp implements CategorieDao{
 		}	
 		
 	}
+	
+	@Override
+	public void supprimerCategorie(int idCategorie){
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `categoriephotos` WHERE id=?");
+			stmt.setInt(1,idCategorie); 
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
 
 }

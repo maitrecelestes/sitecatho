@@ -62,6 +62,7 @@ public class ContactDaoTest {
 		Assert.assertTrue(rs1.next());
 	}
 	
+	@Test
 	public void testSuppresionContact() throws Exception{
 		contactDao.supprimerContact(2);
 		
@@ -75,9 +76,9 @@ public class ContactDaoTest {
 		Assert.assertEquals("ip michel",rs1.getString("ipPosteur"));
 		
 		Assert.assertTrue(rs1.next());
-		Assert.assertEquals("Soenen",rs1.getString("nom"));
-		Assert.assertEquals("Mon binome est mécrant",rs1.getString("objet"));
+		Assert.assertEquals("Gouvy",rs1.getString("nom"));
+		Assert.assertEquals("Stop",rs1.getString("objet"));
 		
-		Assert.assertTrue(rs1.next());
+		Assert.assertFalse(rs1.next());
 	}
 }
