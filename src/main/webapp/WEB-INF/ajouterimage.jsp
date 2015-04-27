@@ -30,11 +30,8 @@
 		<a href="tutorialajoutimage">ici</a></p>
 		<form method="POST">
 			<a href="http://www.casimages.com/">Héberger les images</a><br/>
-			<select name="categorie" id="categorie">
-   				<option value="categorie1">Catégorie 1</option>
-    			<option value="categorie2">Catégorie 2</option>
-    			<option value="categorie3">Catégorie 3</option>
-  			</select>
+			<input type="hidden" name="categorie" value="${idCategorie}"/>
+			
 			<input type="hidden" id="nombrelien" name="nombrelien" value="3"/>
 			<div id="mesinput">
 				<label for="lien1">Lien pour l'image 1</label><input type="text" id="lien1" name="lien1"/><br/>

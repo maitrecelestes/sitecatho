@@ -2,9 +2,8 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	<!--<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>-->
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/galerie.css"/>
 	<title id="titrePageClassique">Galerie photo</title>
 
 </head>
@@ -28,8 +27,12 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 	
 		<h1>Galerie</h1>
+		<input type="button" id="boutonAjoutCategorie" value="Ajouter une catégorie"/><br/>
+		<div id="ajoutCategorie">
+			<input type="text" name="nomNouvelleCategorie"/>
+			<input type="button" value="enregistrer"/>
+		</div>
 		
-		<a href="ajouterimage">Ajouter des images</a><br/>
 		<c:forEach var="listeCategorie" items="${listeCategorie}">
 			<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>				
 		</c:forEach>
@@ -43,5 +46,5 @@
 		
 	<script type="text/javascript" src="js/administrationMenu.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/listeArticle.js"></script>
+	<script type="text/javascript" src="js/galerie.js"></script>
 </body>

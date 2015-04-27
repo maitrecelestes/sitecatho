@@ -24,8 +24,10 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
 		  <div id="blocArticle">
-				<p>Bientôt ici des images</p>
-				<a href="ajouterimage">Ajouter des images</a><br/>
+				<c:forEach var="listeImage" items="${listeImage}">
+					<img src="${listeImage.getLienImage()}"/><br/>				
+				</c:forEach>
+				<a href="ajouterimage?id=${idCategorie}">Ajouter des images</a><br/>
 		  </div>
 	 </section>
 	</section>

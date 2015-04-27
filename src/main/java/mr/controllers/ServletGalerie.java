@@ -18,9 +18,10 @@ import mr.entities.Categorie;
 @WebServlet("/galerie")
 public class ServletGalerie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      private CategorieDao categorieDao=new CategorieDaoImp();
-
+	private CategorieDao categorieDao= new CategorieDaoImp();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		List<Categorie> listeCategorie=categorieDao.listeCategorie();
 		request.setAttribute("listeCategorie", listeCategorie);
 		

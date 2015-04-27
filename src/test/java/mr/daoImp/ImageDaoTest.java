@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 import mr.dao.ImageDao;
+import mr.entities.Categorie;
 import mr.entities.Image;
 
 import org.junit.Assert;
@@ -21,17 +23,30 @@ public class ImageDaoTest {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM photo");
-		stmt.executeUpdate("INSERT INTO `photo`(`lienPhoto`,`categoriePhotos`, `mailAuteur`, `dateCreation`, `ipPosteur`) VALUES ('lienversmaphoto1.jpg','categorie 1','romain.soenen@hei.fr',NOW(),'ip romain')");
-		stmt.executeUpdate("INSERT INTO `photo`(`lienPhoto`,`categoriePhotos`, `mailAuteur`, `dateCreation`, `ipPosteur`) VALUES ('lienversmaphoto2.jpg','categorie 2','michel.guignier@hei.fr',NOW(),'ip michel')");
-		stmt.executeUpdate("INSERT INTO `photo`(`lienPhoto`,`categoriePhotos`, `mailAuteur`, `dateCreation`, `ipPosteur`) VALUES ('lienversmaphoto3.jpg','categorie 1','florent.soenen@hei.fr',NOW(),'ip florent')");
+		stmt.executeUpdate("INSERT INTO `photo`(`lienPhoto`,`idCategoriePhoto`, `mailAuteur`, `dateCreation`, `ipPosteur`) VALUES ('lienversmaphoto1.jpg',1,'romain.soenen@hei.fr',NOW(),'ip romain')");
+		stmt.executeUpdate("INSERT INTO `photo`(`lienPhoto`,`idCategoriePhoto`, `mailAuteur`, `dateCreation`, `ipPosteur`) VALUES ('lienversmaphoto2.jpg',2,'michel.guignier@hei.fr',NOW(),'ip michel')");
+		stmt.executeUpdate("INSERT INTO `photo`(`lienPhoto`,`idCategoriePhoto`, `mailAuteur`, `dateCreation`, `ipPosteur`) VALUES ('lienversmaphoto3.jpg',1,'florent.soenen@hei.fr',NOW(),'ip florent')");
 		stmt.close();
 		connection.close();
 	}
 	
 	@Test
-	public void testAjouterUtilisateur() throws Exception{
+	public void testListeImage() throws Exception{
 		
-		imageDao.ajouterImage(new Image("adresse4.jpg","romain@test.fr","categorie 2"), "adresse rs");
+		List<Image> listeImage=imageDao.listeImageCategorie(1);
+		
+		Assert.assertEquals(2, listeImage.size());
+		
+		Assert.assertEquals("lienversmaphoto1.jpg", listeImage.get(0).getLienImage());
+		Assert.assertEquals("romain.soenen@hei.fr", listeImage.get(0).getMailPosteur());
+		Assert.assertEquals("florent.soenen@hei.fr", listeImage.get(1).getMailPosteur());
+		
+	}
+	
+	@Test
+	public void testAjoutImage() throws Exception{
+		
+		imageDao.ajouterImage(new Image("adresse4.jpg","romain@test.fr",2), "adresse rs");
 		
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM photo WHERE lienPhoto='adresse4.jpg'");
@@ -40,7 +55,7 @@ public class ImageDaoTest {
 		Assert.assertTrue(rs.next());
 		Assert.assertEquals("romain@test.fr", rs.getString("mailAuteur"));
 		Assert.assertEquals("adresse rs", rs.getString("ipPosteur"));
-		Assert.assertEquals("categorie 2", rs.getString("categoriePhotos"));
+		Assert.assertEquals(2, rs.getInt("idCategoriePhoto"));
 		Assert.assertFalse(rs.next());
 	}
 
