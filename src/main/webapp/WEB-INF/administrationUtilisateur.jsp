@@ -78,10 +78,8 @@
 	 </section>
 	</section>
 					
-		<footer id="footer">
-			<!-- COPYRIGHT -->
-			Créé par Michel GUIGNIER et Romain SOENEN.
-		</footer>
+		<c:import url="blocDeGauche.jsp">
+		</c:import>
 		
 	<script type="text/javascript" src="js/administrationUtilisateur.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
