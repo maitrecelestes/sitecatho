@@ -5,7 +5,10 @@ import java.util.List;
 import mr.entities.Utilisateur;
 
 public interface UtilisateurDao {
-	public List<Utilisateur> afficherListeUtilisateur();
+	
+	public List<Utilisateur> afficherListeDeTousLesUtilisateur();
+	
+	public List<Utilisateur> afficherListeUtilisateurNonArchive();
 	
 	public Utilisateur afficherUtilisateur(String login);
 	
@@ -19,5 +22,5 @@ public interface UtilisateurDao {
 	
 	public boolean authentificationUtilisateur(Utilisateur utilisateur);
 	
-	
+	//public boolean mailArchive(String mail);
 }

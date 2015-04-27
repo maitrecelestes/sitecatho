@@ -14,13 +14,36 @@ import mr.entities.Utilisateur;
 
 public class UtilisateurDaoImp implements UtilisateurDao {
 	
+	
+	
 	@Override
-	public List<Utilisateur> afficherListeUtilisateur() {
+	public List<Utilisateur> afficherListeDeTousLesUtilisateur() {
 		Connection connection;
 		List<Utilisateur> listeUtilisateur= new ArrayList<Utilisateur>();
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` ORDER BY `email` ASC ");
+			ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+				listeUtilisateur.add(utilisateur);
+			}
+			
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listeUtilisateur;
+	}
+	
+	
+	@Override
+	public List<Utilisateur> afficherListeUtilisateurNonArchive() {
+		Connection connection;
+		List<Utilisateur> listeUtilisateur= new ArrayList<Utilisateur>();
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` WHERE `archive`=false ORDER BY `email` ASC ");
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
 				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
@@ -81,7 +104,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			String mdpCrypte= HashMyPassword(mdpnonCrypte);
 			
 			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,`pageGere`) VALUES (?,?,?,?,?,?,?)");
+			PreparedStatement stmt= connection.prepareStatement("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`, `pageGere`, `archive`) VALUES (?,?,?,?,?,?,?,false)");
 			stmt.setString(1, newUtilisateur.getMail());
 			stmt.setString(2, mdpCrypte);
 			stmt.setString(3, newUtilisateur.getNom()); 
@@ -105,7 +128,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		Connection connection;
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `utilisateur` WHERE email=?");
+			PreparedStatement stmt= connection.prepareStatement("UPDATE `utilisateur` SET `archive`=true WHERE `email`=?");
 			stmt.setString(1,mail); 
 			stmt.executeUpdate();
 			connection.close();
@@ -162,6 +185,12 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		
 		return rep;
 	}
+
+	/*@Override
+	public boolean mailArchive(String mail) {
+		// TODO Auto-generated method stub
+		return false;
+	}*/
 
 	
 

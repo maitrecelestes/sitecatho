@@ -32,7 +32,7 @@ public class UtilisateurDaoTest {
 	
 	@Test
 	public void testListeUtilisateur() {
-		List<Utilisateur> listeUtilisateur=utilisateurDao.afficherListeUtilisateur();
+		List<Utilisateur> listeUtilisateur=utilisateurDao.afficherListeUtilisateurNonArchive();
 		
 		Assert.assertEquals(3, listeUtilisateur.size());
 		
