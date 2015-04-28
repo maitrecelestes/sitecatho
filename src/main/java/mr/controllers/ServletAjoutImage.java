@@ -2,6 +2,7 @@ package mr.controllers;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import mr.dao.ImageDao;
 import mr.daoImp.ImageDaoImp;
 import mr.entities.Image;
+import mr.entities.Menu;
 
 @WebServlet("/ajouterimage")
 public class ServletAjoutImage extends HttpServlet {
@@ -34,9 +36,23 @@ public class ServletAjoutImage extends HttpServlet {
 		}
 		int idCategorie= Integer.parseInt(id);
 		request.setAttribute("idCategorie", idCategorie);
+		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
+		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {		
+			if (request.getSession().getAttribute("utilisateurConnecte")=="administrateur"){
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ajouterimage.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}
+			
+		}
 		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ajouterimage.jsp");
-		view.forward(request, response);
 	}
 
 	

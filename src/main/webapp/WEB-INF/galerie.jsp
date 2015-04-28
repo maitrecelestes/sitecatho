@@ -27,14 +27,25 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 	
 		<h1>Galerie</h1>
-		<input type="button" id="boutonAjoutCategorie" value="Ajouter une catégorie"/><br/>
-		<div id="ajoutCategorie">
-			<input type="text" name="nomNouvelleCategorie"/>
-			<input type="button" value="enregistrer"/>
-		</div>
+		<c:if test="${rangUtilisateur =='administrateur'}">
+		  	<input type="button" id="boutonAjoutCategorie" value="Ajouter une catégorie"/><br/>
+			<div id="ajoutCategorie">
+				<form method="POST">
+					<input type="text" name="nomNouvelleCategorie"/>
+					<input type="submit" value="enregistrer"/>
+				</form>
+			</div>
+		 </c:if>
+		
 		
 		<c:forEach var="listeCategorie" items="${listeCategorie}">
-			<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>				
+			<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>
+			<c:if test="${rangUtilisateur =='administrateur'}">
+				<form method="POST">
+					<input type="hidden" name="supprimerCategorie"value="${listeCategorie.getId()}"/>
+					<input type="submit" value="supprimer cette categorie"/>
+				</form>
+			</c:if>		
 		</c:forEach>
 	 </section>
 	</section>			
@@ -42,7 +53,7 @@
 		<c:import url="footer.jsp">
 		</c:import>
 		
-	<script type="text/javascript" src="js/administrationMenu.js"></script>
+
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/galerie.js"></script>
 </body>

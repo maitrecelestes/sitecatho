@@ -23,11 +23,22 @@
 
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
+		  <h1>${maCategorie.getNomCategorie()}</h1>
 		  <div id="blocArticle">
 				<c:forEach var="listeImage" items="${listeImage}">
-					<img src="${listeImage.getLienImage()}"/><br/>				
+					${listeImage.getLienImage()}<br/>
+					<c:if test="${rangUtilisateur =='administrateur'}">
+				<form method="POST">
+					<input type="hidden" name="supprimerImage" value="${listeImage.getId()}"/>
+					<input type="submit" value="supprimer cette image"/>
+				</form>
+			</c:if>				
 				</c:forEach>
-				<a href="ajouterimage?id=${idCategorie}">Ajouter des images</a><br/>
+				<c:if test="${rangUtilisateur =='administrateur'}">
+		  			<a href="ajouterimage?id=${maCategorie.getId()}">Ajouter des images</a><br/>
+		  		</c:if>
+				
+				<a href="galerie">Retourner à la galerie</a>
 		  </div>
 	 </section>
 	</section>
