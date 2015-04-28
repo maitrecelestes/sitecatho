@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mr.dao.CategorieDao;
+import mr.dao.ImageDao;
 import mr.daoImp.CategorieDaoImp;
+import mr.daoImp.ImageDaoImp;
 import mr.entities.Categorie;
 
 
@@ -19,6 +21,7 @@ import mr.entities.Categorie;
 public class ServletGalerie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CategorieDao categorieDao= new CategorieDaoImp();
+	private ImageDao imageDao=new ImageDaoImp();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -32,9 +35,26 @@ public class ServletGalerie extends HttpServlet {
 
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nomCategorie=request.getParameter("nomNouvelleCategorie");
-		Categorie maNouvelleCategorie=new Categorie(nomCategorie);
-		categorieDao.ajoutCategorie(maNouvelleCategorie);
+		String requete=request.getParameter("action");
+		if(requete==null){
+			requete="null";
+		}
+		if(requete.equals("suppressionCategorie")){
+			String idCategorieString=request.getParameter("idCategorieSupprimer");
+			String id="";
+			for (int i=2;i<idCategorieString.length();i++){
+				id=id+idCategorieString.charAt(i);
+			}
+			int idCategorie=Integer.parseInt(id);
+			categorieDao.supprimerCategorie(idCategorie);
+			
+		} else {
+			String nomCategorie=request.getParameter("nomNouvelleCategorie");
+			Categorie maNouvelleCategorie=new Categorie(nomCategorie);
+			categorieDao.ajoutCategorie(maNouvelleCategorie);
+		}
+	
+		
 		
 		List<Categorie> listeCategorie=categorieDao.listeCategorie();
 		request.setAttribute("listeCategorie", listeCategorie);

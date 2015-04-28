@@ -28,11 +28,8 @@
 				<c:forEach var="listeImage" items="${listeImage}">
 					${listeImage.getLienImage()}<br/>
 					<c:if test="${rangUtilisateur =='administrateur'}">
-				<form method="POST">
-					<input type="hidden" name="supprimerImage" value="${listeImage.getId()}"/>
-					<input type="submit" value="supprimer cette image"/>
-				</form>
-			</c:if>				
+						<input type="button" class="supprimerImage" id="id${listeImage.getId()}" value="supprimer cette image"/>
+					</c:if>				
 				</c:forEach>
 				<c:if test="${rangUtilisateur =='administrateur'}">
 		  			<a href="ajouterimage?id=${maCategorie.getId()}">Ajouter des images</a><br/>
@@ -46,7 +43,6 @@
 		<c:import url="footer.jsp">
 		</c:import>
 		
-	<script type="text/javascript" src="js/connexion.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/listeArticle.js"></script>
+	<script type="text/javascript" src="js/galerie.js"></script>
 </body>

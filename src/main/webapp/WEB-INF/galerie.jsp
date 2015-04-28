@@ -41,11 +41,8 @@
 		<c:forEach var="listeCategorie" items="${listeCategorie}">
 			<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>
 			<c:if test="${rangUtilisateur =='administrateur'}">
-				<form method="POST">
-					<input type="hidden" name="supprimerCategorie"value="${listeCategorie.getId()}"/>
-					<input type="submit" value="supprimer cette categorie"/>
-				</form>
-			</c:if>		
+				<input type="button" class="supprimerCategorie" id="id${listeCategorie.getId()}" value="supprimer cette categorie"/>
+			</c:if>	
 		</c:forEach>
 	 </section>
 	</section>			

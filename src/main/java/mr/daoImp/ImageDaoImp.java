@@ -52,4 +52,33 @@ public class ImageDaoImp implements ImageDao{
 		
 	}
 
+	@Override
+	public void supprimerUneImage(int idPhoto) {
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `photo` WHERE id=?");
+			stmt.setInt(1,idPhoto); 
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+	}
+
+	@Override
+	public void supprimerTouteImageCategorie(int idCategorie) {
+		Connection connection;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("DELETE FROM `photo` WHERE idCategoriePhoto=?");
+			stmt.setInt(1,idCategorie); 
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
