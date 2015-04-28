@@ -24,6 +24,7 @@ public class ServletGalerie extends HttpServlet {
 		
 		List<Categorie> listeCategorie=categorieDao.listeCategorie();
 		request.setAttribute("listeCategorie", listeCategorie);
+		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/galerie.jsp");
 		view.forward(request, response);
@@ -31,7 +32,16 @@ public class ServletGalerie extends HttpServlet {
 
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nomCategorie=request.getParameter("nomNouvelleCategorie");
+		Categorie maNouvelleCategorie=new Categorie(nomCategorie);
+		categorieDao.ajoutCategorie(maNouvelleCategorie);
 		
+		List<Categorie> listeCategorie=categorieDao.listeCategorie();
+		request.setAttribute("listeCategorie", listeCategorie);
+		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
+		
+		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/galerie.jsp");
+		view.forward(request, response);
 	}
 
 

@@ -11,17 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mr.dao.CategorieDao;
 import mr.dao.ImageDao;
-import mr.daoImp.CategorieDaoImp;
 import mr.daoImp.ImageDaoImp;
-import mr.entities.Categorie;
 import mr.entities.Image;
+import mr.entities.Menu;
 
 @WebServlet("/ajouterimage")
 public class ServletAjoutImage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CategorieDao categorieDao=new CategorieDaoImp();
+	//private CategorieDao categorieDao=new CategorieDaoImp();
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StringBuffer requestURL = request.getRequestURL();
@@ -38,9 +36,23 @@ public class ServletAjoutImage extends HttpServlet {
 		}
 		int idCategorie= Integer.parseInt(id);
 		request.setAttribute("idCategorie", idCategorie);
+		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
+		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {		
+			if (request.getSession().getAttribute("utilisateurConnecte")=="administrateur"){
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ajouterimage.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}
+			
+		}
 		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ajouterimage.jsp");
-		view.forward(request, response);
 	}
 
 	

@@ -1,7 +1,6 @@
 package mr.controllers;
 
 import java.io.IOException;
-import java.net.InetAddress;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,10 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import mr.dao.ContactDao;
-import mr.daoImp.ContactDaoImp;
-import mr.entities.Contact;
 
 @WebServlet("/maPageClassique")
 public class ServletMaPageClassique extends HttpServlet {

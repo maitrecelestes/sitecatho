@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mr.dao.CategorieDao;
 import mr.dao.ImageDao;
+import mr.daoImp.CategorieDaoImp;
 import mr.daoImp.ImageDaoImp;
+import mr.entities.Categorie;
 import mr.entities.Image;
 
 @WebServlet("/categorieGalerie")
@@ -19,6 +22,7 @@ public class ServletCategorieGalerie extends HttpServlet {
 
 	private static final long serialVersionUID = -7041794190655964426L;
 	private ImageDao imageDao= new ImageDaoImp();
+	private CategorieDao categorieDao=new CategorieDaoImp();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StringBuffer requestURL = request.getRequestURL();
@@ -34,9 +38,12 @@ public class ServletCategorieGalerie extends HttpServlet {
 			id=completeURL.charAt(i)+id;
 		}
 		int idCategorie= Integer.parseInt(id);
+		Categorie maCategorie=categorieDao.afficherUneCategorie(idCategorie);
 		List<Image> listeImage=imageDao.listeImageCategorie(idCategorie);
+		
+		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
 		request.setAttribute("listeImage", listeImage);
-		request.setAttribute("idCategorie", idCategorie);
+		request.setAttribute("maCategorie", maCategorie);
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/categorieGalerie.jsp");
 		view.forward(request, response);

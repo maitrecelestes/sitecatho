@@ -44,6 +44,13 @@ private CategorieDao categorieDao = new CategorieDaoImp();
 	}
 	
 	@Test
+	public void testAfficherUneCategorie() {
+		Categorie maCategorie=categorieDao.afficherUneCategorie(1);
+			
+		Assert.assertEquals("Categorie 1", maCategorie.getNomCategorie());
+	}
+	
+	@Test
 	public void testAjoutCategorie() throws Exception{
 		Categorie newCategorie= new Categorie ("Categorie 4");
 		categorieDao.ajoutCategorie(newCategorie);

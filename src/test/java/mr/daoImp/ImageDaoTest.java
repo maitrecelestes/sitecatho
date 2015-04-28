@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.List;
 
 import mr.dao.ImageDao;
-import mr.entities.Categorie;
 import mr.entities.Image;
 
 import org.junit.Assert;

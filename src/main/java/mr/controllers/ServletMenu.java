@@ -5,16 +5,15 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
 import mr.dao.MenuDao;
 import mr.daoImp.MenuDaoImpl;
 import mr.entities.Menu;
+
+import com.google.gson.Gson;
 
 public class ServletMenu extends HttpServlet {
 
