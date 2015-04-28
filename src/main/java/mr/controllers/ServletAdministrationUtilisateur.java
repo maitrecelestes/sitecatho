@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.mysql.fabric.xmlrpc.base.Array;
 
+import mr.dao.CategorieDao;
 import mr.dao.UtilisateurDao;
+import mr.daoImp.CategorieDaoImp;
 import mr.daoImp.UtilisateurDaoImp;
+import mr.entities.Categorie;
 import mr.entities.Utilisateur;
 
 
@@ -26,6 +29,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 
 	private UtilisateurDao utilisateurdao = new UtilisateurDaoImp();
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
@@ -39,6 +43,12 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateurNonArchive();
 			request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
 			
+			////////////////////////////////////////////////////////////////////////////////////////////////
+			request.setAttribute("test", "hohoho");
+			request.setAttribute("CommentaireConnexion", "toto");
+			////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			
 			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 			view.forward(request, response);
 		}
@@ -46,7 +56,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requete=request.getParameter("requete");
-		String commentaire="aze";
+		String commentaire="";
 		if (requete.equals("inscription")){
 			String mail=request.getParameter("mail");
 			String nom=request.getParameter("nom");
@@ -94,43 +104,6 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,rang,ecole,pageGere);
 				utilisateurdao.ajouterUtilisateur(utilisateur);
 			}
-			
-			//request.setAttribute("CommentaireConnexion", commentaire);
-			
-			/*String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
-			String nom=(String) request.getSession().getAttribute("nom");
-			String prenom=(String) request.getSession().getAttribute("prenom");
-			String rang=(String) request.getSession().getAttribute("rang");
-			String pageGere=(String) request.getSession().getAttribute("pageGere");
-			ArrayList<String> informationUtilisateur=new ArrayList<String>();
-			informationUtilisateur.add(mail);
-			informationUtilisateur.add(nom);
-			informationUtilisateur.add(prenom);
-			informationUtilisateur.add(rang);
-			informationUtilisateur.add(pageGere);
-			
-			Gson gson = new Gson();
-		    String json = gson.toJson(informationUtilisateur);
-			
-		    PrintWriter out = response.getWriter();
-			out.append(json);*/
-			////////////////////
-			//String objectToReturn = "{ key1: '"+commentaire+"'}";
-			
-			//Gson gson = new Gson();
-			
-			//String json = gson.toJson();
-			
-			/*Gson gson = new Gson();
-		    String json = gson.toJson(informationUtilisateur);
-			
-		    PrintWriter out = response.getWriter();
-			out.append(json);
-			
-			String output = request.getParameter("stringParameter");
-			
-			*/
-			
 		} else if (requete.equals("suppression")){
 			String mail=request.getParameter("mail");
 			utilisateurdao.supprimerUtilisateur(mail);
@@ -145,6 +118,10 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			
 		}
 		
+		////////////////////////////////////////////////////////////////////////////////////////////////
+		request.setAttribute("test", "hahaha");
+		request.setAttribute("CommentaireConnexion", "toto");
+		////////////////////////////////////////////////////////////////////////////////////////////////
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 		view.forward(request, response);
 	}
