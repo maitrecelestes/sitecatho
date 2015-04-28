@@ -22,9 +22,14 @@
 	 </section>
 
 	 
-	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
-		  <div id="blocArticle">
-		<!--   <div id="affichage message"><c:catch var="CommentaireConnexion" items="${CommentaireConnexion}">${CommentaireConnexion}</c:catch></div> -->
+	<section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
+		<div id="blocArticle">
+		<c:if test="${CommentaireConnexion =='toto'}">
+  			<p>mon test <c:out value="${test}"/><p>
+		</c:if>
+		  
+		  
+		 
 				<h3>Liste des utilisateurs</h3>
 						<table id="tabListeUtilisateur">
 						<tr>

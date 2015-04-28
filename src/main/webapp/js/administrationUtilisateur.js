@@ -108,7 +108,7 @@ $("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationU
 
 // Supprimer utilisateur
 function supprimerUtilisateur(event){
-	var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur : "+event.currentTarget.id);
+	var confirmation= confirm("Etes vous sur de vouloir supprimer cet utilisateur : "+event.currentTarget.id);
 	if(confirmation){
 		$.ajax({
 			url:"administrationUtilisateur",
@@ -119,7 +119,7 @@ function supprimerUtilisateur(event){
 				mail:event.currentTarget.id
 			}
 		})
-		alert("L'utilisateur a bien été ajouté!");
+		alert("L'utilisateur a bien ete supprime!");
 		window.location.replace("administrationUtilisateur");
 	}
 }
