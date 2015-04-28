@@ -186,11 +186,33 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		return rep;
 	}
 
-	/*@Override
-	public boolean mailArchive(String mail) {
-		// TODO Auto-generated method stub
-		return false;
-	}*/
+
+	@Override
+	public void remplacementUtilisateur(Utilisateur newUtilisateur) {
+		Connection connection;
+		try {
+			String mdpnonCrypte=newUtilisateur.getMdp();
+			String mdpCrypte= HashMyPassword(mdpnonCrypte);
+			
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("UPDATE `utilisateur` SET `motDePasse`=?,`nom`=?,`prenom`=?,`rang`=?,`ecole`=?,`pageGere`=?,`archive`=false WHERE `email`=?");
+			stmt.setString(1, mdpCrypte);
+			stmt.setString(2, newUtilisateur.getNom());
+			stmt.setString(3, newUtilisateur.getPrenom());
+			stmt.setString(4,newUtilisateur.getRang());
+			stmt.setString(5,newUtilisateur.getEcole());
+			stmt.setString(6,newUtilisateur.getPageGere());
+			stmt.setString(7,newUtilisateur.getMail());
+	
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException | NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	
 

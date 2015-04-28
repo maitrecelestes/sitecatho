@@ -1,12 +1,12 @@
 // Ajouter utilisateur
 
 function ajouterUtilisateur(event){
-	if(/*verificationMail($("#newMail").val())&&*/$("#newNom").val().length>1&&$("#newPrenom").val().length>1&&$("#newEcole").val().length>1){
-		var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur");
+
+	if(verificationConditionAjout($("#newMail").val(),$("#newNom").val(),$("#newPrenom").val(),$("#newMdp").val(),$("#newConfMdp").val(),$("#newEcole").val()/*,$("#pageGere").val()*/)){
+		var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur ?");
 	} else {
-		alert("Veuillez remplir tous les champs de textes");
+		alert(textVerificationConditionAjout($("#newMail").val(),$("#newNom").val(),$("#newPrenom").val(),$("#newMdp").val(),$("#newConfMdp").val(),$("#newEcole").val()/*,$("#pageGere").val()*/));
 	}
-	alert("ok");
 	
 	if(confirmation){
 		$.ajax({
@@ -24,18 +24,60 @@ function ajouterUtilisateur(event){
 				pageGere:$("#pageGere").val()
 			}
 		})
-		alert("L'utilisateur a bien été ajouté!");
+		//alert("L'utilisateur a bien été ajouté!");
 		window.location.replace("administrationUtilisateur");
 	}
 }
 $("#caseajouterUtilisateur").click(function(){ajouterUtilisateur(event);});
 
-function montrerFormulaireCreationUtilisateur(event){
-	$("#ajoutUtilisateur").show();
-	$("#montrerFormCreationUtilisateur").hide();
-	$("#modifierUtilisateur").hide();
+function verificationConditionAjout(mail,nom,prenom,motDePasse1,motDePasse2,ecole/*,pageGere*/){
+	var rep=true;
+	if(!verificationMailExistance(mail) || nom.length<2 || prenom.length<2 
+			|| motDePasse1.length<4 || motDePasse1!=motDePasse2 || ecole.length<2){
+		var rep=false;
+	}
+	return rep;
 }
-$("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur(event);});
+
+function textVerificationConditionAjout(mail,nom,prenom,motDePasse1,motDePasse2,ecole/*,pageGere*/){
+	var rep="ok";
+	var nbProbleme=0;
+	//Verification du mail
+	if(!verificationMailExistance(mail)){
+		nbProbleme++;
+		var rep="probleme mail";
+	}
+	//Verification nom
+	if(nom.length<2){
+		nbProbleme++;
+		var rep="probleme nom";
+	}
+	//Verification prenom
+	if(prenom.length<2){
+		nbProbleme++;
+		var rep="probleme prenom";
+	}
+	//Verification motDePasse1
+	if(motDePasse1.length<4){
+		nbProbleme++;
+		var rep="probleme motDePasse1";
+	}
+	//Verification motDePasse2
+	if(motDePasse1!=motDePasse2){
+		nbProbleme++;
+		var rep="probleme motDePasse2";
+	}
+	//Verification motDePasse2
+	if(ecole.length<2){
+		nbProbleme++;
+		var rep="probleme ecole";
+	}
+	//Verification plusieurs problèmes
+	if(nbProbleme>1){
+		var rep="plusieurs problemes";
+	}
+	return rep;
+}
 
 
 
@@ -50,12 +92,18 @@ function verificationMailExistance(mail){
 	while(mail.charAt(positionPoint)!='.' && positionPoint<mail.length){
 		positionPoint++;
 	}
-
-	if(0<positionArobase && positionArobase<positionPoint-1 && positionPoint<mail.length-1){
+	if(0<positionArobase && positionArobase<(positionPoint-1) && positionPoint<(mail.length-1)){
 		rep=true;
 	}
 	return rep;
 }
+
+function montrerFormulaireCreationUtilisateur(event){
+	$("#ajoutUtilisateur").show();
+	$("#montrerFormCreationUtilisateur").hide();
+	$("#modifierUtilisateur").hide();
+}
+$("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur(event);});
 
 
 // Supprimer utilisateur

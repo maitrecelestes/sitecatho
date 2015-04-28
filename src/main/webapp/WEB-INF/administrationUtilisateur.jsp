@@ -24,6 +24,7 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocArticle">
+		<!--   <div id="affichage message"><c:catch var="CommentaireConnexion" items="${CommentaireConnexion}">${CommentaireConnexion}</c:catch></div> -->
 				<h3>Liste des utilisateurs</h3>
 						<table id="tabListeUtilisateur">
 						<tr>
@@ -52,13 +53,13 @@
 						<div id="ajoutUtilisateur">
 							<h3>Creer un nouvel utilisateur</h3>
 							<table>
-								<tr><td><label for="newMail">Mail :</label></td><td><input type="email" id="newMail"/><br/></td></tr>
-								<tr><td><label for="newPrenom">Prenom :</label></td><td><input type="text" id="newPrenom"/><br/></td></tr>
-								<tr><td><label for="newNom">Nom :</label></td><td><input type="text" id="newNom"/><br/></td></tr>
-								<tr><td><label for="newMdp">Mot de passe :</label></td><td><input type="password" id="newMdp"/><br/></td></tr>
+								<tr><td><label for="newMail">Mail :</label></td><td><input type="email" id="newMail"/><br/></td><td>Sous la forme : --@--.--<br/></td></tr>
+								<tr><td><label for="newNom">Nom :</label></td><td><input type="text" id="newNom"/><br/></td><td>(obligatoire)<br/></td></tr>
+								<tr><td><label for="newPrenom">Prenom :</label></td><td><input type="text" id="newPrenom"/><br/></td><td>(obligatoire)<br/></td></tr>
+								<tr><td><label for="newMdp">Mot de passe :</label></td><td><input type="password" id="newMdp"/><br/></td></td><td>(4 caractères minimum)<br/></td></tr>
 								<tr><td><label for="newConfMdp"> Retapez le mot de passe :</label></td><td><input type="password" id="newConfMdp"/><br/></td></tr>
 								<tr><td><label for="newRang">Rang :</label></td><td><select id="newRang"><option id="administrateur">administrateur</option><option id="redacteur" selected>redacteur</option></select><br/></td></tr>
-								<tr><td><label for="newEcole">Ecole :</label></td><td><input type="text" id="newEcole"/><br/></td></tr>
+								<tr><td><label for="newEcole">Ecole :</label></td><td><input type="text" id="newEcole"/><br/></td><td>(obligatoire)<br/></td></tr>
 								<tr id="pageGeretr"><td><label for="pageGere">Page gérée :</label></td><td><input type="text" id="pageGere"/><br/></td></tr>
 								<tr><td colspan="2" id="caseajouterUtilisateur"><input type="button" value="ajouter cet Utilisateur"/></td></tr>
 							</table>

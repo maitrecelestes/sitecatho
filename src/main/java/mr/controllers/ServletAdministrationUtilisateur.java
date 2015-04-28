@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.mysql.fabric.xmlrpc.base.Array;
 
 import mr.dao.UtilisateurDao;
 import mr.daoImp.UtilisateurDaoImp;
@@ -45,6 +46,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requete=request.getParameter("requete");
+		String commentaire="aze";
 		if (requete.equals("inscription")){
 			String mail=request.getParameter("mail");
 			String nom=request.getParameter("nom");
@@ -77,20 +79,23 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			}
 			
 			
+			
 			if(mailExiste && archive){
+				commentaire= "mail exite et est archivé donc modification++";
 				//mail exite et est archivé donc modification++
-				System.out.println("mail exite et est archivé donc modification++");
+				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,rang,ecole,pageGere);
+				utilisateurdao.remplacementUtilisateur(utilisateur);
 			}else if(mailExiste && !archive){
+				commentaire="Mail exite mais non archivé = erreur";
 				//Mail exite mais non archivé = erreur
-				System.out.println("Mail exite mais non archivé = erreur");
 			}else if(!mailExiste){
+				commentaire="Pas de probleme et on ajoute le nouveau mail";
 				//Pas de probleme et on ajoute le nouveau mail
-				System.out.println("Pas de probleme et on ajoute le nouveau mail");
 				Utilisateur utilisateur=new Utilisateur(mail,mdp,nom,prenom,rang,ecole,pageGere);
 				utilisateurdao.ajouterUtilisateur(utilisateur);
 			}
 			
-			
+			//request.setAttribute("CommentaireConnexion", commentaire);
 			
 			/*String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
 			String nom=(String) request.getSession().getAttribute("nom");
@@ -109,7 +114,22 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			
 		    PrintWriter out = response.getWriter();
 			out.append(json);*/
+			////////////////////
+			//String objectToReturn = "{ key1: '"+commentaire+"'}";
 			
+			//Gson gson = new Gson();
+			
+			//String json = gson.toJson();
+			
+			/*Gson gson = new Gson();
+		    String json = gson.toJson(informationUtilisateur);
+			
+		    PrintWriter out = response.getWriter();
+			out.append(json);
+			
+			String output = request.getParameter("stringParameter");
+			
+			*/
 			
 		} else if (requete.equals("suppression")){
 			String mail=request.getParameter("mail");
@@ -124,7 +144,6 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			
 			
 		}
-		
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 		view.forward(request, response);
