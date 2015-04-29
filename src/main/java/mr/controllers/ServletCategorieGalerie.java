@@ -51,6 +51,20 @@ public class ServletCategorieGalerie extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String requete=request.getParameter("action");
+		if(requete==null){
+			requete="null";
+		}
+		if(requete.equals("suppressionImage")){
+			String idImageString=request.getParameter("idImageSupprimer");
+			String idImage="";
+			for (int i=3;i<idImageString.length();i++){ // 3 car id de la forme "id=XX"
+				idImage=idImage+idImageString.charAt(i);
+			}
+			int idImageInt=Integer.parseInt(idImage);
+			imageDao.supprimerUneImage(idImageInt);
+		} 
+		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/categorieGalerie.jsp");
 		view.forward(request, response);
 	}

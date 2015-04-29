@@ -43,12 +43,14 @@ public class ServletAjoutImage extends HttpServlet {
 			view.forward(request, response);
 			
 		} else {		
-			if (request.getSession().getAttribute("utilisateurConnecte")=="administrateur"){
+			if (request.getSession().getAttribute("rang").equals("administrateur")){
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ajouterimage.jsp");
 				view.forward(request, response);
+				
 			} else {
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
 				view.forward(request, response);
+				
 			}
 			
 		}

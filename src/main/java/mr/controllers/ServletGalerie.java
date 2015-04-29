@@ -46,6 +46,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 				id=id+idCategorieString.charAt(i);
 			}
 			int idCategorie=Integer.parseInt(id);
+			imageDao.supprimerTouteImageCategorie(idCategorie);
 			categorieDao.supprimerCategorie(idCategorie);
 			
 		} else {

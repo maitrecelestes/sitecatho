@@ -28,7 +28,7 @@
 				<c:forEach var="listeImage" items="${listeImage}">
 					${listeImage.getLienImage()}<br/>
 					<c:if test="${rangUtilisateur =='administrateur'}">
-						<input type="button" class="supprimerImage" id="id${listeImage.getId()}" value="supprimer cette image"/>
+						<input type="button" class="supprimerImage" id="id=${listeImage.getId()}" value="supprimer cette image"/>
 					</c:if>				
 				</c:forEach>
 				<c:if test="${rangUtilisateur =='administrateur'}">
