@@ -42,13 +42,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 		} else {
 			List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateurNonArchive();
 			request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
-			
-			////////////////////////////////////////////////////////////////////////////////////////////////
-			request.setAttribute("test", "hohoho");
-			request.setAttribute("CommentaireConnexion", "toto");
-			////////////////////////////////////////////////////////////////////////////////////////////////
-			
-			
+					
 			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 			view.forward(request, response);
 		}
@@ -118,10 +112,6 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			
 		}
 		
-		////////////////////////////////////////////////////////////////////////////////////////////////
-		request.setAttribute("test", "hahaha");
-		request.setAttribute("CommentaireConnexion", "toto");
-		////////////////////////////////////////////////////////////////////////////////////////////////
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 		view.forward(request, response);
 	}

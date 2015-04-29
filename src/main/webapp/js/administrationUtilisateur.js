@@ -31,7 +31,7 @@ function ajouterUtilisateur(event){
 $("#caseajouterUtilisateur").click(function(){ajouterUtilisateur(event);});
 
 function verificationConditionAjout(mail,nom,prenom,motDePasse1,motDePasse2,ecole/*,pageGere*/){
-	var rep=true;
+	var rep=true;	
 	if(!verificationMailExistance(mail) || nom.length<2 || prenom.length<2 
 			|| motDePasse1.length<4 || motDePasse1!=motDePasse2 || ecole.length<2){
 		var rep=false;
@@ -45,36 +45,35 @@ function textVerificationConditionAjout(mail,nom,prenom,motDePasse1,motDePasse2,
 	//Verification du mail
 	if(!verificationMailExistance(mail)){
 		nbProbleme++;
-		var rep="probleme mail";
+		var rep="Il y a un probl\350me dans votre mail";
 	}
 	//Verification nom
 	if(nom.length<2){
 		nbProbleme++;
-		var rep="probleme nom";
+		var rep="Il y a un probl\350me dans votre nom";
 	}
 	//Verification prenom
 	if(prenom.length<2){
 		nbProbleme++;
-		var rep="probleme prenom";
+		var rep="Il y a un probl\350me dans votre pr\351nom";
 	}
 	//Verification motDePasse1
 	if(motDePasse1.length<4){
 		nbProbleme++;
-		var rep="probleme motDePasse1";
-	}
-	//Verification motDePasse2
-	if(motDePasse1!=motDePasse2){
+		var rep="Votre mot de passe n'est pas assez long";
+		//Verification motDePasse2
+	}else if(motDePasse1!=motDePasse2){
 		nbProbleme++;
-		var rep="probleme motDePasse2";
+		var rep="Vos 2 mots de passe ne sont pas identiques";
 	}
-	//Verification motDePasse2
+	//Verification ecole
 	if(ecole.length<2){
 		nbProbleme++;
-		var rep="probleme ecole";
+		var rep="Il y a un probl\350me dans votre \351cole";
 	}
 	//Verification plusieurs problèmes
 	if(nbProbleme>1){
-		var rep="plusieurs problemes";
+		var rep="Vous avez plusieurs probl\350mes dans votre formulaire";
 	}
 	return rep;
 }
@@ -83,17 +82,11 @@ function textVerificationConditionAjout(mail,nom,prenom,motDePasse1,motDePasse2,
 
 //verificationMail
 function verificationMailExistance(mail){
-	var rep=false;
-	var positionArobase=1;
-	while(mail.charAt(positionArobase)!='@' && positionArobase<mail.length){
-		positionArobase++;
-	}
-	var positionPoint=positionArobase;
-	while(mail.charAt(positionPoint)!='.' && positionPoint<mail.length){
-		positionPoint++;
-	}
-	if(0<positionArobase && positionArobase<(positionPoint-1) && positionPoint<(mail.length-1)){
-		rep=true;
+	var rep=true;
+	var verif 	= /^([a-z0-9_\.-]+)@([a-z0-9\.-]+)\.([a-z\.]{2,6})$/
+		if (verif.exec(mail) == null)
+	{
+		rep=false;
 	}
 	return rep;
 }
@@ -119,7 +112,7 @@ function supprimerUtilisateur(event){
 				mail:event.currentTarget.id
 			}
 		})
-		alert("L'utilisateur a bien ete supprime!");
+		alert("L'utilisateur a bien \351t\351 supprim\351!");
 		window.location.replace("administrationUtilisateur");
 	}
 }
@@ -174,7 +167,7 @@ function modifierUtilisateur(event){
 				pageGere:$("#modPageGere").val()
 			}
 		})
-		alert("L'utilisateur a bien été modifié!");
+		alert("L'utilisateur a bien \351t\351 modifi\351!");
 		window.location.replace("administrationUtilisateur");
 	}
 }
