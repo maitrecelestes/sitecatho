@@ -25,7 +25,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` ORDER BY `email` ASC ");
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
-				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getInt("idUtilisateur"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
 				listeUtilisateur.add(utilisateur);
 			}
 			
@@ -46,7 +46,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `utilisateur` WHERE `archive`=false ORDER BY `email` ASC ");
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
-				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+				Utilisateur utilisateur= new Utilisateur(results.getString("email"),results.getInt("idUtilisateur"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
 				listeUtilisateur.add(utilisateur);
 			}
 			
@@ -66,7 +66,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 			stmt.setString(1, login);
 			ResultSet results = stmt.executeQuery();
 			while(results.next()){
-				utilisateur= new Utilisateur(results.getString("email"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
+				utilisateur= new Utilisateur(results.getString("email"),results.getInt("idUtilisateur"),results.getString("motDePasse"),results.getString("nom"),results.getString("prenom"),results.getString("rang"),results.getString("ecole"),results.getString("pageGere"));
 			}
 			connection.close();
 		} catch (SQLException e) {

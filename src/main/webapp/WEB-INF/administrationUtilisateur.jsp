@@ -37,14 +37,14 @@
 						</tr>
 						<c:forEach var="listeUtilisateur" items="${listeMessageUtilisateur}">
 								<tr>
-									<td>${listeUtilisateur.getMail()}</td>
+									<td id="mail${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getMail()}</td>
 									<td>${listeUtilisateur.getNom()}</td>
 									<td>${listeUtilisateur.getPrenom()}</td>
-									<td>${listeUtilisateur.getRang()}</td>
-									<td>${listeUtilisateur.getPageGere()}</td>
-									<td>${listeUtilisateur.getEcole()}</td>
-									<td class= "caseModifierUtilisateur" id="caseModifierUtilisateur${listeUtilisateur.getMail()}"><img src="Images/FlecheBas.png"/></td>
-									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerUtilisateur(${listeUtilisateur.getMail()})"/></td>
+									<td id="rang${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getRang()}</td>
+									<td id="pagegerer${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getPageGere()}</td>
+									<td id="ecole${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getEcole()}</td>
+									<td class= "caseModifierUtilisateur"><img src="Images/FlecheBas.png" onclick="montrerFormulaireModifierUtilisateur(${listeUtilisateur.getIdUtilisateur()})"/></td>
+									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerUtilisateur(${listeUtilisateur.getIdUtilisateur()})"/></td>
 								</tr>
 						</c:forEach>
 						</table>
@@ -66,7 +66,7 @@
 						<div id="modifierUtilisateur">
 							<h3>Modifier le rang d'un utilisateur</h3>
 							<table>
-								<tr><td><label for="modMail">Mail :</label></td><td><input type="email" id="modMail"/><br/></td></tr>
+								<tr><td><label for="modMail">Mail :</label></td><td id="modMail"></td></tr>
 								<tr><td><label for="modRang">Rang :</label></td><td><select id="modRang"><option id="administrateur">administrateur</option><option id="redacteur" selected>redacteur</option></select><br/></td></tr>
 								<tr id="modpageGeretr"><td><label for="modPageGere">Page gérée :</label></td><td><input type="text" id="modPageGere"/><br/></td></tr>
 								<tr><td><label for="modEcole">Ecole :</label></td><td><input type="text" id="modEcole"/><br/></td></tr>

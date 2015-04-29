@@ -1,9 +1,9 @@
 package mr.entities;
 
-import java.sql.Date;
 
 public class Utilisateur {
 	private String mail;
+	private int idUtilisateur;
 	private String mdp;
 	private String nom;
 	private String prenom;
@@ -11,6 +11,19 @@ public class Utilisateur {
 	private String ecole;
 	private String pageGere;
 	
+	//POUR AFFICHAGE UTILISATEUR
+	public Utilisateur (String mail, int idUtilisateur, String mdp,String nom, String prenom, String rang, String ecole,String pageGere){
+		this.mail=mail;
+		this.idUtilisateur=idUtilisateur;
+		this.mdp=mdp;
+		this.nom=nom;
+		this.prenom=prenom;
+		this.rang=rang;
+		this.ecole=ecole;
+		this.pageGere=pageGere;
+	}
+	
+	//POUR NOUVEAU UTILISATEUR
 	public Utilisateur (String mail, String mdp,String nom, String prenom, String rang, String ecole,String pageGere){
 		this.mail=mail;
 		this.mdp=mdp;
@@ -20,11 +33,14 @@ public class Utilisateur {
 		this.ecole=ecole;
 		this.pageGere=pageGere;
 	}
+	//POUR LE CONNEXION
 	public Utilisateur (String mail,String mdp){
 		this.mail=mail;
 		this.mdp=mdp;
 	}
-	
+	public int getIdUtilisateur() {
+		return idUtilisateur;
+	}
 	public String getMdp(){
 		return mdp;
 	}

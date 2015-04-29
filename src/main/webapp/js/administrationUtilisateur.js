@@ -1,6 +1,6 @@
 // Ajouter utilisateur
 
-function ajouterUtilisateur(event){
+function ajouterUtilisateur(){
 
 	if(verificationConditionAjout($("#newMail").val(),$("#newNom").val(),$("#newPrenom").val(),$("#newMdp").val(),$("#newConfMdp").val(),$("#newEcole").val()/*,$("#pageGere").val()*/)){
 		var confirmation= confirm("Etes vous sur de vouloir creer cet utilisateur ?");
@@ -28,7 +28,7 @@ function ajouterUtilisateur(event){
 		window.location.replace("administrationUtilisateur");
 	}
 }
-$("#caseajouterUtilisateur").click(function(){ajouterUtilisateur(event);});
+$("#caseajouterUtilisateur").click(function(){ajouterUtilisateur();});
 
 function verificationConditionAjout(mail,nom,prenom,motDePasse1,motDePasse2,ecole/*,pageGere*/){
 	var rep=true;	
@@ -91,17 +91,18 @@ function verificationMailExistance(mail){
 	return rep;
 }
 
-function montrerFormulaireCreationUtilisateur(event){
+function montrerFormulaireCreationUtilisateur(){
 	$("#ajoutUtilisateur").show();
 	$("#montrerFormCreationUtilisateur").hide();
 	$("#modifierUtilisateur").hide();
 }
-$("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur(event);});
+$("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur();});
 
 
 // Supprimer utilisateur
 function supprimerUtilisateur(idUtilisateur){
-	var confirmation= confirm("Etes vous sur de vouloir supprimer cet utilisateur : "+idUtilisateur);
+	var mail=$("#mail"+idUtilisateur).text();
+	var confirmation= confirm("Etes vous sur de vouloir supprimer cet utilisateur : "+mail);
 	if(confirmation){
 		$.ajax({
 			url:"administrationUtilisateur",
@@ -109,7 +110,7 @@ function supprimerUtilisateur(idUtilisateur){
 			dataType:"json",
 			data:{
 				requete:"suppression",
-				mail:idUtilisateur
+				mail:mail
 			}
 		})
 		alert("L'utilisateur a bien \351t\351 supprim\351!");
@@ -119,16 +120,19 @@ function supprimerUtilisateur(idUtilisateur){
 
 
 // MODIFIER UTILISATEUR
-function montrerFormulaireModifierUtilisateur(event){
+function montrerFormulaireModifierUtilisateur(idUtilisateur){
+	var mail=$("#mail"+idUtilisateur).text();
+	var pagegerer=$("#pagegerer"+idUtilisateur).text();
+	var ecole=$("#ecole"+idUtilisateur).text();
+	
 	$("#modifierUtilisateur").show();
 	$("#ajoutUtilisateur").hide();
-	var mail="";
-	for (var i=23;i<event.currentTarget.id.length;i++){
-		mail=mail+event.currentTarget.id[i];
-	}
-	$("#modMail").val(mail);
+	
+	$("#modMail").text(mail);
+	$("#modPageGere").val(pagegerer);
+	$("#modEcole").val(ecole);
 }
-$(".caseModifierUtilisateur").click(function(){montrerFormulaireModifierUtilisateur(event);});
+//$(".caseModifierUtilisateur").click(function(){montrerFormulaireModifierUtilisateur();});
 
 
 function cacherNewGerePage(){
@@ -152,7 +156,7 @@ function cacherModifGerePage(){
 $( "#modRang" ).change(function() {
 	cacherModifGerePage();
 });
-function modifierUtilisateur(event){
+function modifierUtilisateur(){
 	var confirmation= confirm("Etes vous sur de vouloir modifier cet utilisateur ?");
 	if(confirmation){
 		$.ajax({
@@ -161,7 +165,7 @@ function modifierUtilisateur(event){
 			dataType:"json",
 			data:{
 				requete:"modification",
-				mail:$("#modMail").val(),
+				mail:$("#modMail").text(),
 				rang:$("#modRang").val(),
 				ecole:$("#modEcole").val(),
 				pageGere:$("#modPageGere").val()
@@ -171,5 +175,5 @@ function modifierUtilisateur(event){
 		window.location.replace("administrationUtilisateur");
 	}
 }
-$("#casemodifierUtilisateur").click(function(){modifierUtilisateur(event);});
+$("#casemodifierUtilisateur").click(function(){modifierUtilisateur();});
 
