@@ -1,8 +1,6 @@
 package mr.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,14 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.mysql.fabric.xmlrpc.base.Array;
-
-import mr.dao.CategorieDao;
 import mr.dao.UtilisateurDao;
-import mr.daoImp.CategorieDaoImp;
 import mr.daoImp.UtilisateurDaoImp;
-import mr.entities.Categorie;
 import mr.entities.Utilisateur;
 
 
@@ -40,11 +32,17 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			view.forward(request, response);
 			
 		} else {
-			List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateurNonArchive();
-			request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
-					
-			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
-			view.forward(request, response);
+			if (request.getSession().getAttribute("rang").equals("administrateur")){
+				List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateurNonArchive();
+				request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
+				
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}
+			
 		}
 	}
 

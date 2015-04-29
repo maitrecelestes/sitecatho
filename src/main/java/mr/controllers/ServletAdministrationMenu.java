@@ -26,12 +26,19 @@ if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equal
 			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
 			view.forward(request, response);
 			
-		} else {		
-			List<Menu> maListeMenu = menuDao.listerMenu() ;
-			request.setAttribute("listeMenu", maListeMenu);
+		} else {
 			
-			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
-			view.forward(request, response);
+			if (request.getSession().getAttribute("rang").equals("administrateur")){
+				List<Menu> maListeMenu = menuDao.listerMenu() ;
+				request.setAttribute("listeMenu", maListeMenu);
+				
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}
+			
 		}
 	}
 	
@@ -79,14 +86,14 @@ if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equal
 			if(nompageprecedenteModif.equals("page_0")){
 				nbPageModif=1000;
 			}else{
-				String lenompageprecedente="";
+				/*String lenompageprecedente="";
 				if(nompageprecedenteModif.length()==23){
 					lenompageprecedente=""+nompageprecedenteModif.charAt(22);
 				}else if(nompageprecedenteModif.length()==24){
 					lenompageprecedente=""+nompageprecedenteModif.charAt(22)+nompageprecedenteModif.charAt(23);
 				}else if(nompageprecedenteModif.length()==25){
 					lenompageprecedente=""+nompageprecedenteModif.charAt(22)+nompageprecedenteModif.charAt(23)+nompageprecedenteModif.charAt(24);
-				}
+				}*/
 				nbPageModif=Integer.parseInt(nompageprecedenteModif);
 			}
 			String rang=request.getParameter("rangModif");	

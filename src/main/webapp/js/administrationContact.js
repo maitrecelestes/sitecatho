@@ -1,31 +1,13 @@
-function recuperationid(nomid){
-	var centaine="",dizaine="",unite=0;
-	if(nomid.length >13){
-		centaire=nomid[11];
-		dizaine=nomid[12];
-		unite=nomid[11];
-	} else if(nomid.length > 12){
-		dizaine=nomid[11];
-		unite=nomid[12];
-	}else {
-		unite=nomid[11];
-	}
-	return centaine+dizaine+unite;
-}
 
-function montrerMessage(event){
-	alert("ok");
+$(".cacher").hide();
+function montrerMessage(id){
 	$(".cacher").hide();
-	
-	var id=recuperationid(event.currentTarget.id);
-	
 	$("#contenu"+id).show();
 }
-$(".caseVoirMessage").click(function(){montrerMessage(event);}); //NE MARCHE PAS AVEC MOZILLA
-$(".cacher").hide();
 
-function supprimerMessage(event){
-	var id=recuperationid(event.currentTarget.id);
+function supprimerMessage(id){
+	
+	alert(id);
 	var confirmation= confirm("Etes vous sur de vouloir supprimer ce message?");
 	if(confirmation){
 		$.ajax({
@@ -40,4 +22,3 @@ function supprimerMessage(event){
 		window.location.replace("administrationContact");
 	}
 }
-$(".casesupprimer").click(function(){supprimerMessage(event);});

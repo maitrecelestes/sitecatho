@@ -44,7 +44,7 @@
 									<td>${listeUtilisateur.getPageGere()}</td>
 									<td>${listeUtilisateur.getEcole()}</td>
 									<td class= "caseModifierUtilisateur" id="caseModifierUtilisateur${listeUtilisateur.getMail()}"><img src="Images/FlecheBas.png"/></td>
-									<td class="casesupprimer" id="${listeUtilisateur.getMail()}"><img src="Images/croix_supprimer.png"/></td>
+									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerUtilisateur(${listeUtilisateur.getMail()})"/></td>
 								</tr>
 						</c:forEach>
 						</table>

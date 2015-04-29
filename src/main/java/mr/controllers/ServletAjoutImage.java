@@ -2,7 +2,6 @@ package mr.controllers;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import mr.dao.ImageDao;
 import mr.daoImp.ImageDaoImp;
 import mr.entities.Image;
-import mr.entities.Menu;
 
 @WebServlet("/ajouterimage")
 public class ServletAjoutImage extends HttpServlet {
