@@ -23,9 +23,9 @@ public class UtilisateurDaoTest {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM utilisateur");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('romain.soenen@hei.fr','romain1993','soenen','romain','administrateur','HEI')");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('michel.guignier@hei.fr','michel1993','guignier','michel','super administrateur','HEI')");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('henri.malos@isa.fr','henri1993','malos','henri','membre','ISA')");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('romain.soenen@hei.fr',1,'romain1993','soenen','romain','administrateur','HEI')");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('michel.guignier@hei.fr',2,'michel1993','guignier','michel','redacteur','HEI')");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`) VALUES ('henri.malos@isa.fr',3,'henri1993','malos','henri','membre','ISA')");
 		stmt.close();
 		connection.close();
 	}
