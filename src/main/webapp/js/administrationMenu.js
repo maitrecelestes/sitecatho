@@ -15,7 +15,7 @@ function ajouteMenu(){
 				maFonction:"fonctionAjout"
 			}
 		})
-		alert("Votre menu a bien été ajouté");
+		alert("Votre menu a bien \351t\351 ajout\351");
 		window.location.replace("administrationMenu")
 	} else {
 		alert("Vous n'avez pas remplis vos champs correctement");
@@ -39,7 +39,7 @@ function ModifierMenu(){
 				maFonction:"fonctionModification"
 			}
 		})
-		alert("Votre menu a bien été modifié");
+		alert("Votre menu a bien \351t\351 modifi\351");
 		window.location.replace("administrationMenu")
 	} else {
 		alert("Vous n'avez pas remplis vos champs correctement");
@@ -57,8 +57,7 @@ function isChecked(checkbox) {
     else { return false; }
 }
 
-function supprimerMenu(event){
-	var id=recuperationid(event.currentTarget.id);
+function supprimerMenu(id){
 	var confirmation= confirm("Etes vous sur de vouloir supprimer cette page ?");
 	if(confirmation){
 		$.ajax({
@@ -70,11 +69,11 @@ function supprimerMenu(event){
 				maFonction:"fonctionSuppression"
 			}
 		})
-		alert("Le message a bien été supprimé");
+		alert("La page a bien \351t\351 supprim\351");
 		window.location.replace("administrationMenu");
 	}
 }
-$(".casesupprimer").click(function(){supprimerMenu(event);});
+//$(".casesupprimer").click(function(){supprimerMenu(event);});
 
 
 
@@ -114,7 +113,7 @@ function recuperationid(nomid){
 
 //Ajout Menu
 var afficheAjoutMenu=true;
-function montrerAjoutMenu(event){
+function montrerAjoutMenu(){
 	$(".bouttonModifierMenu").hide();
 	$(".classModificationMenu").hide();
 	if(afficheAjoutMenu){
@@ -125,15 +124,15 @@ function montrerAjoutMenu(event){
 		afficheAjoutMenu=true;
 	}
 }
-$(".bouttonAjoutMenu").click(function(){montrerAjoutMenu(event);});
+$(".bouttonAjoutMenu").click(function(){montrerAjoutMenu();});
 $(".classAjoutMenu").hide();
 
 //Modifier Menu
-function montrerModifierMenu(event){
+function montrerModifierMenu(id){
+	alert("test"+id);
 	$(".classAjoutMenu").hide();
 	$(".bouttonModifierMenu").show();
 	$(".classModificationMenu").show();
-	var id=recuperationid(event.currentTarget.id);
 	$("#idpageModif").text(id);
 	$("#nompageModifBrut").text("");
 	$("#nompageModifBrut").append($("#idnompage"+id).text());
@@ -151,10 +150,9 @@ function montrerModifierMenu(event){
 }
 
 
-function cacherModifierMenu(event){
+function cacherModifierMenu(){
 	$(".classAjoutMenu").hide();
 	$(".bouttonModifierMenu").hide();
 	$(".classModificationMenu").hide();
 }
-$(".casemodifier").click(function(){montrerModifierMenu(event);});
-$(".bouttonModifierMenu").click(function(){cacherModifierMenu(event);});
+$(".bouttonModifierMenu").click(function(){cacherModifierMenu();});

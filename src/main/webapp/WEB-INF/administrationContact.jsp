@@ -41,8 +41,8 @@
 									<td>${listeContact.getMail()}</td>
 									<td>${listeContact.getObjet()}</td>
 									<td>${listeContact.getDatePoste()} ${listeContact.getHeurePoste()}</td>
-									<td class="caseVoirMessage" id="information${listeContact.getIdMessage()}"><img src="Images/FlecheBas.png"/></td>
-									<td class="casesupprimer" id="supprimerid${listeContact.getIdMessage()}"><img src="Images/croix_supprimer.png"/></td>
+									<td class="caseVoirMessage"><img src="Images/FlecheBas.png" onclick="montrerMessage(${listeContact.getIdMessage()})"/></td>
+									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerMessage(${listeContact.getIdMessage()})"/></td>
 								</tr>
 								<tr class="cacher" id="contenu${listeContact.getIdMessage()}">
 									<td colspan="7">${listeContact.getContenu()}</td>

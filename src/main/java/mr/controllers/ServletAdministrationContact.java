@@ -27,17 +27,25 @@ public class ServletAdministrationContact extends HttpServlet {
 			view.forward(request, response);
 			
 		} else {
-			List<Contact> listeMessageContact=contactDao.listeMessageContact();
-			request.setAttribute("listeMessageContact", listeMessageContact);
 			
-			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
-			view.forward(request, response);
+			if (request.getSession().getAttribute("rang").equals("administrateur")){
+				List<Contact> listeMessageContact=contactDao.listeMessageContact();
+				request.setAttribute("listeMessageContact", listeMessageContact);
+				
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}
+			
 		}
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idString=request.getParameter("idMessage");
+		System.out.println(idString);
 		int id=Integer.parseInt(idString);
 		contactDao.supprimerContact(id);
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");

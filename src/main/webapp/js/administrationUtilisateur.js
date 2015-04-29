@@ -100,8 +100,8 @@ $("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationU
 
 
 // Supprimer utilisateur
-function supprimerUtilisateur(event){
-	var confirmation= confirm("Etes vous sur de vouloir supprimer cet utilisateur : "+event.currentTarget.id);
+function supprimerUtilisateur(idUtilisateur){
+	var confirmation= confirm("Etes vous sur de vouloir supprimer cet utilisateur : "+idUtilisateur);
 	if(confirmation){
 		$.ajax({
 			url:"administrationUtilisateur",
@@ -109,14 +109,14 @@ function supprimerUtilisateur(event){
 			dataType:"json",
 			data:{
 				requete:"suppression",
-				mail:event.currentTarget.id
+				mail:idUtilisateur
 			}
 		})
 		alert("L'utilisateur a bien \351t\351 supprim\351!");
 		window.location.replace("administrationUtilisateur");
 	}
 }
-$(".casesupprimer").click(function(){supprimerUtilisateur(event);});
+
 
 // MODIFIER UTILISATEUR
 function montrerFormulaireModifierUtilisateur(event){

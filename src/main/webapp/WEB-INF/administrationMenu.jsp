@@ -48,8 +48,8 @@
 										</script>
 									</td>
 									<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
-									<td class="casemodifier" id="modifierid${administrationMenu.idpage}"><img src="Images/pointdinterrogation_modifier.png"/></td>
-									<td class="casesupprimer" id="supprimerid${administrationMenu.idpage}"><img src="Images/croix_supprimer.png"/></td>
+									<td class="casemodifier"><img src="Images/pointdinterrogation_modifier.png" onclick="montrerModifierMenu(${administrationMenu.idpage})"/></td>
+									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerMenu(${administrationMenu.idpage})"/></td>
 								</tr>
 
 						</c:forEach>
@@ -66,7 +66,7 @@
 								<tr><td><label for="idPageModif" style="display:none;"></label></td><td><label id="idpageModif" style="display:none;"/></td></tr>
 					 			<tr><td><label for="nompageModifBrut">Nom de la page : </label></td><td><label id="nompageModifBrut"/></td></tr>
 								<tr><td><label for="nompageModif">Nouveau nom : </label></td><td><input type="text" id="nompageModif" value=""/></td></tr>
-								<tr><td><label for="nompageprecedenteModif">Nom de la page precedente : </label></td>
+								<tr><td><label for="nompageprecedenteModif">Nom de la page précédente : </label></td>
 								<td><select name="nompageprecedenteModif" id="nompageprecedenteModif">
 									<option value="page_0">Accueil</option>
 						       		<c:forEach var="administrationMenu" items="${listeMenu}">
@@ -77,7 +77,7 @@
 								<input type="radio" name="rangModif" id="rang0Modif" /><label for="rang1">Principale</label>
 								<input type="radio" name="rangModif" id="rang1Modif" /><label for="rang2">Sous catégorie</label>
 								</td></tr>
-								<tr><td><label for="visibiliteModif">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibiliteModif" /></td></tr>
+								<tr><td><label for="visibiliteModif">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" name="visibiliteModif" id="visibiliteModif" /></td></tr>
 								<tr><td colspan="2"><input id="bouttonPourModifierMenu" type="button" value="Modifier le menu" width="100px;"></td></tr>
 									 
 							</table>
