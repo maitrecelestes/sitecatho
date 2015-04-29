@@ -96,14 +96,14 @@ width : 75%;
 
 /*Gestion de couleur********************************************************************************************/
 body{
-background-color:	#BBBAB9 ;
+background-color:	#F9F9F9 ;
 }
 
 #header, #blocGauchePrincipalPage, #blocDroitPrincipalPage, #footer {
 background-color: #042971;/*#89725B*/
 }
   
-#blocMenu, #blocInformation, #blocLogo, #blocLienInternet, #blocPhoto, #blocArticle {
+#blocMenu, #blocInformation, #blocLogo, #blocLienInternet, #blocPhoto, #blocArticle, #menu{
 background-color: white;/*#FFEFB6, #FFFBB7*/
 }
 

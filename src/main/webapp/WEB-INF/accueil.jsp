@@ -24,7 +24,8 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
-				ma photo
+		  <img id="imageLogo" src="Images/ImageAccueil.jpg" border="1"/>
+	
 		  </div>
 		  
 		  <div id="blocArticle">
