@@ -13,7 +13,7 @@
 	<div id="blocMenu">
 		<div id="menu">
 			<div>
-				<ul id='nav' class='dropdown dropdown-vertical'>
+				<ul  class='dropdown dropdown-vertical'>
 					<li><a href="accueil">Accueil</a></li>
 				</ul>
 			</div>
@@ -21,7 +21,7 @@
 			<div><span id="monmenuchange"></span></div>	
 			
 			<div>
-				<ul id='nav' class='dropdown dropdown-vertical'>
+				<ul  class='dropdown dropdown-vertical'>
 					<li><a href="galerie">Galerie</a></li>
 					<li><a href="contact">Contact</a></li>
 					<li id="administration" class='dir'>Administration<ul>
@@ -49,9 +49,16 @@
 		</table>
 		
 	 </div>
-	  
+	 
+	 
 	<div id="blocInformation">
 		<div id="connexionNomPrenom"></div>
+		<div><p>Soyez les bienvenus à l'aumônerie:<br>
+		2 rue Norbert Segard<br>
+		59000 Lille<br>
+		N'hésitez pas à nous contacter par<br>
+		mail: aumonerie@univ-catholille.fr<br>
+		tel : 03 59 30 25 97</p></div>
 		<iframe id="carteMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1265.3311477444552!2d3.0470809999999995!3d50.633390000000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d57923e8039f%3A0x256ba6df9160eeff!2s2+Rue+Norbert+Segard%2C+Universit%C3%A9+Catholique+de+Lille%2C+59800+Lille!5e0!3m2!1sfr!2sfr!4v1427560757737"></iframe>
 	</div>
 

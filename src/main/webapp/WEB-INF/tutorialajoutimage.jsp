@@ -2,8 +2,6 @@
 <head>
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
-	<!--<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
-	<link rel="stylesheet" type="text/css" href="css/style-accueil.css"/>-->
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
 	<title id="titrePageClassique">Tutorial : comment ajouter une image à la galerie</title>
 </head>
