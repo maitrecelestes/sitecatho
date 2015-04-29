@@ -14,6 +14,7 @@ function recuperationid(nomid){
 }
 
 function montrerMessage(event){
+	alert("ok");
 	$(".cacher").hide();
 	
 	var id=recuperationid(event.currentTarget.id);
