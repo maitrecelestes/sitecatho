@@ -7,7 +7,7 @@ margin-bottom:2px ;
 
 }
 #header {
-background-color:#89725B;
+background-color:#89725B;/***********************************************************************************/
 text-align:center;
 margin:auto;
 width : 75%;
@@ -24,14 +24,14 @@ width : 75%;
 float:left;
 width:20%;
 min-width:0px;  /* mettre la valeur minimal du menu*/
-background-color:#89725B;
+background-color:#89725B;/***********************************************************************************/
 }
 
 #blocMenu, #blocInformation, #blocLogo, #blocLienInternet {
 width:100%;
 margin-top:5px;
 margin-bottom:5px;
-background-color:#FFEFB6;
+background-color:#FFEFB6;/***********************************************************************************/
 }
 
 
@@ -59,7 +59,7 @@ background-color:#FFEFB6;
 float: right;
 width: 79%;
 /*margin-left:245px;*/
-background-color:#89725B;
+background-color:#89725B;/***********************************************************************************/
 }
 
 #blocPhoto, #blocArticle {
@@ -67,7 +67,7 @@ width:100%;
 margin-top:5px;
 margin-bottom:5px;
 
-background-color:#FFEFB6;
+background-color:#FFEFB6;/***********************************************************************************/
 }
 
 #blocPhoto{
@@ -76,7 +76,7 @@ height:300px;
 
 /*Footer*/
 #footer {
-background-color:#89725B;
+background-color:#89725B;/***********************************************************************************/
 float: bottom;
 text-align:center;
 clear:both;
@@ -85,56 +85,28 @@ width : 75%;
 }
 
 
-.bouttonAjoutArticle:hover {
-border-radius: 10px;
-background-color: rgba(0, 0, 0, 0);
-border-width:1px;
-border-style:dotted;
-border-color:black;
-}
-
-.bouttonAjoutArticle{
-margin-left:10px;
-display:block;
-width:200px;
-line-height:50px;
-text-align:center;
-vertical-align:middle;
-color:white;
-text-decoration:none;
-background-color: #D0E09D;
-border-radius: 10px;
-}
-
-
-
-
-.bouttonArticle:hover {
-border-radius: 10px;
-background-color: rgba(0, 0, 0, 0);
-border-width:1px;
-border-style:dotted;
-border-color:black;
-}
-
-.bouttonArticle{
-margin-left:10px;
-display:block;
-width:200px;
-line-height:50px;
-text-align:center;
-vertical-align:middle;
-color:white;
-text-decoration:none;
-background-color: #D0E09D;
-border-radius: 10px;
-
-float: left;
-}
 
 .cacherConnexion{
 	height: 50px;
 }
 .unArticleDeLaPage{
 	margin-top:20px;
+}
+
+
+/*Gestion de couleur********************************************************************************************/
+body{
+background-color:	#BBBAB9 ;
+}
+
+#header, #blocGauchePrincipalPage, #blocDroitPrincipalPage, #footer {
+background-color: #042971;/*#89725B*/
+}
+  
+#blocMenu, #blocInformation, #blocLogo, #blocLienInternet, #blocPhoto, #blocArticle {
+background-color: white;/*#FFEFB6, #FFFBB7*/
+}
+
+#footer{
+color:white;
 }

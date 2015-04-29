@@ -10,7 +10,7 @@
 }
 
 .monArticleParticulier {
-	background-color:			#D0E09D;
+	background-color:			#B9B085;/***********************************************************************************/
 	margin:						auto;
 	width : 					98%;
 	border-radius:				10px;
@@ -44,3 +44,63 @@
 	
 }
 
+
+.bouttonAjoutArticle:hover {
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0);
+border-width:4px;
+/*border-style: dotted;*/
+border-color:black;
+}
+
+.bouttonAjoutArticle{
+margin-top:10px;
+margin-left:10px;
+display:block;
+width:200px;
+line-height:50px;
+text-align:center;
+vertical-align:middle;
+color:white;
+text-decoration:none;
+background-color: #B9B085;/***********************************************************************************/
+border-radius: 10px;
+}
+
+
+
+
+.bouttonArticle:hover {
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0);
+border-width:2px;
+/*border-style:dotted;*/
+border-color:black;
+}
+
+.bouttonArticle{
+margin-left:10px;
+display:block;
+width:200px;
+line-height:50px;
+text-align:center;
+vertical-align:middle;
+color:white;
+text-decoration:none;
+background-color: #B9B085;/***********************************************************************************/
+border-radius: 10px;
+float: left;
+}
+
+
+
+.monArticleParticulier, .bouttonArticle, .bouttonAjoutArticle{
+	background-color: #FFB735;/*#D0E09D*/
+	color: #042971;
+}
+
+.bouttonAjoutArticle:hover, .bouttonArticle:hover{
+	background-color: #FFC748;
+	border-color: #FFB100;
+	color: #042971;
+}
