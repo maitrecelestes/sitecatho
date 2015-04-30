@@ -11,15 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-/**
- * Servlet implementation class ServletGestionSession
- */
 public class ServletGestionSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+  
     public ServletGestionSession() {
         super();
     }

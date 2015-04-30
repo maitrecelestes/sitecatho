@@ -20,24 +20,27 @@ public class ServletModifierArticle extends HttpServlet {
 	ArticleDao articleDao = new ArticleDaoImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/modifierarticle.jsp");
-		view.forward(request, response);
+		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {
+			
+			if (request.getSession().getAttribute("rang").equals("administrateur")||(request.getSession().getAttribute("rang").equals("redacteur")&&request.getSession().getAttribute("pageGere").equals(request.getParameter("nompage")))){
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/modifierarticle.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}	
+		}
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		StringBuffer requestURL = request.getRequestURL();
-		if (request.getQueryString() != null) {
-		    requestURL.append("?").append(request.getQueryString());
-		}
-		String completeURL = requestURL.toString();
+		String id=request.getParameter("idArticle");
 		
-		String id="";
-		int i=completeURL.length();
-		while(i>1&&completeURL.charAt(i-1)!='='){
-			i--;
-			id=completeURL.charAt(i)+id;
-		}
 		
 		String contenu=request.getParameter("contenu");
 		String titre=request.getParameter("titre");

@@ -2,6 +2,7 @@ package mr.controllers;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,21 +14,33 @@ import javax.servlet.http.HttpServletResponse;
 import mr.dao.ArticleDao;
 import mr.daoImp.ArticleDaoImp;
 import mr.entities.Article;
+import mr.entities.Contact;
 
 @WebServlet("/nouvelarticle")
 public class ServletNouvelArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public ServletNouvelArticle() {
-        super();
-        
-    }
-
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp");
-		view.forward(request, response);
+		
+		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
+			
+			RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+			view.forward(request, response);
+			
+		} else {
+			
+			if (request.getSession().getAttribute("rang").equals("administrateur")||(request.getSession().getAttribute("rang").equals("redacteur")&&request.getSession().getAttribute("pageGere").equals(request.getParameter("nompage")))){
+				
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp");
+				view.forward(request, response);
+			} else {
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+				view.forward(request, response);
+			}
+			
+		}
+		
 	}
 
 	

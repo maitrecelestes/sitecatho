@@ -129,7 +129,6 @@ $(".classAjoutMenu").hide();
 
 //Modifier Menu
 function montrerModifierMenu(id){
-	alert("test"+id);
 	$(".classAjoutMenu").hide();
 	$(".bouttonModifierMenu").show();
 	$(".classModificationMenu").show();

@@ -3,7 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
-	<title id="titrePageClassique">Un page classique</title>
+	<title id="titrePageClassique">Une page classique</title>
 </head>
 <body>
 	<header id="header">
@@ -23,9 +23,12 @@
 
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
-		  <div id="blocPhoto">
-		  </div>
-		  <a id="lienNouvelArticle" class="bouttonAjoutArticle" href="">Ecrire un nouvel article</a>
+		<div id="blocPhoto">
+		</div>
+		<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur')}"><!-- Ajouter la page géré par le rédacteur -->
+			 <a id="lienNouvelArticle" class="bouttonAjoutArticle" href="">Ecrire un nouvel article</a>
+		</c:if>
+		 
 		  <div id="blocArticle">
 				<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 				<c:import url="affichageArticle.jsp">

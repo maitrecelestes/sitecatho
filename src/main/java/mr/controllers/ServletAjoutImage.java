@@ -20,19 +20,8 @@ public class ServletAjoutImage extends HttpServlet {
 	//private CategorieDao categorieDao=new CategorieDaoImp();
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		StringBuffer requestURL = request.getRequestURL();
-		if (request.getQueryString() != null) {
-		    requestURL.append("?").append(request.getQueryString());
-		}
-		String completeURL = requestURL.toString();
-		
-		String id="";
-		int i=completeURL.length();
-		while(i>1&&completeURL.charAt(i-1)!='='){
-			i--;
-			id=completeURL.charAt(i)+id;
-		}
-		int idCategorie= Integer.parseInt(id);
+		String idCategorieString=request.getParameter("id");
+		int idCategorie= Integer.parseInt(idCategorieString);
 		request.setAttribute("idCategorie", idCategorie);
 		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
 		if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){

@@ -25,19 +25,9 @@ public class ServletCategorieGalerie extends HttpServlet {
 	private CategorieDao categorieDao=new CategorieDaoImp();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		StringBuffer requestURL = request.getRequestURL();
-		if (request.getQueryString() != null) {
-		    requestURL.append("?").append(request.getQueryString());
-		}
-		String completeURL = requestURL.toString();
 		
-		String id="";
-		int i=completeURL.length();
-		while(i>1&&completeURL.charAt(i-1)!='='){
-			i--;
-			id=completeURL.charAt(i)+id;
-		}
-		int idCategorie= Integer.parseInt(id);
+		String idCategorieString=request.getParameter("idpage");
+		int idCategorie= Integer.parseInt(idCategorieString);
 		Categorie maCategorie=categorieDao.afficherUneCategorie(idCategorie);
 		List<Image> listeImage=imageDao.listeImageCategorie(idCategorie);
 		

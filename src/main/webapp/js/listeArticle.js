@@ -20,7 +20,7 @@ var RecupererListeArticle = function(nomPageEnCours) {
 					for (var i = 0; i < data.length; i++) {
 						if(!data[i].archive){
 							monarticle=monarticle+"<div class='unArticleDeLaPage'>";
-							monarticle=monarticle+"<div class='cacherConnexion'>"
+							monarticle=monarticle+"<div class='cacherConnexion'>";
 							monarticle=monarticle+"<a href='modifierarticle?"+page+"&idArticle="+data[i].idArticle+"'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle"+data[i].idArticle+"' type='button'>Modification</button></a>";
 							monarticle=monarticle+"<button class='bouttonArticle bouttonVisibiliteArticle' onclick='visibleArticle(this)' id='visibiliteArticle"+data[i].idArticle+"' type='button'>Visible</button>";
 							monarticle=monarticle+"<button class='bouttonArticle bouttonSupprimerArticle' onclick='archiverArticle(this)' id='suppressionArticle"+data[i].idArticle+"' type='button'>Suppression</button>";
