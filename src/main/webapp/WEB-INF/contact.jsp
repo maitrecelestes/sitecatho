@@ -26,8 +26,8 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  
 		  <div id="blocArticle">
-				<h1>CONTACTEZ MOI</h1>
-				<p>Vous pouvez poster ici un message à l'attention de l'aumonerie. Ce message sera lu par les responsables qui vous recontacterons au besoin.</p>
+				<h1>CONTACTEZ NOUS</h1>
+				<p>Vous pouvez poster ici un message à l'attention de l'aumônerie. Ce message sera lu par les responsables qui vous recontacterons si besoin.</p>
 				<form>
 					<table>
 						<tr><td><label for="nom">Nom :</label></td><td><input type="text" id="nom" /></td></tr>
