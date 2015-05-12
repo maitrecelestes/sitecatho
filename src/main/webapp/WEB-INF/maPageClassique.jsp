@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/monArticle.css"/>
 	<title id="titrePageClassique">Une page classique</title>
 </head>
 <body>
