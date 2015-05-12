@@ -27,7 +27,7 @@ public class ServletModifierArticle extends HttpServlet {
 			
 		} else {
 			
-			if (request.getSession().getAttribute("rang").equals("administrateur")||(request.getSession().getAttribute("rang").equals("redacteur")&&request.getSession().getAttribute("pageGere").equals(request.getParameter("nompage")))){
+			if (request.getSession().getAttribute("rang").equals("administrateur")||(request.getSession().getAttribute("rang").equals("redacteur")&&request.getSession().getAttribute("pageGere").equals(request.getParameter("nomPage")))){
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/modifierarticle.jsp");
 				view.forward(request, response);
 			} else {

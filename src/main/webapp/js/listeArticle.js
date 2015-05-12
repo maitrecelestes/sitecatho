@@ -1,4 +1,4 @@
-var RecupererListeArticle = function(nomPageEnCours) {
+/*var RecupererListeArticle = function(nomPageEnCours) {
 	// Ecrire requête Ajax
 	$.ajax({
 		url:"ServletGestionSession", 
@@ -89,7 +89,7 @@ var RecupererListeArticle = function(nomPageEnCours) {
 		}
 	});
 	
-}
+}*/
 
 
 function affichageVisibiliteAuLancement(nomPageEnCours){
@@ -116,7 +116,7 @@ function affichageVisibiliteAuLancement(nomPageEnCours){
 	});
 }
 
-
+/*
 $(document).ready(function() {
 	var pageEnCours = window.location.href.split('/')[[window.location.href.split('/').length - 1]];
 	var page = window.location.href.split('?')[[window.location.href.split('?').length - 1]];
@@ -125,7 +125,7 @@ $(document).ready(function() {
 	RecupererListeArticle(getParam("nompage",pageEnCours));
 	
 });
-
+*/
 function getParam(param_name, url) {
 	var param_value = decodeURI(
 	(RegExp(param_name + "=" + "(.+?)(&|$)").exec(url)||[,null])[1]

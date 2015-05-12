@@ -15,6 +15,7 @@ import mr.dao.ImageDao;
 import mr.daoImp.CategorieDaoImp;
 import mr.daoImp.ImageDaoImp;
 import mr.entities.Categorie;
+import mr.entities.Image;
 
 
 @WebServlet("/galerie")
@@ -28,6 +29,9 @@ public class ServletGalerie extends HttpServlet {
 		List<Categorie> listeCategorie=categorieDao.listeCategorie();
 		request.setAttribute("listeCategorie", listeCategorie);
 		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
+		
+		List<Image> listePremiereImage=categorieDao.listePremiereImage();
+		request.setAttribute("listePremiereImage", listePremiereImage);
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/galerie.jsp");
 		view.forward(request, response);

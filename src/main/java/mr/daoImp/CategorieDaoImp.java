@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mr.dao.CategorieDao;
-import mr.entities.Article;
 import mr.entities.Categorie;
+import mr.entities.Image;
 
 public class CategorieDaoImp implements CategorieDao{
 
@@ -95,6 +95,31 @@ public class CategorieDaoImp implements CategorieDao{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+	}
+
+	@Override
+	public List<Image> listePremiereImage() {
+		Connection connection;
+		CategorieDao categorieDao=new CategorieDaoImp();
+		List<Categorie> listeCategorie=categorieDao.listeCategorie();
+		List<Image> listeImage= new ArrayList<Image>();
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			for (int i=0;i<listeCategorie.size();i++){
+				PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `photo` WHERE IdCategoriePhoto=? ORDER BY `dateCreation` DESC LIMIT 1");
+				stmt.setInt(1,listeCategorie.get(i).getId());
+				ResultSet results = stmt.executeQuery();
+				while (results.next()) {
+					Image image= new Image(results.getInt("id"),results.getString("lienPhoto"),results.getString("mailAuteur"),results.getInt("idCategoriePhoto"),results.getDate("dateCreation"));
+					listeImage.add(image);
+				}	
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listeImage;
+		
 	}
 
 	

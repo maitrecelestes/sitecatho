@@ -27,23 +27,33 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 	
 		<h1>Galerie</h1>
-		<c:if test="${rangUtilisateur =='administrateur'}">
-		  	<input type="button" id="boutonAjoutCategorie" value="Ajouter une catégorie"/><br/>
-			<div id="ajoutCategorie">
-				<form method="POST">
-					<input type="text" name="nomNouvelleCategorie"/>
-					<input type="submit" value="enregistrer"/>
-				</form>
-			</div>
-		 </c:if>
-		
-		
-		<c:forEach var="listeCategorie" items="${listeCategorie}">
-			<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>
+		<section id="listeCategorie">
 			<c:if test="${rangUtilisateur =='administrateur'}">
-				<input type="button" class="supprimerCategorie" id="id${listeCategorie.getId()}" value="supprimer cette categorie"/>
-			</c:if>	
-		</c:forEach>
+			  	<input type="button" id="boutonAjoutCategorie" value="Ajouter une catégorie"/><br/>
+				<div id="ajoutCategorie">
+					<form method="POST">
+						<input type="text" name="nomNouvelleCategorie"/>
+						<input type="submit" value="enregistrer"/>
+					</form>
+				</div>
+			 </c:if>
+			<%
+				int i = 0;
+				pageContext.setAttribute("i", new Integer(i));
+			%>
+			
+			<c:forEach var="listeCategorie" items="${listeCategorie}">
+				<img src="${listePremiereImage}.get(${i}).getLienImage}" alt="${i}"/>
+				<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>
+				<c:if test="${rangUtilisateur =='administrateur'}">
+					<input type="button" class="supprimerCategorie" id="id${listeCategorie.getId()}" value="supprimer cette categorie"/>
+				</c:if>	
+				<% 
+					i++; 
+					pageContext.setAttribute("i", new Integer(i));
+				%>
+			</c:forEach>
+		</section>
 	 </section>
 	</section>			
 

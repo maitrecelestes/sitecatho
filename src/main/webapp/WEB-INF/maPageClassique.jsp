@@ -25,14 +25,34 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		<div id="blocPhoto">
 		</div>
-		<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur')}"><!-- Ajouter la page géré par le rédacteur -->
+		<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
 			 <a id="lienNouvelArticle" class="bouttonAjoutArticle" href="">Ecrire un nouvel article</a>
 		</c:if>
 		 
 		  <div id="blocArticle">
-				<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-				<c:import url="affichageArticle.jsp">
-				</c:import>
+				<c:forEach var="listeArticle" items="${listeArticle}">
+					<c:if test="${listeArticle.getArchive()==false}"> 
+						<c:if test="${listeArticle.getVisiblePage()==true || (rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage))}"> 
+							<div class='unArticleDeLaPage'>
+								<div class='cacherConnexion'>
+								<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
+									 <a href='modifierarticle?nomPage=${urlPage}&idArticle=${listeArticle.getIdArticle()}'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle${listeArticle.getIdArticle()}' type='button'>Modification</button></a>
+									<button class='bouttonArticle bouttonVisibiliteArticle' onclick='visibleArticle(this)' id='visibiliteArticle${listeArticle.getIdArticle()}' type='button'>Visible</button>
+									<button class='bouttonArticle bouttonSupprimerArticle' onclick='archiverArticle(this)' id='suppressionArticle${listeArticle.getIdArticle()}' type='button'>Suppression</button>
+								</c:if>
+									
+								</div>
+				
+								<article class='monArticleParticulier' id='monArticleParticulier${listeArticle.getIdArticle()}'>
+									<h3 class='titreArticle'>${listeArticle.getTitre()}</h3>
+									<h4 class='dateArticle'>${listeArticle.getDate()}</h4>
+									<p class='contenuArticle'>${listeArticle.getContenu()}</p>
+								</article>	
+							</div>
+						</c:if>
+					</c:if>
+				</c:forEach>
+				
 		  </div>		  
 		  
 		  
@@ -42,7 +62,6 @@
 		<c:import url="footer.jsp">
 		</c:import>
 		
-	<script type="text/javascript" src="js/administrationMenu.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>
