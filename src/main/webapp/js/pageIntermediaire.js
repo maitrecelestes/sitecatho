@@ -1,6 +1,7 @@
 $(document).ready(function() {
-	var pageEnCours = window.location.href.split('/')[[window.location.href.split('/').length - 1]];
-	location.replace("maPageClassique?"+recuperationPage(suppressionid(pageEnCours)));
+	alert("ok");
+	//var pageEnCours = window.location.href.split('/')[[window.location.href.split('/').length - 1]];
+	//location.replace("maPageClassique?"+recuperationPage(suppressionid(pageEnCours)));
 });
 
 

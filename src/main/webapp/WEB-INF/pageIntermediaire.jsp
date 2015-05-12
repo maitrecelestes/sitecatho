@@ -10,9 +10,7 @@
 			<!-- BANNIERE -->
 			<!-- <img src="Images/banniere.png"> -->
 	</header>
-		
-		
-		
+
 	<section id="blocPrincipalPage">
 	
 	 <section id="blocGauchePrincipalPage"> <!--Partie gauche de la page : Menu + information-->
@@ -21,17 +19,18 @@
 		</c:import>
 	 </section>
 
-	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
 		  <div id="blocArticle">
 				<h1>Ma page intermediaire</h1>
 		  </div>
 	 </section>
 	</section>
-					
+				
+
 		<c:import url="footer.jsp">
 		</c:import>
-		
+	
+				
 	<script type="text/javascript" src="js/connexion.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/pageIntermediaire.js"></script>

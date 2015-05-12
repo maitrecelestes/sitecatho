@@ -2,7 +2,6 @@ package mr.controllers;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import mr.dao.ArticleDao;
 import mr.daoImp.ArticleDaoImp;
 import mr.entities.Article;
-import mr.entities.Contact;
 
 @WebServlet("/nouvelarticle")
 public class ServletNouvelArticle extends HttpServlet {

@@ -22,7 +22,7 @@
 			
 			<div>
 				<ul  class='dropdown dropdown-vertical'>
-					<li><a href="galerie">Galerie</a></li>
+					<a href="galerie"><li>Galerie</li></a>
 					<li><a href="contact">Contact</a></li>
 					<li id="administration" class='dir'>Administration<ul>
 						<li><a href="administrationContact">Contact</a></li>

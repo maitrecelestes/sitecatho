@@ -27,7 +27,7 @@
 		<div id="blocPhoto">
 		</div>
 		<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
-			 <a id="lienNouvelArticle" class="bouttonAjoutArticle" href="">Ecrire un nouvel article</a>
+			 <a id="lienNouvelArticle" class="bouttonAjoutArticle" href="nouvelarticle?nompage=${urlPage}">Ecrire un nouvel article</a>
 		</c:if>
 		 
 		  <div id="blocArticle">
@@ -37,7 +37,7 @@
 							<div class='unArticleDeLaPage'>
 								<div class='cacherConnexion'>
 								<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
-									 <a href='modifierarticle?nomPage=${urlPage}&idArticle=${listeArticle.getIdArticle()}'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle${listeArticle.getIdArticle()}' type='button'>Modification</button></a>
+									 <a href='modifierarticle?nompage=${urlPage}&idArticle=${listeArticle.getIdArticle()}'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle${listeArticle.getIdArticle()}' type='button'>Modification</button></a>
 									<button class='bouttonArticle bouttonVisibiliteArticle' onclick='visibleArticle(this)' id='visibiliteArticle${listeArticle.getIdArticle()}' type='button'>Visible</button>
 									<button class='bouttonArticle bouttonSupprimerArticle' onclick='archiverArticle(this)' id='suppressionArticle${listeArticle.getIdArticle()}' type='button'>Suppression</button>
 								</c:if>
