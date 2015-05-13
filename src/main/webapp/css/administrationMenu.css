@@ -14,3 +14,14 @@
 #newNom:valid {
    box-shadow: 0 0 2px 1px red;
 }
+
+#tabListeMenu {
+	width:				100%;
+	border-collapse: 	collapse;
+	
+}
+
+#tabListeMenu td, #tabListeMenu th{
+	border:				solid;
+	text-align:			center;
+}

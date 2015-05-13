@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 	<link rel="stylesheet" type="text/css" href="css/administrationMenu.css"/>
 	<title>Administration du menu</title>
 </head>
@@ -25,7 +26,7 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocArticle">
 				<h3>Tableau indiquant toutes les pages</h3>
-						<table>
+						<table id="tabListeMenu">
 						<tr>
 							<th>  Nom de la page  </th>								
 							<th>  Emplacement de la page  </th>
@@ -34,30 +35,29 @@
 							<th>  Supprimer la page  </th>
 						</tr>
 						<c:forEach var="administrationMenu" items="${listeMenu}">
-								<tr>
-									<td id="idnompage${administrationMenu.idpage}">${administrationMenu.nompage}</td>
-									<td id="idrang${administrationMenu.idpage}" style="display:none;">${administrationMenu.rang}</td>
-									<td id="idStringRang${administrationMenu.idpage}">
-										<script language="JavaScript">
-											var monRang = ${administrationMenu.rang};
-											var monid = ${administrationMenu.idpage};
-											var rep = "Sous catégorie";
-											$("#idStringRang"+monid).text("");
-											if (monRang==0){rep= "Principale"};
-											$("#idStringRang"+monid).append(rep);
-										</script>
-									</td>
-									<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
-									<td class="casemodifier"><button onclick="montrerModifierMenu(${administrationMenu.idpage})">Modifier</button></td>
-									<td class="casesupprimer"><button onclick="supprimerMenu(${administrationMenu.idpage})">Supprimer</button></td>
-								</tr>
-
+							<tr>
+								<td id="idnompage${administrationMenu.idpage}">${administrationMenu.nompage}</td>
+								<td id="idrang${administrationMenu.idpage}" style="display:none;">${administrationMenu.rang}</td>
+								<td id="idStringRang${administrationMenu.idpage}">
+									<script language="JavaScript">
+										var monRang = ${administrationMenu.rang};
+										var monid = ${administrationMenu.idpage};
+										var rep = "Sous catégorie";
+										$("#idStringRang"+monid).text("");
+										if (monRang==0){rep= "Principale"};
+										$("#idStringRang"+monid).append(rep);
+									</script>
+								</td>
+								<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
+								<td class="casemodifier"><button class="bouttonAdm" onclick="montrerModifierMenu(${administrationMenu.idpage})">Modifier</button></td>
+								<td class="casesupprimer"><button class="bouttonAdm" onclick="supprimerMenu(${administrationMenu.idpage})">Supprimer</button></td>
+							</tr>
 						</c:forEach>
 						</table>
 
 					
-						<button class="bouttonAjoutMenu" type="button">Pour ajouter une page</button>
-						<button class="bouttonModifierMenu" type="button">Cacher panneau modification</button>
+						<button class="bouttonAjoutMenu bouttonAdmMenu bouttonAdm" type="button">Pour ajouter une page</button>
+						<button class="bouttonModifierMenu bouttonAdmMenu bouttonAdm" type="button">Cacher panneau modification</button>
 						
 		
 						<form class="classModificationMenu">
@@ -78,7 +78,7 @@
 								<input type="radio" name="rangModif" id="rang1Modif" /><label for="rang2">Sous catégorie</label>
 								</td></tr>
 								<tr><td><label for="visibiliteModif">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" name="visibiliteModif" id="visibiliteModif" /></td></tr>
-								<tr><td colspan="2"><input id="bouttonPourModifierMenu" type="button" value="Enregistrer les modifications" width="100px;"></td></tr>
+								<tr><td colspan="2"><input id="bouttonPourModifierMenu" class="bouttonAdm" type="button" value="Enregistrer les modifications" width="100px;"></td></tr>
 									 
 							</table>
 						</form>
@@ -108,7 +108,7 @@
 								</td></tr>
 						 
 								<tr><td><label for="visibilite">Visibilité :</label></td><td><input type="checkbox" checked onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibilite" /></td></tr>
-								<tr><td colspan="2"><input id="bouttonPourAjouterMenu" type="button" value="Ajouter le menu" width="100px;"></td></tr>
+								<tr><td colspan="2"><input id="bouttonPourAjouterMenu" class="bouttonAdm" type="button" value="Ajouter le menu" width="100px;"></td></tr>
 							</table>
 						</form>
 

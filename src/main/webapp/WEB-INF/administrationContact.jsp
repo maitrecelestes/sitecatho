@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 	<link rel="stylesheet" type="text/css" href="css/administrationContact.css"/>
 	<title>Administration des messages envoyé via contact</title>
 </head>
@@ -41,8 +42,9 @@
 									<td>${listeContact.getMail()}</td>
 									<td>${listeContact.getObjet()}</td>
 									<td>${listeContact.getDatePoste()} ${listeContact.getHeurePoste()}</td>
-									<td class="caseVoirMessage"><img src="Images/FlecheBas.png" onclick="montrerMessage(${listeContact.getIdMessage()})"/></td>
-									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerMessage(${listeContact.getIdMessage()})"/></td>
+									<td class="caseVoirMessage"><button class="bouttonAdm" onclick="montrerMessage(${listeContact.getIdMessage()})">Montrer le message</button></td>
+									<td class="casesupprimer"><button class="bouttonAdm" onclick="supprimerMessage(${listeContact.getIdMessage()})">Supprimer</button></td>
+				
 								</tr>
 								<tr class="cacher" id="contenu${listeContact.getIdMessage()}">
 									<td colspan="7">${listeContact.getContenu()}</td>
