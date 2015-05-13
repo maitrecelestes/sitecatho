@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 	<title>Connexion</title>
 </head>
 <body>
@@ -27,8 +28,8 @@
 		  <div id="blocArticle">
 		  <c:if test="${dejaConnecter =='vrai'}">
 		  		<p>Vous êtes déjà connecté</p>
-		  		<a href="accueil">Retourner à l'accueil</a><br/>
-		  		<a href="deconnexion">Se déconnecter</a>
+		  		<button class="bouttonAdm"><a href="accueil">Retourner à l'accueil</a></button><br/>
+		  		<button class="bouttonAdm"><a href="deconnexion">Se déconnecter</a></button>
 		  
 		  </c:if>
 		  <c:if test="${dejaConnecter =='faux'}">
@@ -40,7 +41,7 @@
 					</c:if>
 						<tr><td><label for="mail">Mail :</label></td><td><input type="email" id="mail" name="mail" /></td></tr>
 						<tr><td><label for="mdp">Mot de passe :</label></td><td><input type="password" id="mdp" name="mdp" /></td></tr>
-						<tr><td colspan="2"><input id="seconnecter" type="submit" value="Se connecter" width="100px;"></td></tr>
+						<tr><td colspan="2"><button class="bouttonAdm" id="seconnecter" type="submit" width="100px;">Se connecter</button></td></tr>
 					</table>
 				</form>
 		</c:if>

@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 	<link rel="stylesheet" type="text/css" href="css/contact.css"/>
 	<title id>Contact</title>
 </head>
@@ -35,7 +36,7 @@
 						<tr><td><label for="mail">Mail :</label></td><td><input type="mail" id="mail" /></td></tr>
 						<tr><td><label for="objet">Objet :</label></td><td><input type="text" id="objet" /></td><td><span id="facultatif">(facultatif)</span></td></tr>
 						<tr><td><label for="contenu">Votre message :</label></td><td><textarea id="contenu"></textarea></td></tr>
-						<tr><td colspan="2"><input id="envoyer" type="button" value="Envoyer le message" width="100px;"></td></tr>
+						<tr><td colspan="2"><input id="envoyer" class="bouttonAdm" type="button" value="Envoyer le message" width="100px;"></td></tr>
 					</table>
 				</form>
 		  </div>
