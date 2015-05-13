@@ -14,7 +14,7 @@
 		<div id="menu">
 			<div>
 				<ul  class='dropdown dropdown-vertical'>
-					<li><a href="accueil">Accueil</a></li>
+					<a href="accueil"><li>Accueil</li></a>
 				</ul>
 			</div>
 		
@@ -23,14 +23,14 @@
 			<div>
 				<ul  class='dropdown dropdown-vertical'>
 					<a href="galerie"><li>Galerie</li></a>
-					<li><a href="contact">Contact</a></li>
+					<a href="contact"><li>Contact</li></a>
 					<li id="administration" class='dir'>Administration<ul>
-						<li><a href="administrationContact">Contact</a></li>
-						<li><a href="administrationMenu">Menu</a></li>
+						<a href="administrationContact"><li>Contact</li></a>
+						<a href="administrationMenu"><li>Menu</li></a>
 						<li><a href="administrationUtilisateur">Utilisateur</a></li>
 					</ul></li>
-					<li id="bouttonConnexion"><a href="connexion">Connexion</a></li>
-					<li id="bouttonDeconnexion"><a href="deconnexion">Deconnexion</a></li>
+					<a href="connexion"><li id="bouttonConnexion">Connexion</li></a>
+					<a href="deconnexion"><li id="bouttonDeconnexion">Deconnexion</li></a>
 					
 					
 				</ul>

@@ -53,13 +53,16 @@ public class ServletArticle extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String maFonction=request.getParameter("maFonction");
+		String page=request.getParameter("nompage");
+		
 		if(maFonction.equals("archiveArticle")){
 			articleDao.archiverArticle(Integer.parseInt(request.getParameter("idarticle")));
 		}else if(maFonction.equals("visibleArticle")){
 			articleDao.cacherArticle(Integer.parseInt(request.getParameter("idarticle")));
 		}
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
-		view.forward(request, response);
+		response.sendRedirect("maPageClassique?nompage="+page);
+		//RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
+		//view.forward(request, response);
 	}
 	
 }

@@ -65,10 +65,10 @@ public class ServletNouvelArticle extends HttpServlet {
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
 		ArticleDao articleDao= new ArticleDaoImp();
 		articleDao.ajouterArticle(monArticle,ipAddress);
-		/*System.out.println(completeURL);
-		response.sendRedirect(completeURL); */
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/pageIntermediaire.jsp");
-		view.forward(request, response);
+		
+		response.sendRedirect("maPageClassique?nompage="+page);
+		//RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/pageIntermediaire.jsp");
+		//view.forward(request, response);
 	}
 
 }
