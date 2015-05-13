@@ -1,0 +1,20 @@
+
+.bouttonAdm:hover {
+border-radius: 10px;
+background-color: #FFB100;
+border-width:2px;
+border-color: #FFB100;
+color: #042971;
+}
+
+.bouttonAdm{
+margin-left:3px;
+text-align:center;
+vertical-align:middle;
+color:#042971;
+text-decoration:none;
+background-color: #FFB735;
+border-radius: 10px;
+height:40px;
+
+}

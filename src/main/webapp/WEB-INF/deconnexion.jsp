@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 	<title>Deconnexion</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
 		  <div id="blocArticle">
 				<h1>Deconnexion réussi !!!</h1>
-				<a href="accueil">Revenir à l'accueil</a>
+				<button class="bouttonAdm"><a  href="accueil">Revenir à l'accueil</a></button>
 		  </div>
 	 </section>
 	</section>
