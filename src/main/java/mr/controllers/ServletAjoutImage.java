@@ -70,6 +70,8 @@ public class ServletAjoutImage extends HttpServlet {
 		}
 		
 		
+		response.sendRedirect("categorieGalerie?idpage="+idCategorie);
+		
 		
 	}
 

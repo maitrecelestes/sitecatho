@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/galerie.css"/>
 	<title>Galerie</title>
 </head>
 <body>
@@ -25,12 +26,26 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
 		  <h1>${maCategorie.getNomCategorie()}</h1>
 		  <div id="blocArticle">
+		  		<%
+					int i = 0;
+					pageContext.setAttribute("i", new Integer(i));
+				%>
+				<table>
 				<c:forEach var="listeImage" items="${listeImage}">
+					<c:if test="${i%3 == 0}"><tr></c:if>
+					<td class="tdImageGalerie">
 					${listeImage.getLienImage()}<br/>
 					<c:if test="${rangUtilisateur =='administrateur'}">
 						<input type="button" class="supprimerImage" id="id=${listeImage.getId()}" value="supprimer cette image"/>
-					</c:if>				
+					</c:if>	
+					</td>
+					<c:if test="${i%3 == 2}"></tr></c:if>
+				<% 
+					i++; 
+					pageContext.setAttribute("i", new Integer(i));
+				%>			
 				</c:forEach>
+				</table>
 				<c:if test="${rangUtilisateur =='administrateur'}">
 		  			<a href="ajouterimage?id=${maCategorie.getId()}">Ajouter des images</a><br/>
 		  		</c:if>

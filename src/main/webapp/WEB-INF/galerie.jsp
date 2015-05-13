@@ -43,7 +43,7 @@
 			%>
 			
 			<c:forEach var="listeCategorie" items="${listeCategorie}">
-				<img src="${listePremiereImage}.get(${i}).getLienImage}" alt="${i}"/>
+				${listePremiereImage}.get(${i}).getLienImage()
 				<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>
 				<c:if test="${rangUtilisateur =='administrateur'}">
 					<input type="button" class="supprimerCategorie" id="id${listeCategorie.getId()}" value="supprimer cette categorie"/>
