@@ -24,7 +24,7 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
-		  <img id="imageEntete" src="${lienPhotoEntete.getLienPhoto()}" border="1"/>
+		 ${lienPhotoEntete.getLienPhoto()}
 	
 		  </div>
 		  

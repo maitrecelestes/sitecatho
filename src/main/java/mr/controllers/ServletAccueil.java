@@ -1,6 +1,7 @@
 package mr.controllers;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,7 +34,11 @@ public class ServletAccueil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String newLien=request.getParameter("newPhoto");
+		String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
+		photoEnteteDao.ajouterNouvellePhoto(new PhotoEntete(newLien,"accueil"), InetAddress.getLocalHost().getHostAddress(), mail);
 		
+		PhotoEntete lienPhotoEntete=photoEnteteDao.afficherPhotoEntete("accueil");
+		request.setAttribute("lienPhotoEntete",lienPhotoEntete);
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");
 		view.forward(request, response);
 	}
