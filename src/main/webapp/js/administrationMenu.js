@@ -25,7 +25,7 @@ $("#bouttonPourAjouterMenu").click(function(){ajouteMenu();});
 
 function ModifierMenu(){
 	
-	if($("#nompage").val().length>0){
+	if($("#nompageModif").val().length>0){
 		$.ajax({
 			url:"administrationMenu",
 			type:"POST",
