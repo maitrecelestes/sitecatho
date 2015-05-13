@@ -42,7 +42,7 @@
 									<td>${listeContact.getMail()}</td>
 									<td>${listeContact.getObjet()}</td>
 									<td>${listeContact.getDatePoste()} ${listeContact.getHeurePoste()}</td>
-									<td class="caseVoirMessage"><button class="bouttonAdm" onclick="montrerMessage(${listeContact.getIdMessage()})">Montrer le message</button></td>
+									<td class="caseVoirMessage"><button class="bouttonAdm" onclick="montrerMessage(${listeContact.getIdMessage()})">Voir le message</button></td>
 									<td class="casesupprimer"><button class="bouttonAdm" onclick="supprimerMessage(${listeContact.getIdMessage()})">Supprimer</button></td>
 				
 								</tr>

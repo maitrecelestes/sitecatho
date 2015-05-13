@@ -1,15 +1,18 @@
 #tabListeUtilisateur {
-	width:				100%;
-	border-collapse: 	collapse;
-	
+	width: 100%;
+	border-collapse: collapse;
 }
-#tabListeUtilisateur td,#tabListeUtilisateur th{
-	border:				solid;
-	text-align:			center;
+
+#tabListeUtilisateur td, #tabListeUtilisateur th {
+	border: solid;
+	text-align: center;
+	border-color: #042971;
+	border-width: 1px;
 }
+
 #ajoutUtilisateur, #modifierUtilisateur {
-	display:			none;
-	margin-top:			30px;
-	margin-left:		auto;
-	margin-right:		auto;
+	display: none;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
 }

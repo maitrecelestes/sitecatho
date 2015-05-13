@@ -31,8 +31,7 @@
 							<th>  Nom de la page  </th>								
 							<th>  Emplacement de la page  </th>
 							<th>  Visibilité de la page  </th>
-							<th>  Modifier la page  </th>
-							<th>  Supprimer la page  </th>
+						
 						</tr>
 						<c:forEach var="administrationMenu" items="${listeMenu}">
 							<tr>

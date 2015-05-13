@@ -1,9 +1,11 @@
 #tabListeContact {
-	width:				100%;
-	border-collapse: 	collapse;
-	
+	width: 100%;
+	border-collapse: collapse;
 }
-#tabListeContact td,#tabListeContact th{
-	border:				solid;
-	text-align:			center;
+
+#tabListeContact td, #tabListeContact th {
+	border: solid;
+	text-align: center;
+	border-color: #042971;
+	border-width: 1px;
 }

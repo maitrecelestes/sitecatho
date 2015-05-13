@@ -1,33 +1,41 @@
 h1 {
-	font-size:				30px;
-	text-decoration:		underline;
-	text-align:				center;
+	font-size: 30px;
+	text-decoration: underline;
+	text-align: center;
 }
+
 form td {
-	text-align:				center;
+	text-align: center;
 }
+
 form table {
-	margin-left:			auto;
-	margin-right:			auto;
+	margin-left: auto;
+	margin-right: auto;
 }
+
 article p {
-	font-size:				20px;
+	font-size: 20px;
 }
+
 label {
-	width:					400px;
-	font-size:				20px;
+	width: 400px;
+	font-size: 20px;
 }
+
 form input {
-	width:					500px;
+	width: 500px;
 }
-#envoyer{
-	width:					200px;
+
+#envoyer {
+	width: 200px;
 }
-#facultatif{
-	font-size:				15px;
-	font-style:				italic;
-}	
+
+#facultatif {
+	font-size: 15px;
+	font-style: italic;
+}
+
 #contenu {
-	width:					500px;
-	height:					200px;
+	width: 500px;
+	height: 200px;
 }

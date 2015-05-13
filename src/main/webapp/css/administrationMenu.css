@@ -1,27 +1,27 @@
-.bouttonModifierMenu{
-	display:none;
+.bouttonModifierMenu {
+	display: none;
 }
 
-.classModificationMenu{
-	display:none;
-}
-
-
-#newNom:valid {
-   box-shadow: 0 0 2px 1px green;
+.classModificationMenu {
+	display: none;
 }
 
 #newNom:valid {
-   box-shadow: 0 0 2px 1px red;
+	box-shadow: 0 0 2px 1px green;
+}
+
+#newNom:valid {
+	box-shadow: 0 0 2px 1px red;
 }
 
 #tabListeMenu {
-	width:				100%;
-	border-collapse: 	collapse;
-	
+	width: 100%;
+	border-collapse: collapse;
 }
 
-#tabListeMenu td, #tabListeMenu th{
-	border:				solid;
-	text-align:			center;
+#tabListeMenu td, #tabListeMenu th {
+	border: solid;
+	text-align: center;
+	border-color: #042971;
+	border-width: 1px;
 }
