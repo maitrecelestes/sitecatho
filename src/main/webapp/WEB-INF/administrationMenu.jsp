@@ -48,8 +48,8 @@
 										</script>
 									</td>
 									<td id="idvisibilite${administrationMenu.idpage}">${administrationMenu.visibilite}</td>
-									<td class="casemodifier"><img src="Images/pointdinterrogation_modifier.png" onclick="montrerModifierMenu(${administrationMenu.idpage})"/></td>
-									<td class="casesupprimer"><img src="Images/croix_supprimer.png" onclick="supprimerMenu(${administrationMenu.idpage})"/></td>
+									<td class="casemodifier"><button onclick="montrerModifierMenu(${administrationMenu.idpage})">Modifier</button></td>
+									<td class="casesupprimer"><button onclick="supprimerMenu(${administrationMenu.idpage})">Supprimer</button></td>
 								</tr>
 
 						</c:forEach>
@@ -78,7 +78,7 @@
 								<input type="radio" name="rangModif" id="rang1Modif" /><label for="rang2">Sous catégorie</label>
 								</td></tr>
 								<tr><td><label for="visibiliteModif">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" name="visibiliteModif" id="visibiliteModif" /></td></tr>
-								<tr><td colspan="2"><input id="bouttonPourModifierMenu" type="button" value="Modifier le menu" width="100px;"></td></tr>
+								<tr><td colspan="2"><input id="bouttonPourModifierMenu" type="button" value="Enregistrer les modifications" width="100px;"></td></tr>
 									 
 							</table>
 						</form>
@@ -107,8 +107,8 @@
 								
 								</td></tr>
 						 
-								<tr><td><label for="visibilite">Visibilité :</label></td><td><input type="checkbox" onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibilite" /></td></tr>
-								<tr><td colspan="2"><input id="bouttonPourAjouterMenu" type="button" value="Envoyer le message" width="100px;"></td></tr>
+								<tr><td><label for="visibilite">Visibilité :</label></td><td><input type="checkbox" checked onchange="if(this.checked) this.value='true'; else this.value='false';" id="visibilite" /></td></tr>
+								<tr><td colspan="2"><input id="bouttonPourAjouterMenu" type="button" value="Ajouter le menu" width="100px;"></td></tr>
 							</table>
 						</form>
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mr.dao.MenuDao;
+import mr.entities.Article;
 import mr.entities.Menu;
 
 public class MenuDaoImpl implements MenuDao {
@@ -209,6 +210,26 @@ public class MenuDaoImpl implements MenuDao {
 			supprimerLigneDansMenu(nbnouveauMenuModif);
 			ajouterNouveauMenu(nbPageModif, nouveauMenuModif);
 		}	
+	}
+
+	@Override
+	public Menu rechercheMenu(int id) {
+		Connection connection;
+		Menu menu = null;
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt1= connection.prepareStatement("SELECT `idpage`, `nompage`, `rang`, `visibilite` FROM `page` WHERE idpage=?");
+			stmt1.setInt(1, id); 
+			ResultSet results = stmt1.executeQuery();
+			while (results.next()) {
+				menu= new Menu(results.getInt("idpage"),results.getString("nompage"),results.getInt("rang"),results.getBoolean("visibilite"));
+				
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return menu;
 	}
 	
 }

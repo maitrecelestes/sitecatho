@@ -2,7 +2,7 @@
 
 function ajouteMenu(){
 	
-	if(true){
+	if($("#nompage").val().length>0){
 		$.ajax({
 			url:"administrationMenu",
 			type:"POST",
@@ -16,16 +16,16 @@ function ajouteMenu(){
 			}
 		})
 		alert("Votre menu a bien \351t\351 ajout\351");
-		window.location.replace("administrationMenu")
+		window.location.replace("administrationMenu");
 	} else {
-		alert("Vous n'avez pas remplis vos champs correctement");
+		alert("Votre nom de la page est vide.");
 	}
 }
 $("#bouttonPourAjouterMenu").click(function(){ajouteMenu();});
 
 function ModifierMenu(){
 	
-	if(true){
+	if($("#nompage").val().length>0){
 		$.ajax({
 			url:"administrationMenu",
 			type:"POST",
@@ -40,9 +40,9 @@ function ModifierMenu(){
 			}
 		})
 		alert("Votre menu a bien \351t\351 modifi\351");
-		window.location.replace("administrationMenu")
+		window.location.replace("administrationMenu");
 	} else {
-		alert("Vous n'avez pas remplis vos champs correctement");
+		alert("Votre nom de la page modifiée est vide.");
 	}
 	
 }

@@ -55,6 +55,14 @@ background-color:#FFEFB6;/******************************************************
 }
 
 /*Partie droit de la page : Articles ---------------------*/
+#blocArticle{
+width:100%;
+margin-top:5px;
+margin-bottom:5px;
+padding-top:1px;
+padding-bottom:10px;
+background-color:#FFEFB6;/***********************************************************************************/
+}
 #blocDroitPrincipalPage {
 float: right;
 width: 79%;
@@ -62,7 +70,7 @@ width: 79%;
 background-color:#89725B;/***********************************************************************************/
 }
 
-#blocPhoto, #blocArticle {
+#blocPhoto {
 width:100%;
 margin-top:5px;
 margin-bottom:5px;
@@ -85,10 +93,6 @@ width : 75%;
 }
 
 
-
-.cacherConnexion{
-	height: 50px;
-}
 .unArticleDeLaPage{
 	margin-top:20px;
 }

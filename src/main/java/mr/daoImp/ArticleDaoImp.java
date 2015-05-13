@@ -146,6 +146,23 @@ public class ArticleDaoImp implements ArticleDao{
 		archiverArticle(numeroArticle);
 		ajouterArticle(articlemodifier,IP);
 	}
+
+	@Override
+	public void modifierPageArticle(String nompageprecedenteModif, String nompageModif) {
+		Connection connection;
+				
+		
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt= connection.prepareStatement("UPDATE `article` SET `page`=? WHERE `page`=?");
+			stmt.setString(1,nompageModif);
+			stmt.setString(2,nompageprecedenteModif);
+			stmt.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}			
+	}
 	
 	
 }
