@@ -20,6 +20,7 @@
 	 </section>
 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
+		  
 		  <div id="blocArticle">
 				<h1>Ma page intermediaire</h1>
 		  </div>

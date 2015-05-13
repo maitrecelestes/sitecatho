@@ -24,6 +24,7 @@ public class ServletAccueil extends HttpServlet {
 		
 		PhotoEntete lienPhotoEntete=photoEnteteDao.afficherPhotoEntete("accueil");
 		request.setAttribute("lienPhotoEntete",lienPhotoEntete);
+		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");
 		view.forward(request, response);

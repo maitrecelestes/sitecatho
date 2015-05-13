@@ -25,6 +25,14 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		<div id="blocPhoto">
+		${lienPhotoEntete.getLienPhoto()}
+		<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
+			 <form method="POST">
+			Lien de l'image :<input type="text" name="newPhoto"/>
+			<input type="submit" value="Changez la photo"/>
+		</form>
+		</c:if>
+		
 		</div>
 		<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
 			 <a id="lienNouvelArticle" class="bouttonAjoutArticle" href="nouvelarticle?nompage=${urlPage}">Ecrire un nouvel article</a>
