@@ -24,11 +24,15 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 		  <div id="blocPhoto">
-		  <img id="imageLogo" src="Images/ImageAccueil.jpg" border="1"/>
+		  <img id="imageEntete" src="${lienPhotoEntete.getLienPhoto()}" border="1"/>
 	
 		  </div>
 		  
 		  <div id="blocArticle">
+		  	<form method="POST">
+				Lien de l'image :<input type="text" name="newPhoto"/>
+				<input type="submit" value="Changez la photo"/>
+			</form>
 		  </div>
 		  
 		  

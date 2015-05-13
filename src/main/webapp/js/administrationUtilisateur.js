@@ -7,6 +7,10 @@ function ajouterUtilisateur(){
 	} else {
 		alert(textVerificationConditionAjout($("#newMail").val(),$("#newNom").val(),$("#newPrenom").val(),$("#newMdp").val(),$("#newConfMdp").val(),$("#newEcole").val()/*,$("#pageGere").val()*/));
 	}
+	var pageGerer="X";
+	if ($("#newRang").val()=="redacteur"){
+		pageGerer=$("#pageGere").val();
+	}
 	
 	if(confirmation){
 		$.ajax({
@@ -21,7 +25,7 @@ function ajouterUtilisateur(){
 				mdp:$("#newMdp").val(),
 				rang:$("#newRang").val(),
 				ecole:$("#newEcole").val(),
-				pageGere:$("#pageGere").val()
+				pageGere:pageGerer
 			}
 		})
 		//alert("L'utilisateur a bien été ajouté!");
@@ -124,10 +128,17 @@ function montrerFormulaireModifierUtilisateur(idUtilisateur){
 	var mail=$("#mail"+idUtilisateur).text();
 	var pagegerer=$("#pagegerer"+idUtilisateur).text();
 	var ecole=$("#ecole"+idUtilisateur).text();
+	var rang=$("#rang"+idUtilisateur).text();
 	
 	$("#modifierUtilisateur").show();
 	$("#ajoutUtilisateur").hide();
 	
+	if (rang=="redacteur"){
+		$("#modRedacteur").attr("selected","selected");
+	} else {
+		$("#modAdministrateur").attr("selected","selected");
+		$("#modpageGeretr").hide();
+	}
 	$("#modMail").text(mail);
 	$("#modPageGere").val(pagegerer);
 	$("#modEcole").val(ecole);
@@ -143,7 +154,7 @@ function cacherNewGerePage(){
 	}	
 }
 $( "#newRang" ).change(function() {
-	cacherGerePage();
+	cacherNewGerePage();
 });
 
 function cacherModifGerePage(){
@@ -158,6 +169,10 @@ $( "#modRang" ).change(function() {
 });
 function modifierUtilisateur(){
 	var confirmation= confirm("Etes vous sur de vouloir modifier cet utilisateur ?");
+	var pageGerer="X";
+	if ($("#modRang").val()=="redacteur"){
+		pageGerer=$("#modPageGere").val();
+	}
 	if(confirmation){
 		$.ajax({
 			url:"administrationUtilisateur",
@@ -168,7 +183,7 @@ function modifierUtilisateur(){
 				mail:$("#modMail").text(),
 				rang:$("#modRang").val(),
 				ecole:$("#modEcole").val(),
-				pageGere:$("#modPageGere").val()
+				pageGere:pageGerer
 			}
 		})
 		alert("L'utilisateur a bien \351t\351 modifi\351!");
