@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mr.dao.ArticleDao;
 import mr.dao.MenuDao;
+import mr.daoImp.ArticleDaoImp;
 import mr.daoImp.MenuDaoImpl;
+import mr.entities.Article;
 import mr.entities.Menu;
 
 @WebServlet("/administrationMenu")
@@ -19,6 +22,7 @@ public class ServletAdministrationMenu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	private MenuDao menuDao = new MenuDaoImpl();
+	private ArticleDao articleDao = new ArticleDaoImp();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equals(request.getSession().getAttribute("utilisateurConnecte"))){
@@ -81,20 +85,12 @@ if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equal
 			
 			String idModif=request.getParameter("idModif");
 			String nompageModif=request.getParameter("nompageModif");
-			String nompageprecedenteModif=request.getParameter("nompageprecedenteModif");
+			String idpageprecedenteModif=request.getParameter("nompageprecedenteModif");
 			int nbPageModif=0;
-			if(nompageprecedenteModif.equals("page_0")){
+			if(idpageprecedenteModif.equals("page_0")){
 				nbPageModif=1000;
 			}else{
-				/*String lenompageprecedente="";
-				if(nompageprecedenteModif.length()==23){
-					lenompageprecedente=""+nompageprecedenteModif.charAt(22);
-				}else if(nompageprecedenteModif.length()==24){
-					lenompageprecedente=""+nompageprecedenteModif.charAt(22)+nompageprecedenteModif.charAt(23);
-				}else if(nompageprecedenteModif.length()==25){
-					lenompageprecedente=""+nompageprecedenteModif.charAt(22)+nompageprecedenteModif.charAt(23)+nompageprecedenteModif.charAt(24);
-				}*/
-				nbPageModif=Integer.parseInt(nompageprecedenteModif);
+				nbPageModif=Integer.parseInt(idpageprecedenteModif);
 			}
 			String rang=request.getParameter("rangModif");	
 			int leRangModif=1;
@@ -104,10 +100,15 @@ if (request.getSession().getAttribute("utilisateurConnecte") == null || "".equal
 			String visibiliteModif=request.getParameter("visibiliteModif");
 			
 		
+			
+			
+		if(nompageModif.length()>0){
+			Menu monMenu = menuDao.rechercheMenu(Integer.parseInt(idModif));		
+			articleDao.modifierPageArticle(monMenu.getNompage(),nompageModif);
+			
 			Menu nouveauMenuModif= new Menu(Integer.parseInt(idModif), nompageModif, leRangModif, Boolean.parseBoolean(visibiliteModif));
 			menuDao.modifierMenu(nbPageModif, nouveauMenuModif);
-			
-			
+		}
 			
 		}else if(maFonction.equals("fonctionSuppression")){
 			//Suppression

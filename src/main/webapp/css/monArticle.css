@@ -14,13 +14,13 @@
 	margin:						auto;
 	width : 					98%;
 	border-radius:				10px;
-	margin-top:					10px;
-	/*border-width:				2px;
-	border-style:				solid;
-	border-color: 				red;*/
 	box-shadow: 8px 8px 12px #aaa;
-
+	border-width:				5px;
+	border-style:				solid;
+	border-color: 				#FFB100;
 }
+
+
 
 
 .titreArticle{
@@ -79,10 +79,9 @@ border-color:black;
 }
 
 .bouttonArticle{
-margin-left:10px;
+margin-left:3px;
 display:block;
-width:200px;
-line-height:50px;
+width:100px;
 text-align:center;
 vertical-align:middle;
 color:white;
@@ -90,11 +89,23 @@ text-decoration:none;
 background-color: #B9B085;/***********************************************************************************/
 border-radius: 10px;
 float: left;
+height:40px;
+}
+
+.cacherConnexion{
+	padding-top:2px;
+	padding-right:2px;
+float:right;
 }
 
 
+/*Gestion de couleur********************************************************************************************/
+.monArticleParticulier{
+	background-color: #F9F9F9;
+	border-color: 				#FFB100;
+}
 
-.monArticleParticulier, .bouttonArticle, .bouttonAjoutArticle{
+.bouttonArticle, .bouttonAjoutArticle{
 	background-color: #FFB735;/*#D0E09D*/
 	color: #042971;
 }

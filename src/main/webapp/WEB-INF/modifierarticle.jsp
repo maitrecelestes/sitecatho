@@ -38,7 +38,7 @@
 	            <input type="radio" name="visibiliteArticle" id="visiblitetrue" value="oui" checked/>OUI
 	            <input type="radio" name="visibiliteArticle" id="visiblitefalse" value="non"/>NON<br/>
 	            
-	            <input type="submit" id="envoyerArticle" value="Modifier l'article"/>
+	            <input type="submit" id="envoyerArticle" value="Enregistrer les modifications"/>
 	        </form>
 		</section>
 	</section>

@@ -27,7 +27,7 @@
 					<li id="administration" class='dir'>Administration<ul>
 						<a href="administrationContact"><li>Contact</li></a>
 						<a href="administrationMenu"><li>Menu</li></a>
-						<li><a href="administrationUtilisateur">Utilisateur</a></li>
+						<a href="administrationUtilisateur"><li>Utilisateur</li></a>
 					</ul></li>
 					<a href="connexion"><li id="bouttonConnexion">Connexion</li></a>
 					<a href="deconnexion"><li id="bouttonDeconnexion">Deconnexion</li></a>

@@ -6,6 +6,8 @@ import mr.entities.Menu;
 
 public interface MenuDao {
 	
+		public Menu rechercheMenu(int id);
+	
 	//Afficher le Menu
 		public List<Menu> listerMenu();
 		public List<Menu> listerMenuDeRang0();

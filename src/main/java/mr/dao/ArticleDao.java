@@ -18,6 +18,6 @@ public interface ArticleDao {
 	
 	public void modifierArticle(int numeroArticle,Article articlemodifier, String IP);
 
-
+	public void modifierPageArticle(String nompageprecedenteModif, String nompageModif);
 		
 }
