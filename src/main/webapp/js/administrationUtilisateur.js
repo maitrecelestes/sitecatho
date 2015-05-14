@@ -168,27 +168,38 @@ $( "#modRang" ).change(function() {
 	cacherModifGerePage();
 });
 function modifierUtilisateur(){
-	var confirmation= confirm("Etes vous sur de vouloir modifier cet utilisateur ?");
+	
 	var pageGerer="X";
 	if ($("#modRang").val()=="redacteur"){
 		pageGerer=$("#modPageGere").val();
 	}
-	if(confirmation){
-		$.ajax({
-			url:"administrationUtilisateur",
-			type:"POST",
-			dataType:"json",
-			data:{
-				requete:"modification",
-				mail:$("#modMail").text(),
-				rang:$("#modRang").val(),
-				ecole:$("#modEcole").val(),
-				pageGere:pageGerer
+	if($("#modRang").val()!="redacteur" || $("#modPageGere").val()!=null){
+		if($("#modEcole").val()!=""){
+			var confirmation= confirm("Etes vous sur de vouloir modifier cet utilisateur ?");
+			if(confirmation){
+				$.ajax({
+					url:"administrationUtilisateur",
+					type:"POST",
+					dataType:"json",
+					data:{
+						requete:"modification",
+						mail:$("#modMail").text(),
+						rang:$("#modRang").val(),
+						ecole:$("#modEcole").val(),
+						pageGere:pageGerer
+					}
+				})
+				alert("L'utilisateur a bien \351t\351 modifi\351 !");
+				window.location.replace("administrationUtilisateur");
 			}
-		})
-		alert("L'utilisateur a bien \351t\351 modifi\351!");
-		window.location.replace("administrationUtilisateur");
+		}else{
+			alert("L'\351cole n'est pas renseign\351e !");
+		}
+	}else{
+		alert("Vous n'avez pas choisi la page g\351r\351e.");
 	}
+	
+	
 }
 $("#casemodifierUtilisateur").click(function(){modifierUtilisateur();});
 
