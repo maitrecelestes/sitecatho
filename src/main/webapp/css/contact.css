@@ -30,8 +30,8 @@ form input {
 	width: 200px;
 }
 
-#facultatif {
-	font-size: 15px;
+.renseignement {
+	font-size: 14px;
 	font-style: italic;
 }
 

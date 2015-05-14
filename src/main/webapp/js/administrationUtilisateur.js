@@ -97,7 +97,7 @@ function verificationMailExistance(mail){
 
 function montrerFormulaireCreationUtilisateur(){
 	$("#ajoutUtilisateur").show();
-	$("#montrerFormCreationUtilisateur").hide();
+	//$("#montrerFormCreationUtilisateur").hide();
 	$("#modifierUtilisateur").hide();
 }
 $("#montrerFormCreationUtilisateur").click(function(){montrerFormulaireCreationUtilisateur();});

@@ -6,8 +6,6 @@ function montrerMessage(id){
 }
 
 function supprimerMessage(id){
-	
-	alert(id);
 	var confirmation= confirm("Etes vous sur de vouloir supprimer ce message?");
 	if(confirmation){
 		$.ajax({
@@ -18,7 +16,7 @@ function supprimerMessage(id){
 				idMessage:id
 			}
 		})
-		alert("Le message a bien été supprimé");
+		alert("Le message a bien \351t\351 supprim\351");
 		window.location.replace("administrationContact");
 	}
 }

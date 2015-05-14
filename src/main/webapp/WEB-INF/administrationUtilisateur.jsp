@@ -60,7 +60,12 @@
 								<tr><td><label for="newConfMdp"> Retapez le mot de passe :</label></td><td><input type="password" id="newConfMdp"/><br/></td></tr>
 								<tr><td><label for="newRang">Rang :</label></td><td><select id="newRang"><option id="administrateur">administrateur</option><option id="redacteur" selected>redacteur</option></select><br/></td></tr>
 								<tr><td><label for="newEcole">Ecole :</label></td><td><input type="text" id="newEcole"/><br/></td><td>(obligatoire)<br/></td></tr>
-								<tr id="pageGeretr"><td><label for="pageGere">Page gérée :</label></td><td><input type="text" id="pageGere"/><br/></td></tr>
+								<tr id="pageGeretr"><td><label for="pageGere">Page gérée :</label></td>
+								<td><select name="pageGere" id="pageGere">
+						       		<c:forEach var="pageGere" items="${listeMenu}">
+										<option id="pageGere${pageGere.idpage}">${pageGere.nompage}</option>
+									</c:forEach>  
+						       	</select></td></tr>
 								<tr><td colspan="2" id="caseajouterUtilisateur"><input type="button" class="bouttonAdm" value="Ajouter cet utilisateur"/></td></tr>
 							</table>
 						</div>	
@@ -69,7 +74,14 @@
 							<table>
 								<tr><td><label for="modMail">Mail :</label></td><td id="modMail"></td></tr>
 								<tr><td><label for="modRang">Rang :</label></td><td><select id="modRang"><option id="modAdministrateur">administrateur</option><option id="modRedacteur" selected>redacteur</option></select><br/></td></tr>
-								<tr id="modpageGeretr"><td><label for="modPageGere">Page gérée :</label></td><td><input type="text" id="modPageGere"/><br/></td></tr>
+								<tr id="modpageGeretr"><td><label for="modPageGere">Page gérée :</label></td>
+								<td><select name="modPageGere" id="modPageGere">
+						       		<c:forEach var="modPageGere" items="${listeMenu}">
+										<option id="modPageGere${modPageGere.idpage}">${modPageGere.nompage}</option>
+									</c:forEach>  
+						       	</select></td></tr>
+								
+								
 								<tr><td><label for="modEcole">Ecole :</label></td><td><input type="text" id="modEcole"/><br/></td></tr>
 								<tr><td colspan="2" id="casemodifierUtilisateur"><input type="button" class="bouttonAdm" value="Modifier cet utilisateur"/></td></tr>
 							</table>

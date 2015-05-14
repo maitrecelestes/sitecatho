@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mr.dao.MenuDao;
 import mr.dao.UtilisateurDao;
+import mr.daoImp.MenuDaoImpl;
 import mr.daoImp.UtilisateurDaoImp;
+import mr.entities.Menu;
 import mr.entities.Utilisateur;
 
 
@@ -21,6 +24,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	 
 	private UtilisateurDao utilisateurdao = new UtilisateurDaoImp();
+	private MenuDao menuDao = new MenuDaoImpl();
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,6 +39,9 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			if (request.getSession().getAttribute("rang").equals("administrateur")){
 				List<Utilisateur> listeMessageUtilisateur=utilisateurdao.afficherListeUtilisateurNonArchive();
 				request.setAttribute("listeMessageUtilisateur", listeMessageUtilisateur);
+				
+				List<Menu> maListeMenu = menuDao.listerMenuPageAvecArticle() ;
+				request.setAttribute("listeMenu", maListeMenu);
 				
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationUtilisateur.jsp");
 				view.forward(request, response);

@@ -12,6 +12,7 @@ public interface MenuDao {
 		public List<Menu> listerMenu();
 		public List<Menu> listerMenuDeRang0();
 		public List<Menu> listerMenuDeRang1Entre2Rang0(int premierRang0, int secondRang0);
+		public List<Menu> listerMenuPageAvecArticle();
 	
 	//Fonction generale
 		public void supprimerBaseDeDonneesMenu();

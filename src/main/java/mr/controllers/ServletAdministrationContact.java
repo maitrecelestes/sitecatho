@@ -45,7 +45,6 @@ public class ServletAdministrationContact extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idString=request.getParameter("idMessage");
-		System.out.println(idString);
 		int id=Integer.parseInt(idString);
 		contactDao.supprimerContact(id);
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/administrationContact.jsp");

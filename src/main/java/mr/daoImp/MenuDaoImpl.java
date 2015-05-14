@@ -83,6 +83,18 @@ public class MenuDaoImpl implements MenuDao {
 		return maListMenuRang1Entre2Rang0;
 	}
 	
+	@Override
+	public List<Menu> listerMenuPageAvecArticle() {
+		List<Menu> maListMenu = new ArrayList<Menu>();
+		List<Menu> maListMenuPageAvecArticle = new ArrayList<Menu>();
+		maListMenu = listerMenu();
+		for (int i = 0; i < maListMenu.size()-1; i++) {
+			if(maListMenu.get(i).getRang()!=0 || maListMenu.get(i+1).getRang()!=1)
+			maListMenuPageAvecArticle.add(maListMenu.get(i));
+		}
+		maListMenuPageAvecArticle.add(maListMenu.get(maListMenu.size()-1));
+		return maListMenuPageAvecArticle;
+	}
 	//Fonction generale
 	@Override
 	public void supprimerBaseDeDonneesMenu() {
@@ -231,5 +243,7 @@ public class MenuDaoImpl implements MenuDao {
 		}
 		return menu;
 	}
+
+	
 	
 }
