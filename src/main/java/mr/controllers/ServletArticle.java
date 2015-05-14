@@ -60,7 +60,8 @@ public class ServletArticle extends HttpServlet {
 		}else if(maFonction.equals("visibleArticle")){
 			articleDao.cacherArticle(Integer.parseInt(request.getParameter("idarticle")));
 		}
-		response.sendRedirect("maPageClassique?nompage="+page);
+		response.sendRedirect("accueil");
+		//response.sendRedirect("maPageClassique?nompage="+page);
 		//RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/maPageClassique.jsp");
 		//view.forward(request, response);
 	}

@@ -26,7 +26,7 @@
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
 		  <div id="blocArticle">
 				<h1>Connexion réussi !!!</h1>
-				<button class="bouttonAdm"><a href="accueil">Revenir à l'accueil</a></button>
+				<a href="accueil"><button class="bouttonAdm">Revenir à l'accueil</button></a>
 		  </div>
 	 </section>
 	</section>

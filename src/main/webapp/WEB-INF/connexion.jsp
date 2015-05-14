@@ -28,8 +28,8 @@
 		  <div id="blocArticle">
 		  <c:if test="${dejaConnecter =='vrai'}">
 		  		<p>Vous êtes déjà connecté</p>
-		  		<button class="bouttonAdm"><a href="accueil">Retourner à l'accueil</a></button><br/>
-		  		<button class="bouttonAdm"><a href="deconnexion">Se déconnecter</a></button>
+		  		<a href="accueil"><button class="bouttonAdm">Retourner à l'accueil</button></a><br/>
+		  		<a href="deconnexion"><button class="bouttonAdm">Se déconnecter</button></a>
 		  
 		  </c:if>
 		  <c:if test="${dejaConnecter =='faux'}">
