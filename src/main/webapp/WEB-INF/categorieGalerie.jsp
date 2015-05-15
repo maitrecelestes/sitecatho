@@ -24,19 +24,24 @@
 
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->		  
-		  <h1>${maCategorie.getNomCategorie()}</h1>
+		  <h1 id="entete">${maCategorie.getNomCategorie()}</h1>ss
 		  <div id="blocArticle">
+		  		<a href="galerie">Retourner à la galerie</a>
+		  		<c:if test="${rangUtilisateur =='administrateur'}">
+		  			<a href="ajouterimage?id=${maCategorie.getId()}">Ajouter des images</a><br/>
+		  		</c:if>
 		  		<%
 					int i = 0;
 					pageContext.setAttribute("i", new Integer(i));
 				%>
-				<table>
+				<table class="tableAffichageImage">
+				<!--  <tr><td class="tdImageGalerie"><img src="Images/dj_sona_1.png"></td><td class="tdImageGalerie"><img src="Images/poney.png"></td><td class="tdImageGalerie"><img src="Images/photo-serieuse.png"></td></tr>-->
 				<c:forEach var="listeImage" items="${listeImage}">
 					<c:if test="${i%3 == 0}"><tr></c:if>
 					<td class="tdImageGalerie">
 					${listeImage.getLienImage()}<br/>
 					<c:if test="${rangUtilisateur =='administrateur'}">
-						<input type="button" class="supprimerImage" id="id=${listeImage.getId()}" value="supprimer cette image"/>
+						<input type="button" class="supprimerImage" onclick="supprimerImage('id=${listeImage.getId()}','${maCategorie.getId()}')" value="supprimer cette image"/>
 					</c:if>	
 					</td>
 					<c:if test="${i%3 == 2}"></tr></c:if>
@@ -46,9 +51,7 @@
 				%>			
 				</c:forEach>
 				</table>
-				<c:if test="${rangUtilisateur =='administrateur'}">
-		  			<a href="ajouterimage?id=${maCategorie.getId()}">Ajouter des images</a><br/>
-		  		</c:if>
+				
 				
 				<a href="galerie">Retourner à la galerie</a>
 		  </div>

@@ -109,10 +109,12 @@ public class CategorieDaoImp implements CategorieDao{
 				PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `photo` WHERE IdCategoriePhoto=? ORDER BY `dateCreation` DESC LIMIT 1");
 				stmt.setInt(1,listeCategorie.get(i).getId());
 				ResultSet results = stmt.executeQuery();
+				Image image =null;
 				while (results.next()) {
-					Image image= new Image(results.getInt("id"),results.getString("lienPhoto"),results.getString("mailAuteur"),results.getInt("idCategoriePhoto"),results.getDate("dateCreation"));
-					listeImage.add(image);
-				}	
+					image= new Image(results.getInt("id"),results.getString("lienPhoto"),results.getString("mailAuteur"),results.getInt("idCategoriePhoto"),results.getDate("dateCreation"));
+					
+				}
+				listeImage.add(image);
 			}
 			connection.close();
 		} catch (SQLException e) {

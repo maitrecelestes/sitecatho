@@ -65,6 +65,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		request.setAttribute("listeCategorie", listeCategorie);
 		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
 		
+		List<Image> listePremiereImage=categorieDao.listePremiereImage();
+		request.setAttribute("listePremiereImage", listePremiereImage);
+		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/galerie.jsp");
 		view.forward(request, response);
 	}
