@@ -48,7 +48,7 @@
 								</c:if>
 							</div> -->
 							<c:if test="${rangUtilisateur =='administrateur'}">
-								 <a id="lienModifierArticleAccueil" class="bouttonAjoutArticle" href="modificationarticleunique?nompage=${urlPage}"><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueAccueil' type='button'>Ecrire un nouvel article</button></a>
+								 <a id="lienModifierArticleAccueil" class="bouttonAjoutArticle" href="modifierarticleunique?nompage=accueil"><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueAccueil' type='button'>Modifier l'article</button></a>
 							</c:if>
 							
 							<h3 class='titreArticle'>${listeArticleUnique.getTitre()}</h3>

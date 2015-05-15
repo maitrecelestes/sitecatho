@@ -1,40 +1,33 @@
 $(document).ready(function() {
 	var pageEnCours = window.location.href.split('/')[[window.location.href.split('/').length - 1]];
-	alert("page en cours : "+pageEnCours);
-	//alert(recuperationNomPage(pageEnCours));
-	//afficherElementModificationArticleUnique(recuperationNomPage(pageEnCours));
+	afficherElementModificationArticleUnique(recuperationNomPage(pageEnCours));
 });
 
 
 
-function recuperationpage(arguments){
+function recuperationNomPage(pageEnCours){
 	var page="";
-	var i=0;
-	while(i<arguments.length-1 && arguments.charAt(i)!='&'){
-		page=page+arguments.charAt(i);
-		i++;
+	for(var i=30;i<pageEnCours.length;i++){
+		page=page+pageEnCours.charAt(i);
 	}
 	return page;
 }
 
-
 //Recuperer les modification d'un article
 function afficherElementModificationArticleUnique(nomPage){
 	$.ajax({
-		url:"ServletArticle",
+		url:"ServletArticleUnique",
 		type:"GET",
 		dataType: "json",
 		data:{
-			maPage:nomPage,
-			maFonction:"unArticleUnique"
+			nompage:nomPage,
 		},
 		success:function(data, textStatus, xhr){
-			$("#modificationArticleUniqueTitre").val(data.titre);
-			$("#modificationArticleUniqueContenu").val(data.contenu);
+			$("#modifierArticleUniqueTitre").val(data.titre);
+			$("#modifierArticleUniqueContenu").val(data.contenu);
 		}
 	});
 }
-
 
 
 	

@@ -14,17 +14,17 @@ import mr.entities.ArticleUnique;
 public class ArticleUniqueDaoImp implements ArticleUniqueDao{
 
 	@Override
-	public void modifierArticle(String nomPage, Article articlemodifier,
+	public void modifierArticle(String nomPage, ArticleUnique articlemodifier,
 			String IP) {
 		Connection connection;
 		List<ArticleUnique> listeArticle= new ArrayList<ArticleUnique>();
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt= connection.prepareStatement("UPDATE `articleunique` SET `mailAuteur`=?,`dateCreation`=?,`contenu`=?,`ipPosteur`=?,`titre`=? WHERE `nomPage`=?");
+			PreparedStatement stmt= connection.prepareStatement("UPDATE `articleunique` SET `mailAuteur`=?,`dateCreation`=NOW(),`contenu`=?,`ipPosteur`=?,`titre`=? WHERE `nomPage`=?");
 			stmt.setString(1, articlemodifier.getMailAuteur());
-			stmt.setDate(2, articlemodifier.getDate()); 
-			stmt.setString(3, articlemodifier.getContenu()); 
-			stmt.setString(4, IP); 
+			stmt.setString(2, articlemodifier.getContenu()); 
+			stmt.setString(3, IP); 
+			stmt.setString(4, articlemodifier.getTitre()); 
 			stmt.setString(5, nomPage);
 			stmt.executeUpdate();
 			connection.close();

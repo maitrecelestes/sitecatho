@@ -2,6 +2,7 @@ package mr.controllers;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,10 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mr.dao.ArticleDao;
+import mr.dao.ArticleUniqueDao;
 import mr.daoImp.ArticleDaoImp;
+import mr.daoImp.ArticleUniqueDaoImp;
 import mr.entities.Article;
+import mr.entities.ArticleUnique;
 
-@WebServlet("/modificationarticleunique")
+@WebServlet("/modifierarticleunique")
 public class ServletModifierArticleUnique extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +32,7 @@ public class ServletModifierArticleUnique extends HttpServlet {
 			
 		} else {
 			
-			if (request.getSession().getAttribute("rang").equals("administrateur")||(request.getSession().getAttribute("rang").equals("redacteur")&&request.getSession().getAttribute("pageGere").equals(request.getParameter("nompage")))){
+			if (request.getSession().getAttribute("rang").equals("administrateur")){
 				
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/modifierarticleUnique.jsp");
 				view.forward(request, response);
@@ -42,15 +46,21 @@ public class ServletModifierArticleUnique extends HttpServlet {
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/////////////////////////////////////////////////////////////////////////////
-		String fonction=request.getParameter("maFonction");
-		if(fonction.equals("accueil")){
-			String page=request.getParameter("nompage");
-			response.sendRedirect("modifierarticleUnique?nompage="+page);
-			
-		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		
+		String contenu=request.getParameter("contenu");
+		String titre=request.getParameter("titre");
+		String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
+		String nompage=request.getParameter("nompage");
+
+		
+		ArticleUnique monNouvelArticleUnique=new ArticleUnique(nompage, mail, contenu, titre);
+		String ipAddress = InetAddress.getLocalHost().getHostAddress();
+		ArticleUniqueDao articleUniqueDao= new ArticleUniqueDaoImp();
+		articleUniqueDao.modifierArticle(nompage, monNouvelArticleUnique, ipAddress);
+		
+		response.sendRedirect("accueil");
+	
 		
 	}
 

@@ -29,7 +29,7 @@
 		 
 		  <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
 	         <form method="POST">
-	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="modificationArticleUniqueTitre" rows="1" cols="200">titre </textarea>
+	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="modificationArticleTitre" rows="1" cols="200">titre </textarea>
 	       		<textarea name="contenu" id="modificationArticleContenu" rows="10" cols="80">
 	                Contenu de l'article
 	            </textarea><br/>

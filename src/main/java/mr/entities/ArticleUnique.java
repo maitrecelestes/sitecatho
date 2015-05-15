@@ -18,13 +18,13 @@ public class ArticleUnique {
 		this.titre=titre;
 	}
 	
-	/*//Constructeur pour l'ajout d'un nouvelle article
-		public ArticleUnique ( String mailAuteur, Date dateCreation, String contenu, String titre){
-			this.mailAuteur=mailAuteur;
-			this.dateCreation=dateCreation;
-			this.contenu=contenu;
-			this.titre=titre;
-		}*/
+	//Constructeur pour l'ajout d'un nouvelle article
+	public ArticleUnique (String nomPage, String mailAuteur, String contenu, String titre){
+		this.nomPage=nomPage;
+		this.mailAuteur=mailAuteur;
+		this.contenu=contenu;
+		this.titre=titre;
+	}
 
 	public String getNomPage() {
 		return nomPage;
