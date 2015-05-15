@@ -33,18 +33,17 @@ public class ArticleUniqueDaoImp implements ArticleUniqueDao{
 		}
 	}
 	@Override
-	public List<ArticleUnique> listeArticleUnique(String nomPage) {
+	public ArticleUnique listeArticleUnique(String nomPage) {
 		Connection connection;
-		List<ArticleUnique> listeArticle= new ArrayList<ArticleUnique>();
+		ArticleUnique listeArticle= null;
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt= connection.prepareStatement("SELECT * FROM `articleunique` WHERE `nomPage`=? ORDER BY `dateCreation` DESC ");
 			stmt.setString(1, nomPage); 
 			ResultSet results = stmt.executeQuery();
-			while (results.next()) {
-			ArticleUnique articleUnique= new ArticleUnique(results.getString("nomPage"),results.getString("mailAuteur"), results.getDate("dateCreation"), results.getString("contenu"),results.getString("titre"));
-			listeArticle.add(articleUnique);
-			}
+			
+			listeArticle= new ArticleUnique(results.getString("nomPage"),results.getString("mailAuteur"), results.getDate("dateCreation"), results.getString("contenu"),results.getString("titre"));
+			
 			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

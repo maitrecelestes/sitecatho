@@ -36,7 +36,7 @@ public class ServletAccueil extends HttpServlet {
 		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
 		
 		
-		List<ArticleUnique> maListeArticleUnique = articleUniqueDao.listeArticleUnique("accueil") ;		
+		ArticleUnique maListeArticleUnique = articleUniqueDao.listeArticleUnique("accueil") ;
 	    request.setAttribute("listeArticleUnique",maListeArticleUnique);
 		
 		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accueil.jsp");

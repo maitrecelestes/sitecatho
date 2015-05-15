@@ -29,26 +29,15 @@ public class ServletArticleUnique extends HttpServlet {
 		
 		String nomDeLaPage= request.getParameter("nompage");
 		
-		List<ArticleUnique> maListeArticleUnique = articleDaoUniqueDao.listeArticleUnique(nomDeLaPage) ;
+		ArticleUnique maListeArticleUnique = articleDaoUniqueDao.listeArticleUnique(nomDeLaPage) ;
 		Gson gson = new Gson();
-		String json = gson.toJson(maListeArticleUnique.get(0));
+		String json = gson.toJson(maListeArticleUnique);
 		PrintWriter out = response.getWriter();
 		out.append(json);
 		
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String page=request.getParameter("nompage");
-		
-		System.out.println("Servelet Artcile Unique : nom page :     "+page);
-		/*if(maFonction.equals("archiveArticle")){
-			articleDao.archiverArticle(Integer.parseInt(request.getParameter("idarticle")));
-		}else if(maFonction.equals("visibleArticle")){
-			articleDao.cacherArticle(Integer.parseInt(request.getParameter("idarticle")));
-		}
-		response.sendRedirect("maPageClassique?nompage="+page);*/
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 	}
 	
 }
