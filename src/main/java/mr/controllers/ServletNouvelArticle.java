@@ -28,7 +28,7 @@ public class ServletNouvelArticle extends HttpServlet {
 			
 		} else {
 			
-			if (request.getSession().getAttribute("rang").equals("administrateur")||(request.getSession().getAttribute("rang").equals("redacteur")&&request.getSession().getAttribute("pageGere").equals(request.getParameter("nompage")))){
+			if (request.getSession().getAttribute("rang").equals("administrateur")){
 				
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp");
 				view.forward(request, response);

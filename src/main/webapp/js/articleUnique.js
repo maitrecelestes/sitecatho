@@ -1,5 +1,5 @@
 
-function affichageVisibiliteAuLancement(nomPageEnCours){
+/*function affichageVisibiliteAuLancement(nomPageEnCours){
 	$.ajax({
 		url:"ServletArticle",
 		type:"GET",
@@ -21,7 +21,7 @@ function affichageVisibiliteAuLancement(nomPageEnCours){
 			}
 		}
 	});
-}
+}*/
 
 function getParam(param_name, url) {
 	var param_value = decodeURI(
@@ -93,13 +93,26 @@ function visibleArticle(event){
 	})	
 }
 
+function recuperationNomPage(pageEnCours){
+	var page="";
+	for(var i=21;i<pageEnCours.length;i++){
+		page=page+pageEnCours.charAt(i);
+	}
+	return page;
+}
+
 
 //Aller sur la page modification d'un article
-function afficherPourModificationArticle(event){
-	var id=recuperationid(event.id);
-	$.ajax({
-		url:"modifierarticle",
+function bouttonOuvrirModificationArticleUnique(event){
+	
+	var nomPage=recuperationid(event.id);
+	/*$.ajax({
+		url:"modificationarticleunique",
 		type:"POST",
 		dataType: "json",
-	});
+		data:{
+			nomPage:nomPage,
+			maFonction:"articleAccueil"
+		}
+	});*/
 }

@@ -8,7 +8,7 @@
 	
 	<!-- Make sure the path to CKEditor is correct. -->
     <script src="ckeditor/ckeditor.js"></script>
-	<title>Modifier un article</title>	
+	<title>Modifier un article Unique</title>	
 </head>
 <body>
 	<header id="header">
@@ -29,14 +29,11 @@
 		 
 		  <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
 	         <form method="POST">
-	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="modificationArticleUniqueTitre" rows="1" cols="200">titre </textarea>
+	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="modificationArticleTitre" rows="1" cols="200">titre </textarea>
 	       		<textarea name="contenu" id="modificationArticleContenu" rows="10" cols="80">
 	                Contenu de l'article
 	            </textarea><br/>
 	            <script>CKEDITOR.replace( 'contenu' );</script>
-	            <label for="visibiliteArticle">Voulez vous que l'article soit visible pour tout le monde :</label>
-	            <input type="radio" name="visibiliteArticle" id="visiblitetrue" value="oui" checked/>OUI
-	            <input type="radio" name="visibiliteArticle" id="visiblitefalse" value="non"/>NON<br/>
 	            
 	            <input type="submit" id="envoyerArticle" value="Enregistrer les modifications"/>
 	        </form>
@@ -47,5 +44,5 @@
 		</c:import>
 		
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/modificationArticle.js"></script>
+	<script type="text/javascript" src="js/modificationArticleUnique.js"></script>
 </body>

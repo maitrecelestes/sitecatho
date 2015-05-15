@@ -34,6 +34,33 @@
 		  </div>
 		  
 		  <div id="blocArticle">
+		  	<div id="blocArticle">
+				<c:forEach var="listeArticleUnique" items="${listeArticleUnique}">
+					  
+					<div class='unArticleDeLaPage'>
+							
+						<article class='monArticleParticulier'>
+							<!--<div class='cacherConnexion'>
+								<c:if test="${rangUtilisateur =='administrateur'}">
+									  <a href='modifierarticle?nompage=${urlPage}&idArticle=${listeArticle.getIdArticle()}'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle${listeArticle.getIdArticle()}' type='button'>Modification</button></a>
+									<button class='bouttonArticle bouttonVisibiliteArticle' onclick='visibleArticle(this)' id='visibiliteArticle${listeArticle.getIdArticle()}' type='button'>Visible</button>
+									<button class='bouttonArticle bouttonSupprimerArticle' onclick='archiverArticle(this)' id='suppressionArticle${listeArticle.getIdArticle()}' type='button'>Suppression</button>
+								</c:if>
+							</div> -->
+							<c:if test="${rangUtilisateur =='administrateur'}">
+								 <a id="lienModifierArticleAccueil" class="bouttonAjoutArticle" href="modificationarticleunique?nompage=${urlPage}"><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueAccueil' type='button'>Ecrire un nouvel article</button></a>
+							</c:if>
+							
+							<h3 class='titreArticle'>${listeArticleUnique.getTitre()}</h3>
+							<h4 class='dateArticle'>${listeArticleUnique.getDateCreation()}</h4>
+							<p class='contenuArticle'>${listeArticleUnique.getContenu()}</p>
+							
+						</article>	
+					</div>
+					
+				</c:forEach>
+				
+		  </div>
 		  </div>
 		  
 		  
@@ -45,5 +72,6 @@
 		
 	<script type="text/javascript" src="js/administrationMenu.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/articleUnique.js"></script>
 	<script type="text/javascript" src="js/listeArticle.js"></script>
 </body>
