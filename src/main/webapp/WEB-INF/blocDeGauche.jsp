@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet" type="text/css" href="css/monArticle.css"/>
 
 	<link href="css/menuDropdown.vertical.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="css/menuDefault.css" media="screen" rel="stylesheet" type="text/css" />
@@ -54,13 +55,12 @@
 	<div id="blocInformation">
 		<div id="connexionNomPrenom"></div>
 		<div>
-			<article class='monArticleParticulier'>
+			<article class='monArticleParticulier monArticleParticulierBlocGauche'>
 				<c:if test="${rangUtilisateur =='administrateur'}">
-					<a id="lienModifierArticleInformationBlocGauche" class="bouttonAjoutArticle" href="modifierarticleunique?nompage=informationBlocGauche"><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueInformationBlocGauche' type='button'>Modifier l'article</button></a>
+					<a id="lienModifierArticleInformationBlocGauche"  href="modifierarticleunique?nompage=informationBlocGauche"><button class='bouttonArticle bouttonArticleBlocDeGauche bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueInformationBlocGauche' type='button'>Modifier l'article</button></a>
 				</c:if>
 				<h3 id="articleBlocDeGaucheTitre" class='titreArticle'></h3>
-				<h4 id="articleBlocDeGaucheDate" class='dateArticle'></h4>
-				<div id="articleBlocDeGaucheContenu" class='contenuArticle'></div>		
+				<p id="articleBlocDeGaucheContenu" class='contenuArticle'></p>		
 			</article>
 		</div>
 		<iframe id="carteMap" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1265.3311477444552!2d3.0470809999999995!3d50.633390000000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d57923e8039f%3A0x256ba6df9160eeff!2s2+Rue+Norbert+Segard%2C+Universit%C3%A9+Catholique+de+Lille%2C+59800+Lille!5e0!3m2!1sfr!2sfr!4v1427560757737"></iframe>

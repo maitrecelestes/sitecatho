@@ -101,7 +101,6 @@ var afficherArticleMenuDeGauche = function() {
 		dataType: "json",
 		success:function(data, textStatus, xhr){
 			$(articleBlocDeGaucheTitre).text(data.titre);
-			$(articleBlocDeGaucheDate).text(data.dateCreation);
 			$(articleBlocDeGaucheContenu).append(data.contenu);
 		}
 	})

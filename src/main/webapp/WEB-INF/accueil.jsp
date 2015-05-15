@@ -3,6 +3,7 @@
 	<meta charset="utf-8"/>
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
+	<link rel="stylesheet" type="text/css" href="css/monArticle.css"/>
 	<title>Accueil</title>
 </head>
 <body>
@@ -36,9 +37,11 @@
 		  <div id="blocArticle">
 				<div class='unArticleDeLaPage'>	
 					<article class='monArticleParticulier'>
-						<c:if test="${rangUtilisateur =='administrateur'}">
-							 <a id="lienModifierArticleAccueil" class="bouttonAjoutArticle" href="modifierarticleunique?nompage=accueil"><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueAccueil' type='button'>Modifier l'article</button></a>
-						</c:if>
+						<div class='cacherConnexion'>
+							<c:if test="${rangUtilisateur =='administrateur'}">
+								 <a id="lienModifierArticleAccueil"  href="modifierarticleunique?nompage=accueil"><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticleUnique(this)' id='modifierArticleUniqueAccueil' type='button'>Modifier l'article</button></a>
+							</c:if>
+						</div>
 						<h3 class='titreArticle'>${listeArticleUnique.getTitre()}</h3>
 						<h4 class='dateArticle'>${listeArticleUnique.getDateCreation()}</h4>
 						<p class='contenuArticle'>${listeArticleUnique.getContenu()}</p>		
