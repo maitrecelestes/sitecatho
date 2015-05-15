@@ -43,7 +43,6 @@
 							</c:if>
 						</div>
 						<h3 class='titreArticle'>${listeArticleUnique.getTitre()}</h3>
-						<h4 class='dateArticle'>${listeArticleUnique.getDateCreation()}</h4>
 						<p class='contenuArticle'>${listeArticleUnique.getContenu()}</p>		
 					</article>	
 				</div>		
