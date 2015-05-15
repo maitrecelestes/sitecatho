@@ -25,7 +25,7 @@ public class ServletBlocDeGauche extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		ArticleUnique articleUniqueBlocGauche = articleUniqueDao
 				.listeArticleUnique("informationBlocGauche");
 		Gson gson = new Gson();

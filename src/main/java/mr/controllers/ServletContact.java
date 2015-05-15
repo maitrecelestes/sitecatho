@@ -26,11 +26,14 @@ public class ServletContact extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher view = request
 				.getRequestDispatcher("/WEB-INF/contact.jsp");
+		request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String objet = request.getParameter("objet");
