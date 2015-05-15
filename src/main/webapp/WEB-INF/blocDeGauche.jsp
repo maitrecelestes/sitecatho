@@ -39,6 +39,7 @@
 	</div>
 	  
 	<div id="blocLienInternet">
+	<p>Suivez nous sur nos réseaux sociaux :</p>
 	 	<table id=tableauLienInternet> 
 			<tr> 
 				<td> <a href="https://www.facebook.com/AumonerieUniversiteCatholiqueDeLille?fref=ts"><img id="iconefacebook" src="Images/iconefacebook.png"/></a> </td> 

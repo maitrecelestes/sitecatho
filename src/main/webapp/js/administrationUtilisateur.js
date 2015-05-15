@@ -28,7 +28,7 @@ function ajouterUtilisateur(){
 				pageGere:pageGerer
 			}
 		})
-		//alert("L'utilisateur a bien été ajouté!");
+		alert("L'utilisateur a bien \351t\351 ajout\351");
 		window.location.replace("administrationUtilisateur");
 	}
 }

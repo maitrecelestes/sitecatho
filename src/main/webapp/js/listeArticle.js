@@ -43,7 +43,7 @@ function recuperationid(nomid){
 
 
 //Archiver un article
-function archiverArticle(event){
+function archiverArticle(event,urlPage){
 	var id=recuperationid(event.id);
 	var confirmation= confirm("Etes vous sur de vouloir supprimer cet article ?");
 	if(confirmation){
@@ -57,7 +57,8 @@ function archiverArticle(event){
 			}
 		})
 	}
-	location.reload();
+	alert("L'article a bien \351t\351 supprim\351");
+	window.location.replace("maPageClassique?nompage="+urlPage);
 }
 
 

@@ -51,7 +51,7 @@
 										<c:if test="${rangUtilisateur =='administrateur' || (rangUtilisateur == 'redacteur' && pageGere == urlPage)}"><!-- Ajouter la page géré par le rédacteur -->
 											 <a href='modifierarticle?nompage=${urlPage}&idArticle=${listeArticle.getIdArticle()}'><button class='bouttonArticle bouttonModifierArticle' onclick='bouttonOuvrirModificationArticle(this)' id='modifierArticle${listeArticle.getIdArticle()}' type='button'>Modification</button></a>
 											<button class='bouttonArticle bouttonVisibiliteArticle' onclick='visibleArticle(this)' id='visibiliteArticle${listeArticle.getIdArticle()}' type='button'>Visible</button>
-											<button class='bouttonArticle bouttonSupprimerArticle' onclick='archiverArticle(this)' id='suppressionArticle${listeArticle.getIdArticle()}' type='button'>Suppression</button>
+											<button class='bouttonArticle bouttonSupprimerArticle' onclick='archiverArticle(this,"${urlPage}")' id='suppressionArticle${listeArticle.getIdArticle()}' type='button'>Suppression</button>
 										</c:if>
 									</div>
 									<h3 class='titreArticle'>${listeArticle.getTitre()}</h3>
