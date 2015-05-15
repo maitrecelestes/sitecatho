@@ -42,7 +42,7 @@ public class ServletAdministrationContact extends HttpServlet {
 				List<Contact> listeMessageContact = contactDao
 						.listeMessageContact();
 				request.setAttribute("listeMessageContact", listeMessageContact);
-
+				request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 				RequestDispatcher view = request
 						.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
 				view.forward(request, response);
@@ -64,6 +64,7 @@ public class ServletAdministrationContact extends HttpServlet {
 		String idString = request.getParameter("idMessage"); //Recupere l'id du message contact
 		int id = Integer.parseInt(idString); 
 		contactDao.supprimerContact(id); //Supprime un message contact
+		request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		RequestDispatcher view = request
 				.getRequestDispatcher("/WEB-INF/administrationContact.jsp");
 		view.forward(request, response);

@@ -46,6 +46,8 @@ public class ServletGestionSession extends HttpServlet {
 
 			PrintWriter out = response.getWriter();
 			out.append(json);
+			
+			request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		}
 	}
 

@@ -47,7 +47,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 						.afficherListeUtilisateurNonArchive();
 				request.setAttribute("listeMessageUtilisateur",
 						listeMessageUtilisateur);
-
+				request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 				List<Menu> maListeMenu = menuDao.listerMenuPageAvecArticle();
 				request.setAttribute("listeMenu", maListeMenu);
 
@@ -67,7 +67,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		/*Methode POST gérer la page administration utilisateur*/
-		
+		request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		String requete = request.getParameter("requete");
 		if (requete.equals("inscription")) {
 			

@@ -44,7 +44,8 @@ public class ServletAdministrationMenu extends HttpServlet {
 					.equals("administrateur")) {/*Verifie les connexions*/
 				List<Menu> maListeMenu = menuDao.listerMenu();
 				request.setAttribute("listeMenu", maListeMenu);
-
+				request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
+				
 				RequestDispatcher view = request
 						.getRequestDispatcher("/WEB-INF/administrationMenu.jsp");
 				view.forward(request, response);
@@ -61,7 +62,7 @@ public class ServletAdministrationMenu extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		/*Methode POST appelé pour ajouter, modifier, supprimer un menu*/
-		
+		request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
 		String maFonction = request.getParameter("maFonction");
 		if (maFonction.equals("fonctionAjout")) {
 			// Ajout d'un menu
