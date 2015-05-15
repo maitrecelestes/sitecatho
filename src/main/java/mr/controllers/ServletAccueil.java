@@ -48,6 +48,9 @@ public class ServletAccueil extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		/*Permet de changer la photo de la page accueil*/
+		
+		request.setAttribute("rangUtilisateur", request.getSession()
+				.getAttribute("rang"));
 		String newLien = request.getParameter("newPhoto");
 		String mail = (String) request.getSession().getAttribute(
 				"utilisateurConnecte");
@@ -58,6 +61,11 @@ public class ServletAccueil extends HttpServlet {
 		PhotoEntete lienPhotoEntete = photoEnteteDao
 				.afficherPhotoEntete("accueil");
 		request.setAttribute("lienPhotoEntete", lienPhotoEntete);
+		
+		ArticleUnique maListeArticleUnique = articleUniqueDao
+				.listeArticleUnique("accueil");
+		request.setAttribute("listeArticleUnique", maListeArticleUnique);
+		
 		RequestDispatcher view = request
 				.getRequestDispatcher("/WEB-INF/accueil.jsp");
 		view.forward(request, response);
