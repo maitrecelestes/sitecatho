@@ -2,6 +2,7 @@ package mr.controllers;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,11 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mr.dao.ArticleDao;
+import mr.dao.ArticleUniqueDao;
 import mr.daoImp.ArticleDaoImp;
+import mr.daoImp.ArticleUniqueDaoImp;
 import mr.entities.Article;
+import mr.entities.ArticleUnique;
 
-@WebServlet("/nouvelarticle")
-public class ServletNouvelArticle extends HttpServlet {
+@WebServlet("/modifierarticleunique")
+public class ServletModifierArticleUnique extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
@@ -30,7 +34,7 @@ public class ServletNouvelArticle extends HttpServlet {
 			
 			if (request.getSession().getAttribute("rang").equals("administrateur")){
 				
-				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp");
+				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/modifierarticleUnique.jsp");
 				view.forward(request, response);
 			} else {
 				RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
@@ -42,33 +46,22 @@ public class ServletNouvelArticle extends HttpServlet {
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*StringBuffer requestURL = request.getRequestURL();
-		if (request.getQueryString() != null) {
-		    requestURL.append("?").append(request.getQueryString());
-		}
-		String completeURL = requestURL.toString();*/
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		
 		String contenu=request.getParameter("contenu");
 		String titre=request.getParameter("titre");
 		String mail=(String) request.getSession().getAttribute("utilisateurConnecte");
-		String page=request.getParameter("nompage");
+		String nompage=request.getParameter("nompage");
+
 		
-		String visibilitePageString=request.getParameter("visibiliteArticle");
-		Boolean visiblePage=false;
-		if(visibilitePageString.equals("oui")){
-			visiblePage=true;
-		}
-		Boolean articleDescription=false;
-		Article monArticle=new Article(contenu,titre,mail,page,visiblePage,articleDescription);
+		ArticleUnique monNouvelArticleUnique=new ArticleUnique(nompage, mail, contenu, titre);
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
-		ArticleDao articleDao= new ArticleDaoImp();
-		articleDao.ajouterArticle(monArticle,ipAddress);
+		ArticleUniqueDao articleUniqueDao= new ArticleUniqueDaoImp();
+		articleUniqueDao.modifierArticle(nompage, monNouvelArticleUnique, ipAddress);
 		
-		response.sendRedirect("maPageClassique?nompage="+page);
-		//RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/pageIntermediaire.jsp");
-		//view.forward(request, response);
+		response.sendRedirect("accueil");
+	
+		
 	}
 
 }

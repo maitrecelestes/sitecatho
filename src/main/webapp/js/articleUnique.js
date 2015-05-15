@@ -1,5 +1,5 @@
 
-function affichageVisibiliteAuLancement(nomPageEnCours){
+/*function affichageVisibiliteAuLancement(nomPageEnCours){
 	$.ajax({
 		url:"ServletArticle",
 		type:"GET",
@@ -21,8 +21,8 @@ function affichageVisibiliteAuLancement(nomPageEnCours){
 			}
 		}
 	});
-}
-
+}*/
+/*
 function getParam(param_name, url) {
 	var param_value = decodeURI(
 	(RegExp(param_name + "=" + "(.+?)(&|$)").exec(url)||[,null])[1]
@@ -59,47 +59,28 @@ function archiverArticle(event){
 	}
 	location.reload();
 }
+*/
 
-
-//Visibilite d'un article
-function visibleArticle(event){
-	var id=recuperationid(event.id);
-	$.ajax({
-		url:"ServletArticle",
-		type:"GET",
-		dataType: "json",
-		data:{
-			monid:id,
-			maFonction:"unArticle"
-		},
-		success:function(data, textStatus, xhr){
-			if (data.visiblePage) {
-				$("#visibiliteArticle"+data.idArticle).css({ opacity: 0.5 });
-				$("#visibiliteArticle"+data.idArticle).text("Invisible");
-			}else{
-				$("#visibiliteArticle"+data.idArticle).css({ opacity: 1 });
-				$("#visibiliteArticle"+data.idArticle).text("Visible");
-			}		
-		}
-	});
-	$.ajax({
-		url:"ServletArticle",
-		type:"POST",
-		dataType:"json",
-		data:{
-			idarticle:id,
-			maFonction:"visibleArticle"
-		}
-	})	
+function recuperationNomPage(pageEnCours){
+	var page="";
+	for(var i=21;i<pageEnCours.length;i++){
+		page=page+pageEnCours.charAt(i);
+	}
+	return page;
 }
 
 
 //Aller sur la page modification d'un article
-function afficherPourModificationArticle(event){
-	var id=recuperationid(event.id);
+function bouttonOuvrirModificationArticleUnique(event){ //////////????????????????????????????
+	
+	var nomPage=recuperationNomPage(event.id);
 	$.ajax({
-		url:"modifierarticle",
+		url:"modifierarticleUnique",
 		type:"POST",
 		dataType: "json",
+		data:{
+			nomPage:nomPage,
+			maFonction:"articleAccueil"
+		}
 	});
 }
