@@ -4,6 +4,7 @@
 	<script type="text/javascript" src="js/jquery.js"  charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="css/pageClassique.css"/>
 	<link rel="stylesheet" type="text/css" href="css/ecrirearticle.css"/>
+	<link rel="stylesheet" type="text/css" href="css/monArticle.css"/>
 	
 	
 	<!-- Make sure the path to CKEditor is correct. -->
@@ -29,16 +30,12 @@
 		 
 		  <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->  
 	         <form method="POST">
-	        	<label for="titre">Titre de l'article :</label><textarea name="titre" id="modificationArticleTitre" rows="1" cols="200">titre </textarea>
+	        	<label for="titre" class="textCouleurBlanche">Titre de l'article :</label><textarea name="titre" id="modificationArticleTitre" rows="1" cols="200">titre </textarea>
 	       		<textarea name="contenu" id="modificationArticleContenu" rows="10" cols="80">
 	                Contenu de l'article
 	            </textarea><br/>
 	            <script>CKEDITOR.replace( 'contenu' );</script>
-	            <label for="visibiliteArticle">Voulez vous que l'article soit visible pour tout le monde :</label>
-	            <input type="radio" name="visibiliteArticle" id="visiblitetrue" value="oui" checked/>OUI
-	            <input type="radio" name="visibiliteArticle" id="visiblitefalse" value="non"/>NON<br/>
-	            
-	            <input type="submit" id="envoyerArticle" value="Enregistrer les modifications"/>
+	            <input class="bouttonAjoutModificationArticle" type="submit" id="envoyerArticle" value="Enregistrer les modifications"/>
 	        </form>
 		</section>
 	</section>

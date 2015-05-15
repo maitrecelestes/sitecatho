@@ -17,60 +17,62 @@ import mr.daoImp.ImageDaoImp;
 import mr.entities.Categorie;
 import mr.entities.Image;
 
-
 @WebServlet("/galerie")
 public class ServletGalerie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CategorieDao categorieDao= new CategorieDaoImp();
-	private ImageDao imageDao=new ImageDaoImp();
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<Categorie> listeCategorie=categorieDao.listeCategorie();
+	private CategorieDao categorieDao = new CategorieDaoImp();
+	private ImageDao imageDao = new ImageDaoImp();
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		List<Categorie> listeCategorie = categorieDao.listeCategorie();
 		request.setAttribute("listeCategorie", listeCategorie);
-		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
-		
-		List<Image> listePremiereImage=categorieDao.listePremiereImage();
+		request.setAttribute("rangUtilisateur", request.getSession()
+				.getAttribute("rang"));
+
+		List<Image> listePremiereImage = categorieDao.listePremiereImage();
 		request.setAttribute("listePremiereImage", listePremiereImage);
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/galerie.jsp");
+
+		RequestDispatcher view = request
+				.getRequestDispatcher("/WEB-INF/galerie.jsp");
 		view.forward(request, response);
 	}
 
-
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String requete=request.getParameter("action");
-		if(requete==null){
-			requete="null";
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String requete = request.getParameter("action");
+		if (requete == null) {
+			requete = "null";
 		}
-		if(requete.equals("suppressionCategorie")){
-			String idCategorieString=request.getParameter("idCategorieSupprimer");
-			String id="";
-			for (int i=2;i<idCategorieString.length();i++){
-				id=id+idCategorieString.charAt(i);
+		if (requete.equals("suppressionCategorie")) {
+			String idCategorieString = request
+					.getParameter("idCategorieSupprimer");
+			String id = "";
+			for (int i = 2; i < idCategorieString.length(); i++) {
+				id = id + idCategorieString.charAt(i);
 			}
-			int idCategorie=Integer.parseInt(id);
+			int idCategorie = Integer.parseInt(id);
 			imageDao.supprimerTouteImageCategorie(idCategorie);
 			categorieDao.supprimerCategorie(idCategorie);
-			
+
 		} else {
-			String nomCategorie=request.getParameter("nomNouvelleCategorie");
-			Categorie maNouvelleCategorie=new Categorie(nomCategorie);
+			String nomCategorie = request.getParameter("nomNouvelleCategorie");
+			Categorie maNouvelleCategorie = new Categorie(nomCategorie);
 			categorieDao.ajoutCategorie(maNouvelleCategorie);
 		}
-	
-		
-		
-		List<Categorie> listeCategorie=categorieDao.listeCategorie();
+
+		List<Categorie> listeCategorie = categorieDao.listeCategorie();
 		request.setAttribute("listeCategorie", listeCategorie);
-		request.setAttribute("rangUtilisateur",request.getSession().getAttribute("rang"));
-		
-		List<Image> listePremiereImage=categorieDao.listePremiereImage();
+		request.setAttribute("rangUtilisateur", request.getSession()
+				.getAttribute("rang"));
+
+		List<Image> listePremiereImage = categorieDao.listePremiereImage();
 		request.setAttribute("listePremiereImage", listePremiereImage);
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/galerie.jsp");
+
+		RequestDispatcher view = request
+				.getRequestDispatcher("/WEB-INF/galerie.jsp");
 		view.forward(request, response);
 	}
-
 
 }

@@ -13,7 +13,6 @@ import mr.dao.ArticleUniqueDao;
 import mr.dao.MenuDao;
 import mr.daoImp.ArticleUniqueDaoImp;
 import mr.daoImp.MenuDaoImpl;
-import mr.entities.ArticleUnique;
 import mr.entities.Menu;
 
 import com.google.gson.Gson;
@@ -22,18 +21,18 @@ public class ServletMenu extends HttpServlet {
 
 	private static final long serialVersionUID = -7041794190655964426L;
 	MenuDao menuDao = new MenuDaoImpl();
-	ArticleUniqueDao articleUniqueDao= new ArticleUniqueDaoImp();
-	
+	ArticleUniqueDao articleUniqueDao = new ArticleUniqueDaoImp();
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		
-		List<Menu> maListeMenu = menuDao.listerMenu() ;
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		List<Menu> maListeMenu = menuDao.listerMenu();
 		Gson gson = new Gson();
-	    String json = gson.toJson(maListeMenu);
-		
-		
+		String json = gson.toJson(maListeMenu);
+
 		PrintWriter out = response.getWriter();
 		out.append(json);
-		
+
 	}
 }

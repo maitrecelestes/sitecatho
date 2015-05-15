@@ -9,8 +9,6 @@
 	padding-bottom: 10px;
 }
 
-
-
 .monArticleParticulier {
 	margin: auto;
 	width: 95%;
@@ -40,7 +38,6 @@
 	text-align: center;
 	margin-top: 10px;
 }
-
 
 .bouttonAjoutArticle:hover {
 	border-radius: 10px;
@@ -84,7 +81,7 @@
 	height: 40px;
 }
 
-.bouttonArticleBlocDeGauche{
+.bouttonArticleBlocDeGauche {
 	float: none;
 }
 
@@ -94,23 +91,50 @@
 	float: right;
 }
 
+.monArticleParticulierBlocGauche {
+	border: none;
+}
+
+.bouttonAjoutModificationArticle:hover {
+	border-radius: 10px;
+	border-width: 2px;
+	/*border-style:dotted;*/
+	border-color: black;
+}
+
+.bouttonAjoutModificationArticle {
+	margin-left: 3px;
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	text-decoration: none;
+	border-radius: 10px;
+	float: left;
+	height: 40px;
+}
+
 /*Gestion de couleur********************************************************************************************/
 .monArticleParticulier {
 	background-color: #F9F9F9;
 	border-color: #FFB100;
 }
 
-.bouttonArticle, .bouttonAjoutArticle {
+.bouttonArticle, .bouttonAjoutArticle, .bouttonAjoutModificationArticle {
 	background-color: #FFB735; /*#D0E09D*/
 	color: #042971;
 }
 
-.bouttonAjoutArticle:hover, .bouttonArticle:hover {
+.bouttonAjoutArticle:hover, .bouttonArticle:hover, .bouttonAjoutModificationArticle:hover {
 	background-color: #FFC748;
 	border-color: #FFB100;
 	color: #042971;
 }
 
-.monArticleParticulierBlocGauche{
+.monArticleParticulierBlocGauche {
 	border: none;
+}
+
+.textCouleurBlanche{
+	color:white;
 }

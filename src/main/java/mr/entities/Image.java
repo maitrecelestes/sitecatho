@@ -16,8 +16,8 @@ public class Image {
 		this.idCategorieImage=idCategorieImage;
 	}
 	
-	//Constructeur quand on affiche les images
-	public Image(int id,String lienImage,String mailPosteur,int idCategorieImage, Date date){
+	// Constructeur quand on affiche les images
+	public Image(int id, String lienImage, String mailPosteur,int idCategorieImage, Date date){
 		this.id=id;
 		this.lienImage=lienImage;
 		this.mailPosteur=mailPosteur;

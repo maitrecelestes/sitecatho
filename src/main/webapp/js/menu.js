@@ -19,8 +19,9 @@ var afficherLeVraiMenu = function() {
 					montext=montext+"<a href='"+choixPage(data[i].nompage)+"?nompage="+choixPagenom(data[i].nompage)+"'><li>"+data[i].nompage+"</li></a>";
 					nb=nb+1;
 				//Si Titre principal et des sous liens
-				}else if(i<data.length-1 && data[i].rang==0 && data[i+1].rang==1 && data[i].visibilite){
-					montext=montext+"<li class='dir'>"+data[i].nompage;
+				} else if (i < data.length - 1 && data[i].rang == 0
+						&& data[i + 1].rang == 1 && data[i].visibilite) {
+					montext =montext+"<li class='dir'>"+data[i].nompage;
 					montext=montext+"<ul>";
 					var nbAjout=1;
 					while (i+nbAjout<=data.length-1 && data[i+nbAjout].rang==1) {

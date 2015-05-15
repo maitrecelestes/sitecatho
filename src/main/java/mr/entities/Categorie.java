@@ -6,15 +6,17 @@ public class Categorie {
 	private int id;
 	private String nomCategorie;
 	private Date dateCreation;
-	
-	public Categorie(String nomCategorie){ // Constructeur creation categorie
-		this.nomCategorie=nomCategorie;
+
+	public Categorie(String nomCategorie) { // Constructeur creation categorie
+		this.nomCategorie = nomCategorie;
 	}
-	
-	public Categorie(int id, String nomCategorie,Date dateCreation){ //Constructeur pour l'affichage
-		this.id=id;
-		this.nomCategorie=nomCategorie;
-		this.dateCreation=dateCreation;
+
+	public Categorie(int id, String nomCategorie, Date dateCreation) { // Constructeur
+																		// pour
+																		// l'affichage
+		this.id = id;
+		this.nomCategorie = nomCategorie;
+		this.dateCreation = dateCreation;
 	}
 
 	public int getId() {

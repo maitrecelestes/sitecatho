@@ -13,20 +13,14 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/deconnexion")
 public class ServletDeconnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
-    public ServletDeconnexion() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		session.invalidate();
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/deconnexion.jsp");
+		RequestDispatcher view = request
+				.getRequestDispatcher("/WEB-INF/deconnexion.jsp");
 		view.forward(request, response);
 	}
-
 
 }

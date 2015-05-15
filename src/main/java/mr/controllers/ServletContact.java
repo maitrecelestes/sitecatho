@@ -17,31 +17,35 @@ import mr.entities.Contact;
 @WebServlet("/contact")
 public class ServletContact extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-    public ServletContact() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/contact.jsp");
+	public ServletContact() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher view = request
+				.getRequestDispatcher("/WEB-INF/contact.jsp");
 		view.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nom=request.getParameter("nom");
-		String prenom=request.getParameter("prenom");
-		String objet=request.getParameter("objet");
-		String contenu=request.getParameter("contenu");
-		String mail=request.getParameter("mail");
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String objet = request.getParameter("objet");
+		String contenu = request.getParameter("contenu");
+		String mail = request.getParameter("mail");
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
-		Contact newContact=new Contact(nom, prenom,mail,objet,contenu,ipAddress);
-		ContactDao contactDao= new ContactDaoImp();
+		Contact newContact = new Contact(nom, prenom, mail, objet, contenu,
+				ipAddress);
+		ContactDao contactDao = new ContactDaoImp();
 		contactDao.ajouterContact(newContact);
-		
-		
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/contact.jsp");
+
+		RequestDispatcher view = request
+				.getRequestDispatcher("/WEB-INF/contact.jsp");
 		view.forward(request, response);
-	
+
 	}
 
 }

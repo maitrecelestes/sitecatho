@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/tutorialajoutimage")
 public class ServletTutorialAjoutImage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view =request.getRequestDispatcher("/WEB-INF/tutorialajoutimage.jsp");
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher view = request
+				.getRequestDispatcher("/WEB-INF/tutorialajoutimage.jsp");
 		view.forward(request, response);
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }
