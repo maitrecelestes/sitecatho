@@ -1,7 +1,7 @@
 function ajouterinput(){
 	var numerobase=$("#nombrelien").val();
 	var numero=parseInt(numerobase)+1;
-	var label = $("<label>").text("Lien pour l'image "+numero);
+	var label = $("<label>").text("Lien pour l'image "+numero+" :");
 	var input = $('<input type="text">').attr({id: 'lien'+numero, name: 'lien'+numero});
 	var br=$('<br/>');
 	input.appendTo(label);
@@ -11,13 +11,12 @@ function ajouterinput(){
 }
 $("#ajouterinput").click(function(){ajouterinput();});
 
-function afficherAjoutCategorie(event){
+function afficherAjoutCategorie(){
 	$("#ajoutCategorie").show();
 }
-$("#boutonAjoutCategorie").click(function(){afficherAjoutCategorie(event);});
 
-function supprimerCategorie(event){
-	var id=event.currentTarget.id;
+
+function supprimerCategorie(idCategorie){
 	var confirmation= confirm("\312tes vous s\373r de vouloir supprimer cette cat\351gorie?");
 	if(confirmation){
 		$.ajax({
@@ -26,18 +25,18 @@ function supprimerCategorie(event){
 			dataType:"json",
 			data:{
 				action:"suppressionCategorie",
-				idCategorieSupprimer:id
+				idCategorieSupprimer:idCategorie
 			}
 		})
 		alert("La cat\351gorie a bien \351t\351 supprim\351e");
 		window.location.replace("galerie");
 	}
 }
-$(".supprimerCategorie").click(function(){supprimerCategorie(event);});
 
-function supprimerImage(event){
-	var id=event.currentTarget.id;
-	alert(id);
+
+function supprimerImage(idImage,idCategorie){
+	
+	
 	var confirmation= confirm("\312tes vous s\373r de vouloir supprimer cette image?");
 	if(confirmation){
 		$.ajax({
@@ -46,11 +45,10 @@ function supprimerImage(event){
 			dataType:"json",
 			data:{
 				action:"suppressionImage",
-				idImageSupprimer:id
+				idImageSupprimer:idImage
 			}
 		})
 		alert("L'image a bien \351t\351 supprim\351e");
-		window.location.replace("categorieGalerie?"+id);
+		window.location.replace("categorieGalerie?idpage="+idCategorie);
 	}
 }
-$(".supprimerImage").click(function(){supprimerImage(event);});

@@ -26,10 +26,10 @@
 	 
 	 <section id="blocDroitPrincipalPage"> <!--Partie droite de la page : articles-->
 	
-		<h1>Galerie</h1>
+		<h1 id="entete">Galerie</h1>
 		<section id="listeCategorie">
 			<c:if test="${rangUtilisateur =='administrateur'}">
-			  	<input type="button" id="boutonAjoutCategorie" value="Ajouter une catégorie"/><br/>
+			  	<input type="button" id="boutonAjoutCategorie" onclick="afficherAjoutCategorie()" value="Ajouter une catégorie"/><br/>
 				<div id="ajoutCategorie">
 					<form method="POST">
 						<input type="text" name="nomNouvelleCategorie"/>
@@ -41,18 +41,23 @@
 				int i = 0;
 				pageContext.setAttribute("i", new Integer(i));
 			%>
-			
-			<c:forEach var="listeCategorie" items="${listeCategorie}">
-				${listePremiereImage}.get(${i}).getLienImage()
+			<table class="tableAffichageImage">
+			<c:forEach var="listeCategorie" items="${listeCategorie}" varStatus="status">
+			<c:if test="${i%3 == 0}"><tr></c:if>
+				<td>${listePremiereImage[status.index].getLienImage()}<br/>
+			<c:if test="${listePremiereImage[status.index].getLienImage()==null}">CATEGORIE VIDE<br/></c:if>
 				<a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br/>
 				<c:if test="${rangUtilisateur =='administrateur'}">
-					<input type="button" class="supprimerCategorie" id="id${listeCategorie.getId()}" value="supprimer cette categorie"/>
+					<input type="button" class="supprimerCategorie" onclick="supprimerCategorie('id${listeCategorie.getId()}')" value="Supprimer cette categorie"/>
 				</c:if>	
+			</td>
+					<c:if test="${i%3 == 2}"></tr></c:if>
 				<% 
 					i++; 
 					pageContext.setAttribute("i", new Integer(i));
-				%>
+				%>			
 			</c:forEach>
+			</table>
 		</section>
 	 </section>
 	</section>			
