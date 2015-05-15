@@ -114,6 +114,11 @@
 	height: 40px;
 }
 
+.lienInternetcentre{
+	column-width: 30%;
+}
+
+
 /*Gestion de couleur********************************************************************************************/
 .monArticleParticulier {
 	background-color: #F9F9F9;

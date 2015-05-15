@@ -48,7 +48,7 @@
 
 	<div id="blocLienInternet">
 		<p>Suivez nous sur nos réseaux sociaux :</p>
-		<table id=tableauLienInternet>
+		<table id=tableauLienInternet class="lienInternetcentre">
 			<tr>
 				<td><a
 					href="https://www.facebook.com/AumonerieUniversiteCatholiqueDeLille?fref=ts"><img
