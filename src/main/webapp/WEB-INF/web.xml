@@ -6,6 +6,14 @@
     <servlet-class>mr.controllers.ServletMenu</servlet-class>
   </servlet>
   <servlet-mapping>
+    <servlet-name>ServletBlocDeGauche</servlet-name>
+    <url-pattern>/ServletBlocDeGauche</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ServletBlocDeGauche</servlet-name>
+    <servlet-class>mr.controllers.ServletBlocDeGauche</servlet-class>
+  </servlet>
+  <servlet-mapping>
     <servlet-name>ServletMenu</servlet-name>
     <url-pattern>/ServletMenu</url-pattern>
   </servlet-mapping>

@@ -18,7 +18,6 @@ function bouttonOuvrirModificationArticleUnique(event){
 		dataType: "json",
 		data:{
 			nomPage:nomPage,
-			maFonction:"articleAccueil"
 		}
 	});
 }

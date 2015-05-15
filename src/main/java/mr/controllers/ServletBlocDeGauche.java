@@ -18,7 +18,7 @@ import mr.entities.Menu;
 
 import com.google.gson.Gson;
 
-public class ServletMenu extends HttpServlet {
+public class ServletBlocDeGauche extends HttpServlet {
 
 	private static final long serialVersionUID = -7041794190655964426L;
 	MenuDao menuDao = new MenuDaoImpl();
@@ -27,13 +27,14 @@ public class ServletMenu extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		
-		List<Menu> maListeMenu = menuDao.listerMenu() ;
+		ArticleUnique articleUniqueBlocGauche = articleUniqueDao.listeArticleUnique("informationBlocGauche");
 		Gson gson = new Gson();
-	    String json = gson.toJson(maListeMenu);
+	    String json = gson.toJson(articleUniqueBlocGauche);
 		
 		
 		PrintWriter out = response.getWriter();
 		out.append(json);
+		
 		
 	}
 }

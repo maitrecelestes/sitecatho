@@ -44,6 +44,7 @@ var afficherLeVraiMenu = function() {
 }
 $(document).ready(function() {
 	afficherLeVraiMenu();
+	afficherArticleMenuDeGauche();
 });
 
 
@@ -89,3 +90,19 @@ var cacherPage = function() {
 } 
 
 $(document).ready(function() { cacherPage(); });
+
+
+
+var afficherArticleMenuDeGauche = function() {
+	// Ecrire requête Ajax
+	$.ajax({
+		url:"ServletBlocDeGauche",
+		type:"GET",
+		dataType: "json",
+		success:function(data, textStatus, xhr){
+			$(articleBlocDeGaucheTitre).text(data.titre);
+			$(articleBlocDeGaucheDate).text(data.dateCreation);
+			$(articleBlocDeGaucheContenu).append(data.contenu);
+		}
+	})
+}
