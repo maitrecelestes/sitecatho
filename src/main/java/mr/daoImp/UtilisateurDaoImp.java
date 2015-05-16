@@ -159,16 +159,29 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 	}
 
 	public void modifierUtilisateur(String mail, String rang, String ecole,
-			String gerePage) {
+			String gerePage, String mdp) throws Exception {
 		Connection connection;
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt = connection
-					.prepareStatement("UPDATE `utilisateur` SET rang=?, ecole=?, pageGere=? WHERE email=?");
-			stmt.setString(1, rang);
-			stmt.setString(2, ecole);
-			stmt.setString(3, gerePage);
-			stmt.setString(4, mail);
+			PreparedStatement stmt;
+			if (mdp == null){
+				stmt = connection
+						.prepareStatement("UPDATE `utilisateur` SET rang=?, ecole=?, pageGere=? WHERE email=?");
+				stmt.setString(1, rang);
+				stmt.setString(2, ecole);
+				stmt.setString(3, gerePage);
+				stmt.setString(4, mail);
+			} else {
+				stmt = connection
+						.prepareStatement("UPDATE `utilisateur` SET rang=?, ecole=?, pageGere=?, motDePasse=? WHERE email=?");
+				stmt.setString(1, rang);
+				stmt.setString(2, ecole);
+				stmt.setString(3, gerePage);
+				stmt.setString(4, HashMyPassword(mdp));
+				stmt.setString(5, mail);
+			}
+			
+			
 			stmt.executeUpdate();
 			connection.close();
 		} catch (SQLException e) {

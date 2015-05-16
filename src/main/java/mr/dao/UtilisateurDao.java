@@ -17,7 +17,7 @@ public interface UtilisateurDao {
 	public void supprimerUtilisateur(String mail);
 
 	public void modifierUtilisateur(String mail, String rang, String ecole,
-			String PageGere);
+			String PageGere, String mdp) throws Exception;
 
 	public void remplacementUtilisateur(Utilisateur newUtilisateur);
 

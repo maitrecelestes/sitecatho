@@ -45,12 +45,23 @@
 							<td id="rang${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getRang()}</td>
 							<td id="pagegerer${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getPageGere()}</td>
 							<td id="ecole${listeUtilisateur.getIdUtilisateur()}">${listeUtilisateur.getEcole()}</td>
-							<td class="caseModifierUtilisateur"><button
-									class="bouttonAdm"
-									onclick="montrerFormulaireModifierUtilisateur(${listeUtilisateur.getIdUtilisateur()})">Modifier</button></td>
-							<td class="casesupprimer"><button class="bouttonAdm"
-									onclick="supprimerUtilisateur(${listeUtilisateur.getIdUtilisateur()})">Supprimer</button></td>
-						</tr>
+							
+							
+							<!-- ON REND IMPOSSIBLE LA SUPPRESSION OU MODIFICATION DU COMPTE SUPER ADMINISTRATEUR -->
+							<c:choose>
+      							<c:when test="${listeUtilisateur.getMail() == 'Super Administrateur' }"><tr/>
+							    </c:when>
+								
+							      <c:otherwise>
+							      <td class="caseModifierUtilisateur"><button
+										class="bouttonAdm"
+										onclick="montrerFormulaireModifierUtilisateur(${listeUtilisateur.getIdUtilisateur()})">Modifier</button></td>
+								<td class="casesupprimer"><button class="bouttonAdm"
+										onclick="supprimerUtilisateur(${listeUtilisateur.getIdUtilisateur()})">Supprimer</button></td>
+								</tr>
+							      </c:otherwise>
+							</c:choose>
+							
 					</c:forEach>
 				</table>
 				<input type="button" class="bouttonAdm" value="Creer un utilisateur"
@@ -122,6 +133,22 @@
 										id="modAdministrateur">administrateur</option>
 									<option id="modRedacteur" selected>redacteur</option></select><br /></td>
 						</tr>
+						<c:choose>
+      							<c:when test="${mail == 'Super Administrateur' }">
+      							<tr>
+										<td><label for="modmdp">Changez le mot de passe :</label></td>
+										<td><input type="password" id="modmdp" /><br /></td>
+									</tr>
+									<tr>
+										<td><label for="confmodmdp">Confirmez le nouveau mot de passe :</label></td>
+										<td><input type="password" id="confmodmdp" /><br /></td>
+									</tr>
+							    </c:when>
+								
+							      <c:otherwise>
+							      	
+							      </c:otherwise>
+							</c:choose>
 						<tr id="modpageGeretr">
 							<td><label for="modPageGere">Page gérée :</label></td>
 							<td><select name="modPageGere" id="modPageGere">
@@ -131,7 +158,7 @@
 									</c:forEach>
 							</select></td>
 						</tr>
-
+						
 
 						<tr>
 							<td><label for="modEcole">Ecole :</label></td>

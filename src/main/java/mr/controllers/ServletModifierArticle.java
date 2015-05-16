@@ -36,7 +36,7 @@ public class ServletModifierArticle extends HttpServlet {
 					|| (request.getSession().getAttribute("rang")
 							.equals("redacteur") && request.getSession()
 							.getAttribute("pageGere")
-							.equals(request.getParameter("nomPage")))) {
+							.equals(request.getParameter("nompage")))) {
 				RequestDispatcher view = request
 						.getRequestDispatcher("/WEB-INF/modifierarticle.jsp");
 				view.forward(request, response);

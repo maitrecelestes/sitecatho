@@ -49,7 +49,7 @@
 							</c:if>
 							<tr>
 								<td><label for="mail">Mail :</label></td>
-								<td><input type="email" id="mail" name="mail" /></td>
+								<td><input type="text" id="mail" name="mail" /></td>
 							</tr>
 							<tr>
 								<td><label for="mdp">Mot de passe :</label></td>
