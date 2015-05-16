@@ -61,6 +61,7 @@ function archiverArticle(event) {
 			}
 		})
 	}
+	alert ("L'article a bien été supprim\351");
 	location.reload();
 }
 

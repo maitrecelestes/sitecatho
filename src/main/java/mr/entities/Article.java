@@ -38,6 +38,17 @@ public class Article {
 		this.articleDescription = articleDescription;
 		this.archive = false;
 	}
+	
+	
+	// Constructeur pour la modification d'un article
+	public Article(String contenu, String titre, String mailAuteur,
+			String page) {
+		this.contenu = contenu;
+		this.titre = titre;
+		this.mailAuteur = mailAuteur;
+		this.page = page;
+		this.articleDescription = articleDescription;
+	}
 
 	public int getIdArticle() {
 		return idArticle;

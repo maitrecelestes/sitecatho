@@ -48,6 +48,7 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 				request.setAttribute("listeMessageUtilisateur",
 						listeMessageUtilisateur);
 				request.setAttribute("rangUtilisateur", request.getSession().getAttribute("rang"));
+				request.setAttribute("mail", request.getSession().getAttribute("utilisateurConnecte"));
 				List<Menu> maListeMenu = menuDao.listerMenuPageAvecArticle();
 				request.setAttribute("listeMenu", maListeMenu);
 
@@ -123,7 +124,14 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			String rang = request.getParameter("rang");
 			String ecole = request.getParameter("ecole");
 			String pageGere = request.getParameter("pageGere");
-			utilisateurdao.modifierUtilisateur(mail, rang, ecole, pageGere);
+			String mdp=request.getParameter("mdp");
+			System.out.println(mdp);
+			try {
+				utilisateurdao.modifierUtilisateur(mail, rang, ecole, pageGere,mdp);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else if (requete.equals("verificationSiMailNonArchive")) {
 
 		}
