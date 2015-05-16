@@ -1,38 +1,36 @@
-#ajoutCategorie{
-	display:			none;
+#ajoutCategorie {
+	display: none;
 }
-
 
 .tableAffichageImage td img {
-	max-width:			250px;
-	display:			block;
-	margin-left:		auto;
-	margin-right:		auto;
-	min-width:			100px;
+	max-width: 250px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 100px;
 }
+
 table {
-	padding-left:		50px;
-	width:				100%;
-	
-}
-.tableAffichageImage td{
-	height:				250px;
-	border:				ridge;
+	padding-left: 50px;
+	width: 100%;
 }
 
-#entete{
-	color:				white;
-	text-align:			center;
-	text-decoration:	underline;
+.tableAffichageImage td {
+	height: 250px;
+	border: ridge;
 }
 
+#entete {
+	color: white;
+	text-align: center;
+	text-decoration: underline;
+}
 
-
-<!-- PAGE TUTORIAL AJOUT IMAGE -->
-
+/*PAGE TUTORIAL AJOUT IMAGE*/
 .imageTutoriel {
-	padding: 200px;
+	max-width: 98%;
 }
+
 #tutorial {
 	
 }
