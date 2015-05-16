@@ -34,6 +34,11 @@
 					<form method="POST">
 						Lien de l'image :<input type="text" name="newPhoto" /> <input
 							type="submit" value="Changez la photo" />
+							<p>
+					Si vous ne savez pas comment ajouter une image à la galerie, nous
+					vous invitons à suivre le tutorial en cliquant <a
+						href="tutorialajoutimage">ici</a>
+				</p>
 					</form>
 				</c:if>
 
@@ -70,7 +75,8 @@
 											<button class='bouttonArticle bouttonVisibiliteArticle'
 												onclick='visibleArticle(this)'
 												id='visibiliteArticle${listeArticle.getIdArticle()}'
-												type='button'>Visible</button>
+												type='button'>Visible</button>										
+											
 											<button class='bouttonArticle bouttonSupprimerArticle'
 												onclick='archiverArticle(this)'
 												id='suppressionArticle${listeArticle.getIdArticle()}'
@@ -86,7 +92,6 @@
 						</c:if>
 					</c:if>
 				</c:forEach>
-
 			</div>
 
 

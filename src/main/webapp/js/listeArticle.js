@@ -1,32 +1,39 @@
-function affichageVisibiliteAuLancement(nomPageEnCours) {
-	$
-			.ajax({
-				url : "ServletArticle",
-				type : "GET",
-				dataType : "json",
-				data : {
-					leNomDeMaPageChoisie : nomPageEnCours,
-					maFonction : "tousLesArticle"
-				},
-				success : function(data, textStatus, xhr) {
-					for (var i = 0; i < data.length; i++) {
-						if (data[i].visiblePage) {
-							$("#visibiliteArticle" + data[i].idArticle).css({
-								opacity : 1
-							});
-							$("#visibiliteArticle" + data[i].idArticle).text(
-									"Visible");
-						} else {
-							$("#visibiliteArticle" + data[i].idArticle).css({
-								opacity : 0.5
-							});
-							$("#visibiliteArticle" + data[i].idArticle).text(
-									"Invisible");
-						}
+$(document).ready(
+	function() {
+		var pageEnCours = window.location.href.split('/')[[ window.location.href.split('/').length - 1 ]];
+		affichageVisibiliteAuLancement(getParam("nompage",pageEnCours));
+	});
 
-					}
+
+function affichageVisibiliteAuLancement(nomPageEnCours) {
+
+	$.ajax({
+		url : "ServletArticle",
+		type : "GET",
+		dataType : "json",
+		data : {
+		leNomDeMaPageChoisie : nomPageEnCours,
+			maFonction : "tousLesArticle"
+		},
+		success : function(data, textStatus, xhr) {
+			for (var i = 0; i < data.length; i++) {
+				if (data[i].visiblePage) {
+					
+					$("#visibiliteArticle" + data[i].idArticle).css({
+						opacity : 1
+					});
+					$("#visibiliteArticle" + data[i].idArticle).text(
+						"Visible");
+				} else {
+					$("#visibiliteArticle" + data[i].idArticle).css({
+						opacity : 0.5
+					});
+					$("#visibiliteArticle" + data[i].idArticle).text(
+							"Invisible");
 				}
-			});
+			}
+		}
+	});
 }
 
 function getParam(param_name, url) {
@@ -61,7 +68,7 @@ function archiverArticle(event) {
 			}
 		})
 	}
-	alert ("L'article a bien été supprim\351");
+	alert ("L'article a bien \351t\351 supprim\351");
 	location.reload();
 }
 
