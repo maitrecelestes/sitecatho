@@ -17,7 +17,7 @@ import mr.entities.Article;
 @WebServlet("/modifierarticle")
 public class ServletModifierArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	ArticleDao articleDao = new ArticleDaoImp();
+	private ArticleDao articleDao = new ArticleDaoImp();
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -58,16 +58,13 @@ public class ServletModifierArticle extends HttpServlet {
 				"utilisateurConnecte");
 		String page = request.getParameter("nompage");
 
-		String visibilitePageString = request.getParameter("visibiliteArticle");
-		Boolean visiblePage = false;
-		if (visibilitePageString.equals("oui")) {
-			visiblePage = true;
-		}
+		Boolean visiblePage = articleDao.unArticle(Integer.parseInt(id)).getVisiblePage();
 		Boolean articleDescription = false;
 		Article monNouvelArticle = new Article(contenu, titre, mail, page,
 				visiblePage, articleDescription);
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
-		ArticleDao articleDao = new ArticleDaoImp();
+		
+		
 		articleDao.modifierArticle(Integer.parseInt(id), monNouvelArticle,
 				ipAddress);
 
