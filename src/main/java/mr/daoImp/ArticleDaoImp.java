@@ -73,11 +73,13 @@ public class ArticleDaoImp implements ArticleDao {
 	@Override
 	public void ajouterArticle(Article newArticle, String IP) {
 		Connection connection;
-		try {
-			connection = DataSourceProvider.getDataSource().getConnection();
-			PreparedStatement stmt = connection
-					.prepareStatement("INSERT INTO `article`(`mailAuteur`, `dateCreation`, `contenu`, `page`, `visibilitePage`, `description_de_page`, `ipPosteur`, `titre`, `archive`) VALUES (?,NOW(),?,?,?,?,?,?,?)");
-			stmt.setString(1, newArticle.getMailAuteur());
+		try { //ON ENTOURE D'UN TRY/CATCH DANS LE CAS OU IL Y AURAIT UN PROBLEME
+			connection = DataSourceProvider.getDataSource().getConnection(); // ON SE CONNECTE A LA BDD
+			PreparedStatement stmt = connection //ON PREPARE LA REQUETE
+					.prepareStatement("INSERT INTO `article`(`mailAuteur`, `dateCreation`, `contenu`, `page`, "
+							+ "`visibilitePage`, `description_de_page`, `ipPosteur`, `titre`, `archive`) "
+							+ "VALUES (?,NOW(),?,?,?,?,?,?,?)");
+			stmt.setString(1, newArticle.getMailAuteur()); //ON AJOUTE LES VARIABLES
 			stmt.setString(2, newArticle.getContenu());
 			stmt.setString(3, newArticle.getPage());
 			stmt.setBoolean(4, newArticle.getVisiblePage());
@@ -85,8 +87,8 @@ public class ArticleDaoImp implements ArticleDao {
 			stmt.setString(6, IP);
 			stmt.setString(7, newArticle.getTitre());
 			stmt.setBoolean(8, false);
-			stmt.executeUpdate();
-			connection.close();
+			stmt.executeUpdate(); //ON EXECUTE LA REQUETE
+			connection.close(); // ON FERME LA BDD
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

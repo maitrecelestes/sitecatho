@@ -27,8 +27,10 @@
 
 
 		<section id="blocDroitPrincipalPage">
+		
 			<!--Partie droite de la page : articles-->
-			<form method="POST">
+			
+			<form method="POST"> <!-- RENVOIE A LA SERVLET NOUVEL ARTICLE, METHODE POST -->
 				<label for="titre" class="textCouleurBlanche">Titre de l'article :</label>
 				<textarea name="titre" id="titre" rows="1" cols="200">titre </textarea>
 				<textarea name="contenu" id="contenu" rows="10" cols="80">
@@ -36,9 +38,9 @@
 	            </textarea>
 				<br />
 				<script>
-					CKEDITOR.replace('contenu');
+					CKEDITOR.replace('contenu'); // APPELLE NOTRE EDITEUR DE TEXTE
 				</script>
-				<input class="bouttonAjoutModificationArticle" type="submit" id="envoyerArticle" value="Publier l'article" />
+				<input class="bouttonAjoutModificationArticle" type="submit" id="envoyerArticle" value="Publier l'article"/>
 			</form>
 		</section>
 	</section>

@@ -23,24 +23,25 @@ public class ServletNouvelArticle extends HttpServlet {
 
 		if (request.getSession().getAttribute("utilisateurConnecte") == null
 				|| "".equals(request.getSession().getAttribute(
-						"utilisateurConnecte"))) {
+						"utilisateurConnecte"))) { //On test si l'utilisateur est connecté ou non. 
 
 			RequestDispatcher view = request
 					.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
 			view.forward(request, response);
 
-		} else {
+		} else { // L'UTILISATEUR EST BIEN CONNECTE AVEC UN COMPTE UTILISATEUR
 
-			if (request.getSession().getAttribute("rang")
+			if (request.getSession().getAttribute("rang") //ON VERIFIE QU'IL EST ADMINISTRATEUR OU REDACTEUR DE LA PAGE
+				//OU NOUS SOMMES
 					.equals("administrateur")||(request.getSession().getAttribute("rang")
 					.equals("redacteur")&&request.getSession().getAttribute("pageGere")
 					.equals(request.getParameter("nompage")))) {
 				RequestDispatcher view = request
-						.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp");
+						.getRequestDispatcher("/WEB-INF/ecrirearticle.jsp"); //SI OUI ON L'ENVOIE SUR LA BONNE PAGE
 				view.forward(request, response);
 			} else {
 				RequestDispatcher view = request
-						.getRequestDispatcher("/WEB-INF/accesinterdit.jsp");
+						.getRequestDispatcher("/WEB-INF/accesinterdit.jsp"); //SINON ON LE REDIRIGE VERS UNE AUTRE PAGE
 				view.forward(request, response);
 			}
 
@@ -51,21 +52,22 @@ public class ServletNouvelArticle extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String contenu = request.getParameter("contenu");
-		String titre = request.getParameter("titre");
+		String contenu = request.getParameter("contenu"); //ON RECUPERE LE CONTENU DE L'ARTICLE
+		String titre = request.getParameter("titre"); // LE TITRE
 		String mail = (String) request.getSession().getAttribute(
-				"utilisateurConnecte");
+				"utilisateurConnecte"); //LE MAIL DU POSTEUR
 		String page = request.getParameter("nompage");
-		Boolean visiblePage = true;
+		Boolean visiblePage = true; //ON INDIQUE PAR DEFAULT QUE L'ARTICLE EST VISIBLE
 		
-		Boolean articleDescription = false;
+		Boolean articleDescription = false; //ON INDIQUE QUE CE N'EST PAS UN ARTICLE DE DESCRIPTION
 		Article monArticle = new Article(contenu, titre, mail, page,
-				visiblePage, articleDescription);
-		String ipAddress = InetAddress.getLocalHost().getHostAddress();
+				visiblePage, articleDescription); //ON CREER L'OBJET ARTICLE
+		String ipAddress = InetAddress.getLocalHost().getHostAddress(); //ON RECUPERE L'ADRESSE IP
 		ArticleDao articleDao = new ArticleDaoImp();
-		articleDao.ajouterArticle(monArticle, ipAddress);
+		articleDao.ajouterArticle(monArticle, ipAddress); //ON APPELLE LA FONCTIO
 
-		response.sendRedirect("maPageClassique?nompage=" + page);
+		response.sendRedirect("maPageClassique?nompage=" + page); // ON REDIRIGE VERS LA PAGE D'OU VIENT 
+																  // L'UTILISATEUR
 
 	}
 
