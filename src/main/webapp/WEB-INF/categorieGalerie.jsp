@@ -40,7 +40,7 @@
 					pageContext.setAttribute("i", new Integer(i));
 				%>
 				<table class="tableAffichageImage">
-					<!--  <tr><td class="tdImageGalerie"><img src="Images/dj_sona_1.png"></td><td class="tdImageGalerie"><img src="Images/poney.png"></td><td class="tdImageGalerie"><img src="Images/photo-serieuse.png"></td></tr>-->
+					
 					<c:forEach var="listeImage" items="${listeImage}">
 						<c:if test="${i%3 == 0}">
 							<tr>
