@@ -1,6 +1,7 @@
 <%@ page pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" type="text/css" href="css/monArticle.css" />
+<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 
 <link href="css/menuDropdown.vertical.css" media="screen"
 	rel="stylesheet" type="text/css" />
@@ -69,12 +70,7 @@
 			<article
 				class='monArticleParticulier monArticleParticulierBlocGauche'>
 				<c:if test="${rangUtilisateur =='administrateur'}">
-					<a id="lienModifierArticleInformationBlocGauche"
-						href="modifierarticleunique?nompage=informationBlocGauche"><button
-							class='bouttonArticle bouttonArticleBlocDeGauche bouttonModifierArticle'
-							onclick='bouttonOuvrirModificationArticleUnique(this)'
-							id='modifierArticleUniqueInformationBlocGauche' type='button'>Modifier
-							l'article</button></a>
+					<a id="lienModifierArticleInformationBlocGauche" href="modifierarticleunique?nompage=informationBlocGauche"><input type="button" id='modifierArticleUniqueInformationBlocGauche' onclick='bouttonOuvrirModificationArticleUnique(this)' class='bouttonAdm' value="Modifier l'article" /></a>
 				</c:if>
 				<h3 id="articleBlocDeGaucheTitre" class='titreArticle'></h3>
 				<p id="articleBlocDeGaucheContenu" class='contenuArticle'></p>

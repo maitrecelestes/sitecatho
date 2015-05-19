@@ -58,8 +58,10 @@ public class ServletGalerie extends HttpServlet {
 
 		} else {
 			String nomCategorie = request.getParameter("nomNouvelleCategorie");
-			Categorie maNouvelleCategorie = new Categorie(nomCategorie);
-			categorieDao.ajoutCategorie(maNouvelleCategorie);
+			if(nomCategorie!=""){
+				Categorie maNouvelleCategorie = new Categorie(nomCategorie);
+				categorieDao.ajoutCategorie(maNouvelleCategorie);
+			}
 		}
 
 		List<Categorie> listeCategorie = categorieDao.listeCategorie();

@@ -4,6 +4,7 @@
 <script type="text/javascript" src="js/jquery.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="css/pageClassique.css" />
 <link rel="stylesheet" type="text/css" href="css/galerie.css" />
+<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 <title>Ajouter des images</title>
 </head>
 <body>
@@ -33,11 +34,14 @@
 			<div id="blocArticle">
 				<p>
 					Si vous ne savez pas comment ajouter une image à la galerie, nous
-					vous invitons à suivre le tutorial en cliquant <a
-						href="tutorialajoutimage">ici</a>
+					vous invitons à suivre le tutorial en cliquant 
+					<a href="tutorialajoutimage">ici</a>
 				</p>
 				<form method="POST">
-					<a href="http://www.casimages.com/">Héberger les images</a><br /> <input
+					<a href="http://www.casimages.com/"><input type="button" class="bouttonAdm" value="Héberger les images" /></a>
+					
+					
+					<br /> <input
 						type="hidden" name="categorie" value="${idCategorie}" /> <input
 						type="hidden" id="nombrelien" name="nombrelien" value="3" />
 					<div id="mesinput">
@@ -48,8 +52,8 @@
 							id="lien3" name="lien3" /><br />
 					</div>
 					<input type="button" id="ajouterinput"
-						value="Ajouter une autre image" /> <br /> <input type="submit"
-						value="Enregistrez les images">
+						 class="bouttonAdm" value="Ajouter une autre image" />  
+						 <input type="submit" class="bouttonAdm" value="Enregistrez les images">
 				</form>
 			</div>
 		</section>
