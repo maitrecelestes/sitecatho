@@ -125,7 +125,6 @@ public class ServletAdministrationUtilisateur extends HttpServlet {
 			String ecole = request.getParameter("ecole");
 			String pageGere = request.getParameter("pageGere");
 			String mdp=request.getParameter("mdp");
-			System.out.println(mdp);
 			try {
 				utilisateurdao.modifierUtilisateur(mail, rang, ecole, pageGere,mdp);
 			} catch (Exception e) {

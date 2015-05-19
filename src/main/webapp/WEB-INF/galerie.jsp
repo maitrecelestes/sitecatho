@@ -54,7 +54,9 @@
 						<td>${listePremiereImage[status.index].getLienImage()}<br />
 							<c:if
 								test="${listePremiereImage[status.index].getLienImage()==null}">CATEGORIE VIDE<br />
-							</c:if> <a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br />
+							</c:if> 
+							${listeCategorie.getNomCategorie()}<br />
+							<a href="categorieGalerie?idpage=${listeCategorie.getId()}">Voir la cathégorie</a><br />
 							<c:if test="${rangUtilisateur =='administrateur'}">
 								<input type="button" class="supprimerCategorie"
 									onclick="supprimerCategorie('id${listeCategorie.getId()}')"

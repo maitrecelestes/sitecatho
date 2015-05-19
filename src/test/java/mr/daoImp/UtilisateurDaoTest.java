@@ -23,12 +23,11 @@ public class UtilisateurDaoTest {
 		Connection connection = DataSourceProvider.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
 		stmt.executeUpdate("DELETE FROM utilisateur"); 
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, "
-				+ "`prenom`, `rang`, `ecole`,archive) VALUES ('romain.soenen@hei.fr',1,'romain1993','soenen',"
-				+ "'romain','administrateur','HEI',false)");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('michel.guignier@hei.fr',2,'michel1993','guignier','michel','redacteur','HEI',false)");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('henri.malos@isa.fr',3,'henri1993','malos','henri','redacteur','ISA',false)");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('Super Administrateur',4,'17650c6f6ad033803e905af4ab4854dd','Administrateur','Super','administrateur','HEI',false)");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`, pageGere, archive) VALUES ('romain.soenen@hei.fr',1,'romain1993','soenen',"
+				+ "'romain','administrateur','HEI','X',false)");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`, pageGere, archive) VALUES ('michel.guignier@hei.fr',2,'michel1993','guignier','michel','redacteur','HEI','X',false)");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`, pageGere, archive) VALUES ('henri.malos@isa.fr',3,'henri1993','malos','henri','redacteur','ISA','Information',false)");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`, pageGere, archive) VALUES ('Super Administrateur',4,'17650c6f6ad033803e905af4ab4854dd','Administrateur','Super','administrateur','HEI','X',false)");
 		stmt.close();
 		connection.close();
 	}
@@ -39,10 +38,10 @@ public class UtilisateurDaoTest {
 		
 		Assert.assertEquals(4, listeUtilisateur.size()); //ON VERIFIE LE NOMBRE D'UTILISATEUR DANS LA LISTE
 		
-		Assert.assertEquals("malos", listeUtilisateur.get(0).getNom()); //ON VERIFIE A CERTAINS ENDROIT QUE LA VALEUR
+		Assert.assertEquals("Administrateur", listeUtilisateur.get(0).getNom()); //ON VERIFIE A CERTAINS ENDROIT QUE LA VALEUR
 																		// ATTENDUE CORREPOND A LA VALEUR REEL
-		Assert.assertEquals("michel", listeUtilisateur.get(1).getPrenom());
-		Assert.assertEquals("romain.soenen@hei.fr", listeUtilisateur.get(2).getMail());
+		Assert.assertEquals("romain", listeUtilisateur.get(1).getPrenom());
+		Assert.assertEquals("romain.soenen@hei.fr", listeUtilisateur.get(1).getMail());
 		
 	}
 	

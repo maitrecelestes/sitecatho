@@ -173,7 +173,6 @@ $("#modRang").change(function() {
 	cacherModifGerePage();
 });
 function modifierUtilisateur() {
-	alert ($("#modmdp").val());
 	if ($("#modmdp").val()!=$("#confmodmdp").val()){
 		alert ("Les deux mots de passes que vous avez entrés sont différents");
 	} else {
