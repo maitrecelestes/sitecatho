@@ -27,7 +27,6 @@
 		<section id="blocDroitPrincipalPage">
 			<!--Partie droite de la page : articles-->
 			<h1 id="entete">${maCategorie.getNomCategorie()}</h1>
-			ss
 			<div id="blocArticle">
 				<a href="galerie">Retourner à la galerie</a>
 				<c:if test="${rangUtilisateur =='administrateur'}">

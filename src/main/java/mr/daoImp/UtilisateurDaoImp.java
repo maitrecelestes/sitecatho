@@ -200,7 +200,7 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt = connection
-					.prepareStatement("SELECT motDePasse FROM `utilisateur` WHERE `email`=? ");
+					.prepareStatement("SELECT motDePasse FROM `utilisateur` WHERE `email`=? AND `archive`=false");
 			stmt.setString(1, utilisateur.getMail());
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
