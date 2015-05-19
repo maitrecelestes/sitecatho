@@ -28,7 +28,7 @@ public class UtilisateurDaoTest {
 				+ "'romain','administrateur','HEI',false)");
 		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('michel.guignier@hei.fr',2,'michel1993','guignier','michel','redacteur','HEI',false)");
 		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('henri.malos@isa.fr',3,'henri1993','malos','henri','redacteur','ISA',false)");
-		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('Super administrateur',4,'17650c6f6ad033803e905af4ab4854dd','Administrateur','Super','administrateur','HEI',false)");
+		stmt.executeUpdate("INSERT INTO `utilisateur`(`email`,idUtilisateur, `motDePasse`, `nom`, `prenom`, `rang`, `ecole`,archive) VALUES ('Super Administrateur',4,'17650c6f6ad033803e905af4ab4854dd','Administrateur','Super','administrateur','HEI',false)");
 		stmt.close();
 		connection.close();
 	}
