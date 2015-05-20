@@ -126,7 +126,7 @@
 }
 
 .bouttonArticle, .bouttonAjoutArticle, .bouttonAjoutModificationArticle {
-	background-color: #FFB735; /*#D0E09D*/
+	background-color: #FFB735;
 	color: #042971;
 }
 
@@ -134,10 +134,6 @@
 	background-color: #FFC748;
 	border-color: #FFB100;
 	color: #042971;
-}
-
-.monArticleParticulierBlocGauche {
-	border: none;
 }
 
 .textCouleurBlanche{

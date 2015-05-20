@@ -4,6 +4,7 @@
 <script type="text/javascript" src="js/jquery.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="css/pageClassique.css" />
 <link rel="stylesheet" type="text/css" href="css/galerie.css" />
+<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 <title>Galerie photo</title>
 
 </head>
@@ -31,13 +32,13 @@
 			<h1 id="entete">Galerie</h1>
 			<section id="listeCategorie">
 				<c:if test="${rangUtilisateur =='administrateur'}">
-					<input type="button" id="boutonAjoutCategorie"
+					<input type="button" class="bouttonAdm" id="boutonAjoutCategorie"
 						onclick="afficherAjoutCategorie()" value="Ajouter une catégorie" />
-					<br />
+					
 					<div id="ajoutCategorie">
 						<form method="POST">
-							<input type="text" name="nomNouvelleCategorie" /> <input
-								type="submit" value="enregistrer" />
+							<input type="text"  name="nomNouvelleCategorie" /> <input
+								type="submit" class="bouttonAdm" value="enregistrer" />
 						</form>
 					</div>
 				</c:if>
@@ -54,9 +55,11 @@
 						<td>${listePremiereImage[status.index].getLienImage()}<br />
 							<c:if
 								test="${listePremiereImage[status.index].getLienImage()==null}">CATEGORIE VIDE<br />
-							</c:if> <a href="categorieGalerie?idpage=${listeCategorie.getId()}">${listeCategorie.getNomCategorie()}</a><br />
+							</c:if> 
+							${listeCategorie.getNomCategorie()}<br />
+							<a href="categorieGalerie?idpage=${listeCategorie.getId()}"><input type="button" class="bouttonAdm" value="Voir la cathégorie" /></a>
 							<c:if test="${rangUtilisateur =='administrateur'}">
-								<input type="button" class="supprimerCategorie"
+								<input type="button" class="bouttonAdm" class="supprimerCategorie"
 									onclick="supprimerCategorie('id${listeCategorie.getId()}')"
 									value="Supprimer cette categorie" />
 							</c:if>

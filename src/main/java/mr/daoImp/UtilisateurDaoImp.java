@@ -48,7 +48,49 @@ public class UtilisateurDaoImp implements UtilisateurDao {
 		try {
 			connection = DataSourceProvider.getDataSource().getConnection();
 			PreparedStatement stmt = connection
-					.prepareStatement("SELECT * FROM `utilisateur` WHERE `archive`=false ORDER BY `email` ASC ");
+					.prepareStatement("SELECT * FROM `utilisateur` WHERE `archive`=false AND `email`='Super Administrateur' ORDER BY `email` ASC ");
+			ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+				Utilisateur utilisateur = new Utilisateur(
+						results.getString("email"),
+						results.getInt("idUtilisateur"),
+						results.getString("motDePasse"),
+						results.getString("nom"), results.getString("prenom"),
+						results.getString("rang"), results.getString("ecole"),
+						results.getString("pageGere"));
+				listeUtilisateur.add(utilisateur);
+			}
+
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt = connection
+					.prepareStatement("SELECT * FROM `utilisateur` WHERE `email`<>'Super Administrateur' AND `archive`=false AND `rang`='administrateur' ORDER BY `email` ASC");
+			ResultSet results = stmt.executeQuery();
+			while (results.next()) {
+				Utilisateur utilisateur = new Utilisateur(
+						results.getString("email"),
+						results.getInt("idUtilisateur"),
+						results.getString("motDePasse"),
+						results.getString("nom"), results.getString("prenom"),
+						results.getString("rang"), results.getString("ecole"),
+						results.getString("pageGere"));
+				listeUtilisateur.add(utilisateur);
+			}
+
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			connection = DataSourceProvider.getDataSource().getConnection();
+			PreparedStatement stmt = connection
+					.prepareStatement("SELECT * FROM `utilisateur` WHERE `archive`=false AND `rang`='redacteur' ORDER BY `email` ASC ");
 			ResultSet results = stmt.executeQuery();
 			while (results.next()) {
 				Utilisateur utilisateur = new Utilisateur(

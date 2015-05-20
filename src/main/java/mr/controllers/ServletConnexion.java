@@ -55,6 +55,8 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("pageGere", utilisateurConnecte.getPageGere());
 			session.setAttribute("nom", utilisateurConnecte.getNom());
 			session.setAttribute("prenom", utilisateurConnecte.getPrenom());
+			request.setAttribute("rangUtilisateur", request.getSession()
+					.getAttribute("rang"));
 			view = request.getRequestDispatcher("/WEB-INF/connexionreussi.jsp");
 
 		} else {

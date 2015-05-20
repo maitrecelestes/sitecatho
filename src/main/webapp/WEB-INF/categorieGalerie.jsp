@@ -4,6 +4,7 @@
 <script type="text/javascript" src="js/jquery.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="css/pageClassique.css" />
 <link rel="stylesheet" type="text/css" href="css/galerie.css" />
+<link rel="stylesheet" type="text/css" href="css/administrationboutton.css"/>
 <title>Galerie</title>
 </head>
 <body>
@@ -28,10 +29,9 @@
 			<!--Partie droite de la page : articles-->
 			<h1 id="entete">${maCategorie.getNomCategorie()}</h1>
 			<div id="blocArticle">
-				<a href="galerie">Retourner à la galerie</a>
+				<a href="galerie"><input type="button" class="bouttonAdm" value="Retourner à la galerie" /></a>
 				<c:if test="${rangUtilisateur =='administrateur'}">
-					<a href="ajouterimage?id=${maCategorie.getId()}">Ajouter des
-						images</a>
+					<a href="ajouterimage?id=${maCategorie.getId()}"><input type="button" class="bouttonAdm" value="Ajouter des images" /></a>
 					<br />
 				</c:if>
 				<%
@@ -46,7 +46,7 @@
 						</c:if>
 						<td class="tdImageGalerie">${listeImage.getLienImage()}<br />
 							<c:if test="${rangUtilisateur =='administrateur'}">
-								<input type="button" class="supprimerImage"
+								<input type="button" class="supprimerImage bouttonAdm"
 									onclick="supprimerImage('id=${listeImage.getId()}','${maCategorie.getId()}')"
 									value="supprimer cette image" />
 							</c:if>
@@ -62,7 +62,7 @@
 				</table>
 
 
-				<a href="galerie">Retourner à la galerie</a>
+				<a href="galerie"><input type="button" class="bouttonAdm" value="Retourner à la galerie" /></a>
 			</div>
 		</section>
 	</section>
