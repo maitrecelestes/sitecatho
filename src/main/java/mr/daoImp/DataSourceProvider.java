@@ -15,11 +15,11 @@ public class DataSourceProvider {
 	public static DataSource getDataSource() {
 		if (dataSource == null) {
 			dataSource = new MysqlDataSource();
-			dataSource.setServerName("localhost");
+			dataSource.setServerName("127.10.252.130");
 			dataSource.setPort(3306);
-			dataSource.setDatabaseName("projet_catho");
-			dataSource.setUser("root");
-			dataSource.setPassword("");
+			dataSource.setDatabaseName("sitecatho");
+			dataSource.setUser("adminpje2alr");
+			dataSource.setPassword("3NpPi-LqSjgB");
 		}
 		return dataSource;
 	}
